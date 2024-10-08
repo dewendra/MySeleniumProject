@@ -38,7 +38,6 @@ public class EventsPage extends BaseClass {
 
 	public String getMyPageTitle() {
 		String myPageTitel = driver.getTitle();
-		System.out.println("Test Git");
 		return myPageTitel;
 	}
 
