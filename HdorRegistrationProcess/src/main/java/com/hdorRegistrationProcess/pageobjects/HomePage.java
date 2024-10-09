@@ -9,7 +9,7 @@ import com.hdorRegistrationProcess.base.BaseClass;
 
 public class HomePage extends BaseClass{
 	Action action = new Action();
-	HomePage homePage;
+	
 	
 	
 	@FindBy(xpath = "//img[@class='sc-beyTiQ gDasas']")
@@ -27,19 +27,20 @@ public class HomePage extends BaseClass{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public boolean getCompanyLogo() {
+	public boolean validateLogo() throws Throwable {
 		boolean result=action.isDisplayed(driver, hdorLogo);
 		return result;
 		
 	}
-	
-	public HomePage login(String userName) {
-		homePage=new HomePage();
-		action.type(emailId, userName);
-		System.out.println("Email Id/User name:"+userName);
+	public LoginPage emaillogin(String username)throws Throwable {
+		action.type(emailId, username);
+		System.out.println("Email id:"+username);
+		Thread.sleep(2000);
 		action.click(driver, continueButton);
 		System.out.println("Continue Button Clicked");
-		return homePage;
+		return new LoginPage();
 	}
+	
+	
 
 }
