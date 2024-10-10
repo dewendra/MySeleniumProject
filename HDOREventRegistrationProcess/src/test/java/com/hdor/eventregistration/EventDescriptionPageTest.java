@@ -6,11 +6,13 @@ import org.testng.annotations.Test;
 
 import com.hdor.eventregistration.base.BaseClass;
 import com.hdor.eventregistration.pageobjects.EventDescriptionPage;
+import com.hdor.eventregistration.pageobjects.EventTicketPage;
 import com.hdor.eventregistration.pageobjects.HomePage;
 
-public class HomePageTest extends BaseClass{
+public class EventDescriptionPageTest extends BaseClass{
 	HomePage homePage;
 	EventDescriptionPage eventDescriptionPage;
+	EventTicketPage eventTicketPage;
 	
 	@BeforeMethod()
 	public void setup() {
@@ -27,12 +29,12 @@ public class HomePageTest extends BaseClass{
 		Assert.assertTrue(result);
 	}
 	@Test
-	public void verifyRegister() throws Throwable {
+	public void verifyBuyNow() throws Throwable {
 		homePage = new HomePage();
 		eventDescriptionPage=homePage.clickOnRegisterButton();
+		eventTicketPage=eventDescriptionPage.clickOnBuyNowButton();
 		
 		
 	}
-
 
 }

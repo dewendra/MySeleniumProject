@@ -34,13 +34,16 @@ public class HomePage extends BaseClass{
 	}
 	
 	public boolean validateRegistrationCardBanner() throws Throwable {
+		action.scrollByVisibilityOfElement(driver, TDH_Registartion_Card_Banner);
 		boolean result=action.isDisplayed(driver, TDH_Registartion_Card_Banner);
 		return result;
 		
 	}
 	
-	public EventDescriptionPage clickOnRegisterButton() {
-		action.click(driver, TDH_2024);
+	public EventDescriptionPage clickOnRegisterButton() throws Throwable{
+		action.scrollByVisibilityOfElement(driver, TDH_2024);
+		Thread.sleep(2000);
+		action.click(driver, registerButton);
 		System.out.println("Register Button Clicked");
 		return new EventDescriptionPage();
 	}
