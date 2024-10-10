@@ -32,7 +32,7 @@ public class HomePage extends BaseClass{
 		return result;
 		
 	}
-	public LoginPage emaillogin(String username)throws Throwable {
+	public LoginPage emailLogin(String username)throws Throwable {
 		action.type(emailId, username);
 		System.out.println("Email id:"+username);
 		Thread.sleep(2000);

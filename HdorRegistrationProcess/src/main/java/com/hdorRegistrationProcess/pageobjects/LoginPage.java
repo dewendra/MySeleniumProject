@@ -19,7 +19,7 @@ public class LoginPage extends BaseClass{
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
-	public DashboardPage passwordlogin(String password)throws Throwable {
+	public DashboardPage passwordLogin(String password)throws Throwable {
 		action.type(passWord, password);
 		System.out.println("Password entered:"+password);
 		Thread.sleep(2000);

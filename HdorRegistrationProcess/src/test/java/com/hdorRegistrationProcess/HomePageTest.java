@@ -31,7 +31,7 @@ public class HomePageTest extends BaseClass {
 	@Test
 	public void verifyLogin() throws Throwable {
 		homePage = new HomePage();
-		loginPage=homePage.emaillogin(prop.getProperty("username"));
+		loginPage=homePage.emailLogin(prop.getProperty("username"));
 		
 		
 	}

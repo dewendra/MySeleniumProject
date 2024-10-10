@@ -27,8 +27,8 @@ public class LoginPageTest extends BaseClass {
 	@Test
 	public void verifyLogin() throws Throwable {
 		homePage = new HomePage();
-		homePage.emaillogin(prop.getProperty("username"));
-		dashboardPage=loginPage.passwordlogin(prop.getProperty("password"));
+		homePage.emailLogin(prop.getProperty("username"));
+		dashboardPage=loginPage.passwordLogin(prop.getProperty("password"));
 		System.out.println("Successfully Logged in");
 		
 	}
