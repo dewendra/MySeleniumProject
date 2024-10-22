@@ -13,11 +13,22 @@ public class DashboardPage extends BaseClass {
 	@FindBy(xpath = "//h6[text()='Active Events']")
 	private WebElement activeEvents;
 
-	@FindBy(xpath = "//button[text()='login']")
-	private WebElement loginButton;
+	@FindBy(xpath = "//h6[text()='Tour De 100 2024']")
+	private WebElement Tour_De_100_2024;
+	
+	
+	
+	@FindBy(xpath = "//h6[text()='India Gate to Gateway of India Run Challenge 2024']")
+	private WebElement IG2GI_2024;
 
 	public DashboardPage() {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public SelectedEventPage clickOnEvent() {
+		action.click(driver, Tour_De_100_2024);
+		System.out.println(" Event Tour_De_100_2024 selected");
+		return new SelectedEventPage();
 	}
 
 }
