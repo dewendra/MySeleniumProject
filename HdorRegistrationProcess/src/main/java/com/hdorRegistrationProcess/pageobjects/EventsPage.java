@@ -33,18 +33,18 @@ public class EventsPage extends BaseClass {
 	private WebElement register;
 
 	public EventsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	public String getMyPageTitle() {
-		String myPageTitel = driver.getTitle();
+		String myPageTitel = getDriver().getTitle();
 		return myPageTitel;
 	}
 
 	public SelectedEventPage clickOnEventRegistrationButton() {
-		action.scrollByVisibilityOfElement(driver, tourDe1002024);
-		action.fluentWait(driver, register, 5);
-		action.click(driver, register);
+		action.scrollByVisibilityOfElement(getDriver(), tourDe1002024);
+		action.fluentWait(getDriver(), register, 5);
+		action.click(getDriver(), register);
 		return new SelectedEventPage();
 	}
 

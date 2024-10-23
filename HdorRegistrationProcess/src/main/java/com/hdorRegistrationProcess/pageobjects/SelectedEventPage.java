@@ -31,10 +31,10 @@ public class SelectedEventPage extends BaseClass{
 	
 	
 	public SelectedEventPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	public int getTicketPrice() {
-		action.fluentWait(driver, price, 2);
+		action.fluentWait(getDriver(), price, 2);
 		String priceTemp=price.getText();
 		String price=priceTemp.replaceAll("[^a-zA-Z0-9]","");
 		int finalprice=Integer.parseInt(price);
@@ -42,7 +42,7 @@ public class SelectedEventPage extends BaseClass{
 		return finalprice;
 	}
 	public SelectedEventTicketPage clickOnBuyNowButton() {
-		action.click(driver, BuyNow);
+		action.click(getDriver(), BuyNow);
 		return new SelectedEventTicketPage();
 	}
 	/*

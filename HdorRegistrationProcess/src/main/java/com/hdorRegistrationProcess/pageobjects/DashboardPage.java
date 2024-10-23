@@ -22,11 +22,11 @@ public class DashboardPage extends BaseClass {
 	private WebElement IG2GI_2024;
 
 	public DashboardPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public SelectedEventPage clickOnEvent() {
-		action.click(driver, Tour_De_100_2024);
+		action.click(getDriver(), Tour_De_100_2024);
 		System.out.println(" Event Tour_De_100_2024 selected");
 		return new SelectedEventPage();
 	}

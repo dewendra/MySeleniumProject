@@ -17,13 +17,13 @@ public class LoginPage extends BaseClass{
 	private WebElement loginButton;
 	
 	public LoginPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	public DashboardPage passwordLogin(String password)throws Throwable {
 		action.type(passWord, password);
 		System.out.println("Password entered:"+password);
 		Thread.sleep(2000);
-		action.click(driver, loginButton);
+		action.click(getDriver(), loginButton);
 		System.out.println("Login Button Clicked");
 		return new DashboardPage();
 	}

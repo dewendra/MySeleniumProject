@@ -33,11 +33,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class BaseClass {
 
-	public static WebDriver driver;
+	//public static WebDriver driver;
 	public static Properties prop;
 
-	// Declare ThreadLocal Driver
-	// public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
+	 //Declare ThreadLocal Driver
+	 public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<RemoteWebDriver>();
+	 
+		  public static WebDriver getDriver() { // Get Driver from threadLocalmap
+		  return driver.get(); }
+		 
 
 	// loadConfig method is to load the configuration
 	@BeforeSuite
@@ -71,38 +75,35 @@ public class BaseClass {
 	 * e) { e.printStackTrace(); } }
 	 */
 
-	/*
-	 * public static WebDriver getDriver() { // Get Driver from threadLocalmap
-	 * return driver.get(); }
-	 */
+	
 
 	public void launchApp() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			// Set Browser to ThreadLocalMap
-			driver = new ChromeDriver();
-			// driver.set(new ChromeDriver());
+			//driver = new ChromeDriver();
+			driver.set(new ChromeDriver());
 		} else if (browserName.equalsIgnoreCase("FireFox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-			// driver.set(new FirefoxDriver());
+			//driver = new FirefoxDriver();
+			driver.set(new FirefoxDriver());
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();
-			// driver.set(new InternetExplorerDriver());
+			//driver = new InternetExplorerDriver();
+			driver.set(new InternetExplorerDriver());
 		}
 		// Maximize the screen
-		driver.manage().window().maximize();
+		getDriver().manage().window().maximize();
 		// Delete all the cookies
-		driver.manage().deleteAllCookies();
+		getDriver().manage().deleteAllCookies();
 		// Implicit TimeOuts
-		driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("implicitWait")), TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("implicitWait")), TimeUnit.SECONDS);
 		// PageLoad TimeOuts
-		driver.manage().timeouts().pageLoadTimeout(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),
+		getDriver().manage().timeouts().pageLoadTimeout(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),
 				TimeUnit.SECONDS);
 		// Launching the URL
-		driver.get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url"));
 	}
 
 	@AfterSuite

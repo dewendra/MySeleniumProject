@@ -46,13 +46,13 @@ public class SelectedEventTicketPage extends BaseClass {
 	
 	
 	public SelectedEventTicketPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public void buyTicket() {
 		String countTemp=addButton.getText();
 		System.out.println("countTemp"+countTemp);
-		action.click(driver, addButton);
+		action.click(getDriver(), addButton);
 		String countAfter=addButton.getText();
 		System.out.println("countAfter"+countAfter);
 		
