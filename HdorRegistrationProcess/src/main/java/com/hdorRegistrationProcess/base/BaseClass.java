@@ -2,6 +2,7 @@
  * 
  */
 package com.hdorRegistrationProcess.base;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,16 +37,12 @@ public class BaseClass {
 	public static Properties prop;
 
 	// Declare ThreadLocal Driver
-	//public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
+	// public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
-	//loadConfig method is to load the configuration
-	//@BeforeSuite(groups = { "Smoke", "Sanity", "Regression" })
-	@BeforeTest
-	public void loadConfig() {
-		/*
-		 * ExtentManager.setExtent(); DOMConfigurator.configure("log4j.xml");
-		 */
-
+	// loadConfig method is to load the configuration
+	@BeforeSuite
+	public void loadConfig() throws IOException {
+		ExtentManager.setExtent();
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
@@ -57,48 +54,60 @@ public class BaseClass {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
-	
+	/*
+	 * @BeforeTest public void loadConfigs() {
+	 * 
+	 * ExtentManager.setExtent(); DOMConfigurator.configure("log4j.xml");
+	 * 
+	 * 
+	 * try { prop = new Properties(); FileInputStream ip = new FileInputStream(
+	 * System.getProperty("user.dir") + "\\Configuration\\config.properties");
+	 * prop.load(ip);
+	 * 
+	 * } catch (FileNotFoundException e) { e.printStackTrace(); } catch (IOException
+	 * e) { e.printStackTrace(); } }
+	 */
+
 	/*
 	 * public static WebDriver getDriver() { // Get Driver from threadLocalmap
 	 * return driver.get(); }
 	 */
-	 
 
 	public void launchApp() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			// Set Browser to ThreadLocalMap
-			driver=new ChromeDriver();
-			//driver.set(new ChromeDriver());
+			driver = new ChromeDriver();
+			// driver.set(new ChromeDriver());
 		} else if (browserName.equalsIgnoreCase("FireFox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver=new FirefoxDriver();
-			//driver.set(new FirefoxDriver());
+			driver = new FirefoxDriver();
+			// driver.set(new FirefoxDriver());
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			WebDriverManager.iedriver().setup();
-			driver=new InternetExplorerDriver();
-			//driver.set(new InternetExplorerDriver());
+			driver = new InternetExplorerDriver();
+			// driver.set(new InternetExplorerDriver());
 		}
-		//Maximize the screen
+		// Maximize the screen
 		driver.manage().window().maximize();
-		//Delete all the cookies
+		// Delete all the cookies
 		driver.manage().deleteAllCookies();
-		//Implicit TimeOuts
-		driver.manage().timeouts().implicitlyWait
-		(Integer.parseInt(prop.getProperty("implicitWait")),TimeUnit.SECONDS);
-		//PageLoad TimeOuts
-		driver.manage().timeouts().pageLoadTimeout
-		(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),TimeUnit.SECONDS);
-		//Launching the URL
+		// Implicit TimeOuts
+		driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("implicitWait")), TimeUnit.SECONDS);
+		// PageLoad TimeOuts
+		driver.manage().timeouts().pageLoadTimeout(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),
+				TimeUnit.SECONDS);
+		// Launching the URL
 		driver.get(prop.getProperty("url"));
 	}
 
-	/*
-	 * @AfterSuite(groups = { "Smoke", "Regression","Sanity" }) public void
-	 * afterSuite() { ExtentManager.endReport(); }
-	 */
+	@AfterSuite
+	public void afterSuite() {
+		ExtentManager.endReport();
+	}
 
 }
