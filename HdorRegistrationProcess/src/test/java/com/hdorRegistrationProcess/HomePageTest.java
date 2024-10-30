@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import com.hdorRegistrationProcess.base.BaseClass;
 import com.hdorRegistrationProcess.pageobjects.HomePage;
 import com.hdorRegistrationProcess.pageobjects.LoginPage;
+import com.hdorRegistrationProcess.utility.Log;
 
 public class HomePageTest extends BaseClass {
 	private HomePage homePage;
@@ -30,8 +31,10 @@ public class HomePageTest extends BaseClass {
 	}
 	@Test
 	public void verifyLogin() throws Throwable {
+		Log.startTestCase("verifyLogin");
 		homePage = new HomePage();
 		loginPage=homePage.emailLogin(prop.getProperty("username"));
+		Log.info("User entered the username or email id");
 		
 		
 	}

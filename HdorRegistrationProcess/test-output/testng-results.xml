@@ -2,24 +2,28 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-22T15:45:35 IST" name="Default suite" finished-at="2024-10-22T15:45:51 IST" duration-ms="15926">
+  <suite started-at="2024-10-30T11:26:12 IST" name="Default suite" finished-at="2024-10-30T11:26:22 IST" duration-ms="10057">
     <groups>
     </groups>
-    <test started-at="2024-10-22T15:45:35 IST" name="Default test" finished-at="2024-10-22T15:45:51 IST" duration-ms="15926">
-      <class name="com.hdorRegistrationProcess.DashboardPageTest">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hdorRegistrationProcess.DashboardPageTest@7bba5817]" started-at="2024-10-22T15:45:35 IST" name="loadConfig" finished-at="2024-10-22T15:45:36 IST" duration-ms="28" status="PASS">
+    <test started-at="2024-10-30T11:26:12 IST" name="Default test" finished-at="2024-10-30T11:26:22 IST" duration-ms="10057">
+      <class name="com.hdorRegistrationProcess.LoginPageTest">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hdorRegistrationProcess.LoginPageTest@3f191845]" started-at="2024-10-30T11:26:12 IST" name="loadConfig" finished-at="2024-10-30T11:26:12 IST" duration-ms="436" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.hdorRegistrationProcess.DashboardPageTest@7bba5817]" started-at="2024-10-22T15:45:36 IST" name="setup" finished-at="2024-10-22T15:45:40 IST" duration-ms="4555" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.hdorRegistrationProcess.LoginPageTest@3f191845]" started-at="2024-10-30T11:26:12 IST" name="setup" finished-at="2024-10-30T11:26:15 IST" duration-ms="2887" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifySelectedEvent()[pri:0, instance:com.hdorRegistrationProcess.DashboardPageTest@7bba5817]" started-at="2024-10-22T15:45:40 IST" name="verifySelectedEvent" finished-at="2024-10-22T15:45:51 IST" duration-ms="11271" status="PASS">
+        <test-method signature="verifyLogin()[pri:0, instance:com.hdorRegistrationProcess.LoginPageTest@3f191845]" started-at="2024-10-30T11:26:15 IST" name="verifyLogin" finished-at="2024-10-30T11:26:22 IST" duration-ms="7119" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySelectedEvent -->
-      </class> <!-- com.hdorRegistrationProcess.DashboardPageTest -->
+        </test-method> <!-- verifyLogin -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.hdorRegistrationProcess.LoginPageTest@3f191845]" started-at="2024-10-30T11:26:22 IST" name="afterSuite" finished-at="2024-10-30T11:26:23 IST" duration-ms="386" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.hdorRegistrationProcess.LoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

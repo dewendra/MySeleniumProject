@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.xml.DOMConfigurator;
 //import org.apache.log4j.xml.DOMConfigurator;
 import org.ietf.jgss.Oid;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,9 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+import org.w3c.dom.DOMConfiguration;
 
+import com.aventstack.extentreports.model.Log;
 import com.beust.jcommander.Parameter;
 import com.hdorRegistrationProcess.actiondriver.Action;
 import com.hdorRegistrationProcess.utility.ExtentManager;
@@ -47,6 +50,7 @@ public class BaseClass {
 	@BeforeSuite
 	public void loadConfig() throws IOException {
 		ExtentManager.setExtent();
+		DOMConfigurator.configure("log4j.xml");
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
@@ -61,8 +65,9 @@ public class BaseClass {
 
 	}
 
+	
 	/*
-	 * @BeforeTest public void loadConfigs() {
+	 * @BeforeTest public void loadConfigs() throws IOException {
 	 * 
 	 * ExtentManager.setExtent(); DOMConfigurator.configure("log4j.xml");
 	 * 
