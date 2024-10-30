@@ -26,7 +26,7 @@ public class ExtentManager {
 		
 		extent.setSystemInfo("HostName", "MyHost");
 		extent.setSystemInfo("ProjectName", "HDOR Project");
-		extent.setSystemInfo("Tester", "Dewendra");
+		extent.setSystemInfo("Tester", "Dewendra Singh");
 		extent.setSystemInfo("OS", "Win10");
 		extent.setSystemInfo("Browser", "Chrome");
 	}
