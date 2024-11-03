@@ -748,7 +748,7 @@ public class Action extends BaseClass implements ActionInterface{
 	}
 	
 	public String screenShot(WebDriver driver, String filename) {
-		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		String dateName = new SimpleDateFormat("ssmmhhddMMyyyy").format(new Date());
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String destination = System.getProperty("user.dir") + "\\ScreenShots\\" + filename + "_" + dateName + ".png";
@@ -765,7 +765,7 @@ public class Action extends BaseClass implements ActionInterface{
 	}
 	
 	public String getCurrentTime() {
-		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
+		String currentDate = new SimpleDateFormat("ssmmhh-dd-MM-yyyy").format(new Date());
 		return currentDate;
 	}
 

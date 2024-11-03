@@ -1,14 +1,12 @@
 package com.hdorRegistrationProcess.utility;
 
 import java.io.IOException;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentManager {
 
-	
 	public static ExtentSparkReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest test;
@@ -25,7 +23,7 @@ public class ExtentManager {
 		extent.attachReporter(htmlReporter);
 		
 		extent.setSystemInfo("HostName", "MyHost");
-		extent.setSystemInfo("ProjectName", "HDOR Project");
+		extent.setSystemInfo("ProjectName", "HDOR Registration Process");
 		extent.setSystemInfo("Tester", "Dewendra Singh");
 		extent.setSystemInfo("OS", "Win10");
 		extent.setSystemInfo("Browser", "Chrome");
