@@ -1,8 +1,10 @@
 package com.hdorRegistrationProcess;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.beust.jcommander.Parameter;
 import com.hdorRegistrationProcess.base.BaseClass;
 import com.hdorRegistrationProcess.pageobjects.DashboardPage;
 import com.hdorRegistrationProcess.pageobjects.HomePage;
@@ -14,7 +16,6 @@ public class EndToEndTest extends BaseClass{
 	HomePage homePage;
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
-	
 	
 	@BeforeMethod()
 	public void setup() {

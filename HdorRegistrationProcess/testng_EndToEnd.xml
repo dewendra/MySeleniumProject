@@ -5,6 +5,7 @@
 		<listener class-name="com.hdorRegistrationProcess.utility.ListenerClass"></listener>
 	</listeners>
 	<test thread-count="5" name="Test">
+	<parameter name="browser" value="Chrome"></parameter>
 		<classes>
 			<class name="com.hdorRegistrationProcess.EndToEndTest" />
 			
