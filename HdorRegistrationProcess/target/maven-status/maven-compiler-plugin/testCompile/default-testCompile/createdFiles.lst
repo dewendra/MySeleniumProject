@@ -1,0 +1,8 @@
+com\hdorRegistrationProcess\DashboardPageTest.class
+com\hdorRegistrationProcess\EventsPageTest.class
+com\hdorRegistrationProcess\LoginPageTest.class
+com\hdorRegistrationProcess\AppTest.class
+com\hdorRegistrationProcess\SelectedEventPageTest.class
+com\hdorRegistrationProcess\HomePageTest.class
+com\hdorRegistrationProcess\SelectedEventTicketPageTest.class
+com\hdorRegistrationProcess\EndToEndTest.class
