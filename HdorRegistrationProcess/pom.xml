@@ -145,7 +145,7 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${xmlFiles}</suiteXmlFile>
+						<suiteXmlFile>testng_EndToEnd.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertyVariables>
 						<appURL>${project.url}</appURL>
