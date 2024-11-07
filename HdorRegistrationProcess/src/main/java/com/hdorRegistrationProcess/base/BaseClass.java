@@ -8,10 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.log4j.xml.DOMConfigurator;
-//import org.apache.log4j.xml.DOMConfigurator;
-import org.ietf.jgss.Oid;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,15 +16,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.w3c.dom.DOMConfiguration;
-
-import com.aventstack.extentreports.model.Log;
-import com.beust.jcommander.Parameter;
-import com.hdorRegistrationProcess.actiondriver.Action;
 import com.hdorRegistrationProcess.utility.ExtentManager;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
