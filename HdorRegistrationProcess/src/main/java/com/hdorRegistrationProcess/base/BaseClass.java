@@ -79,6 +79,7 @@ public class BaseClass {
 			// Set Browser to ThreadLocalMap
 			//driver = new ChromeDriver();
 			driver.set(new ChromeDriver());
+			getDriver().set(new ChromeDriver());
 		} else if (browserName.equalsIgnoreCase("FireFox")) {
 			WebDriverManager.firefoxdriver().setup();
 			//driver = new FirefoxDriver();
