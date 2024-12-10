@@ -23,11 +23,11 @@ public class EventDescriptionPageTest extends BaseClass{
 	 * @AfterMethod() public void tearDown() { driver.quit(); }
 	 */
 	
-	public void verifiyRegistrationCardBanner() throws Throwable {
-		homePage = new HomePage();
-		boolean result = homePage.validateRegistrationCardBanner();
-		Assert.assertTrue(result);
-	}
+	/*
+	 * public void verifiyRegistrationCardBanner() throws Throwable { homePage = new
+	 * HomePage(); boolean result = homePage.validateRegistrationCardBanner();
+	 * Assert.assertTrue(result); }
+	 */
 	@Test
 	public void verifyBuyNow() throws Throwable {
 		homePage = new HomePage();

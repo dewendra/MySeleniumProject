@@ -21,14 +21,15 @@ public class HomePageTest extends BaseClass{
 	 * @AfterMethod() public void tearDown() { driver.quit(); }
 	 */
 	
-	public void verifiyRegistrationCardBanner() throws Throwable {
-		homePage = new HomePage();
-		boolean result = homePage.validateRegistrationCardBanner();
-		Assert.assertTrue(result);
-	}
+	/*
+	 * public void verifiyRegistrationCardBanner() throws Throwable { homePage = new
+	 * HomePage(); boolean result = homePage.validateRegistrationCardBanner();
+	 * Assert.assertTrue(result); }
+	 */
 	@Test
 	public void verifyRegister() throws Throwable {
 		homePage = new HomePage();
+		//homePage.findElement();
 		eventDescriptionPage=homePage.clickOnRegisterButton();
 		
 		

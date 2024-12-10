@@ -14,17 +14,47 @@ public class EventTicketPage extends BaseClass {
 	private WebElement ticketCount;
 	
 	
-	@FindBy(xpath = "//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-4px10r']//div[@class='MuiCardContent-root css-1hchkfb']//div[1]//div[1]//div[2]//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M18 13H6c-')]")
-	private WebElement removeButton;
 	
-	@FindBy(xpath = "//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-4px10r']//div[@class='MuiCardContent-root css-1hchkfb']//div[1]//div[1]//div[2]//div[1]//div[1]//div[2]//div[1]//div[3]//div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M18 13h-5v')]")
-	private WebElement addButton;
+	
+	
 	
 	@FindBy(xpath = "//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-4px10r']//div[2]//div[1]//div[2]//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]//*[name()='svg']")
 	private WebElement removeButton1;
 	
-	@FindBy(xpath = "//button[contains(text(),'Next')]")
+	/*
+	 * @FindBy(xpath = "//button[contains(text(),'Next')]") private WebElement
+	 * nextButton;
+	 */
+	@FindBy(xpath = "(//*[name()='path'])[3]")
+	private WebElement addButton;
+	
+	@FindBy(xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1m9kp0'])[1]")
+	private WebElement removeButton;
+	
+	@FindBy(xpath="(//button[@type='button'][normalize-space()='Next'])[1]")
 	private WebElement nextButton;
+	@FindBy(xpath="(//button[@type='button'][normalize-space()='EUR'])[1]")
+	private WebElement topEURButton;
+	@FindBy(xpath="(//button[@type='button'][normalize-space()='GBP'])[1]")
+	private WebElement topGBPButton;
+	@FindBy(xpath="(//button[@type='button'][normalize-space()='INR'])[1]")
+	private WebElement topINRButton;
+	@FindBy(xpath="(//button[@type='button'][normalize-space()='USD'])[1]")
+	private WebElement topUSDButton;
+	@FindBy(xpath="//div[contains(text(),'Apply Coupon')]")
+	private WebElement applyCoupon;
+	
+	@FindBy(xpath="//input[@id=':rm:']")
+	private WebElement discountCoupon;
+	@FindBy(xpath="//button[normalize-space()='Apply']")
+	private WebElement discountCouponApplyButton;
+	@FindBy(xpath="(//*[name()='path'])[61]")
+	private WebElement discountCouponPopUpCloseButton;
+	
+	@FindBy(xpath="(//div[@class='MuiBox-root css-k008qs'])[1]")
+	private WebElement entryOnlyTicket;
+	
+	
 	
 	
 	public EventTicketPage() {
@@ -34,6 +64,8 @@ public class EventTicketPage extends BaseClass {
 	public void registrationOnlyTicket() {
 		action.fluentWait(driver, addButton, 2);
 		action.click(driver, addButton);
+		
+		action.click(driver, nextButton);
 	}
 	public EventQuestionPage clickOnNext() {
 		action.fluentWait(driver, nextButton, 2);

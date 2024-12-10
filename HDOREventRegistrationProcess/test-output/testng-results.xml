@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-18T14:39:01 IST" name="Default suite" finished-at="2024-10-18T14:39:22 IST" duration-ms="20667">
+  <suite started-at="2024-12-09T16:44:56 IST" name="Default suite" finished-at="2024-12-09T16:45:11 IST" duration-ms="14890">
     <groups>
     </groups>
-    <test started-at="2024-10-18T14:39:01 IST" name="Default test" finished-at="2024-10-18T14:39:22 IST" duration-ms="20667">
+    <test started-at="2024-12-09T16:44:56 IST" name="Default test" finished-at="2024-12-09T16:45:11 IST" duration-ms="14890">
       <class name="com.hdor.eventregistration.EventTicketPageTest">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hdor.eventregistration.EventTicketPageTest@7bba5817]" started-at="2024-10-18T14:39:01 IST" name="loadConfig" finished-at="2024-10-18T14:39:01 IST" duration-ms="23" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hdor.eventregistration.EventTicketPageTest@1165b38]" started-at="2024-12-09T16:44:56 IST" name="loadConfig" finished-at="2024-12-09T16:44:56 IST" duration-ms="17" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.hdor.eventregistration.EventTicketPageTest@7bba5817]" started-at="2024-10-18T14:39:01 IST" name="setup" finished-at="2024-10-18T14:39:08 IST" duration-ms="7107" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.hdor.eventregistration.EventTicketPageTest@1165b38]" started-at="2024-12-09T16:44:56 IST" name="setup" finished-at="2024-12-09T16:45:01 IST" duration-ms="4327" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifySelectTicket()[pri:0, instance:com.hdor.eventregistration.EventTicketPageTest@7bba5817]" started-at="2024-10-18T14:39:08 IST" name="verifySelectTicket" finished-at="2024-10-18T14:39:22 IST" duration-ms="13483" status="PASS">
+        <test-method signature="verifySelectTicket()[pri:0, instance:com.hdor.eventregistration.EventTicketPageTest@1165b38]" started-at="2024-12-09T16:45:01 IST" name="verifySelectTicket" finished-at="2024-12-09T16:45:11 IST" duration-ms="10498" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySelectTicket -->
