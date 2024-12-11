@@ -16,7 +16,7 @@ public class DropdownDatePicker {
 		driver.get("https://testautomationpractice.blogspot.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		//driver.switchTo().frame(0);
+		
 		String expectedYear = "2026";
 		String expectedMonth = "Jun";
 		String expectedDate = "15";
@@ -39,14 +39,7 @@ public class DropdownDatePicker {
 		  }
 			  
 		  }
-		/*
-		 * while(true) { if(year.equals(expectedYear)) { break; } String
-		 * currentMonth=driver.findElement(By.
-		 * xpath("//select[@aria-label='Select month']")).getText();
-		 * if(currentMonth.equals(expectedMonth)) { break; }
-		 * 
-		 * }
-		 */
+		
 	}
 
 }
