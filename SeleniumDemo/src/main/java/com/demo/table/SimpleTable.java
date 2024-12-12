@@ -23,13 +23,44 @@ public class SimpleTable {
 		//String data=driver.findElement(By.xpath("//table[@name='BookTable']//tr[5]/td[1]")).getText();
 		//System.out.println("Data : "+data);
 		//Select all data in table
-		for(int r=2;r<=rows; r++){
-			for(int c=1; c<=cols;c++) {
-				String allData=driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]/td["+c+"]")).getText();
-				System.out.print(allData+"\t");
-			}
-			System.out.println();
+		/*
+		 * System.out.println("BookName"+"\t"+"Author"+"\t"+"Subject"+"\t"+"Price");
+		 * for(int r=2;r<=rows; r++){ for(int c=1; c<=cols;c++) { String
+		 * allData=driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+
+		 * "]/td["+c+"]")).getText(); System.out.print(allData+"\t"); }
+		 * System.out.println(); }
+		 */
+		//Print book name which Author is Mukesh
+		/*
+		 * for(int r=2;r<=rows;r++) { String
+		 * authorName=driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+
+		 * "]/td[2]")).getText(); if(authorName.equals("Mukesh")) { String
+		 * booksName=driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+
+		 * "]/td[1]")).getText(); System.out.println(booksName); } }
+		 */
+		//Find the total price of books
+		int totalPrice=0;
+		for(int r=2;r<=rows;r++) {
+			String bookPrice=driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]/td[4]")).getText();
+			//System.out.println(bookPrice);
+			totalPrice=totalPrice+Integer.parseInt(bookPrice);
 		}
+		System.out.println(totalPrice);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 

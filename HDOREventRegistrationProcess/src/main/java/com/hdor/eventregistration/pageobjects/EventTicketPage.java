@@ -14,7 +14,8 @@ public class EventTicketPage extends BaseClass {
 	private WebElement ticketCount;
 	
 	
-	
+	@FindBy(xpath = "//div[contains(@class,'MuiCardContent-root')]//div[contains(@class,'MuiTypography-root MuiTypography-subtitle1 css-nodm54')]")
+	private WebElement totalTicketCounts;
 	
 	
 	
