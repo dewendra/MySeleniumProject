@@ -1,5 +1,8 @@
 package com.hdor.eventregistration.pageobjects;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -60,6 +63,12 @@ public class EventTicketPage extends BaseClass {
 	
 	public EventTicketPage() {
 		PageFactory.initElements(driver, this);
+	}
+	public void totalTicket() {
+		List<WebElement> totalTickets=driver.findElements(By.xpath("totalTicketCounts"));
+		for(int i=0; i<=totalTickets.size(); i++) {
+			System.out.println(totalTickets.get(i).getText());
+		}
 	}
 	
 	public void registrationOnlyTicket() {

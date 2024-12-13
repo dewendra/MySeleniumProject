@@ -30,6 +30,7 @@ public class EventTicketPageTest extends BaseClass{
 		eventDescriptionPage=homePage.clickOnRegisterButton();
 		eventTicketPage=eventDescriptionPage.clickOnBuyNowButton();
 		eventTicketPage.registrationOnlyTicket();
+		eventTicketPage.totalTicket();
 		//eventQuestionPage=eventTicketPage.clickOnNext();
 		
 		
