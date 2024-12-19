@@ -45,7 +45,11 @@ public class Action extends BaseClass implements ActionInterface{
 
 	}
 
-	
+	public List<WebElement> findElements(WebDriver driver, WebElement ele) {
+		List<WebElement>elements=driver.findElements((By) ele);
+		return elements;
+		
+	}
 	public boolean findElement(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		try {
@@ -99,6 +103,7 @@ public class Action extends BaseClass implements ActionInterface{
 		return flag;
 	}
 
+	
 	
 	public boolean isEnabled(WebDriver driver, WebElement ele) {
 		boolean flag = false;

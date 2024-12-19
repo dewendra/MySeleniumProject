@@ -7,6 +7,7 @@ import com.hdorRegistrationProcess.base.BaseClass;
 import com.hdorRegistrationProcess.pageobjects.DashboardPage;
 import com.hdorRegistrationProcess.pageobjects.HomePage;
 import com.hdorRegistrationProcess.pageobjects.LoginPage;
+import com.hdorRegistrationProcess.pageobjects.SelectedEventDashboardPage;
 import com.hdorRegistrationProcess.pageobjects.SelectedEventPage;
 
 public class DashboardPageTest extends BaseClass {
@@ -14,7 +15,7 @@ public class DashboardPageTest extends BaseClass {
 	private LoginPage loginPage;
 	private DashboardPage dashboardPage;
 	private SelectedEventPage selectedEventPage;
-	
+	private SelectedEventDashboardPage selectedEventDashboardPage;
 	@BeforeMethod()
 	public void setup() {
 		launchApp();
@@ -29,7 +30,7 @@ public class DashboardPageTest extends BaseClass {
 		loginPage=new LoginPage();
 		homePage.emailLogin(prop.getProperty("username"));
 		dashboardPage=loginPage.passwordLogin(prop.getProperty("password"));
-		selectedEventPage=dashboardPage.clickOnEvent();
+		selectedEventDashboardPage=dashboardPage.clickOnEvent();
 	}
 
 }

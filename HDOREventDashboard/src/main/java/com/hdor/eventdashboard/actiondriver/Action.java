@@ -22,8 +22,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.hdor.eventregistration.actioninterface.ActionInterface;
-import com.hdor.eventregistration.base.BaseClass;
+import com.hdor.eventdashboard.actioninterface.ActionInterface;
+import com.hdor.eventdashboard.base.BaseClass;
 
 public class Action extends BaseClass implements ActionInterface{
 	

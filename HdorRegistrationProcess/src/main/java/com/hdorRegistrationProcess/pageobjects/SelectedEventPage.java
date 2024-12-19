@@ -28,7 +28,7 @@ public class SelectedEventPage extends BaseClass{
 	
 	@FindBy(xpath = "//div[@class='MuiBox-root css-1dhed5q']//button[@type='button'][normalize-space()='Buy Now']")
 	private WebElement BuyNow;
-	
+	//div//h6[@class='MuiTypography-root MuiTypography-subtitle1 css-1q0u4w1']
 	
 	public SelectedEventPage() {
 		PageFactory.initElements(getDriver(), this);

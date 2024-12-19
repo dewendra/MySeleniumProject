@@ -21,8 +21,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.beust.jcommander.Parameter;
-import com.hdor.eventregistration.actiondriver.Action;
-import com.hdor.eventregistration.utility.ExtentManager;
+import com.hdor.eventdashboard.actiondriver.Action;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

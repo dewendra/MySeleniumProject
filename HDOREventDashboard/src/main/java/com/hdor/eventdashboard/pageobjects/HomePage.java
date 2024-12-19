@@ -3,9 +3,10 @@ package com.hdor.eventdashboard.pageobjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.hdor.eventdashboard.actiondriver.Action;
+import com.hdor.eventdashboard.base.BaseClass;
 
-import com.hdorRegistrationProcess.actiondriver.Action;
-import com.hdorRegistrationProcess.base.BaseClass;
+
 
 public class HomePage extends BaseClass{
 	Action action = new Action();
