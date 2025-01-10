@@ -29,7 +29,12 @@ public class DashboardPage extends BaseClass {
 	
 	@FindBy(xpath = "//h6[text()='India Gate to Gateway of India Run Challenge 2024']")
 	private WebElement IG2GI_2024;
+	
+	@FindBy(xpath = "label[for='settings']")
+	private WebElement settingButton;
 
+	
+	
 	public DashboardPage() {
 		PageFactory.initElements(getDriver(), this);
 	}
@@ -45,4 +50,11 @@ public class DashboardPage extends BaseClass {
 		return new SelectedEventDashboardPage();
 	}
 
+	public  UserSettingPage forDownloadCertificate() {
+		action.click(getDriver(), settingButton);
+		System.out.println(" Setting Button clicked");
+		return new UserSettingPage();
+		
+		
+	}
 }
