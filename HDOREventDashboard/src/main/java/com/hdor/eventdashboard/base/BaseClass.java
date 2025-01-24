@@ -15,12 +15,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 
-import com.beust.jcommander.Parameter;
+
 import com.hdor.eventdashboard.actiondriver.Action;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -39,7 +35,7 @@ public class BaseClass {
 
 	//loadConfig method is to load the configuration
 	//@BeforeSuite(groups = { "Smoke", "Sanity", "Regression" })
-	@BeforeTest
+	@BeforeSuit
 	public void loadConfig() {
 		/*
 		 * ExtentManager.setExtent(); DOMConfigurator.configure("log4j.xml");
