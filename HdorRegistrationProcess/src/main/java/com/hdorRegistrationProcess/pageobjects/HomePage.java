@@ -10,7 +10,7 @@ import com.hdorRegistrationProcess.base.BaseClass;
 public class HomePage extends BaseClass{
 	Action action = new Action();
 	
-	
+	//*[@id="root"]/div[2]/div/div[2]/div/div/div/div/div[4]/div/div[3]/div[4]/div[2]/button
 	
 	@FindBy(xpath = "//img[@class='sc-beyTiQ gDasas']")
 	private WebElement hdorLogo;
