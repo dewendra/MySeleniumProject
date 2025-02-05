@@ -1,0 +1,18 @@
+
+HeadlessTesting
+	    ChromeOptions options=new ChromeOptions();
+		options.addArguments("--headless=new");//headless mode of execution
+		WebDriver driver=new ChromeDriver(options);//we have to pass the ChromeOptions object in the ChromeDriver
+		
+HandlingSSL 
+		ChromeOptions options=new ChromeOptions();
+		options.setAcceptInsecureCerts(true);//accept ssl certificate
+		WebDriver driver=new ChromeDriver(options);//we have to pass the ChromeOptions object in the ChromeDriver
+		
+Chrome is being controlled by automated test software
+		ChromeOptions options=new ChromeOptions();
+		options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
+
+To run test in Incognito Mode
+        ChromeOptions options=new ChromeOptions();
+		options.addArguments("--incognito");
