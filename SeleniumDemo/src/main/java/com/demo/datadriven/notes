@@ -1,0 +1,25 @@
+Add Dependency in pom.xml
+<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+		
+Hirearchy  for access the data
+ExcelFile--> Workbook--> sheet---> Rows--> cell
+
+Form java
+FileInputStream--reading
+FileOutputStream--Writing
+
+These four classes use for working on sheet
+XSSFWorkbook---Workbook
+XSSFSheet---Sheet
+XSSFRow---Row
+XSSFCell-Cell
