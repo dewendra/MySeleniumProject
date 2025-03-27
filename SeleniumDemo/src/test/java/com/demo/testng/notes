@@ -1,0 +1,55 @@
+-->By default, TestNG executes test methods in alphabetical order based on their method names if no priority is set.
+-->If you do not provide the priority then default priority is 0.
+-->If the priority is the same for both methods the it is use the alphabetical order for execution.
+-->Negative values allowed in the priority.
+-->
+1. @Test(priority = n)
+
+You can define execution order using the priority attribute.
+public class TestPriorityExample {
+
+    @Test(priority = 2)
+    public void secondTest() {
+        System.out.println("Executing Second Test");
+    }
+
+    @Test(priority = 1)
+    public void firstTest() {
+        System.out.println("Executing First Test");
+    }
+
+    @Test(priority = 3)
+    public void thirdTest() {
+        System.out.println("Executing Third Test");
+    }
+}
+
+-->Execute the test case through xml file.. eg testng xml file
+test xml file
+-->generate automatically
+-->manually
+
+Advantage of TestNg xml file
+1-Test case and test suites
+2-Grouping of test cases
+3-Prioritize
+4-Parameterization
+5-Parallel  testing
+6-Reports
+
+
+Annotation
+@Test
+
+
+@BeforeMethod
+@AfterMethod
+
+@BeforeClass
+@AfterClass
+
+@BeforeTest
+@AfterTes
+
+@BeforeSuit
+@AfterSuit
