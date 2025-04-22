@@ -6,7 +6,8 @@
 	<artifactId>OpenCartV001</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<Dependencies>
+	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java-->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -50,6 +51,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.17.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
@@ -62,6 +64,7 @@
 			<version>7.4.0</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -76,6 +79,6 @@
 		</dependency>
 
 
-	</Dependencies>
+	</dependencies>
 
 </project>
