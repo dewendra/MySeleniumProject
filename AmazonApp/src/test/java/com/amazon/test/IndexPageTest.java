@@ -9,10 +9,12 @@ import org.testng.annotations.Test;
 import com.amazon.actiondriver.Action;
 import com.amazon.base.BaseClass;
 import com.amazon.pageobjects.IndexPage;
+import com.amazon.pageobjects.SearchPage;
 
 public class IndexPageTest extends BaseClass {
 	Action action = new Action();
 	private IndexPage indexPage;
+	private SearchPage searchPage;
 
 	@BeforeMethod
 	public void setup() {
@@ -31,10 +33,12 @@ public class IndexPageTest extends BaseClass {
 	public void verifyAccountAndListOption() throws Throwable {
 		indexPage=new IndexPage();
 		//indexPage.clickOnUpadteLocationOption();
-		//indexPage.clickOnSearchBoxOption();
+		searchPage=indexPage.clickOnSearchBoxOption();
+		searchPage.selectOptions();
 		//indexPage.clickOnLangageButton();
 		//indexPage.clickOnReturnsAndOrders();
-		indexPage.clickOnCart();
+		//indexPage.clickOnCart();
+		//indexPage.clickOnNavHamBurgerMenu();
 		//indexPage.clickOnAccountAndListOption();
 		//indexPage.clickOnSignInOption();
 	}

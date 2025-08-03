@@ -16,6 +16,14 @@ public class IndexPage extends BaseClass {
 	private WebElement update_location;
 	@FindBy(xpath = "//input[@id='twotabsearchtextbox']")
 	private WebElement search_box;
+	@FindBy(xpath = "//input[@id='nav-search-submit-button']")
+	private WebElement search_box_submit_button;
+	@FindBy(xpath = "//span[text()='Intel Core i5']")
+	private WebElement select_IntelCorei5; 
+	@FindBy(xpath = "//span[text()='16 GB']")
+	private WebElement select_Ram16GB;//span[text()='Dell']
+	@FindBy(xpath = "//span[text()='Dell']")
+	private WebElement select_Dell;
 	@FindBy(xpath = "//div[@id='icp-nav-flyout']")
 	private WebElement language_button;
 	@FindBy(xpath = "//span[@id='nav-link-accountList-nav-line-1']")
@@ -24,6 +32,10 @@ public class IndexPage extends BaseClass {
 	private WebElement returnaAnd_orders;
 	@FindBy(xpath = "//a[@id='nav-cart']")
 	private WebElement cart_Option;
+	@FindBy(xpath = "//a[@id='nav-hamburger-menu']")
+	private WebElement nav_hamburger_menu;
+	@FindBy(xpath = "//a[normalize-space()='Fresh']")
+	private WebElement nav_menu_fresh;
 	@FindBy(xpath = "//div[@id='nav-link-accountList']//a[contains(@class,'nav-progressive-attribute')]")
 	private WebElement signIn_option;
 
@@ -43,11 +55,13 @@ public class IndexPage extends BaseClass {
 		return;
 	}
 
-	public void clickOnSearchBoxOption() throws Throwable {
+	public SearchPage clickOnSearchBoxOption() throws Throwable {
 		Thread.sleep(2000);
 		action.click(getDriver(), search_box);
+		search_box.sendKeys("laptop");
+		action.click(getDriver(), search_box_submit_button);
 		System.out.println("Search Box Option Clicked");
-		return;
+		return new SearchPage();
 	}
 
 	public void clickOnLangageButton() throws Throwable {
@@ -75,6 +89,19 @@ public class IndexPage extends BaseClass {
 		System.out.println("Cart Option Clicked");
 
 	}
+	public void clickOnNavHamBurgerMenu() throws InterruptedException {
+		Thread.sleep(2000);
+		action.click(getDriver(), nav_hamburger_menu);
+		System.out.println("Nav HamBurger Menu Clicked");
+
+	}
+	public void clickOnNavMenuFresh() throws InterruptedException {
+		Thread.sleep(2000);
+		action.click(getDriver(), nav_menu_fresh);
+		System.out.println("Nav Menu Fresh Clicked");
+
+	}
+
 
 
 	public void clickOnSignInOption() throws InterruptedException {
