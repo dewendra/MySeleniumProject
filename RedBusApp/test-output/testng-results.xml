@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-16T18:35:25 IST" name="Default suite" finished-at="2025-08-16T18:35:27 IST" duration-ms="2306">
+    <groups>
+    </groups>
+    <test started-at="2025-08-16T18:35:25 IST" name="Default test" finished-at="2025-08-16T18:35:27 IST" duration-ms="2306">
+      <class name="com.redbus.test.IndexPageTest">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.redbus.test.IndexPageTest@22555ebf]" started-at="2025-08-16T18:35:25 IST" name="loadConfig" finished-at="2025-08-16T18:35:25 IST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadConfig -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.redbus.test.IndexPageTest@22555ebf]" started-at="2025-08-16T18:35:25 IST" name="setup" finished-at="2025-08-16T18:35:27 IST" duration-ms="1867" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="enterDetails()[pri:2, instance:com.redbus.test.IndexPageTest@22555ebf]" started-at="2025-08-16T18:35:27 IST" name="enterDetails" finished-at="2025-08-16T18:35:27 IST" duration-ms="399" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterDetails -->
+      </class> <!-- com.redbus.test.IndexPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
