@@ -1,4 +1,6 @@
 Feature:Login
+
+@sanity @regression
 Scenario: Successful Login with valid credentials
 	Given User launch chrome browser
 	When User opens url "https://admin-demo.nopcommerce.com/login"
@@ -8,3 +10,21 @@ Scenario: Successful Login with valid credentials
 	When User click on logout link
 	Then Page Title should be "nopCommerce demo store. Login"
 	And close browser
+	
+@regression	
+Scenario Outline:Successful Login with valid credentials DDT
+	Given User launch chrome browser
+	When User opens url "https://admin-demo.nopcommerce.com/login"
+	And User enters email as "<email>" and password as "<password>"
+	And Click on Login
+	Then Page Title should be "Dashboard / nopCommerce administration"
+	When User click on logout link
+	Then Page Title should be "nopCommerce demo store. Login"
+	And close browser
+	
+	Examples:
+	|email 	                |password    
+	|admins@yourstore.com 	|password1   
+	|admins@yourstore.com 	|password    
+	|admin@yourstore.com 	|passwords   
+	|admin@yourstore.com    |admin

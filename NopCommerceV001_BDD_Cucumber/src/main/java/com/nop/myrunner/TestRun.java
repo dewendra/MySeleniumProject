@@ -4,18 +4,15 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = "src/test/resources/features",
+		//features = ".//Features/Customers.feature",//for run a single feature file
+		features = ".//Features/",//for run all features file
 		glue = "com.nop.stepDefinations",
-		plugin = {"pretty","html:target/cucumber-reports"},
+		plugin = {"pretty","html:target/customer-reports"},
 		monochrome = true,
 		dryRun = false,
-		publish = true
-		
-		
-		
+		publish = true,
+		tags = "@sanity"//scenario only execute which comes under sanity tag, we can use or and and and not operator for run more than one tags
 		)
-
-
-
+// "json:target/cucumber-reports.json" for json report
 public class TestRun extends AbstractTestNGCucumberTests {
 }
