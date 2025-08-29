@@ -4,8 +4,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		//features = ".//Features/Customers.feature",//for run a single feature file
-		features = ".//Features/",//for run all features file
+		features = ".//Features/Login.feature",//for run a single feature file
+		//features = ".//Features/",//for run all features file
 		glue = "com.nop.stepDefinations",
 		plugin = {"pretty","html:target/customer-reports"},
 		monochrome = true,

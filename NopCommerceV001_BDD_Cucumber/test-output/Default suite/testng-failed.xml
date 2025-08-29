@@ -6,8 +6,8 @@
       <class name="com.nop.myrunner.TestRun">
         <methods>
           <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="3 4 5 6"/>
         </methods>
       </class> <!-- com.nop.myrunner.TestRun -->
     </classes>

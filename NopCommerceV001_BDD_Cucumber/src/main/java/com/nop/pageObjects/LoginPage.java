@@ -49,7 +49,7 @@ public class LoginPage {
 	}
 
 	public void clickLogoutBtn() {
-		wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		//wait.until(ExpectedConditions.visibilityOf(logoutBtn)).click();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ajaxBusy")));
 		wait.until(ExpectedConditions.elementToBeClickable(logoutBtn)).click();
