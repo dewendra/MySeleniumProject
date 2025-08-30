@@ -16,27 +16,26 @@ public class CommonMethod {
 		this.driver = driver;
 	}
 
-	public void takeScreenshots(String scenarioName) {
+	public String takeScreenshots(String scenarioName) {
 		try {
-			TakesScreenshot screenshot = (TakesScreenshot) driver;
+			String dateTime = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+			String fileName = scenarioName + "_" + dateTime + ".png";
 
-			// getScreenshotsAs method calling from TakeScreenshot interface
-			File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+			// Absolute path for saving
+			String screenshotPath = System.getProperty("user.dir") + "/screenshots/" + fileName;
+			File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			// byte[] screenshots = screenshot.getScreenshotAs(OutputType.BYTES);
+			// String screenshotAs = screenshot.getScreenshotAs(OutputType.BASE64);
 
-			// Create folder if not exists
-			String folderPath = System.getProperty("user.dir") + "/screenshots/";
-			new File(folderPath).mkdirs();
-			File savedLoaction = new File("D:\\SeleniumWorkspace\\screenShots\\fullPage.png");
-
-			// Unique filename with timestamp
-			String timestamp = new SimpleDateFormat("HHmmss_ddMMyyyy").format(new Date());
-			File destFile = new File(folderPath + scenarioName + "_" + timestamp + ".png");
-
+			File destFile = new File(screenshotPath);
 			FileUtils.copyFile(srcFile, destFile);
-			System.out.println("Screenshot saved at: " + destFile.getAbsolutePath());
+
+			// Relative path for report linking
+			return "screenshots/" + fileName;
+
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
+		return null;
 
 	}
 

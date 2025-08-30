@@ -9,7 +9,6 @@ Scenario: Successful Login with valid credentials
 	Then Page Title should be "Dashboard / nopCommerce administration"
 	When User click on logout link
 	Then Page Title should be "nopCommerce demo store. Login"
-	And close browser
 	
 @regression	
 Scenario Outline:Successful Login with valid credentials DDT
@@ -20,7 +19,6 @@ Scenario Outline:Successful Login with valid credentials DDT
 	Then Page Title should be "Dashboard / nopCommerce administration"
 	When User click on logout link
 	Then Page Title should be "nopCommerce demo store. Login"
-	And close browser
 	
 	Examples:
 	|email 	                |password    

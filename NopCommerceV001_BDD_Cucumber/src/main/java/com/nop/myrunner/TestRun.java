@@ -7,7 +7,8 @@ import io.cucumber.testng.CucumberOptions;
 		features = ".//Features/Login.feature",//for run a single feature file
 		//features = ".//Features/",//for run all features file
 		glue = "com.nop.stepDefinations",
-		plugin = {"pretty","html:target/customer-reports"},
+		//plugin = {"pretty","html:target/customer-reports"},
+		plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome = true,
 		dryRun = false,
 		publish = true,

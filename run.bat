@@ -1,0 +1,9 @@
+@echo off
+echo  Moving to project folder...
+cd /d D:\GithubProject\MySeleniumProject\NopCommerceV001_BDD_Cucumber
+
+echo  Checking JAVA_HOME...
+echo JAVA_HOME=%JAVA_HOME%
+
+echo  Running Maven tests...
+mvn clean test

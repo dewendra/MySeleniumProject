@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Login Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/4/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 25 11:34:17 IST 2025</td>
+<td>Started on:</td><td>Fri Aug 29 16:00:18 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>19 seconds (19497 ms)</td>
+<tr><td>Total time:</td><td>25 seconds (25516 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,83 +76,104 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.nop.myrunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: com.nop.myrunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Login with valid credentials DDT", "Login"</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace847841178", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace847841178'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:110)
-	at org.testng.Assert.failNotEquals(Assert.java:1577)
-	at org.testng.Assert.assertTrue(Assert.java:56)
-	at org.testng.Assert.assertTrue(Assert.java:66)
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
+<td title='com.nop.myrunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: com.nop.myrunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add New Customer", "Customer"</td>
+<td><div><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=139.0.7258.140)
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [43eb003e944e070ec9518de0b8a7614b, clearElement {id=f.17560F0A92848FF55C5D131943E2A3A0.d.C05F4221F9E140F9B5DD895B3B5AD33B.e.127}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.140, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57578}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57578/devtoo..., se:cdpVersion: 139.0.7258.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (43eb003e944e070ec9518de0b8a7614b)] -&gt; xpath: //input[@id=&apos;Email&apos;]]
+Session ID: 43eb003e944e070ec9518de0b8a7614b
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:129)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy42.clear(Unknown Source)
+	at com.nop.pageObjects.AddCustomerPage.setEmail(AddCustomerPage.java:105)
+	at com.nop.stepDefinations.StepDef.user_enter_customer_information(StepDef.java:179)
+	at ✽.User enter customer information(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Customers.feature:16)
+... Removed 5 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace939693702", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace939693702'><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=139.0.7258.140)
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [43eb003e944e070ec9518de0b8a7614b, clearElement {id=f.17560F0A92848FF55C5D131943E2A3A0.d.C05F4221F9E140F9B5DD895B3B5AD33B.e.127}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.140, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57578}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57578/devtoo..., se:cdpVersion: 139.0.7258.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (43eb003e944e070ec9518de0b8a7614b)] -&gt; xpath: //input[@id=&apos;Email&apos;]]
+Session ID: 43eb003e944e070ec9518de0b8a7614b
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:129)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy42.clear(Unknown Source)
+	at com.nop.pageObjects.AddCustomerPage.setEmail(AddCustomerPage.java:105)
+	at com.nop.stepDefinations.StepDef.user_enter_customer_information(StepDef.java:179)
+	at ✽.User enter customer information(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Customers.feature:16)
 </pre></div></td>
-<td>2</td>
-<td>com.nop.myrunner.TestRun@2d1ef81a</td></tr>
-<tr>
-<td title='com.nop.myrunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: com.nop.myrunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Login with valid credentials DDT", "Login"</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace461001437", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace461001437'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:110)
-	at org.testng.Assert.failNotEquals(Assert.java:1577)
-	at org.testng.Assert.assertTrue(Assert.java:56)
-	at org.testng.Assert.assertTrue(Assert.java:66)
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-</pre></div></td>
-<td>2</td>
-<td>com.nop.myrunner.TestRun@2d1ef81a</td></tr>
-<tr>
-<td title='com.nop.myrunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: com.nop.myrunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Login with valid credentials DDT", "Login"</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1110618954", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1110618954'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:110)
-	at org.testng.Assert.failNotEquals(Assert.java:1577)
-	at org.testng.Assert.assertTrue(Assert.java:56)
-	at org.testng.Assert.assertTrue(Assert.java:66)
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-</pre></div></td>
-<td>2</td>
-<td>com.nop.myrunner.TestRun@2d1ef81a</td></tr>
-<tr>
-<td title='com.nop.myrunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: com.nop.myrunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Login with valid credentials DDT", "Login"</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1332038894", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1332038894'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:110)
-	at org.testng.Assert.failNotEquals(Assert.java:1577)
-	at org.testng.Assert.assertTrue(Assert.java:56)
-	at org.testng.Assert.assertTrue(Assert.java:66)
-	at com.nop.stepDefinations.StepDef.page_title_should_be(StepDef.java:54)
-	at ✽.Page Title should be &quot;Dashboard / nopCommerce administration&quot;(file:///D:/GithubProject/MySeleniumProject/NopCommerceV001_BDD_Cucumber/./Features/Login.feature:17)
-</pre></div></td>
-<td>2</td>
-<td>com.nop.myrunner.TestRun@2d1ef81a</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
+<td>11</td>
+<td>com.nop.myrunner.TestRun@5dda768f</td></tr>
 <tr>
 <td title='com.nop.myrunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: com.nop.myrunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Login with valid credentials", "Login"</td>
-<td></td>
-<td>6</td>
-<td>com.nop.myrunner.TestRun@2d1ef81a</td></tr>
+<td><div><pre>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : DataTables warning: table id=incomplete-order-report-grid - Ajax error. For more information about this error, please see https://datatables.net/tn/7}
+  (Session info: chrome=139.0.7258.140): DataTables warning: table id=incomplete-order-report-grid - Ajax error. For more information about this error, please see https://datatables.net/tn/7
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a79b0db979e72026bf933f8928c7e585, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.140, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57609}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57609/devtoo..., se:cdpVersion: 139.0.7258.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a79b0db979e72026bf933f8928c7e585
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:136)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:604)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:323)
+	at com.nop.stepDefinations.StepDef.addScreenshots(StepDef.java:271)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2059701776", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2059701776'><pre>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : DataTables warning: table id=incomplete-order-report-grid - Ajax error. For more information about this error, please see https://datatables.net/tn/7}
+  (Session info: chrome=139.0.7258.140): DataTables warning: table id=incomplete-order-report-grid - Ajax error. For more information about this error, please see https://datatables.net/tn/7
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a79b0db979e72026bf933f8928c7e585, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.140, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57609}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57609/devtoo..., se:cdpVersion: 139.0.7258.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a79b0db979e72026bf933f8928c7e585
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:136)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:604)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:323)
+	at com.nop.stepDefinations.StepDef.addScreenshots(StepDef.java:271)
+</pre></div></td>
+<td>8</td>
+<td>com.nop.myrunner.TestRun@5dda768f</td></tr>
 </table><p>
 </body>
 </html>

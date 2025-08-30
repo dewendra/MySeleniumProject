@@ -1,13 +1,17 @@
 package com.nop.stepDefinations;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.ObjectInputFilter.Config;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,17 +35,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class StepDef extends BaseClass {
 
-	//ReadConfig readConfig;
+	// ReadConfig readConfig;
 	// execute before every scenario
 	// we can set priority by using order value for more than one before method
 	// We can use @sanity or @ regression etc like conditional hook
-	@Before(value = "@sanity", order = 0)
+	@Before(value="@sanity",order = 0)
 	public void setup1() {
-		
+
 		log = LogManager.getLogger("StepDef");// initialize logger
 		System.out.println("Setup method executed..");
-		// readConfig = new ReadConfig(); 
-		String browser=readConfig.getBrowser();
+		String browser = readConfig.getBrowser();
 		switch (browser) {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
@@ -66,6 +69,11 @@ public class StepDef extends BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		log.info("Browser launched: {}", browser);
+
+		// Initialize Page Objects
+		loginPage = new LoginPage(driver);
+		addCustomerPage = new AddCustomerPage(driver);
+		searchCustomerPage = new SearchCustomerPage(driver);
 	}
 
 	// @Before(value = "@regression", order = 1)
@@ -79,9 +87,6 @@ public class StepDef extends BaseClass {
 
 	@Given("User launch chrome browser")
 	public void user_launch_chrome_browser() {
-		loginPage = new LoginPage(driver);
-		addCustomerPage = new AddCustomerPage(driver);
-		searchCustomerPage = new SearchCustomerPage(driver);
 		log.info("User launch chrome browser........");
 	}
 
@@ -122,16 +127,6 @@ public class StepDef extends BaseClass {
 
 		loginPage.clickLogoutBtn();
 		log.info("Click on Logout........");
-	}
-
-	@Then("close browser")
-	public void close_browser() {
-		// if (driver != null) {
-		// driver.quit();
-		// }
-		driver.close();
-		// driver.quit();
-		log.info("Close browser........");
 	}
 
 	/////////// Add new Customer /////////////////////////////
@@ -272,9 +267,27 @@ public class StepDef extends BaseClass {
 		System.out.println("Before Step Method executed..");
 	}
 
-	// @AfterStep
-	public void afterStepMethodDemo() {
-		System.out.println("After Step Method executed..");
+	@AfterStep
+	public void addScreenshots(Scenario sc) {
+		
+		CommonMethod commonMethod = new CommonMethod(driver);
+        String relativePath = commonMethod.takeScreenshots(sc.getName()); // returns "screenshots/xyz.png"
+        
+        try {
+            File file = new File(relativePath);
+            if (file.exists()) {
+                // This makes Spark HTML render the screenshot properly
+                sc.attach(Files.readAllBytes(file.toPath()), "image/png", sc.getName());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+			//final byte[] screenshots=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			//CommonMethod commonMethod = new CommonMethod(driver);
+			//commonMethod.takeScreenshots(sc.getName());
+			//sc.attach(screenshots, "image/png", sc.getName());
+		
 	}
 
 	@After // execute after every scenario we can set priority by using order value for
@@ -282,13 +295,15 @@ public class StepDef extends BaseClass {
 	public void tearDown(Scenario sc) {
 
 		System.out.println("Tear down method executed..");
-		if (sc.isFailed()) {
-			// initialize CommonMethod with same driver
-			CommonMethod commonMethod = new CommonMethod(driver);
-			commonMethod.takeScreenshots(sc.getName());
-		}
+		/*
+		 * if (sc.isFailed()) { // initialize CommonMethod with same driver CommonMethod
+		 * commonMethod = new CommonMethod(driver);
+		 * commonMethod.takeScreenshots(sc.getName()); }
+		 */
+
 		if (driver != null) {
 			driver.quit();
 		}
+
 	}
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    
+    <!-- Report Configuration -->
+    <configuration>
+        
+        <!-- Report Title -->
+        <reportName>Automation Test Report</reportName>
+        <documentTitle>Test Execution Report</documentTitle>
+        
+        <!-- Theme Options: STANDARD / DARK -->
+        <theme>DARK</theme>
+        
+        <!-- Encoding -->
+        <encoding>UTF-8</encoding>
+        
+        <!-- Enable timeline -->
+        <timeline>true</timeline>
+
+        <!-- Chart Settings -->
+        <chartVisibilityOnOpen>true</chartVisibilityOnOpen>
+        
+        <!-- Custom CSS -->
+        <css>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .test-name {
+                color: #ff9800; /* Orange test names */
+                font-weight: bold;
+            }
+            .node-name {
+                color: #03a9f4; /* Light blue for child steps */
+            }
+        </css>
+
+        <!-- Custom JavaScript -->
+        <js>
+            console.log("Extent Report Loaded Successfully!");
+        </js>
+        
+    </configuration>
+</extentreports>
