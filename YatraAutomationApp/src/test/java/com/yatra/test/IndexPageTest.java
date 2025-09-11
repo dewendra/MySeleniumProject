@@ -18,8 +18,9 @@ public class IndexPageTest extends BaseClass{
 	@Test
 	public void verifiyLogo() throws InterruptedException {
 		indexPage=new IndexPage();
-		//boolean result = indexPage.validateLogo();
-		//Assert.assertTrue(result, "Logo verified.......");
+		indexPage.closeThePopUp();
+		boolean result = indexPage.validateLogo();
+		Assert.assertTrue(result, "Logo verified.......");
 		indexPage.clickOnDepartureDate();
 	}
 

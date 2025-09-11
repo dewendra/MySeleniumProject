@@ -15,11 +15,12 @@ import com.yatra.baseClass.BaseClass;
 
 public class IndexPage extends BaseClass {
 	Action action = new Action();
+	WebDriverWait wait;
 
 	// Here we locating the web elements of the index page...
 	@FindBy(xpath = "//div[contains(@class,'style_popup')]")
 	private WebElement yatraPopup;
-	
+
 	@FindBy(xpath = "//img[@alt='cross']")
 	private WebElement yatraPopupCloseBtn;
 
@@ -32,24 +33,38 @@ public class IndexPage extends BaseClass {
 	@FindBy(xpath = "//div[@class='react-datepicker__month']")
 	private List<WebElement> calanderMonthsList;
 
+	By popupLocater = By.xpath("//div[contains(@class,'style_popup')]");
+
 	public IndexPage() {
 		PageFactory.initElements(getDriver(), this);
+		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));//for synchronizing the Web Driver
 	}
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
-
-	public boolean validateLogo() {
-
+	public void closeThePopUp() {
 		try {
+			// Wait until popup is visible
 			wait.until(ExpectedConditions.visibilityOf(yatraPopup));
+			// WebElement popup =
+			// wait.until(ExpectedConditions.visibilityOfElementLocated(popupLocater));
+			// WebElement popupCloseBtn =
+			// popup.findElement(By.xpath("//img[@alt='cross']"));
+			// popupCloseBtn.click();
+			// Once popup is visible, also ensure close button is clickable
+			wait.until(ExpectedConditions.elementToBeClickable(yatraPopupCloseBtn));
+
+			// Close the popup
 			action.click(getDriver(), yatraPopupCloseBtn);
+			System.out.println("Popup closed successfully.");
 		} catch (org.openqa.selenium.TimeoutException e) {
-			System.out.println("Timeout exception....");
+			System.out.println("Popup not found, moving ahead...");
+		} catch (Exception e) {
+			System.out.println("Unexpected error while closing popup: " + e.getMessage());
 		}
 
-		boolean result = action.isDisplayed(getDriver(), yatraLogo);
-		return result;
+	}
 
+	public boolean validateLogo() {
+		return action.isDisplayed(getDriver(), yatraLogo);
 	}
 
 	public void clickOnDepartureDate() {
