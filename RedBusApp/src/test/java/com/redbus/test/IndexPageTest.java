@@ -1,15 +1,11 @@
 package com.redbus.test;
 
-import com.redbus.pageobjects.IndexPage;
-
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.redbus.actiondriver.Action;
 import com.redbus.base.BaseClass;
+import com.redbus.pageobjects.IndexPage;
 
 public class IndexPageTest extends BaseClass {
 	

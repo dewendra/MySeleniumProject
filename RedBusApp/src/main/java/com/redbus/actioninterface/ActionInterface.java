@@ -10,6 +10,7 @@ public interface ActionInterface {
 	public boolean isDisplayed(WebDriver ldriver, WebElement ele);
 	public boolean type(WebElement ele, String text);
 	public boolean findElement(WebDriver ldriver, WebElement ele);
+	public boolean findElements(WebDriver ldriver, WebElement ele);
 	public boolean isSelected(WebDriver ldriver, WebElement ele);
 	public boolean isEnabled(WebDriver ldriver, WebElement ele);
 	public boolean selectBySendkeys(String value,WebElement ele);
