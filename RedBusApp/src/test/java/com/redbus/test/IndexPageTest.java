@@ -17,10 +17,11 @@ public class IndexPageTest extends BaseClass {
 		launchApp();
 	}
 	//@Test(priority=1)
-	public void verifiyLogo() throws Throwable {
+	public void verifiyLogo() throws InterruptedException{
 		indexPage=new IndexPage();
 		boolean result=indexPage.validateLogo();
 		Assert.assertTrue(result);
+		indexPage.enterdetails();
 		
 	}
 	@Test(priority=2)
