@@ -20,8 +20,10 @@ public class HandlingBrokenLinks {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));//added implicit wait
 		driver.manage().window().maximize();
 		driver.get("http://www.deadlinkcity.com/");
+		
 		List<WebElement>links=driver.findElements(By.tagName("a"));
 		System.out.println("Total links : "+links.size());
+		
 		for(WebElement linkElement:links) {
 			String hrefAttributeValue = linkElement.getAttribute("href");
 			if(hrefAttributeValue==null || hrefAttributeValue.isEmpty()) {
@@ -30,10 +32,14 @@ public class HandlingBrokenLinks {
 			}else {
 				System.out.println("possible to check");
 				try {
-				URL linkUrl=new URL(hrefAttributeValue);//convert string to url format
-				HttpURLConnection openLinkUrlConnection = (HttpURLConnection) linkUrl.openConnection();//open connection to the server
-				openLinkUrlConnection.connect();//connect to the server and sent request to the server
+				
+					URL linkUrl=new URL(hrefAttributeValue);//convert string to url format
+					HttpURLConnection openLinkUrlConnection = (HttpURLConnection) linkUrl.openConnection();//open connection to the server
+					openLinkUrlConnection.setRequestMethod("HEAD");
+					openLinkUrlConnection.connect();//connect to the server and sent request to the server
+				
 				int responseCode = openLinkUrlConnection.getResponseCode();
+				
 				if(responseCode>=400) {
 					System.out.println(hrefAttributeValue+"======> Broken Link");
 					totalBrokenLink++;
