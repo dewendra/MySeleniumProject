@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -36,6 +37,7 @@ public class FindDynamicXPathComodities {
 		List<String>sortedList=new ArrayList<String>(uicommodityName);
 		Collections.sort(sortedList);
 		System.out.println("After sorting ui commodity Names"+sortedList);
+		
 
 		
 

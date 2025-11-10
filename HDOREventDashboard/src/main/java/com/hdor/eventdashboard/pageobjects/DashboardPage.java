@@ -4,8 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.hdorRegistrationProcess.actiondriver.Action;
-import com.hdorRegistrationProcess.base.BaseClass;
+import com.hdor.eventdashboard.actiondriver.Action;
+import com.hdor.eventdashboard.base.BaseClass;
 
 public class DashboardPage extends BaseClass {
 	Action action = new Action();
@@ -22,13 +22,13 @@ public class DashboardPage extends BaseClass {
 	private WebElement IG2GI_2024;
 
 	public DashboardPage() {
-		PageFactory.initElements(getDriver(), this);
+		PageFactory.initElements(driver, this);
 	}
 	
-	public SelectedEventPage clickOnEvent() {
-		action.click(getDriver(), Tour_De_100_2024);
-		System.out.println(" Event Tour_De_100_2024 selected");
-		return new SelectedEventPage();
-	}
+	/*
+	 * public SelectedEventPage clickOnEvent() { action.click(driver,
+	 * Tour_De_100_2024); System.out.println(" Event Tour_De_100_2024 selected");
+	 * return new SelectedEventPage(); }
+	 */
 
 }

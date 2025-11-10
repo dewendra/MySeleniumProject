@@ -6,7 +6,7 @@
       <class name="com.hdor.eventregistration.HomePageTest">
         <methods>
           <include name="setup"/>
-          <include name="verifyRegister"/>
+          <include name="verifiyLogin"/>
           <include name="loadConfig"/>
         </methods>
       </class> <!-- com.hdor.eventregistration.HomePageTest -->

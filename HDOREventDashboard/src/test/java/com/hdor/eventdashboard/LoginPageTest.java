@@ -4,11 +4,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.eventdashboard.base.BaseClass;
-import com.eventdashboard.pageobjects.DashboardPage;
-import com.eventdashboard.pageobjects.HomePage;
-import com.eventdashboard.pageobjects.LoginPage;
-import com.eventdashboard.utility.Log;
+import com.hdor.eventdashboard.base.BaseClass;
+import com.hdor.eventdashboard.pageobjects.DashboardPage;
+import com.hdor.eventdashboard.pageobjects.HomePage;
+import com.hdor.eventdashboard.pageobjects.LoginPage;
+import com.hdor.eventdashboard.utility.Log;
 
 public class LoginPageTest extends BaseClass {
 	HomePage homePage;

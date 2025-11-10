@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
+import org.testng.annotations.BeforeSuite;
 
 import com.hdor.eventdashboard.actiondriver.Action;
 
@@ -35,7 +35,7 @@ public class BaseClass {
 
 	//loadConfig method is to load the configuration
 	//@BeforeSuite(groups = { "Smoke", "Sanity", "Regression" })
-	@BeforeSuit
+	@BeforeSuite
 	public void loadConfig() {
 		/*
 		 * ExtentManager.setExtent(); DOMConfigurator.configure("log4j.xml");

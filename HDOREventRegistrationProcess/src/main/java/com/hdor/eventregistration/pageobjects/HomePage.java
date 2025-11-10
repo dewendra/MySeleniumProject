@@ -13,11 +13,10 @@ import com.hdor.eventregistration.base.BaseClass;
 
 public class HomePage extends BaseClass{
 	Action action = new Action();
+	String eventName="Walkathon 2025";	
 	
-	
-	
-	@FindBy(xpath = "//div[contains(text(),'100 Days Of Running 2024.')]")
-	private WebElement HDOR_2024;
+	@FindBy(xpath = "//div[text()='Walkathon 2025']/ancestor::div/following-sibling::div[3]/child::div[2]/button[text()='Register']")
+	private WebElement eventWebElement;
 	
 	@FindBy(xpath="(//button[@type='button'][normalize-space()='Register'])[1]")
 	private WebElement registerButton;
@@ -33,7 +32,7 @@ public class HomePage extends BaseClass{
 	@FindBy(xpath="(//button[@type='button'][normalize-space()='USD'])[1]")
 	private WebElement BottomUSDButton;
 	
-	@FindBy(xpath="(//button[@type='button'][normalize-space()='Buy Now'])[3]")
+	@FindBy(xpath="(//button[@type='button'])[3]")
 	private WebElement SideBarBuyNowButton;
 	@FindBy(xpath="(//button[@type='button'][normalize-space()='EUR'])[3]")
 	private WebElement SideBarEURButton;
@@ -61,9 +60,11 @@ public class HomePage extends BaseClass{
 	 */
 	
 	public EventDescriptionPage clickOnRegisterButton() throws Throwable{
-		//action.scrollByVisibilityOfElement(driver, TDH_2024);
+		Thread.sleep(5000);
+		WebElement eventElement=driver.findElement(By.xpath("//div[text()='Walkathon 2025']/ancestor::div/following-sibling::div[3]/child::div[2]/button[text()='Register']"));
+		action.scrollByVisibilityOfElement(driver, eventElement);
 		Thread.sleep(2000);
-		action.click(driver, registerButton);
+		action.click(driver, eventElement);
 		System.out.println("Register Button Clicked");
 		return new EventDescriptionPage();
 	}

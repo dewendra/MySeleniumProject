@@ -25,11 +25,11 @@ public class HomePage extends BaseClass{
 	
 	
 	public HomePage() {
-		PageFactory.initElements(getDriver(), this);
+		PageFactory.initElements(driver, this);
 	}
 	
 	public boolean validateLogo() throws Throwable {
-		boolean result=action.isDisplayed(getDriver(), hdorLogo);
+		boolean result=action.isDisplayed(driver, hdorLogo);
 		return result;
 		
 	}
@@ -37,7 +37,7 @@ public class HomePage extends BaseClass{
 		action.type(emailId, username);
 		System.out.println("Email id:"+username);
 		Thread.sleep(2000);
-		action.click(getDriver(), continueButton);
+		action.click(driver, continueButton);
 		System.out.println("Continue Button Clicked");
 		return new LoginPage();
 	}

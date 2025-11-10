@@ -3,17 +3,16 @@ package com.hdor.eventdashboard;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.hdorRegistrationProcess.base.BaseClass;
-import com.hdorRegistrationProcess.pageobjects.DashboardPage;
-import com.hdorRegistrationProcess.pageobjects.HomePage;
-import com.hdorRegistrationProcess.pageobjects.LoginPage;
-import com.hdorRegistrationProcess.pageobjects.SelectedEventPage;
+import com.hdor.eventdashboard.base.BaseClass;
+import com.hdor.eventdashboard.pageobjects.DashboardPage;
+import com.hdor.eventdashboard.pageobjects.HomePage;
+import com.hdor.eventdashboard.pageobjects.LoginPage;
 
 public class DashboardPageTest extends BaseClass {
 	private HomePage homePage;
 	private LoginPage loginPage;
 	private DashboardPage dashboardPage;
-	private SelectedEventPage selectedEventPage;
+	//private SelectedEventPage selectedEventPage;
 	
 	@BeforeMethod()
 	public void setup() {
@@ -29,7 +28,7 @@ public class DashboardPageTest extends BaseClass {
 		loginPage=new LoginPage();
 		homePage.emailLogin(prop.getProperty("username"));
 		dashboardPage=loginPage.passwordLogin(prop.getProperty("password"));
-		selectedEventPage=dashboardPage.clickOnEvent();
+		//selectedEventPage=dashboardPage.clickOnEvent();
 	}
 
 }

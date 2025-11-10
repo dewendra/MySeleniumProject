@@ -4,8 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.hdorRegistrationProcess.actiondriver.Action;
-import com.hdorRegistrationProcess.base.BaseClass;
+import com.hdor.eventdashboard.actiondriver.Action;
+import com.hdor.eventdashboard.base.BaseClass;
 
 public class LoginPage extends BaseClass{
 	Action action = new Action();
@@ -17,13 +17,13 @@ public class LoginPage extends BaseClass{
 	private WebElement loginButton;
 	
 	public LoginPage() {
-		PageFactory.initElements(getDriver(), this);
+		PageFactory.initElements(driver, this);
 	}
 	public DashboardPage passwordLogin(String password)throws Throwable {
 		action.type(passWord, password);
 		System.out.println("Password entered:"+password);
 		Thread.sleep(2000);
-		action.click(getDriver(), loginButton);
+		action.click(driver, loginButton);
 		System.out.println("Login Button Clicked");
 		return new DashboardPage();
 	}
