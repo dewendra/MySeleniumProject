@@ -1,5 +1,6 @@
 package com.procam;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.procam.base.BaseClass;
@@ -15,8 +16,13 @@ public class LoginTest extends BaseClass{
 	private EventsList eventsList;
 	private EventDashBoard eventDashBoard;
 	
+	@BeforeMethod()
+	public void setup() {
+		launchApp();
+	}
+	
 	@Test
-	public void verifyLogin() {
+	public void verifyLogin() throws InterruptedException {
 		loginPage=new LoginPage();
 		vendorDashBaoardPage=loginPage.loginByEmail();
 		eventsList=vendorDashBaoardPage.selectOptions();
