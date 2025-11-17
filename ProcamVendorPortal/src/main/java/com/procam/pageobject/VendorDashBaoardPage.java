@@ -20,8 +20,8 @@ public class VendorDashBaoardPage extends BaseClass{
 		wait=new WebDriverWait(driver, Duration.ofSeconds(5));
 	}
 	
-	public EventsList selectOptions() {
+	public EventsListPage selectOptions() {
 		accountsTeam.click();
-		return new EventsList();
+		return new EventsListPage();
 	}
 }

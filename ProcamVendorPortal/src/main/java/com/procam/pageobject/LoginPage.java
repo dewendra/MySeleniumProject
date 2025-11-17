@@ -12,6 +12,8 @@ import com.procam.base.BaseClass;
 
 public class LoginPage extends BaseClass{
 	
+	WebDriverWait wait;
+	
 	@FindBy(xpath = "//input[@id='emailId']")
 	private WebElement emailId;
 	
@@ -24,7 +26,7 @@ public class LoginPage extends BaseClass{
 	@FindBy(xpath = "//button[normalize-space()='Login']")
 	private WebElement loginBtn;
 	
-	WebDriverWait wait;
+	
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
 		wait=new WebDriverWait(driver, Duration.ofSeconds(10));

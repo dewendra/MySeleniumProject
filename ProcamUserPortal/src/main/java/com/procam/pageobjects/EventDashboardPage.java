@@ -1,4 +1,4 @@
-package com.procam.pageobject;
+package com.procam.pageobjects;
 
 import java.time.Duration;
 
@@ -10,23 +10,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.procam.base.BaseClass;
 
-public class EventsList extends BaseClass{
-
-	@FindBy(xpath = "//h6[normalize-space()='Tata Steel World 25K Kolkata 2025']")
-	private WebElement eventName;
+public class EventDashboardPage extends BaseClass{
 	
 	WebDriverWait wait;
 	
-	public EventsList() {
+	@FindBy(xpath = "")
+	private WebElement element;
+	
+	@FindBy(xpath = "//div[contains(@class,'row')]//div[2]//img")
+	private WebElement event2;
+	
+	
+	public EventDashboardPage() {
 		PageFactory.initElements(driver, this);
 		wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
-	
-	public EventDashBoard selectEvent() {
-		wait.until(ExpectedConditions.visibilityOf(eventName));
-		
-		eventName.click();
-		//wait.until(ExpectedConditions.elementToBeClickable(eventName)).click();
-		return new EventDashBoard();
+
+	public void selectEvent() {
+		wait.until(ExpectedConditions.visibilityOf(event2));
+		wait.until(ExpectedConditions.elementToBeClickable(event2));
+		event2.click();
 	}
 }
