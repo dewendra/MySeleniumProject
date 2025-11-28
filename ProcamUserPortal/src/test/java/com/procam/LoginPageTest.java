@@ -6,10 +6,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.procam.base.BaseClass;
+import com.procam.pageobjects.EventDashboardPage;
 import com.procam.pageobjects.LoginPage;
 
 public class LoginPageTest extends BaseClass{
-	private LoginPage loginPage;	
+	private LoginPage loginPage;
+	private EventDashboardPage eventDashboardPage;
 	
 	@BeforeMethod
 	public void setup() {
@@ -19,7 +21,8 @@ public class LoginPageTest extends BaseClass{
 	@Test
 	public void verifyLogin() throws InterruptedException {
 		loginPage=new LoginPage();
-		loginPage.loginByEmail();
+		eventDashboardPage=loginPage.loginByEmail();
+		eventDashboardPage.selectEvent();
 		
 	}
 

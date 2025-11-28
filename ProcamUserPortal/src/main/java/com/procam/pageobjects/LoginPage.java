@@ -33,16 +33,17 @@ public class LoginPage extends BaseClass {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
-	public void loginByEmail() throws InterruptedException {
+	public EventDashboardPage loginByEmail() throws InterruptedException {
 		Thread.sleep(12000);
 		emailId.clear();
-		emailId.sendKeys("pihu8@yopmail.com");
+		emailId.sendKeys("pihu5@yopmail.com");
 		
 		wait.until(ExpectedConditions.elementToBeClickable(sendOTP)).click();
 		Thread.sleep(12000);
 		//wait.until(ExpectedConditions.visibilityOf(otp)).sendKeys("000000");
 		
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
+		return new EventDashboardPage();
 
 	}
 

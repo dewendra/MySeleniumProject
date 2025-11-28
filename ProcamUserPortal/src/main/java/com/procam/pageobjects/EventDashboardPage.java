@@ -14,11 +14,14 @@ public class EventDashboardPage extends BaseClass{
 	
 	WebDriverWait wait;
 	
-	@FindBy(xpath = "")
-	private WebElement element;
+	@FindBy(xpath = "//div[contains(@class,'row')]//div[1]//img")
+	private WebElement vdhm_2025;
 	
 	@FindBy(xpath = "//div[contains(@class,'row')]//div[2]//img")
-	private WebElement event2;
+	private WebElement tmm_2026;
+	
+	@FindBy(xpath = "//div[contains(@class,'row')]//div[3]//img")
+	private WebElement twsk_2025;
 	
 	
 	public EventDashboardPage() {
@@ -27,8 +30,9 @@ public class EventDashboardPage extends BaseClass{
 	}
 
 	public void selectEvent() {
-		wait.until(ExpectedConditions.visibilityOf(event2));
-		wait.until(ExpectedConditions.elementToBeClickable(event2));
-		event2.click();
+		wait.until(ExpectedConditions.visibilityOf(twsk_2025));
+		wait.until(ExpectedConditions.elementToBeClickable(twsk_2025));
+		twsk_2025.click();
+		
 	}
 }
