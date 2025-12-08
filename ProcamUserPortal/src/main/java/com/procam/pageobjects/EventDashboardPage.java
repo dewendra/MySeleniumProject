@@ -1,18 +1,16 @@
 package com.procam.pageobjects;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.procam.base.BaseClass;
+import com.procam.utils.DriverFactory;
+import com.procam.utils.Logs;
+import com.procam.utils.WaitHelper;
 
 public class EventDashboardPage extends BaseClass{
 	
-	WebDriverWait wait;
+	WaitHelper wait;
 	
 	@FindBy(xpath = "//div[contains(@class,'row')]//div[1]//img")
 	private WebElement vdhm_2025;
@@ -25,14 +23,16 @@ public class EventDashboardPage extends BaseClass{
 	
 	
 	public EventDashboardPage() {
-		PageFactory.initElements(driver, this);
-		wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		PageFactory.initElements(DriverFactory.getDriver(), this);
+		wait=new WaitHelper(DriverFactory.getDriver());
 	}
 
-	public void selectEvent() {
-		wait.until(ExpectedConditions.visibilityOf(twsk_2025));
-		wait.until(ExpectedConditions.elementToBeClickable(twsk_2025));
+	public DiscountApplyPage selectEvent() {
+		wait.waitForVisible(tmm_2026);
+		wait.waitForClickable(tmm_2026);
+		Logs.info("Clicking on event");
 		twsk_2025.click();
+		return new DiscountApplyPage();
 		
 	}
 }

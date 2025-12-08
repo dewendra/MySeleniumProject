@@ -10,10 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.procam.actiondriver.Action;
 import com.procam.base.BaseClass;
+import com.procam.utils.DriverFactory;
+import com.procam.utils.Logs;
+import com.procam.utils.WaitHelper;
 
-public class DiscountApply extends BaseClass {
+public class DiscountApplyPage extends BaseClass {
 	private Action action;
-	WebDriverWait wait;
+	WaitHelper wait;
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
 	private WebElement backBtn;
@@ -36,23 +39,39 @@ public class DiscountApply extends BaseClass {
 	@FindBy(xpath = "//button[normalize-space()='Apply']")
 	private WebElement applyBtn;
 
-	public DiscountApply() {
-		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	public DiscountApplyPage() {
+		PageFactory.initElements(DriverFactory.getDriver(), this);
+		wait = new WaitHelper(DriverFactory.getDriver());
 	}
 
 	public void readMore() {
-		wait.until(ExpectedConditions.visibilityOf(read_More));
+		wait.waitForVisible(read_More);
+		Logs.info("Clicking Read More");
 		action.click(driver, read_More);
 	}
 
-	public void withDisCode() {
-		wait.until(ExpectedConditions.visibilityOf(yesRadioBtn)).click();
-		wait.until(ExpectedConditions.visibilityOf(discountCode));
+	public PersonalDetailsPage withDiscountCode() {
+		Logs.info("Clicking yesRadioBtn");
+		wait.waitForVisible(yesRadioBtn).click();
+		wait.waitForVisible(discountCode);
 		discountCode.clear();
+		Logs.info("Applying Discount Code");
 		discountCode.sendKeys("123456");
-		wait.until(ExpectedConditions.elementToBeClickable(applyBtn));
-		wait.until(ExpectedConditions.elementToBeClickable(proceedBtn));
+		wait.waitForClickable(applyBtn);
+		Logs.info("Clicking applyBtn");
+		applyBtn.click();
+		wait.waitForClickable(proceedBtn);
+		Logs.info("Clicking proceedBtn");
 		proceedBtn.click();
+		return new PersonalDetailsPage();
+	}
+
+	public PersonalDetailsPage withoutDiscountCode() {
+		Logs.info("Clicking noRadioBtn");
+		wait.waitForVisible(noRadioBtn);
+		wait.waitForClickable(proceedBtn);
+		Logs.info("Clicking proceedBtn");
+		proceedBtn.click();
+		return new PersonalDetailsPage();
 	}
 }

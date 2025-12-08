@@ -1,18 +1,17 @@
 package com.procam.pageobjects;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.procam.base.BaseClass;
+import com.procam.utils.DriverFactory;
+import com.procam.utils.Logs;
+import com.procam.utils.WaitHelper;
 
 public class LoginPage extends BaseClass {
 	
-	WebDriverWait wait;
+	WaitHelper wait;
 
 	@FindBy(xpath = "//input[@id='emailId']")
 	private WebElement emailId;
@@ -29,20 +28,23 @@ public class LoginPage extends BaseClass {
 	
 
 	public LoginPage() {
-		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		PageFactory.initElements(DriverFactory.getDriver(), this);
+		wait = new WaitHelper(DriverFactory.getDriver());
 	}
 
 	public EventDashboardPage loginByEmail() throws InterruptedException {
 		Thread.sleep(12000);
+		Logs.info("Entering email");
 		emailId.clear();
 		emailId.sendKeys("pihu5@yopmail.com");
-		
-		wait.until(ExpectedConditions.elementToBeClickable(sendOTP)).click();
-		Thread.sleep(12000);
+		Logs.info("Clicking sendOTP");
+		wait.waitForClickable(sendOTP).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(sendOTP)).click();
+		Thread.sleep(20000);
 		//wait.until(ExpectedConditions.visibilityOf(otp)).sendKeys("000000");
-		
-		wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
+		Logs.info("Clicking login");
+		wait.waitForClickable(loginBtn).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
 		return new EventDashboardPage();
 
 	}
