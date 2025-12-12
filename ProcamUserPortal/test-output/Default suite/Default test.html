@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Dec 05 17:40:39 IST 2025</td>
+<td>Started on:</td><td>Thu Dec 11 18:11:44 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>90 seconds (90973 ms)</td>
+<tr><td>Total time:</td><td>176 seconds (176237 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,15 +77,15 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.procam.LoginPageTest.verifyLogin()'><b>verifyLogin</b><br>Test class: com.procam.LoginPageTest</td>
-<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (417, 640)
-  (Session info: chrome=142.0.7444.163)
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (160, 3012)
+  (Session info: chrome=143.0.7499.41)
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a8848563b3c036896a11004f76c89ec4, clickElement {id=f.C29591BA540DDFED9A247772E7628E92.d.A5329F45253A0535D76887B287724066.e.236}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63974}, goog:processID: 54692, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63974/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (a8848563b3c036896a11004f76c89ec4)] -&gt; xpath: //ng-select[@bindvalue=&apos;key&apos;]//span[contains(@class,&apos;ng-arrow-wrapper&apos;)]]
-Session ID: a8848563b3c036896a11004f76c89ec4
+Command: [296255e8dbd2445f454adb062ca2f4bd, clickElement {id=f.9BE431B177FC9F48D82E79B9DC96F311.d.12FDA97174283C113F015D26202D96E4.e.298}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.41, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49401}, goog:processID: 37680, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49401/devtoo..., se:cdpVersion: 143.0.7499.41, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (296255e8dbd2445f454adb062ca2f4bd)] -&gt; xpath: //input[@id=&apos;donantionN&apos;]]
+Session ID: 296255e8dbd2445f454adb062ca2f4bd
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -102,8 +102,8 @@ Session ID: a8848563b3c036896a11004f76c89ec4
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
 	at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
-	at com.procam.pageobjects.EventCriteriaPage.enterEventDetails(EventCriteriaPage.java:258)
-	at com.procam.LoginPageTest.verifyLogin(LoginPageTest.java:48)
+	at com.procam.pageobjects.MerchandiseDetailsPage.enterMerchandiseDetails(MerchandiseDetailsPage.java:101)
+	at com.procam.LoginPageTest.verifyLogin(LoginPageTest.java:52)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -130,16 +130,16 @@ Session ID: a8848563b3c036896a11004f76c89ec4
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace723310524", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace723310524'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (417, 640)
-  (Session info: chrome=142.0.7444.163)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2075981552", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2075981552'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (160, 3012)
+  (Session info: chrome=143.0.7499.41)
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a8848563b3c036896a11004f76c89ec4, clickElement {id=f.C29591BA540DDFED9A247772E7628E92.d.A5329F45253A0535D76887B287724066.e.236}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63974}, goog:processID: 54692, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63974/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (a8848563b3c036896a11004f76c89ec4)] -&gt; xpath: //ng-select[@bindvalue=&apos;key&apos;]//span[contains(@class,&apos;ng-arrow-wrapper&apos;)]]
-Session ID: a8848563b3c036896a11004f76c89ec4
+Command: [296255e8dbd2445f454adb062ca2f4bd, clickElement {id=f.9BE431B177FC9F48D82E79B9DC96F311.d.12FDA97174283C113F015D26202D96E4.e.298}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.41, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49401}, goog:processID: 37680, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49401/devtoo..., se:cdpVersion: 143.0.7499.41, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (296255e8dbd2445f454adb062ca2f4bd)] -&gt; xpath: //input[@id=&apos;donantionN&apos;]]
+Session ID: 296255e8dbd2445f454adb062ca2f4bd
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -156,8 +156,8 @@ Session ID: a8848563b3c036896a11004f76c89ec4
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
 	at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
-	at com.procam.pageobjects.EventCriteriaPage.enterEventDetails(EventCriteriaPage.java:258)
-	at com.procam.LoginPageTest.verifyLogin(LoginPageTest.java:48)
+	at com.procam.pageobjects.MerchandiseDetailsPage.enterMerchandiseDetails(MerchandiseDetailsPage.java:101)
+	at com.procam.LoginPageTest.verifyLogin(LoginPageTest.java:52)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -185,7 +185,7 @@ Session ID: a8848563b3c036896a11004f76c89ec4
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>88</td>
+<td>173</td>
 <td>com.procam.LoginPageTest@4f49f6af</td></tr>
 </table><p>
 </body>

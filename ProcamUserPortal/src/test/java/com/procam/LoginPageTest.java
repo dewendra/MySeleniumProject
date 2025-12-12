@@ -1,6 +1,5 @@
 package com.procam;
 
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -13,6 +12,8 @@ import com.procam.pageobjects.DiscountApplyPage;
 import com.procam.pageobjects.EventCriteriaPage;
 import com.procam.pageobjects.EventDashboardPage;
 import com.procam.pageobjects.LoginPage;
+import com.procam.pageobjects.MerchandiseDetailsPage;
+import com.procam.pageobjects.OrderSummaryPage;
 import com.procam.pageobjects.PersonalDetailsPage;
 import com.procam.utils.Logs;
 
@@ -23,8 +24,10 @@ public class LoginPageTest extends BaseClass {
 	private DiscountApplyPage discountApplyPage;
 	private PersonalDetailsPage personalDetailsPage;
 	private EventCriteriaPage eventCriteriaPage;
+	private MerchandiseDetailsPage merchandiseDetailsPage;
+	private OrderSummaryPage orderSummaryPage;
 
-	//@BeforeSuite
+	// @BeforeSuite
 	public void setupSuit() {
 		ExtentSparkReporter reporter = new ExtentSparkReporter("reports/ExtentReport.html");
 		extentReports = new ExtentReports();
@@ -44,12 +47,14 @@ public class LoginPageTest extends BaseClass {
 		discountApplyPage = eventDashboardPage.selectEvent();
 		// personalDetailsPage=discountApplyPage.withDiscountCode();
 		personalDetailsPage = discountApplyPage.withoutDiscountCode();
-		eventCriteriaPage=personalDetailsPage.enterDetails();
-		eventCriteriaPage.enterEventDetails();
+		eventCriteriaPage = personalDetailsPage.enterDetails();
+		merchandiseDetailsPage = eventCriteriaPage.enterEventDetails();
+		orderSummaryPage = merchandiseDetailsPage.enterMerchandiseDetails();
+		//orderSummaryPage.enterGstDetails();
 
 	}
 
-	//@AfterMethod
+	// @AfterMethod
 	public void tearDown() {
 		Logs.info("===== Test Finished =====");
 		closeApp();

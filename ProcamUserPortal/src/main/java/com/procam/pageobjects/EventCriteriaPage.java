@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.procam.actiondriver.Action;
 import com.procam.base.BaseClass;
+import com.procam.utils.DatePickerHelper;
 import com.procam.utils.DriverFactory;
 import com.procam.utils.DropdownHelper;
 import com.procam.utils.Logs;
@@ -33,9 +34,6 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='flexRadioDefault2']")
 	private WebElement participateInONGroundEventNo;
 
-	// @FindBy(xpath =
-	// "//ng-select[@bindvalue='name']//span[@class='ng-arrow-wrapper']")
-	// @FindBy(xpath = "//ng-select[@bindvalue='name']")
 	@FindBy(xpath = "//ng-select[@bindvalue='name']//div[contains(@class,'ng-select-container')]")
 	private WebElement selectRaceCategoryDropDown;
 
@@ -60,7 +58,7 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//input[@name='eventName']")
 	private WebElement eventName;
 
-	@FindBy(xpath = "//div[contains(@class,'ng-placeholder') and normalize-space()='Select Category']")
+	@FindBy(css = "ng-select[formcontrolname='raceCategoryId'] .ng-select-container")
 	private WebElement raceCategory;
 
 	@FindBy(xpath = "//input[@name='bib']")
@@ -82,7 +80,10 @@ public class EventCriteriaPage extends BaseClass {
 	private WebElement selectIdProofType;
 
 	@FindBy(xpath = "//input[@name='adharCardNumber']")
-	private WebElement selectedIdProofNumberInput;
+	private WebElement adharCardNumberInput;
+
+	@FindBy(xpath = "//input[@name='panCardNumber']")
+	private WebElement panCardNumberInput;
 
 	@FindBy(xpath = "//label[@for='idproof']")
 	private WebElement uploadIdProof;
@@ -143,7 +144,7 @@ public class EventCriteriaPage extends BaseClass {
 		wait = new WaitHelper(DriverFactory.getDriver());
 	}
 
-	public void enterEventDetails() {
+	public MerchandiseDetailsPage enterEventDetails() throws InterruptedException {
 		waitThread(5000);
 		scrollElementInToTop(onGroundEventPage);
 		wait.waitForVisible(participateInONGroundEventYes);
@@ -151,16 +152,7 @@ public class EventCriteriaPage extends BaseClass {
 		Logs.info("Ground Event radio button clicking...");
 		participateInONGroundEventYes.click();
 		Logs.info("Ground Event radio button clicked...");
-
-		// waitThread(5000);
-		// wait.waitForVisible(selectRaceCategoryDropDown);
-		// wait.waitForClickable(selectRaceCategoryDropDown);
-		// Logs.info("Rcae Category Dropdown Clicking..");
-		// selectRaceCategoryDropDown.click();
-		// Logs.info("Rcae Category Dropdown Clicked..");
-
-		// wait.waitForVisible(raceCategoryDropDownList);
-		// wait.waitForClickable(raceCategoryDropDownList);
+		
 		selectRaceCategory1("Open 10K (10 km)");
 
 		wait.waitForVisible(timedRunner);
@@ -181,9 +173,6 @@ public class EventCriteriaPage extends BaseClass {
 		eventName.sendKeys("Vedanta Delhi Half Marathon 2025");
 		Logs.info("Event Name entered...");
 
-		// wait.waitForVisible(raceCategory);
-		// wait.waitForClickable(raceCategory);
-		// raceCategory.click();
 		selectEventRaceCategory("10 Km");
 
 		wait.waitForVisible(bibNumber);
@@ -195,7 +184,8 @@ public class EventCriteriaPage extends BaseClass {
 		wait.waitForVisible(eventConductedDate);
 		wait.waitForClickable(eventConductedDate);
 		Logs.info("Entering Event Conducted Date...");
-		eventConductedDate.sendKeys("19-10-2025");
+		//eventConductedDate.sendKeys("19-10-2025");
+		DatePickerHelper.selectDate(DriverFactory.getDriver(), eventConductedDate, "19-10-2025");
 		Logs.info("Event Conducted Date entered...");
 
 		wait.waitForVisible(hoursInput);
@@ -206,29 +196,19 @@ public class EventCriteriaPage extends BaseClass {
 
 		wait.waitForVisible(minutesInput);
 		wait.waitForClickable(minutesInput);
+		Logs.info("Entering Minutes...");
 		minutesInput.sendKeys("24");
+		Logs.info("Minutes entered...");
 
 		wait.waitForVisible(secondsInput);
 		wait.waitForClickable(secondsInput);
+		Logs.info("Entering Seconds...");
 		secondsInput.sendKeys("38");
+		Logs.info("Seconds entered...");
 
-		wait.waitForVisible(selectIdProofType);
-		wait.waitForClickable(selectIdProofType);
-		selectIdProofType.click();
-		selectAddressFromList("Aadhar Card");
-
-		wait.waitForVisible(selectedIdProofNumberInput);
-		wait.waitForClickable(selectedIdProofNumberInput);
-		selectedIdProofNumberInput.sendKeys("8888 1111 5555");
-
-		wait.waitForVisible(uploadIdProof);
-		wait.waitForClickable(uploadIdProof);
-		uploadIdProof.click();
-
-		wait.waitForVisible(uploadProfileImage);
-		wait.waitForClickable(uploadProfileImage);
-		uploadProfileImage.click();
-
+		selectIdProofFromList("PAN Card");
+		uploadProfileimage();
+		
 		wait.waitForVisible(emergencyContactPersonName1);
 		wait.waitForClickable(emergencyContactPersonName1);
 		emergencyContactPersonName1.clear();
@@ -259,32 +239,154 @@ public class EventCriteriaPage extends BaseClass {
 		emergencyContactPersonRelationship2.clear();
 		emergencyContactPersonRelationship2.sendKeys("Father");
 
-		wait.waitForVisible(transportToUse);
-		wait.waitForClickable(transportToUse);
-		transportToUse.click();
 		selectTransportToUse("Car");
 
 		wait.waitForVisible(raceDayIsSpecialNo);
 		wait.waitForClickable(raceDayIsSpecialNo);
 		raceDayIsSpecialNo.click();
 
-		wait.waitForVisible(hearAboutInput);
-		wait.waitForClickable(hearAboutInput);
-		hearAboutInput.click();
-		selectTransportToUse("Online");
+		hearAboutUs("Online");
 
 		wait.waitForVisible(ForVirtualEventNo);
 		wait.waitForClickable(ForVirtualEventNo);
 		ForVirtualEventNo.click();
-
-		wait.waitForVisible(proceedBtn);
-		wait.waitForClickable(proceedBtn);
-		// proceedBtn.click();
+		
+		waitThread(2000);
+		JavascriptExecutor javascriptExecutor=(JavascriptExecutor)DriverFactory.getDriver();
+		javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
+		//wait.waitForVisible(proceedBtn);
+		//wait.waitForClickable(proceedBtn);
+		//proceedBtn.isEnabled();
+		//proceedBtn.click();
+		return new MerchandiseDetailsPage();
 
 	}
 
+	private void hearAboutUs(String hearAboutToSelect) {
+		wait.waitForVisible(hearAboutInput);
+		wait.waitForClickable(hearAboutInput);
+		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", hearAboutInput);
+		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", hearAboutInput);
+		Logs.info("Id Proof Dropdown opened...");
+		waitThread(5000);
+		List<WebElement> hearAboutList = DriverFactory.getDriver()
+				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
+		waitThread(5000);
+		System.out.println("Hear About List size: " + hearAboutList.size());
+		for (WebElement hearAbout : hearAboutList) {
+			System.out.println("" + hearAbout.getText().toString());
+		}
+		waitThread(5000);
+		DropdownHelper dropdown = new DropdownHelper(DriverFactory.getDriver());
+		dropdown.selectFromList(hearAboutList, hearAboutToSelect);
+		Logs.info("Hear about selected from dropdown: " + hearAboutToSelect);
+
+	}
+
+	private void uploadProfileimage() {
+		scrollElementInToView(uploadProfileImage);
+		wait.waitForVisible(uploadProfileImage);
+		wait.waitForClickable(uploadProfileImage);
+		Logs.info("Clicking on upload profile Image for: ");
+		//uploadProfileImage.click();
+		String filePath = "C:\\Users\\dewen\\Downloads\\Procam testing\\Avatar Images\\pihu.png";
+		Logs.info("Uloading file: " + filePath);
+		WebElement fileInput = DriverFactory.getDriver().findElement(By.xpath("//input[@type='file']"));
+		fileInput.sendKeys(filePath);
+		Logs.info("File uploaded successfully for profile image: ");
+	}
+
+	private void selectIdProofToUpload(String idProofType) {
+		scrollElementInToView(uploadIdProof);
+		wait.waitForVisible(uploadIdProof);
+		wait.waitForClickable(uploadIdProof);
+		Logs.info("Clicking on upload button for: " + idProofType);
+		//uploadIdProof.click();
+		String filePath = "";
+		if (idProofType.equalsIgnoreCase("Aadhar Card")) {
+			filePath = "C:\\Users\\dewen\\Downloads\\Procam testing\\ProcamTest\\docs\\aadhaar.png";
+		} else if (idProofType.equalsIgnoreCase("PAN Card")) {
+			filePath = "C:\\Users\\dewen\\Downloads\\Procam testing\\ProcamTest\\docs\\pan_card.jpg";
+		}
+
+		Logs.info("Uploading file: " + filePath);
+
+		WebElement fileInput = DriverFactory.getDriver().findElement(By.xpath("//input[@type='file']"));
+		fileInput.sendKeys(filePath);
+
+		Logs.info("File uploaded successfully for: " + idProofType);
+
+	}
+
+	private void selectIdProofFromList(String idProofToSelect) {
+		scrollElementInToView(selectIdProofType);
+		wait.waitForVisible(selectIdProofType);
+		wait.waitForClickable(selectIdProofType);
+		Logs.info("Clicking on Id proof dropdown...");
+		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", selectIdProofType);
+		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", selectIdProofType);
+		Logs.info("Id Proof Dropdown opened...");
+		waitThread(5000);
+		List<WebElement> idProofList = DriverFactory.getDriver()
+				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
+		waitThread(5000);
+		System.out.println("Id Proof List size: " + idProofList.size());
+		for (WebElement idproof : idProofList) {
+			System.out.println(idproof.getText().toString());
+		}
+
+		DropdownHelper dropdown = new DropdownHelper(DriverFactory.getDriver());
+		dropdown.selectFromList(idProofList, idProofToSelect);
+
+		Logs.info("Id Proof selected from dropdown: " + idProofToSelect);
+		waitThread(5000);
+		if (idProofToSelect.equalsIgnoreCase("Aadhar Card")) {
+			wait.waitForVisible(adharCardNumberInput);
+			wait.waitForClickable(adharCardNumberInput);
+			adharCardNumberInput.sendKeys("8888 1111 5555");
+
+		} else if (idProofToSelect.equalsIgnoreCase("PAN Card")) {
+			wait.waitForVisible(panCardNumberInput);
+			wait.waitForClickable(panCardNumberInput);
+			panCardNumberInput.sendKeys("PIHUF1234F");
+		} else {
+			System.out.println("Id proof not selected...");
+		}
+
+		if (idProofToSelect.equalsIgnoreCase("Aadhar Card")) {
+			selectIdProofToUpload("Aadhar Card");
+
+		} else if (idProofToSelect.equalsIgnoreCase("PAN Card")) {
+			selectIdProofToUpload("PAN Card");
+
+		} else {
+			System.out.println("Id proof not selected...");
+		}
+	}
+
 	private void selectTransportToUse(String transportToSelect) {
-		// TODO Auto-generated method stub
+		scrollElementInToView(transportToUse);
+		wait.waitForVisible(transportToUse);
+		wait.waitForClickable(transportToUse);
+		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", transportToUse);
+		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", transportToUse);
+
+		Logs.info("Dropdown opened...");
+
+		waitThread(1500);
+		List<WebElement> transportList = DriverFactory.getDriver()
+				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
+		waitThread(5000);
+		System.out.println("Transport List Size: " + transportList.size());
+		for (WebElement transport : transportList) {
+			System.out.println(transport.getText().toString());
+		}
+		DropdownHelper dropdown = new DropdownHelper(DriverFactory.getDriver());
+		dropdown.selectFromList(transportList, transportToSelect);
+		Logs.info("Transport selected from dropdown: " + transportToSelect);
 
 	}
 
@@ -294,20 +396,19 @@ public class EventCriteriaPage extends BaseClass {
 	}
 
 	private void selectEventRaceCategory(String eventRaceCategoryToSelect) {
+		scrollElementInToView(raceCategory);
 		wait.waitForVisible(raceCategory);
 		wait.waitForClickable(raceCategory);
 		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
-		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));",
-				selectRaceCategoryDropDown);
-		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));",
-				selectRaceCategoryDropDown);
+		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", raceCategory);
+		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", raceCategory);
 
 		Logs.info("Dropdown opened...");
 
 		waitThread(1500);
-		
+
 		List<WebElement> eventRaceCategoryList = DriverFactory.getDriver()
-				.findElements(By.xpath("//div[contains(@class,'ng-option')]"));
+				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
 		waitThread(5000);
 		System.out.println("Event RaceCategory List Size: " + eventRaceCategoryList.size());
 		for (WebElement eventRaceCategory : eventRaceCategoryList) {

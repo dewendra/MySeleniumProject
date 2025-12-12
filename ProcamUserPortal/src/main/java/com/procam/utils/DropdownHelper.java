@@ -15,6 +15,9 @@ public class DropdownHelper {
 	public void selectFromList(List<WebElement> options, String partialText) {
 		//partialText = partialText.toLowerCase().trim();
 		for (WebElement option : options) {
+			if (!option.isEnabled()) {
+	            continue;   // skip disabled items
+	        }
 			String actualText = option.getText().trim();
 			if (actualText.contains(partialText)) {
 				option.click();
@@ -24,5 +27,7 @@ public class DropdownHelper {
 		throw new RuntimeException("Option not found: " + partialText);
 
 	}
+	
+	
 
 }
