@@ -155,10 +155,10 @@ public class EventCriteriaPage extends BaseClass {
 		
 		selectRaceCategory1("Open 10K (10 km)");
 
-		wait.waitForVisible(timedRunner);
-		wait.waitForClickable(timedRunner);
+		wait.waitForVisible(WomenCriteriaWithTimingCertificate);
+		wait.waitForClickable(WomenCriteriaWithTimingCertificate);
 		Logs.info("Timed Runner radio button clicking...");
-		timedRunner.click();
+		WomenCriteriaWithTimingCertificate.click();
 		Logs.info("Timed Runner radio button clicked...");
 
 		wait.waitForVisible(timingCertificateLink);

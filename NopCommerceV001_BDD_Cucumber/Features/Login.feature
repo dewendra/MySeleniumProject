@@ -1,4 +1,4 @@
-Feature:Login
+Feature:Login 
 
 @sanity @regression
 Scenario: Successful Login with valid credentials
@@ -11,7 +11,7 @@ Scenario: Successful Login with valid credentials
 	Then Page Title should be "nopCommerce demo store. Login"
 	
 @regression	
-Scenario Outline:Successful Login with valid credentials DDT
+Scenario Outline:Successful Login with valid credentials DDT 
 	Given User launch chrome browser
 	When User opens url "https://admin-demo.nopcommerce.com/login"
 	And User enters email as "<email>" and password as "<password>"
