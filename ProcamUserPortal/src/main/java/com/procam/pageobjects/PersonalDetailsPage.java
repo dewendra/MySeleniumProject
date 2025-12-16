@@ -1,6 +1,9 @@
 package com.procam.pageobjects;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -33,12 +36,15 @@ public class PersonalDetailsPage extends BaseClass {
 	@FindBy(xpath = "//input[@name='emailId']")
 	private WebElement emailId;
 
-	@FindBy(xpath = "//div[@role='combobox']")
+	@FindBy(xpath = "//div[contains(@class,'ng-input') and @role='combobox']")
 	private WebElement mobileCode;
 
 	@FindBy(xpath = "//input[@name='mobile']")
 	private WebElement mobile;
 
+	@FindBy(xpath = "//label[@for='gender']")
+	private WebElement genderOption;
+	
 	@FindBy(xpath = "//input[@id='genderMale']")
 	private WebElement genderMale;
 
@@ -92,69 +98,83 @@ public class PersonalDetailsPage extends BaseClass {
 		wait = new WaitHelper(DriverFactory.getDriver());
 	}
 
-	public EventCriteriaPage enterDetails() {
+	public EventCriteriaPage enterDetails(Map<String, String> data) {
 		wait.waitForVisible(firstName);
 		wait.waitForClickable(firstName);
 		firstName.clear();
 		Logs.info("Entering First Name");
-		firstName.sendKeys("Pihu");
+		firstName.sendKeys(data.get("firstName"));
 
 		wait.waitForVisible(middleName);
 		wait.waitForClickable(middleName);
 		middleName.clear();
 		Logs.info("Entering Middle Name");
-		middleName.sendKeys("");
+		middleName.sendKeys(data.get("middleName"));
 
 		wait.waitForVisible(lastName);
 		wait.waitForClickable(lastName);
 		lastName.clear();
 		Logs.info("Entering Last Name");
-		lastName.sendKeys("Five");
+		lastName.sendKeys(data.get("lastName"));
 
 		wait.waitForVisible(mobileCode);
 		wait.waitForClickable(mobileCode);
-		mobile.clear();
+		mobileCode.clear();
 		Logs.info("Entering Mobile Code");
-		mobile.sendKeys("91");
+		mobileCode.sendKeys(data.get("mobileCode"));
 
 		wait.waitForVisible(mobile);
 		wait.waitForClickable(mobile);
 		mobile.clear();
 		Logs.info("Entering Mobile Number");
-		mobile.sendKeys("9876543210");
-
-		wait.waitForVisible(genderFemale);
-		wait.waitForClickable(genderFemale);
+		mobile.sendKeys(data.get("mobile"));
+		
 		Logs.info("Selecting gender");
-		genderFemale.click();
+		wait.waitForVisible(genderOption);
+		if (data.get("gender").equalsIgnoreCase("Female")) {
+			genderFemale.click();
+	    } else {
+	        genderMale.click();
+	    }
+
+//		wait.waitForVisible(genderFemale);
+//		wait.waitForClickable(genderFemale);
+//		Logs.info("Selecting gender");
+//		genderFemale.click();
 
 		/*
 		 * wait.until(ExpectedConditions.visibilityOf(dateOfBirth));
 		 * wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth));
 		 * dateOfBirth.clear(); dateOfBirth.click();
 		 */
-		selectAddressFromDropdown("110024", "Defence Colony");
+		selectAddressFromDropdown(data.get("pincode"), data.get("addressDropdown"));
 		
 		wait.waitForVisible(address);
 		wait.waitForClickable(address);
 		address.clear();
 		Logs.info("Entering Address");
-		address.sendKeys("A262, Defence Colony, Lajpat Nagar");
+		address.sendKeys(data.get("address"));
 
-		selectNationality("Indian");
+		selectNationality(data.get("nationality"));
 
+		if (data.get("runningClub").equalsIgnoreCase("Yes")) {
+	        runningClubYes.click();
+	    } else {
+	        runningClubNo.click();
+	    }
+		
+//		wait.waitForVisible(runningClubNo);
+//		wait.waitForClickable(runningClubNo);
+//		Logs.info("Entering Running Club");
+//		runningClubNo.click();
 
-		wait.waitForVisible(runningClubNo);
-		wait.waitForClickable(runningClubNo);
-		Logs.info("Entering Running Club");
-		runningClubNo.click();
-
-		selectOccupation("Housewife");
+		selectOccupation(data.get("occupation"));
 
 		wait.waitForVisible(proceedBtn);
 		wait.waitForClickable(proceedBtn);
 		Logs.info("Clicking proceed btn");
 		proceedBtn.click();
+		Logs.info("Going for Event Criteria Page....");
 		return new EventCriteriaPage();
 
 	}

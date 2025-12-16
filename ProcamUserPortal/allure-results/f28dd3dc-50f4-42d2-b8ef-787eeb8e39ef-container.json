@@ -1,0 +1,1 @@
+{"uuid":"f28dd3dc-50f4-42d2-b8ef-787eeb8e39ef","name":"com.procam.LoginPageTest.setup","children":["df1d9a6d-b194-4a0d-9fd3-6f574ce47067"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1765794918292,"stop":1765794920385}],"afters":[],"start":1765794918292,"stop":1765794920385}

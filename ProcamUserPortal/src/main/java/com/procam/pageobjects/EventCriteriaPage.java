@@ -258,6 +258,7 @@ public class EventCriteriaPage extends BaseClass {
 		//wait.waitForClickable(proceedBtn);
 		//proceedBtn.isEnabled();
 		//proceedBtn.click();
+		Logs.info("Going for Merchandise Details Page....");
 		return new MerchandiseDetailsPage();
 
 	}

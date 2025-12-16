@@ -58,7 +58,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='donationy']")
 	private WebElement donantionYes;
 
-	@FindBy(xpath = "//input[@id='donantionN']")
+	@FindBy(xpath="//label[@for='donantionN']")
 	private WebElement donantionNo;
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
@@ -96,18 +96,29 @@ public class MerchandiseDetailsPage extends BaseClass {
 		//selectAddOns("Unisex Flyer Cap-Blue");
 		//selectAddOns1("Unisex Flyer Cap-Blue");
 
+		//waitThread(5000);
+		Logs.info("Going for selecting the Donation option....");
+		scrollElementInToView(donantionNo);
 		wait.waitForVisible(donantionNo);
 		wait.waitForClickable(donantionNo);
+		waitThread(2000);
 		donantionNo.click();
+		Logs.info("Donation option No selected....");
 
+		Logs.info("Going for selecting the fund Raise option....");
 		wait.waitForVisible(fundRaiseNo);
 		wait.waitForClickable(fundRaiseNo);
-		fundRaiseNo.click();
+		waitThread(2000);
+		//fundRaiseNo.click();
+		Logs.info("Fund Raise No option selected....");
 
 		waitThread(2000);
+		scrollElementInToView(proceedBtn);
+		Logs.info("Going for clicking the proceed Button....");
 		JavascriptExecutor javascriptExecutor = (JavascriptExecutor) DriverFactory.getDriver();
 		javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
-
+		Logs.info("Proceed Btn clickied....");
+		Logs.info("Going for Order Summary Page....");
 		return new OrderSummaryPage();
 
 	}
@@ -305,17 +316,17 @@ public class MerchandiseDetailsPage extends BaseClass {
 	}
 
 	public void scrollElementInToTop(WebElement element) {
-		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'start'});",
+		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'start', inline:'nearest'});",
 				element);
 	}
 
 	public void scrollElementInToView(WebElement element) {
 		((JavascriptExecutor) DriverFactory.getDriver())
-				.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+				.executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});", element);
 	}
 
 	public void scrollElementInToEnd(WebElement element) {
-		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'end'});",
+		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'end', inline:'nearest'});",
 				element);
 	}
 

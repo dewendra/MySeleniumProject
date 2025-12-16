@@ -6,7 +6,7 @@
       <class name="com.procam.LoginPageTest">
         <methods>
           <include name="closeSuite"/>
-          <include name="verifyLogin"/>
+          <include name="verifyLogin" invocation-numbers="0 1"/>
           <include name="loadConfig"/>
           <include name="setup"/>
         </methods>
