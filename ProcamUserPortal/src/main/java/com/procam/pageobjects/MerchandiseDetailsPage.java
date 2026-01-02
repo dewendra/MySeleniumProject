@@ -1,8 +1,8 @@
 package com.procam.pageobjects;
 
-import java.rmi.server.LogStream;
 import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,18 +12,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.procam.actiondriver.Action;
 import com.procam.base.BaseClass;
 import com.procam.utils.DriverFactory;
-import com.procam.utils.DropdownHelper;
 import com.procam.utils.Logs;
 import com.procam.utils.WaitHelper;
 
 public class MerchandiseDetailsPage extends BaseClass {
 
+	private WebDriver driver;
 	Action action;
 	WaitHelper wait;
+	String parentWindow;
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
 	private WebElement upBackBtn;
@@ -58,7 +60,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='donationy']")
 	private WebElement donantionYes;
 
-	@FindBy(xpath="//label[@for='donantionN']")
+	@FindBy(xpath = "//label[@for='donantionN']")
 	private WebElement donantionNo;
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
@@ -67,55 +69,95 @@ public class MerchandiseDetailsPage extends BaseClass {
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='No']")
 	private WebElement fundRaiseNo;
 
+	@FindBy(css = "a[href*='tmm-green-bib']")
+	private WebElement greenBibhowPage;
+
+	@FindBy(xpath = "//input[@id='donationyGreenBib']")
+	private WebElement greenBibyes;
+
+	@FindBy(xpath = "//input[@id='donantionNGreenBib']")
+	private WebElement greenBibNo;
+
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
 
 	@FindBy(xpath = "//button[normalize-space()='Proceed']")
 	private WebElement proceedBtn;
 
-	// List<WebElement>addOnList=DriverFactory.getDriver().findElements(By.xpath("//div[contains(@class,'addOn-container
-	// row')]"));
-
 	public MerchandiseDetailsPage() {
-		PageFactory.initElements(DriverFactory.getDriver(), this);
-		wait = new WaitHelper(DriverFactory.getDriver());
+		this.driver = DriverFactory.getDriver();
+		PageFactory.initElements(driver, this);
+		wait = new WaitHelper(driver);
 	}
 
-	public OrderSummaryPage enterMerchandiseDetails() throws InterruptedException {
+	public OrderSummaryPage enterMerchandiseDetails(Map<String, String> data) throws InterruptedException {
+
 		waitThread(5000);
-		// wait.waitForVisible(addonsYes);
-		scrollElementInToView(addonsYes);
 
-		wait.waitForVisible(addonsYes);
-		wait.waitForClickable(addonsYes);
-		addonsYes.click();
+		// ------------------------Addons Option-----------------------//
+		Logs.info("Checking if Addons section is available...");
+		if (isAddOnsSectionAvailable()) {
+			Logs.info("Addons section found");
+			scrollElementInToView(addonsYes);
+			if (data.get("addOns").equalsIgnoreCase("yes")) {
+				wait.waitForClickable(addonsYes);
+				addonsYes.click();
+				Logs.info("addons Yes option selected...");
+				Logs.info("Going to select addons form available merchandise...");
+
+				selectAddOns(data.get("addOnName"));
+
+			} else {
+				Logs.info("addons No option selected...");
+				addonsNo.click();
+
+			}
+		} else {
+			Logs.info("Addons section NOT present : skipping to Donation");
+		}
 
 		waitThread(2000);
-		Logs.info("Going for selecting the Addons....");
-		selectAddOns("Unisex Herringbone Polo -India Blue");
-		//selectAddOns("Unisex Flyer Cap-Blue");
-		//selectAddOns1("Unisex Flyer Cap-Blue");
 
-		//waitThread(5000);
+		// ---------------------Donation ----------------------------//
+
 		Logs.info("Going for selecting the Donation option....");
-		scrollElementInToView(donantionNo);
-		wait.waitForVisible(donantionNo);
-		wait.waitForClickable(donantionNo);
-		waitThread(2000);
-		donantionNo.click();
-		Logs.info("Donation option No selected....");
+		if (data.get("donation").equalsIgnoreCase("yes")) {
+			scrollElementInToView(donantionYes);
+			wait.waitForVisible(donantionYes);
+			wait.waitForClickable(donantionYes);
+			waitThread(2000);
+			donantionYes.click();
+			Logs.info("donantion Yes option selected...");
+		} else {
+			Logs.info("donantion No option selected...");
+		}
 
+		// ---------------Fund Raiser--------------------------//
 		Logs.info("Going for selecting the fund Raise option....");
-		wait.waitForVisible(fundRaiseNo);
-		wait.waitForClickable(fundRaiseNo);
-		waitThread(2000);
-		//fundRaiseNo.click();
-		Logs.info("Fund Raise No option selected....");
+		if (data.get("fundRaise").equalsIgnoreCase("Yes")) {
+			wait.waitForVisible(fundRaiseYes);
+			wait.waitForClickable(fundRaiseYes);
+			waitThread(2000);
+			fundRaiseYes.click();
+		} else {
+			Logs.info("Fund Raise No option selected....");
+		}
 
+		// ---------------TGB Selection--------------------------//
+		greenBibLinkPage();
+		if (data.get("tgb").equalsIgnoreCase("yes")) {
+			wait.waitForVisible(greenBibyes);
+			wait.waitForClickable(greenBibyes);
+			greenBibyes.click();
+		} else {
+			Logs.info("TGB No option selected....");
+		}
+
+		// ----------------------Proceed Button----------------------//
 		waitThread(2000);
 		scrollElementInToView(proceedBtn);
 		Logs.info("Going for clicking the proceed Button....");
-		JavascriptExecutor javascriptExecutor = (JavascriptExecutor) DriverFactory.getDriver();
+		JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 		javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
 		Logs.info("Proceed Btn clickied....");
 		Logs.info("Going for Order Summary Page....");
@@ -123,80 +165,46 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 	}
 
-	private void selectAddOns1(String addOnToSelect) throws InterruptedException {
+	// ---------------TGB how page(seperate page)
+	// Selection--------------------------//
+	public void greenBibLinkPage() {
+		parentWindow = driver.getWindowHandle();
+		wait.waitForVisible(greenBibhowPage);
+		wait.waitForClickable(greenBibhowPage);
+		greenBibhowPage.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
-		WebDriver driver = DriverFactory.getDriver();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		Logs.info("Fetching list of AddOns...");
-		List<WebElement> addOnCards = driver.findElements(By.xpath("//div[contains(@class,'addOn-container')]"));
-		Logs.info("Total AddOns found: " + addOnCards.size());
-
-		for (int i = 0; i < addOnCards.size(); i++) {
-
-			// ALWAYS RE-FIND the element to avoid stale
-			WebElement addOn = driver.findElements(By.xpath("//div[contains(@class,'addOn-container')]")).get(i);
-
-			WebElement nameElement = addOn.findElement(By.xpath(".//p[contains(@class,'h5')]"));
-			String addOnName = nameElement.getText().trim();
-
-			Logs.info("Checking AddOn: " + addOnName);
-
-			if (addOnName.equalsIgnoreCase(addOnToSelect)) {
-
-				Logs.info("MATCH FOUND -> " + addOnName);
-				scrollElementInToView(nameElement);
-
-				WebElement plusBtn = addOn.findElement(By.xpath(".//div[contains(@class,'btn-color')]"));
-				wait.until(ExpectedConditions.elementToBeClickable(plusBtn)).click();
-				Logs.info("Clicked (+) button");
-				// Logs.info("(+) button and and another div opened for selecting the addon
-				// size...");
-
-				Thread.sleep(5000);
-
-				// 🔥🔥 KEY FIX: RE-FIND THE SAME ADDON CARD AGAIN AFTER CLICK
-				WebElement addOnNext = driver.findElements(By.xpath("//div[contains(@class,'addOn-container')]"))
-						.get(i);
-
-				// Now search dropdown INSIDE this fresh AddOn card
-				Logs.info("getting list of all available dropdowns...");
-				List<WebElement> dropdownList = addOnNext
-						.findElements(By.xpath(".//select[contains(@class,'form-select')]"));
-				System.out.println("List of dropdowns:" + dropdownList.size());
-
-				if (dropdownList.isEmpty()) {
-					Logs.info("No dropdown for this addOn → skipping size selection.");
-					return;
-				}
-
-				Logs.info("working on the 1st dropdowns....");
-				WebElement sizeDropdown = dropdownList.get(0);
-
-				Logs.info("Clicking on 1st dropdown...");
-
-				wait.until(ExpectedConditions.visibilityOf(sizeDropdown));
-				wait.until(ExpectedConditions.elementToBeClickable(sizeDropdown));
-				Logs.info("1st dropdown clicked...");
-				sizeDropdown.click();
-				Logs.info("getting list of 1st dropdowns...");
-				selectByVisibleText(sizeDropdown, "M");
-
-				Logs.info("Size M selected.");
-				return;
+		for (String window : driver.getWindowHandles()) {
+			if (!window.equals(parentWindow)) {
+				driver.switchTo().window(window);
+				break;
 			}
 		}
+		verifygreenBibLinkPageAndReturn();
+	}
 
-		throw new RuntimeException("AddOn not found: " + addOnToSelect);
+	private void verifygreenBibLinkPageAndReturn() {
+		try {
+			String greenBibPage_actualTitle = driver.getTitle();
+			Assert.assertTrue(greenBibPage_actualTitle.contains("Green Bib"),
+					"Expected title to contain 'Green Bib' but found: " + greenBibPage_actualTitle);
+		} finally {
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			Logs.info("Switched back to parent window");
+		}
+
 	}
 
 	private void selectAddOns(String addOnToSelect) throws InterruptedException {
 
-		WebDriver driver = DriverFactory.getDriver();
+		// WebDriver driver = driver;
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		Logs.info("Fetching list of AddOns...");
 
+		waitThread(5000);
 		List<WebElement> addOnCards = driver.findElements(By.xpath("//div[contains(@class,'addOn-container')]"));
 
 		Logs.info("Total AddOns found: " + addOnCards.size());
@@ -227,23 +235,22 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 				// --- CHECK FOR DROPDOWN AFTER ADDON EXPANDS ---
 				// Find the FIRST DROPDOWN that appears below this card
-				WebElement dropdownCard = wait.until(ExpectedConditions.visibilityOfElementLocated(
-	                    By.xpath(".//div[@class='card mb-2 ng-star-inserted']")
-	            ));
+				WebElement dropdownCard = wait.until(ExpectedConditions
+						.visibilityOfElementLocated(By.xpath(".//div[@class='card mb-2 ng-star-inserted']")));
 
-	            Logs.info("Dropdown card appeared... searching dropdown");
-	            
-	            WebElement dropdown = dropdownCard.findElement(By.xpath(".//select[contains(@class,'form-select')]"));
+				Logs.info("Dropdown card appeared... searching dropdown");
 
-	            wait.until(ExpectedConditions.elementToBeClickable(dropdown));
-	            dropdown.click();
+				WebElement dropdown = dropdownCard.findElement(By.xpath(".//select[contains(@class,'form-select')]"));
 
-	            // Select size M
-	            selectByVisibleText(dropdown, "M");
+				wait.until(ExpectedConditions.elementToBeClickable(dropdown));
+				dropdown.click();
 
-	            Logs.info("Selected size: M");
+				// Select size M
+				selectByVisibleText(dropdown, "M");
 
-	            return;
+				Logs.info("Selected size: M");
+
+				return;
 
 				/*
 				 * if (dropdownList.size() > 0) {
@@ -265,7 +272,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 				 * ); }
 				 * 
 				 * return; // done with required addon
-				 */			}
+				 */ }
 		}
 
 		throw new RuntimeException("AddOn not found: " + addOnToSelect);
@@ -294,6 +301,15 @@ public class MerchandiseDetailsPage extends BaseClass {
 		throw new RuntimeException("Option not found: " + text);
 	}
 
+	private boolean isAddOnsSectionAvailable() {
+		List<WebElement> addOnsList = driver.findElements(By.xpath("//div[contains(@class,'addOn-container')]"));
+
+		return !addOnsList.isEmpty();
+
+	}
+
+	// ----------------------class level methods-------------------//
+
 	public void addItem() {
 		addButton.click();
 	}
@@ -316,17 +332,17 @@ public class MerchandiseDetailsPage extends BaseClass {
 	}
 
 	public void scrollElementInToTop(WebElement element) {
-		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'start', inline:'nearest'});",
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'start', inline:'nearest'});",
 				element);
 	}
 
 	public void scrollElementInToView(WebElement element) {
-		((JavascriptExecutor) DriverFactory.getDriver())
-				.executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});", element);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+				element);
 	}
 
 	public void scrollElementInToEnd(WebElement element) {
-		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'end', inline:'nearest'});",
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'end', inline:'nearest'});",
 				element);
 	}
 

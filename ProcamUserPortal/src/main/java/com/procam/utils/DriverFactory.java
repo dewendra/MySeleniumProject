@@ -7,9 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
 
-	public static WebDriver driver;
+	// public static WebDriver driver;
+	public static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
 
 	public static WebDriver initDriver(String browserName) {
+		WebDriver driver;
 
 		switch (browserName.toLowerCase()) {
 		case "chrome": {
@@ -31,11 +33,19 @@ public class DriverFactory {
 		}
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		return driver;
+		threadLocalDriver.set(driver);
+		return getDriver();
 
 	}
 
 	public static WebDriver getDriver() {
-		return driver;
+		return threadLocalDriver.get();
+	}
+	
+	public static void quitDriver() {
+		if(threadLocalDriver.get()!=null) {
+			threadLocalDriver.get().quit();
+			threadLocalDriver.remove();
+		}
 	}
 }

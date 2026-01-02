@@ -1,12 +1,15 @@
 package com.procam.pageobjects;
 
+import java.rmi.server.ExportException;
 import java.time.Duration;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.procam.actiondriver.Action;
 import com.procam.base.BaseClass;
@@ -15,8 +18,10 @@ import com.procam.utils.Logs;
 import com.procam.utils.WaitHelper;
 
 public class DiscountApplyPage extends BaseClass {
+	private WebDriver driver;
 	private Action action;
 	WaitHelper wait;
+	String parentWindow;
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
 	private WebElement backBtn;
@@ -40,14 +45,46 @@ public class DiscountApplyPage extends BaseClass {
 	private WebElement applyBtn;
 
 	public DiscountApplyPage() {
-		PageFactory.initElements(DriverFactory.getDriver(), this);
-		wait = new WaitHelper(DriverFactory.getDriver());
+		this.driver = DriverFactory.getDriver();
+		PageFactory.initElements(driver, this);
+		wait = new WaitHelper(driver);
 	}
 
 	public void readMore() {
+		parentWindow = driver.getWindowHandle();
 		wait.waitForVisible(read_More);
+		wait.waitForClickable(read_More);
 		Logs.info("Clicking Read More");
-		action.click(driver, read_More);
+		read_More.click();
+		// action.click(driver, read_More);
+		Logs.info("Clicked on Read More link");
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+
+		for (String window : driver.getWindowHandles()) {
+			if (!window.equals(parentWindow)) {
+				driver.switchTo().window(window);
+				break;
+			}
+		}
+		verifyReadMorePageAndReturn();
+		//driver.switchTo().window(parentWindow);
+	}
+
+	private void verifyReadMorePageAndReturn() {
+		try {
+			String newPage_actualTitle = driver.getTitle();
+			System.out.println("Read More link Page Title:" + newPage_actualTitle);
+			Assert.assertTrue(newPage_actualTitle.contains("Group Applications"),
+					"Expected title to contain 'Group Applications' but found: " + newPage_actualTitle);
+
+		} finally {
+			// Always clean up even if assertion fails
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			Logs.info("Switched back to parent window");
+		}
 	}
 
 	public PersonalDetailsPage withDiscountCode() {

@@ -5,8 +5,10 @@
     <classes>
       <class name="com.procam.LoginPageTest">
         <methods>
+          <include name="launchApp"/>
           <include name="closeSuite"/>
-          <include name="verifyLogin" invocation-numbers="0 1"/>
+          <include name="verifyLogin" invocation-numbers="0"/>
+          <include name="closeApp"/>
           <include name="loadConfig"/>
           <include name="setup"/>
         </methods>

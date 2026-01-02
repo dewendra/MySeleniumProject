@@ -1,8 +1,11 @@
 package com.procam;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.compress.harmony.pack200.NewAttribute;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -49,44 +52,70 @@ public class LoginPageTest extends BaseClass {
 	}
 
 	@Test(dataProvider = "fullFlowData")
-	public void verifyLogin(Map<String, String> loginData, Map<String, String> personalData) throws InterruptedException {
+	public void verifyLogin(Map<String, String> loginData, 
+			Map<String, String> eventDashboardData,
+			Map<String, String> personalData, 
+			Map<String, String> eventCriteriaData,
+			Map<String, String> MerchandiseData, 
+			Map<String, String> gstData, 
+			Map<String, String> PaymentsData)
+			throws InterruptedException {
 		loginPage = new LoginPage();
 		eventDashboardPage = loginPage.loginByEmail(loginData);
-		discountApplyPage = eventDashboardPage.selectEvent();
+		discountApplyPage = eventDashboardPage.selectEvent(eventDashboardData);
 		// personalDetailsPage=discountApplyPage.withDiscountCode();
+		discountApplyPage.readMore();
 		personalDetailsPage = discountApplyPage.withoutDiscountCode();
 		eventCriteriaPage = personalDetailsPage.enterDetails(personalData);
-		merchandiseDetailsPage = eventCriteriaPage.enterEventDetails();
-		orderSummaryPage = merchandiseDetailsPage.enterMerchandiseDetails();
-		paymentsOptionPage = orderSummaryPage.enterGstDetails();
-		paymentsOptionPage.makePayment();
+		eventCriteriaPage.eventLinkPage();
+		merchandiseDetailsPage = eventCriteriaPage.enterEventDetails(eventCriteriaData);
+		orderSummaryPage = merchandiseDetailsPage.enterMerchandiseDetails(MerchandiseData);
+		paymentsOptionPage = orderSummaryPage.enterGstDetails(gstData);
+		paymentsOptionPage.makePayment(PaymentsData);
 
 	}
+
+	// ---------------------------------------All sheet data provider IN USE --------------------------------//
 
 	@DataProvider(name = "fullFlowData")
 	public Object[][] fullFlowData() {
+		
+		String registrationFile=prop.getProperty("tmm.registration.excel.path");
 
-		String loginFile  = "src/test/resources/testdata/LoginData.xlsx";
-		String personalFile  = "src/test/resources/testdata/PersonalDetails.xlsx";
-		String sheetName = "users";
+		//String registrationFile = "src/test/resources/testdata/RegistrationData_TMM.xlsx";
+		String loginSheet = "Login";
+		String eventDashboard = "EventDashboard";
+		String personalSheet = "Personal";
+		String eventCriteriaSheet = "EventCriteria";
+		String merchandiseSheet = "Merchandise";
+		String gstSheet = "GSTData";
+		String paymentsSheet = "Payments";
 
-		int rowCount = ExcelUtils.getRowCount(loginFile, sheetName);
+		int rowCount = ExcelUtils.getRowCount(registrationFile, "Login");
 
-		Object[][] data = new Object[rowCount][2];
+		List<Object[]> list = new ArrayList<>();
 
 		for (int i = 1; i <= rowCount; i++) {
-			Map<String, String> loginData = ExcelUtils.getTestData(loginFile, sheetName, i);
-			Map<String, String> personalData = ExcelUtils.getTestData(personalFile, sheetName, i);
-			
-			data[i - 1][0] = loginData;
-			data[i - 1][1] = personalData;
+			Map<String, String> loginData = ExcelUtils.getTestData(registrationFile, loginSheet, i);
+			if (loginData == null || loginData.get("emailId") == null || loginData.get("emailId").trim().isEmpty()) {
+				continue;
+			}
+			Map<String, String> eventDashboardData = ExcelUtils.getTestData(registrationFile, eventDashboard, i);
+			Map<String, String> personalData = ExcelUtils.getTestData(registrationFile, personalSheet, i);
+			Map<String, String> eventCriteriaData = ExcelUtils.getTestData(registrationFile, eventCriteriaSheet, i);
+			Map<String, String> merchandiseData = ExcelUtils.getTestData(registrationFile, merchandiseSheet, i);
+			Map<String, String> gstData = ExcelUtils.getTestData(registrationFile, gstSheet, i);
+			Map<String, String> PaymentsData = ExcelUtils.getTestData(registrationFile, paymentsSheet, i);
+
+			list.add(new Object[] { loginData, eventDashboardData, personalData, eventCriteriaData, merchandiseData,
+					gstData, PaymentsData });
+
 		}
-		return data;
+		return list.toArray(new Object[0][]);
 	}
-	
-	
-	
-	//@DataProvider(name = "loginData")
+
+	// ----------------------------------------Login data provider NOT IN USE -----------------------------------//
+	// @DataProvider(name = "loginData")
 	public Object[][] loginData() {
 		String filePath = "src/test/resources/testdata/LoginData.xlsx";
 		String sheetName = "login";
@@ -99,12 +128,13 @@ public class LoginPageTest extends BaseClass {
 		return data;
 	}
 
+	// ------------------------------------Personal Details data provider NOT IN USE -----------------------------------//
 	public void personalDetailsDataDrivenTest() {
 		String filePath = "src/test/resources/testdata/PersonalDetails.xlsx";
 		for (int i = 1; i < 2; i++) {
 			Map<String, String> testData = ExcelUtils.getTestData(filePath, "users", i);
 			PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage();
-			personalDetailsPage.enterDetails(testData);
+			// personalDetailsPage.enterDetails(testData);
 		}
 	}
 

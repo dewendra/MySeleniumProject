@@ -3,22 +3,24 @@ package com.procam.pageobjects;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.attribute.standard.DateTimeAtCompleted;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.procam.base.BaseClass;
+import com.procam.utils.DatePickerHelper;
 import com.procam.utils.DriverFactory;
 import com.procam.utils.DropdownHelper;
 import com.procam.utils.Logs;
+import com.procam.utils.TypingHelper;
 import com.procam.utils.WaitHelper;
 
 public class PersonalDetailsPage extends BaseClass {
 
+	private WebDriver driver;
 	WaitHelper wait;
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
@@ -94,59 +96,78 @@ public class PersonalDetailsPage extends BaseClass {
 	private WebElement proceedBtn;
 
 	public PersonalDetailsPage() {
-		PageFactory.initElements(DriverFactory.getDriver(), this);
-		wait = new WaitHelper(DriverFactory.getDriver());
+		this.driver=DriverFactory.getDriver();
+		PageFactory.initElements(driver, this);
+		wait = new WaitHelper(driver);
 	}
 
-	public EventCriteriaPage enterDetails(Map<String, String> data) {
+	public EventCriteriaPage enterDetails(Map<String, String> data) throws InterruptedException {
+		String first_Name=data.get("firstName");
+		String middle_Name=data.get("middleName");
+		String last_Name=data.get("lastName");
+		String mobile_Number=data.get("mobile");
+		String user_gender=data.get("gender");
+		String date_Of_Birth=data.get("dob");
+		
+		
 		wait.waitForVisible(firstName);
 		wait.waitForClickable(firstName);
 		firstName.clear();
 		Logs.info("Entering First Name");
-		firstName.sendKeys(data.get("firstName"));
+		//firstName.sendKeys(data.get("firstName"));
+		TypingHelper.slowTyping(firstName, first_Name, 100);
+		Logs.info("Entered First Name -> "+first_Name);
 
 		wait.waitForVisible(middleName);
 		wait.waitForClickable(middleName);
 		middleName.clear();
-		Logs.info("Entering Middle Name");
-		middleName.sendKeys(data.get("middleName"));
+		//Logs.info("Entering Middle Name");
+		//middleName.sendKeys(data.get("middleName"));
+		TypingHelper.slowTyping(middleName, middle_Name, 100);
+		//Logs.info("Entered Middle Name -> "+middle_Name);
 
 		wait.waitForVisible(lastName);
 		wait.waitForClickable(lastName);
 		lastName.clear();
 		Logs.info("Entering Last Name");
-		lastName.sendKeys(data.get("lastName"));
+		//lastName.sendKeys(data.get("lastName"));
+		TypingHelper.slowTyping(lastName, last_Name, 100);
+		Logs.info("Entered Last Name -> "+last_Name);
 
-		wait.waitForVisible(mobileCode);
-		wait.waitForClickable(mobileCode);
-		mobileCode.clear();
-		Logs.info("Entering Mobile Code");
-		mobileCode.sendKeys(data.get("mobileCode"));
+		/*
+		 * wait.waitForVisible(mobileCode); wait.waitForClickable(mobileCode);
+		 * mobileCode.clear(); Logs.info("Entering Mobile Code");
+		 * mobileCode.sendKeys(data.get("mobileCode"));
+		 */
 
 		wait.waitForVisible(mobile);
 		wait.waitForClickable(mobile);
 		mobile.clear();
 		Logs.info("Entering Mobile Number");
-		mobile.sendKeys(data.get("mobile"));
+		//mobile.sendKeys(data.get("mobile"));
+		TypingHelper.slowTyping(mobile, mobile_Number, 100);
+		Logs.info("Entered mobile Number -> "+mobile_Number);
 		
 		Logs.info("Selecting gender");
 		wait.waitForVisible(genderOption);
-		if (data.get("gender").equalsIgnoreCase("Female")) {
+		if (user_gender.equalsIgnoreCase("Female")) {
+			wait.waitForClickable(genderFemale);
 			genderFemale.click();
+			Logs.info("Gender selected -> "+user_gender);
 	    } else {
+	    	wait.waitForClickable(genderMale);
 	        genderMale.click();
+	        Logs.info("Gender selected -> "+user_gender);
 	    }
-
-//		wait.waitForVisible(genderFemale);
-//		wait.waitForClickable(genderFemale);
-//		Logs.info("Selecting gender");
-//		genderFemale.click();
-
-		/*
-		 * wait.until(ExpectedConditions.visibilityOf(dateOfBirth));
-		 * wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth));
-		 * dateOfBirth.clear(); dateOfBirth.click();
-		 */
+		
+		waitThread(7000);
+		Logs.info("Entering Date of Birth.....");
+		scrollElementInToView(dateOfBirth);
+		wait.waitForVisible(dateOfBirth);
+		wait.waitForClickable(dateOfBirth);
+		DatePickerHelper.selectDate(driver, dateOfBirth, date_Of_Birth);
+		Logs.info("Date of Birth entered -> "+date_Of_Birth);
+		
 		selectAddressFromDropdown(data.get("pincode"), data.get("addressDropdown"));
 		
 		wait.waitForVisible(address);
@@ -163,11 +184,6 @@ public class PersonalDetailsPage extends BaseClass {
 	        runningClubNo.click();
 	    }
 		
-//		wait.waitForVisible(runningClubNo);
-//		wait.waitForClickable(runningClubNo);
-//		Logs.info("Entering Running Club");
-//		runningClubNo.click();
-
 		selectOccupation(data.get("occupation"));
 
 		wait.waitForVisible(proceedBtn);
@@ -188,14 +204,14 @@ public class PersonalDetailsPage extends BaseClass {
 		Logs.info("Clicked Occupation");
 		Logs.info("Entering Occupation");
 		waitThread(5000);
-		List<WebElement> occupationsList = DriverFactory.getDriver()
+		List<WebElement> occupationsList = driver
 				.findElements(By.xpath("//ng-dropdown-panel//span[@class='ng-option-label']"));
 		waitThread(5000);
 		System.out.println("Occupation List Size: " + occupationsList.size());
 		for (WebElement occupation : occupationsList) {
 			System.out.println(occupation.getText().toString());
 		}
-		DropdownHelper dropdown = new DropdownHelper(DriverFactory.getDriver());
+		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(occupationsList, occupationToSelect);
 		Logs.info("Occupations selected from dropdown: " + occupationToSelect);
 	}
@@ -210,14 +226,14 @@ public class PersonalDetailsPage extends BaseClass {
 		System.out.println("Nationality is : "+nationalityToSelect);
 		waitThread(5000);
 
-		List<WebElement> nationalities = DriverFactory.getDriver()
+		List<WebElement> nationalities = driver
 				.findElements(By.xpath("//div[contains(@class,'position-relative')]//ul"));
 		waitThread(5000);
 		System.out.println("Nationality List Size: " + nationalities.size());
 		for (WebElement nationality : nationalities) {
 			System.out.println(nationality.getText().toString());
 		}
-		DropdownHelper dropdown = new DropdownHelper(DriverFactory.getDriver());
+		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(nationalities, nationalityToSelect);
 		Logs.info("Nationality selected from dropdown: " + nationalityToSelect);
 
@@ -232,7 +248,7 @@ public class PersonalDetailsPage extends BaseClass {
 		pincode.sendKeys(pinCode);
 		waitThread(5000);
 
-		List<WebElement> addressOptions = DriverFactory.getDriver()
+		List<WebElement> addressOptions = driver
 				.findElements(By.xpath("//div[contains(@class,'position-relative')]//ul"));
 		waitThread(10000);
 		System.out.println("Address List Size: " + addressOptions.size());
@@ -240,13 +256,13 @@ public class PersonalDetailsPage extends BaseClass {
 			System.out.println(address.getText().toString());
 		}
 
-		DropdownHelper dropdown = new DropdownHelper(DriverFactory.getDriver());
+		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(addressOptions, addressToSelect);
 		Logs.info("Address selected from dropdown: " + addressToSelect);
 	}
 
 	public void scrollElementInToView(WebElement element) {
-		((JavascriptExecutor) DriverFactory.getDriver())
+		((JavascriptExecutor) driver)
 				.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
 	}
 

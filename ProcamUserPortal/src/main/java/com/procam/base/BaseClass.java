@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.procam.utils.DriverFactory;
 
@@ -16,7 +19,7 @@ import com.procam.utils.DriverFactory;
  */
 public class BaseClass {
 
-	public static WebDriver driver;
+	//protected WebDriver driver;
 	public static Properties prop;
 
 	@BeforeSuite
@@ -24,9 +27,9 @@ public class BaseClass {
 
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
+			FileInputStream fileInputStream = new FileInputStream(
 					System.getProperty("user.dir") + "\\Configuration\\config.properties");
-			prop.load(ip);
+			prop.load(fileInputStream);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -34,14 +37,18 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Parameters("browser")
+	//@BeforeMethod
 	public void launchApp() {
+		//String browserName = browser != null ? browser : prop.getProperty("browser");
 		String browserName = prop.getProperty("browser");
 		DriverFactory.initDriver(browserName);
 		DriverFactory.getDriver().get(prop.getProperty("url"));
 
 	}
 
+	//@AfterMethod
 	public void closeApp() {
 		DriverFactory.getDriver().quit();
 	}
