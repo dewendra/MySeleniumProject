@@ -1,10 +1,14 @@
 package com.procam.pageobjects;
 
+import java.time.Duration;
 import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.procam.utils.DriverFactory;
 import com.procam.utils.Logs;
 import com.procam.utils.TypingHelper;
@@ -14,7 +18,7 @@ public class LoginPage {
 
 	private WebDriver driver;
 
-	WaitHelper wait;
+	//WaitHelper wait;
 
 	@FindBy(xpath = "//img[@class='logo']")
 	private WebElement eventLogo;
@@ -37,23 +41,27 @@ public class LoginPage {
 	@FindBy(xpath = "//button[normalize-space()='Login']")
 	private WebElement loginBtn;
 
+	WebDriverWait wait;
 	public LoginPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WaitHelper(driver);
+		wait=new WebDriverWait(driver, Duration.ofSeconds(7));
+		//wait = new WaitHelper(driver);
+		
 	}
 
 	public EventDashboardPage loginByEmail(Map<String, String> data) throws InterruptedException {
-		waitThread(12000);
-
+		
+		//WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.elementToBeClickable(emailId));
 		Logs.info("Entering email....");
 		emailId.clear();
 		String email = data.get("emailId");
 		if (email == null || email.isBlank()) {
 			throw new IllegalArgumentException("Email is empty in Excel");
 		}
-		// emailId.sendKeys(email);
-		TypingHelper.slowTyping(emailId, email, 100);
+		emailId.sendKeys(email);
+		//TypingHelper.slowTyping(emailId, email, 100);
 		Logs.info("Email entered -> " + email);
 
 		/*
@@ -61,21 +69,19 @@ public class LoginPage {
 		 * myself18Years.click(); } else { myward18Years.click(); }
 		 */
 
-		waitThread(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(sendOTP));
 		Logs.info("Clicking sendOTP");
-		wait.waitForClickable(sendOTP).click();
-		// wait.until(ExpectedConditions.elementToBeClickable(sendOTP)).click();
-		waitThread(2000);
+		sendOTP.click();
 		// wait.until(ExpectedConditions.visibilityOf(otp)).sendKeys("000000");
 
 		String otpValue = data.getOrDefault("otp", "000000");
-		wait.waitForVisible(otp);
-		wait.waitForClickable(otp);
+		wait.until(ExpectedConditions.elementToBeClickable(otp));
 		otp.sendKeys(otpValue);
 		Logs.info("Clicking login");
-		wait.waitForClickable(loginBtn).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
+		//wait.waitForClickable(loginBtn).click();
 
-		// wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
 		return new EventDashboardPage();
 
 	}

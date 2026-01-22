@@ -11,12 +11,28 @@ public class Logs {
 	public static void info(String message) {
 		String time = LocalDateTime.now().format(FORMATTER);
         System.out.println(time + "  INFO: " + message);
-
+	}
+	
+	public static void debug(String message) {
+		String time = LocalDateTime.now().format(FORMATTER);
+        System.out.println(time + "  DEBUG: " + message);
+	}
+	
+	public static void warn(String message) {
+		String time = LocalDateTime.now().format(FORMATTER);
+        System.out.println(time + "  WARN: " + message);
 	}
 
 	public static void error(String message) {
 		String time = LocalDateTime.now().format(FORMATTER);
         System.out.println(time + "  ERROR: " + message);
 	}
+	
+	public static void fatal(String message) {
+		String time = LocalDateTime.now().format(FORMATTER);
+        System.out.println(time + "  FATAL: " + message);
+	}
+
+	
 
 }

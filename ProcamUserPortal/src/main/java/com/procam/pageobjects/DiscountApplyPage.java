@@ -3,6 +3,7 @@ package com.procam.pageobjects;
 import java.rmi.server.ExportException;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +14,7 @@ import org.testng.Assert;
 
 import com.procam.actiondriver.Action;
 import com.procam.base.BaseClass;
+import com.procam.utils.CommonHelper;
 import com.procam.utils.DriverFactory;
 import com.procam.utils.Logs;
 import com.procam.utils.WaitHelper;
@@ -20,8 +22,11 @@ import com.procam.utils.WaitHelper;
 public class DiscountApplyPage extends BaseClass {
 	private WebDriver driver;
 	private Action action;
-	WaitHelper wait;
+	CommonHelper helper;
+	// WaitHelper wait;
+	WebDriverWait wait;
 	String parentWindow;
+	
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
 	private WebElement backBtn;
@@ -47,16 +52,14 @@ public class DiscountApplyPage extends BaseClass {
 	public DiscountApplyPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WaitHelper(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+		helper=new CommonHelper(driver);
 	}
 
 	public void readMore() {
 		parentWindow = driver.getWindowHandle();
-		wait.waitForVisible(read_More);
-		wait.waitForClickable(read_More);
 		Logs.info("Clicking Read More");
-		read_More.click();
-		// action.click(driver, read_More);
+		helper.clickWithRetry(read_More);
 		Logs.info("Clicked on Read More link");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -69,7 +72,7 @@ public class DiscountApplyPage extends BaseClass {
 			}
 		}
 		verifyReadMorePageAndReturn();
-		//driver.switchTo().window(parentWindow);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Read More')]")));
 	}
 
 	private void verifyReadMorePageAndReturn() {
@@ -88,27 +91,32 @@ public class DiscountApplyPage extends BaseClass {
 	}
 
 	public PersonalDetailsPage withDiscountCode() {
-		Logs.info("Clicking yesRadioBtn");
-		wait.waitForVisible(yesRadioBtn).click();
-		wait.waitForVisible(discountCode);
+
+		Logs.info("Clicking Yes RadioBtn");
+		helper.clickWithRetry(yesRadioBtn);
+
+		wait.until(ExpectedConditions.visibilityOf(discountCode));
 		discountCode.clear();
 		Logs.info("Applying Discount Code");
 		discountCode.sendKeys("123456");
-		wait.waitForClickable(applyBtn);
+
 		Logs.info("Clicking applyBtn");
-		applyBtn.click();
-		wait.waitForClickable(proceedBtn);
+		helper.clickWithRetry(applyBtn);
+
 		Logs.info("Clicking proceedBtn");
-		proceedBtn.click();
+		helper.clickWithRetry(proceedBtn);
+
 		return new PersonalDetailsPage();
 	}
 
 	public PersonalDetailsPage withoutDiscountCode() {
-		Logs.info("Clicking noRadioBtn");
-		wait.waitForVisible(noRadioBtn);
-		wait.waitForClickable(proceedBtn);
+		
+		Logs.info("Clicking No Radio Btn");
+		helper.clickWithRetry(noRadioBtn);
+		
 		Logs.info("Clicking proceedBtn");
-		proceedBtn.click();
+		helper.clickWithRetry(proceedBtn);
+		
 		return new PersonalDetailsPage();
 	}
 }

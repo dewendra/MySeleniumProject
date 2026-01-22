@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.procam.base.BaseClass;
+import com.procam.utils.CommonHelper;
 import com.procam.utils.DriverFactory;
 import com.procam.utils.Logs;
 import com.procam.utils.WaitHelper;
@@ -20,8 +21,9 @@ import com.procam.utils.WaitHelper;
 public class OrderSummaryPage extends BaseClass {
 
 	private WebDriver driver;
-	WaitHelper wait;
+	WebDriverWait wait;
 	String parentWindow;
+	CommonHelper helper;
 
 	@FindBy(xpath = "//h6[normalize-space()='Do you have a GST number?']")
 	private WebElement forGstOptions;
@@ -77,7 +79,8 @@ public class OrderSummaryPage extends BaseClass {
 	public OrderSummaryPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WaitHelper(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		helper=new CommonHelper(driver);
 	}
 
 	public PaymentsOptionPage enterGstDetails(Map<String, String> data) {
@@ -97,79 +100,82 @@ public class OrderSummaryPage extends BaseClass {
 			waitThread(3000);
 			Logs.info("Going for clicking the GST Yes option....");
 			scrollElementInToView(forGstOptions);
-			wait.waitForVisible(gstOptionYes);
-			wait.waitForClickable(gstOptionYes);
-			gstOptionYes.click();
+			helper.clickWithRetry(gstOptionYes);
 			Logs.info("GST Yes option clickied....");
 			userGSTDetails();
 
 		} else {
+			helper.clickWithRetry(gstOptionNo);
 			Logs.info("GST option No selected....");
 		}
 
 		Logs.info("Going for entering the GST Number....");
-		wait.waitForVisible(gstNumber);
-		wait.waitForClickable(gstNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(gstNumber));
 		gstNumber.sendKeys(gst_Number);
 		Logs.info("GST Number entered-> " + gst_Number);
 
 		Logs.info("Going for entering the GST Name....");
-		wait.waitForVisible(gstName);
-		wait.waitForClickable(gstName);
+		wait.until(ExpectedConditions.elementToBeClickable(gstName));
 		gstName.sendKeys(gst_Name);
 		Logs.info("GST Name entered-> " + gst_Name);
 
 		scrollElementInToTop(allWaivers);
-		waiverLinkPage();
+		//waiverLinkPage();
 		if (w1.equalsIgnoreCase("Y")) {
 			Logs.info("Going for clicking the Waiver1....");
-			waitThread(1000);
+			//waitThread(1000);
 			// wait.waitForClickable(waiver1);
-			waiver1.click();
+			helper.clickWithRetry(waiver1);
+			//waiver1.click();
 			Logs.info("Waiver1 clickied....");
 		}
 
-		entryRulesLinkPage();
+		//entryRulesLinkPage();
 		if (w2.equalsIgnoreCase("Y")) {
 			Logs.info("Going for clicking the Waiver2....");
-			waitThread(1000);
+			helper.clickWithRetry(waiver2);
+			//waitThread(1000);
 			// wait.waitForClickable(waiver2);
-			waiver2.click();
+			//waiver2.click();
 			Logs.info("Waiver2 clickied....");
 		}
 
-		consentLinkPage();
+		//consentLinkPage();
 		if (w4.equalsIgnoreCase("Y")) {
 			Logs.info("Going for clicking the Waiver4....");
-			waitThread(1000);
+			helper.clickWithRetry(waiver4);
+			//waitThread(1000);
 			// scrollElementInToView(waiver4);
 			// wait.waitForClickable(waiver4);
-			waiver4.click();
+			//waiver4.click();
 			Logs.info("Waiver4 clickied....");
 		}
 
-		event_medical_advisory_LinkPage();
+		//event_medical_advisory_LinkPage();
 		if (w5.equalsIgnoreCase("Y")) {
 			Logs.info("Going for clicking the Waiver5....");
-			waitThread(1000);
+			helper.clickWithRetry(waiver5);
+			//waitThread(1000);
 			// wait.waitForClickable(waiver5);
-			waiver5.click();
+			//waiver5.click();
 			Logs.info("Waiver5 clickied....");
 		}
 
 		if (w3.equalsIgnoreCase("Y")) {
 			Logs.info("Going for clicking the Waiver3....");
-			waitThread(1000);
-			// wait.waitForClickable(waiver3);
-			waiver3.click();
+			helper.clickWithRetry(waiver3);
+			//waitThread(1000);
+			//wait.waitForClickable(waiver3);
+			//waiver3.click();
 			Logs.info("Waiver3 clickied....");
 		}
 
 		waitThread(2000);
 		// scrollElementInToView(proceedBtn);
 		Logs.info("Going for clicking the proceed Button....");
-		JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-		javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
+		helper.clickWithRetry(proceedBtn);
+		//JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+		//javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
 		Logs.info("Proceed Btn clickied....");
 
 		Logs.info("Going for Payment Page....");
@@ -178,9 +184,8 @@ public class OrderSummaryPage extends BaseClass {
 	// -----------------------All link page methods-------------------------------//
 
 	public void waiverLinkPage() {
-		wait.waitForVisible(waiver1Link);
-		wait.waitForClickable(waiver1Link);
-		waiver1Link.click();
+		helper.clickWithRetry(waiver1Link);
+		//waiver1Link.click();
 		Logs.info("Clicked on Waiver Link");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -209,9 +214,8 @@ public class OrderSummaryPage extends BaseClass {
 	}
 
 	public void entryRulesLinkPage() {
-		wait.waitForVisible(entryRulesLink);
-		wait.waitForClickable(entryRulesLink);
-		entryRulesLink.click();
+		helper.clickWithRetry(entryRulesLink);
+		//entryRulesLink.click();
 		Logs.info("Clicked on Entry Rules Link");
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -237,9 +241,8 @@ public class OrderSummaryPage extends BaseClass {
 	}
 
 	public void consentLinkPage() {
-		wait.waitForVisible(consentLink);
-		wait.waitForClickable(consentLink);
-		consentLink.click();
+		helper.clickWithRetry(consentLink);
+		//consentLink.click();
 		Logs.info("Clicked on Entry Rules Link");
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -266,9 +269,8 @@ public class OrderSummaryPage extends BaseClass {
 	}
 
 	public void event_medical_advisory_LinkPage() {
-		wait.waitForVisible(event_medical_advisoryLink);
-		wait.waitForClickable(event_medical_advisoryLink);
-		event_medical_advisoryLink.click();
+		helper.clickWithRetry(event_medical_advisoryLink);
+		//event_medical_advisoryLink.click();
 		Logs.info("Clicked on Entry Rules Link");
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));

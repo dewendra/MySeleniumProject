@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,16 +15,18 @@ import org.testng.Assert;
 
 import com.procam.actiondriver.Action;
 import com.procam.base.BaseClass;
+import com.procam.utils.CommonHelper;
 import com.procam.utils.DriverFactory;
+import com.procam.utils.DropdownHelper;
 import com.procam.utils.Logs;
-import com.procam.utils.WaitHelper;
 
 public class MerchandiseDetailsPage extends BaseClass {
 
 	private WebDriver driver;
 	Action action;
-	WaitHelper wait;
+	WebDriverWait wait;
 	String parentWindow;
+	CommonHelper helper;
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
 	private WebElement upBackBtn;
@@ -57,14 +58,38 @@ public class MerchandiseDetailsPage extends BaseClass {
 	@FindBy(xpath = "//select[contains(@class,'form-select')]")
 	private WebElement addSizeDropdown;
 
-	@FindBy(xpath = "//input[@id='donationy']")
-	private WebElement donantionYes;
+	@FindBy(xpath = "//h4[contains(normalize-space(),'philanthropy platform')]")
+	private WebElement philanthropyPlatform;
 
-	@FindBy(xpath = "//label[@for='donantionN']")
-	private WebElement donantionNo;
+	@FindBy(xpath = "//h5[contains(normalize-space(),'additional donation')]")
+	private WebElement additionalDonation;
+
+	@FindBy(xpath = "//label[normalize-space()='Yes' and @for='donationy']")
+	private WebElement donationsYes;
+
+	@FindBy(xpath = "//input[@formcontrolname='donationAmount']")
+	private WebElement donationAmount;
+
+	@FindBy(xpath = "//label[normalize-space()='No' and @for='donantionN']")
+	private WebElement donationsNo;
+
+	@FindBy(xpath = "//h5[contains(normalize-space(),'fundraising page')]")
+	private WebElement fundraisingPageOption;
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
 	private WebElement fundRaiseYes;
+
+	@FindBy(xpath = "//div[@id='ngoDonationAmount']//span//span")
+	private List<WebElement> ngoDonationAmountList;
+
+	@FindBy(xpath = "//ng-select[@id='causeName']//span[contains(@class,'ng-arrow-wrapper')]")
+	private WebElement selectCauseDropDown;
+
+	@FindBy(xpath = "//input[@name='panCardNumber']")
+	private WebElement panCardNumber;
+
+	@FindBy(xpath = "//input[@name='panCardName']")
+	private WebElement panCardName;
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='No']")
 	private WebElement fundRaiseNo;
@@ -87,21 +112,19 @@ public class MerchandiseDetailsPage extends BaseClass {
 	public MerchandiseDetailsPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WaitHelper(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		helper = new CommonHelper(driver);
 	}
 
 	public OrderSummaryPage enterMerchandiseDetails(Map<String, String> data) throws InterruptedException {
-
-		waitThread(5000);
-
+		// Thread.sleep(7000);
 		// ------------------------Addons Option-----------------------//
 		Logs.info("Checking if Addons section is available...");
 		if (isAddOnsSectionAvailable()) {
 			Logs.info("Addons section found");
-			scrollElementInToView(addonsYes);
+			helper.scrollElementInToView(addonsYes);
 			if (data.get("addOns").equalsIgnoreCase("yes")) {
-				wait.waitForClickable(addonsYes);
-				addonsYes.click();
+				helper.clickWithRetry(addonsYes);
 				Logs.info("addons Yes option selected...");
 				Logs.info("Going to select addons form available merchandise...");
 
@@ -109,59 +132,122 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 			} else {
 				Logs.info("addons No option selected...");
-				addonsNo.click();
+				helper.clickWithRetry(addonsNo);
 
 			}
 		} else {
 			Logs.info("Addons section NOT present : skipping to Donation");
 		}
 
-		waitThread(2000);
-
 		// ---------------------Donation ----------------------------//
 
+		// Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(additionalDonation));
+		// wait.until(ExpectedConditions.visibilityOf(philanthropyPlatform));
+		// scrollElementInToTop(philanthropyPlatform);
+		// scrollElementInToTop(additionalDonation);
 		Logs.info("Going for selecting the Donation option....");
+		Logs.info("Scrolling Top to the Donation option....");
+		helper.scrollElementInToView(additionalDonation);
+
 		if (data.get("donation").equalsIgnoreCase("yes")) {
-			scrollElementInToView(donantionYes);
-			wait.waitForVisible(donantionYes);
-			wait.waitForClickable(donantionYes);
-			waitThread(2000);
-			donantionYes.click();
-			Logs.info("donantion Yes option selected...");
+			helper.clickWithRetry(donationsYes);
+			Logs.info("Donantion Yes option selected...");
+			selectDonationaAmount(data.get("donationAmount"));
+			makingAdditionalDonation(data.get("searchCause"), data.get("causeOfYourChoice"), data.get("panNo"),
+					data.get("nameOnPanCard"));
+
 		} else {
+			helper.clickWithRetry(donationsNo);
 			Logs.info("donantion No option selected...");
 		}
 
 		// ---------------Fund Raiser--------------------------//
 		Logs.info("Going for selecting the fund Raise option....");
-		if (data.get("fundRaise").equalsIgnoreCase("Yes")) {
-			wait.waitForVisible(fundRaiseYes);
-			wait.waitForClickable(fundRaiseYes);
-			waitThread(2000);
-			fundRaiseYes.click();
-		} else {
-			Logs.info("Fund Raise No option selected....");
-		}
+		/*
+		 * if (data.get("fundRaise").equalsIgnoreCase("Yes")) {
+		 * helper.clickWithRetry(fundRaiseYes); } else {
+		 * helper.clickWithRetry(fundRaiseNo);
+		 * Logs.info("Fund Raise No option selected...."); }
+		 */
 
 		// ---------------TGB Selection--------------------------//
-		greenBibLinkPage();
-		if (data.get("tgb").equalsIgnoreCase("yes")) {
-			wait.waitForVisible(greenBibyes);
-			wait.waitForClickable(greenBibyes);
-			greenBibyes.click();
+		if (isGreenBibSectionAvailable()) {
+			Logs.info("Green Bib section found");
+			greenBibLinkPage();
+			helper.scrollElementInToView(greenBibyes);
+			if (data.get("tgb").equalsIgnoreCase("Yes")) {
+				helper.clickWithRetry(greenBibyes);
+				Logs.info("Green Bib Yes option selected...");
+			} else {
+				Logs.info("Green Bib No option selected...");
+				helper.clickWithRetry(greenBibNo);
+			}
 		} else {
-			Logs.info("TGB No option selected....");
+			Logs.info("Green Bib section NOT present : skipping to Green Bib");
 		}
 
+		/*
+		 * if (data.get("tgb").equalsIgnoreCase("yes")) {
+		 * helper.clickWithRetry(greenBibyes); } else {
+		 * helper.clickWithRetry(greenBibNo); Logs.info("TGB No option selected...."); }
+		 */
+
 		// ----------------------Proceed Button----------------------//
-		waitThread(2000);
-		scrollElementInToView(proceedBtn);
+		helper.scrollElementInToView(proceedBtn);
 		Logs.info("Going for clicking the proceed Button....");
-		JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-		javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
-		Logs.info("Proceed Btn clickied....");
+		helper.clickWithRetry(proceedBtn);
+
 		Logs.info("Going for Order Summary Page....");
 		return new OrderSummaryPage();
+
+	}
+
+	// ----------------------Additional Donation----------------------//
+	private void selectDonationaAmount(String donationAmountToSelect) {
+
+		List<WebElement> donationList = driver.findElements(By.xpath("//div[@id='ngoDonationAmount']//span//span"));
+		System.out.println("Total donation options available:->" + donationList.size());
+
+		for (WebElement amount : donationList) {
+			System.out.println(amount.getText());
+		}
+		/*
+		 * for (WebElement amount : donationList) { String amountText =
+		 * amount.getText().trim(); if
+		 * (amountText.equalsIgnoreCase(donationAmountToSelect)) { amount.click();
+		 * return; } }
+		 */
+
+		DropdownHelper dropdown = new DropdownHelper(driver);
+		dropdown.selectFromList(donationList, donationAmountToSelect);
+		Logs.info("Donation amount selected from dropdown: " + donationAmountToSelect);
+
+	}
+
+	private void makingAdditionalDonation(String causeToSearch, String causeToSelect, String panNumber,
+			String nameOnPan) {
+
+		wait.until(ExpectedConditions.elementToBeClickable(selectCauseDropDown));
+		helper.scrollElementInToTop(selectCauseDropDown);
+		Logs.info("Selecting Cause from dropdown: ");
+
+		By causeDropdown = By.xpath("//ng-select[@id='causeName']//span[contains(@class,'ng-arrow-wrapper')]");
+		System.out.println("Dropdown cause: ->" + causeDropdown);
+		try {
+			//helper.selectFromNgSelect(causeDropdown, causeToSelect);
+			 helper.searchAndSelectFromNgSelect2(causeDropdown, causeToSearch, causeToSelect);
+			Logs.info("Cause selected: " + causeToSelect);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(panCardNumber));
+		panCardNumber.sendKeys(panNumber);
+
+		wait.until(ExpectedConditions.elementToBeClickable(panCardName));
+		panCardName.sendKeys(nameOnPan);
 
 	}
 
@@ -169,8 +255,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 	// Selection--------------------------//
 	public void greenBibLinkPage() {
 		parentWindow = driver.getWindowHandle();
-		wait.waitForVisible(greenBibhowPage);
-		wait.waitForClickable(greenBibhowPage);
+		wait.until(ExpectedConditions.elementToBeClickable(greenBibhowPage));
 		greenBibhowPage.click();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -221,7 +306,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 				waitThread(5000);
 
 				Logs.info("MATCH FOUND -> " + addOnName);
-				scrollElementInToView(nameElement);
+				helper.scrollElementInToView(nameElement);
 				waitThread(5000);
 
 				// Click PLUS BUTTON inside this addon card
@@ -308,6 +393,15 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 	}
 
+	// ---------------Checking the Green bib option available-----------
+
+	private boolean isGreenBibSectionAvailable() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+		List<WebElement> greenBibOptions = driver.findElements(By.xpath("//input[@id='donationyGreenBib']"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		return !greenBibOptions.isEmpty();
+	}
+
 	// ----------------------class level methods-------------------//
 
 	public void addItem() {
@@ -329,21 +423,6 @@ public class MerchandiseDetailsPage extends BaseClass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public void scrollElementInToTop(WebElement element) {
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'start', inline:'nearest'});",
-				element);
-	}
-
-	public void scrollElementInToView(WebElement element) {
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
-				element);
-	}
-
-	public void scrollElementInToEnd(WebElement element) {
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'end', inline:'nearest'});",
-				element);
 	}
 
 }

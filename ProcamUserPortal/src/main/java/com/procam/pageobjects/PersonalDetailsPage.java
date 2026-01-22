@@ -1,5 +1,6 @@
 package com.procam.pageobjects;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -9,8 +10,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.procam.base.BaseClass;
+import com.procam.utils.CommonHelper;
 import com.procam.utils.DatePickerHelper;
 import com.procam.utils.DriverFactory;
 import com.procam.utils.DropdownHelper;
@@ -21,10 +25,16 @@ import com.procam.utils.WaitHelper;
 public class PersonalDetailsPage extends BaseClass {
 
 	private WebDriver driver;
-	WaitHelper wait;
+	// WaitHelper wait;
+	private CommonHelper helper; 
+
+	WebDriverWait wait;
 
 	@FindBy(xpath = "//div[contains(@class,'fs-3')]//span[contains(@class,'btn-fa-color')]")
 	private WebElement upBackBtn;
+
+	@FindBy(xpath = "//h5[contains(normalize-space(), 'Personal Information')]")
+	private WebElement personalInformation;
 
 	@FindBy(xpath = "//input[@name='firstName']")
 	private WebElement firstName;
@@ -46,7 +56,7 @@ public class PersonalDetailsPage extends BaseClass {
 
 	@FindBy(xpath = "//label[@for='gender']")
 	private WebElement genderOption;
-	
+
 	@FindBy(xpath = "//input[@id='genderMale']")
 	private WebElement genderMale;
 
@@ -96,43 +106,46 @@ public class PersonalDetailsPage extends BaseClass {
 	private WebElement proceedBtn;
 
 	public PersonalDetailsPage() {
-		this.driver=DriverFactory.getDriver();
+		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WaitHelper(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		helper = new CommonHelper(driver);
 	}
 
 	public EventCriteriaPage enterDetails(Map<String, String> data) throws InterruptedException {
-		String first_Name=data.get("firstName");
-		String middle_Name=data.get("middleName");
-		String last_Name=data.get("lastName");
-		String mobile_Number=data.get("mobile");
-		String user_gender=data.get("gender");
-		String date_Of_Birth=data.get("dob");
-		
-		
-		wait.waitForVisible(firstName);
-		wait.waitForClickable(firstName);
+		String first_Name = data.get("firstName");
+		String middle_Name = data.get("middleName");
+		String last_Name = data.get("lastName");
+		String mobile_Number = data.get("mobile");
+		String user_gender = data.get("gender");
+		String date_Of_Birth = data.get("dob");
+		String userAddres = data.get("address");
+		String nationality = data.get("nationality");
+
+		wait.until(ExpectedConditions.visibilityOf(firstName));
+		wait.until(ExpectedConditions.elementToBeClickable(firstName));
 		firstName.clear();
 		Logs.info("Entering First Name");
-		//firstName.sendKeys(data.get("firstName"));
-		TypingHelper.slowTyping(firstName, first_Name, 100);
-		Logs.info("Entered First Name -> "+first_Name);
+		helper.setInputValue(driver, firstName, first_Name);
+		// firstName.sendKeys(data.get("firstName"));
+		// TypingHelper.slowTyping(firstName, first_Name, 100);
+		Logs.info("Entered First Name -> " + first_Name);
 
-		wait.waitForVisible(middleName);
-		wait.waitForClickable(middleName);
+		wait.until(ExpectedConditions.visibilityOf(middleName));
 		middleName.clear();
-		//Logs.info("Entering Middle Name");
-		//middleName.sendKeys(data.get("middleName"));
-		TypingHelper.slowTyping(middleName, middle_Name, 100);
-		//Logs.info("Entered Middle Name -> "+middle_Name);
+		// Logs.info("Entering Middle Name");
+		helper.setInputValue(driver, middleName, middle_Name);
+		// middleName.sendKeys(data.get("middleName"));
+		// TypingHelper.slowTyping(middleName, middle_Name, 100);
+		// Logs.info("Entered Middle Name -> "+middle_Name);
 
-		wait.waitForVisible(lastName);
-		wait.waitForClickable(lastName);
+		wait.until(ExpectedConditions.visibilityOf(lastName));
 		lastName.clear();
 		Logs.info("Entering Last Name");
-		//lastName.sendKeys(data.get("lastName"));
-		TypingHelper.slowTyping(lastName, last_Name, 100);
-		Logs.info("Entered Last Name -> "+last_Name);
+		helper.setInputValue(driver, lastName, last_Name);
+		// lastName.sendKeys(data.get("lastName"));
+		// TypingHelper.slowTyping(lastName, last_Name, 100);
+		Logs.info("Entered Last Name -> " + last_Name);
 
 		/*
 		 * wait.waitForVisible(mobileCode); wait.waitForClickable(mobileCode);
@@ -140,73 +153,75 @@ public class PersonalDetailsPage extends BaseClass {
 		 * mobileCode.sendKeys(data.get("mobileCode"));
 		 */
 
-		wait.waitForVisible(mobile);
-		wait.waitForClickable(mobile);
+		helper.scrollElementInToTop(personalInformation);
+		wait.until(ExpectedConditions.visibilityOf(mobile));
+		wait.until(ExpectedConditions.elementToBeClickable(mobile));
 		mobile.clear();
 		Logs.info("Entering Mobile Number");
-		//mobile.sendKeys(data.get("mobile"));
-		TypingHelper.slowTyping(mobile, mobile_Number, 100);
-		Logs.info("Entered mobile Number -> "+mobile_Number);
-		
-		Logs.info("Selecting gender");
-		wait.waitForVisible(genderOption);
-		if (user_gender.equalsIgnoreCase("Female")) {
-			wait.waitForClickable(genderFemale);
-			genderFemale.click();
-			Logs.info("Gender selected -> "+user_gender);
-	    } else {
-	    	wait.waitForClickable(genderMale);
-	        genderMale.click();
-	        Logs.info("Gender selected -> "+user_gender);
-	    }
-		
-		waitThread(7000);
-		Logs.info("Entering Date of Birth.....");
-		scrollElementInToView(dateOfBirth);
-		wait.waitForVisible(dateOfBirth);
-		wait.waitForClickable(dateOfBirth);
-		DatePickerHelper.selectDate(driver, dateOfBirth, date_Of_Birth);
-		Logs.info("Date of Birth entered -> "+date_Of_Birth);
-		
-		selectAddressFromDropdown(data.get("pincode"), data.get("addressDropdown"));
-		
-		wait.waitForVisible(address);
-		wait.waitForClickable(address);
-		address.clear();
-		Logs.info("Entering Address");
-		address.sendKeys(data.get("address"));
+		helper.setInputValue(driver, mobile, mobile_Number);
+		// mobile.sendKeys(mobile_Number);
+		// TypingHelper.slowTyping(mobile, mobile_Number, 100);
+		Logs.info("Entered mobile Number -> " + mobile_Number);
 
-		selectNationality(data.get("nationality"));
+		Logs.info("Selecting gender");
+		wait.until(ExpectedConditions.visibilityOf(genderOption));
+		if (user_gender.equalsIgnoreCase("Female")) {
+			helper.clickWithRetry(genderFemale);
+			Logs.info("Gender selected -> " + user_gender);
+		} else {
+			helper.clickWithRetry(genderMale);
+			Logs.info("Gender selected -> " + user_gender);
+		}
+
+		Logs.info("Entering Date of Birth.....");
+		// scrollElementInToTop(personalInformation);
+		// By dobBy=By.xpath("//input[contains(@class,'calendar-input')]");
+		// WebElement dobWebElement =
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(dobBy));
+		wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth)).click();
+		DatePickerHelper.selectDate(driver, dateOfBirth, date_Of_Birth);
+		Logs.info("Date of Birth entered -> " + date_Of_Birth);
+
+		selectAddressFromDropdown(data.get("pincode"), data.get("addressDropdown"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(address)).click();
+		Logs.info("Entering Address");
+		address.clear();
+		address.sendKeys(userAddres);
+		Logs.info("Entered address : ->" + userAddres);
+
+		selectNationality(data.get("searchNationality"), data.get("nationality"));
 
 		if (data.get("runningClub").equalsIgnoreCase("Yes")) {
-	        runningClubYes.click();
-	    } else {
-	        runningClubNo.click();
-	    }
-		
+			helper.clickWithRetry(runningClubYes);
+		} else {
+			helper.clickWithRetry(runningClubNo);
+		}
+
 		selectOccupation(data.get("occupation"));
 
-		wait.waitForVisible(proceedBtn);
-		wait.waitForClickable(proceedBtn);
 		Logs.info("Clicking proceed btn");
-		proceedBtn.click();
+		helper.clickWithRetry(proceedBtn);
 		Logs.info("Going for Event Criteria Page....");
 		return new EventCriteriaPage();
 
 	}
 
 	public void selectOccupation(String occupationToSelect) {
-		
-		wait.waitForVisible(occupation);
-		wait.waitForClickable(occupation);
+
 		Logs.info("Clicking Occupation");
-		occupation.click();
+		helper.clickWithRetry(occupation);
 		Logs.info("Clicked Occupation");
 		Logs.info("Entering Occupation");
-		waitThread(5000);
+
+		// By dropdownOptions =
+		// By.xpath("//div[contains(@class,'position-relative')]//ul");
+		// wait.until(ExpectedConditions.numberOfElementsToBeMoreThan((By)
+		// dropdownOptions, 0));
+
 		List<WebElement> occupationsList = driver
 				.findElements(By.xpath("//ng-dropdown-panel//span[@class='ng-option-label']"));
-		waitThread(5000);
+
 		System.out.println("Occupation List Size: " + occupationsList.size());
 		for (WebElement occupation : occupationsList) {
 			System.out.println(occupation.getText().toString());
@@ -214,57 +229,65 @@ public class PersonalDetailsPage extends BaseClass {
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(occupationsList, occupationToSelect);
 		Logs.info("Occupations selected from dropdown: " + occupationToSelect);
+
 	}
 
-	public void selectNationality(String nationalityToSelect) {
-		scrollElementInToView(nationality);
-		wait.waitForVisible(nationality);
-		wait.waitForClickable(nationality);
+	public void selectNationality(String searchNationality, String nationalityToSelect) {
+
+		helper.scrollElementInToView(nationality);
 		nationality.clear();
 		Logs.info("Entering Nationality");
-		nationality.sendKeys(nationalityToSelect);
-		System.out.println("Nationality is : "+nationalityToSelect);
-		waitThread(5000);
+		// type partial text
+		nationality.sendKeys(searchNationality);
 
-		List<WebElement> nationalities = driver
-				.findElements(By.xpath("//div[contains(@class,'position-relative')]//ul"));
-		waitThread(5000);
+		By dropdownOptions = By.xpath("//div[contains(@class,'position-relative')]//li");
+
+		// wait for dropdown options to load
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(dropdownOptions, 0));
+
+		List<WebElement> nationalities = driver.findElements(dropdownOptions);
+
 		System.out.println("Nationality List Size: " + nationalities.size());
+
 		for (WebElement nationality : nationalities) {
-			System.out.println(nationality.getText().toString());
+			System.out.println(nationality.getText());
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
-		dropdown.selectFromList(nationalities, nationalityToSelect);
+		// dropdown.selectFromList(nationalities, nationalityToSelect);
+		dropdown.searchFromDropdownList(nationalities, searchNationality, nationalityToSelect);
 		Logs.info("Nationality selected from dropdown: " + nationalityToSelect);
 
 	}
 
 	public void selectAddressFromDropdown(String pinCode, String addressToSelect) {
-		scrollElementInToView(pincode);
-		wait.waitForVisible(pincode);
-		wait.waitForClickable(pincode);
-		pincode.clear();
-		Logs.info("Entering Pin Code");
-		pincode.sendKeys(pinCode);
-		waitThread(5000);
 
+		Logs.info("Scroll To  Pin Code");
+		Logs.info("Selecting Address using Pincode");
+		helper.scrollElementInToView(pincode);
+		Logs.info("Entering Pin Code");
+
+		pincode.clear();
+
+		pincode.sendKeys(pinCode);
+		By dropdownOptions = By.xpath("//div[contains(@class,'position-relative')]//ul");
+
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan((By) dropdownOptions, 0));
 		List<WebElement> addressOptions = driver
 				.findElements(By.xpath("//div[contains(@class,'position-relative')]//ul"));
-		waitThread(10000);
 		System.out.println("Address List Size: " + addressOptions.size());
+
 		for (WebElement address : addressOptions) {
 			System.out.println(address.getText().toString());
 		}
 
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(addressOptions, addressToSelect);
+
 		Logs.info("Address selected from dropdown: " + addressToSelect);
 	}
 
-	public void scrollElementInToView(WebElement element) {
-		((JavascriptExecutor) driver)
-				.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-	}
+	// -----------------------------class level methods-------------------------//
+	
 
 	private void waitThread(long millis) {
 		try {

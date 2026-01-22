@@ -27,7 +27,7 @@ import com.procam.pageobjects.PersonalDetailsPage;
 import com.procam.utils.ExcelUtils;
 import com.procam.utils.Logs;
 
-public class LoginPageTest extends BaseClass {
+public class UserLoginPageTest extends BaseClass {
 	public static ExtentReports extentReports;
 	private LoginPage loginPage;
 	private EventDashboardPage eventDashboardPage;
@@ -64,12 +64,17 @@ public class LoginPageTest extends BaseClass {
 		eventDashboardPage = loginPage.loginByEmail(loginData);
 		discountApplyPage = eventDashboardPage.selectEvent(eventDashboardData);
 		// personalDetailsPage=discountApplyPage.withDiscountCode();
-		discountApplyPage.readMore();
+		
+		//discountApplyPage.readMore();
 		personalDetailsPage = discountApplyPage.withoutDiscountCode();
+		
 		eventCriteriaPage = personalDetailsPage.enterDetails(personalData);
-		eventCriteriaPage.eventLinkPage();
+
+		//eventCriteriaPage.eventLinkPage();
 		merchandiseDetailsPage = eventCriteriaPage.enterEventDetails(eventCriteriaData);
+		
 		orderSummaryPage = merchandiseDetailsPage.enterMerchandiseDetails(MerchandiseData);
+		
 		paymentsOptionPage = orderSummaryPage.enterGstDetails(gstData);
 		paymentsOptionPage.makePayment(PaymentsData);
 
@@ -80,32 +85,32 @@ public class LoginPageTest extends BaseClass {
 	@DataProvider(name = "fullFlowData")
 	public Object[][] fullFlowData() {
 		
-		String registrationFile=prop.getProperty("tmm.registration.excel.path");
+		String inputFile=prop.getProperty("procam.registration.excel.path");
 
 		//String registrationFile = "src/test/resources/testdata/RegistrationData_TMM.xlsx";
 		String loginSheet = "Login";
-		String eventDashboard = "EventDashboard";
-		String personalSheet = "Personal";
+		String eventDashboardSheet = "EventDashboard";
+		String personalDetailsSheet = "Personal";
 		String eventCriteriaSheet = "EventCriteria";
-		String merchandiseSheet = "Merchandise";
-		String gstSheet = "GSTData";
-		String paymentsSheet = "Payments";
+		String merchandiseDetailsSheet = "Merchandise";
+		String gstDetailsSheet = "GSTData";
+		String paymentsDetailsSheet = "Payments";
 
-		int rowCount = ExcelUtils.getRowCount(registrationFile, "Login");
+		int rowCount = ExcelUtils.getRowCount(inputFile, "Login");
 
 		List<Object[]> list = new ArrayList<>();
 
 		for (int i = 1; i <= rowCount; i++) {
-			Map<String, String> loginData = ExcelUtils.getTestData(registrationFile, loginSheet, i);
+			Map<String, String> loginData = ExcelUtils.getTestData(inputFile, loginSheet, i);
 			if (loginData == null || loginData.get("emailId") == null || loginData.get("emailId").trim().isEmpty()) {
 				continue;
 			}
-			Map<String, String> eventDashboardData = ExcelUtils.getTestData(registrationFile, eventDashboard, i);
-			Map<String, String> personalData = ExcelUtils.getTestData(registrationFile, personalSheet, i);
-			Map<String, String> eventCriteriaData = ExcelUtils.getTestData(registrationFile, eventCriteriaSheet, i);
-			Map<String, String> merchandiseData = ExcelUtils.getTestData(registrationFile, merchandiseSheet, i);
-			Map<String, String> gstData = ExcelUtils.getTestData(registrationFile, gstSheet, i);
-			Map<String, String> PaymentsData = ExcelUtils.getTestData(registrationFile, paymentsSheet, i);
+			Map<String, String> eventDashboardData = ExcelUtils.getTestData(inputFile, eventDashboardSheet, i);
+			Map<String, String> personalData = ExcelUtils.getTestData(inputFile, personalDetailsSheet, i);
+			Map<String, String> eventCriteriaData = ExcelUtils.getTestData(inputFile, eventCriteriaSheet, i);
+			Map<String, String> merchandiseData = ExcelUtils.getTestData(inputFile, merchandiseDetailsSheet, i);
+			Map<String, String> gstData = ExcelUtils.getTestData(inputFile, gstDetailsSheet, i);
+			Map<String, String> PaymentsData = ExcelUtils.getTestData(inputFile, paymentsDetailsSheet, i);
 
 			list.add(new Object[] { loginData, eventDashboardData, personalData, eventCriteriaData, merchandiseData,
 					gstData, PaymentsData });

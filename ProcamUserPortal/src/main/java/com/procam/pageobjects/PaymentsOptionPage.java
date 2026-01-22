@@ -21,15 +21,15 @@ import com.procam.utils.WaitHelper;
 public class PaymentsOptionPage extends BaseClass {
 
 	private WebDriver driver;
-	WaitHelper wait;
+	WebDriverWait wait;
 
-	//@FindBy(xpath = "//div[@data-value]")
-	//private List<WebElement> allPaymentOptions;
+	// @FindBy(xpath = "//div[@data-value]")
+	// private List<WebElement> allPaymentOptions;
 
 	public PaymentsOptionPage() {
-		this.driver=DriverFactory.getDriver();
+		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WaitHelper(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
 	public void makePayment(Map<String, String> data) {
@@ -55,12 +55,63 @@ public class PaymentsOptionPage extends BaseClass {
 			// Step 4: wait for payment options
 			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@data-value]")));
 			Logs.info("Payment options loaded");
-		
+
 			// Step 5: select payment option
 			allPaymentOptions(data.get("paymentOption"));
+
+			if (data.get("paymentOption").equalsIgnoreCase("netbanking")) {
+				Logs.info("Wating for the loading the Netbanking Bank options");
+				//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
+				Logs.info("Calling the selectNetbankingBank method");
+				selectNetbankingBank(data.get("NetBank"));
+				//selectNetbankingBank2(data.get("NetBank"));
+			}
 		} catch (Exception e) {
 			throw new RuntimeException("Razorpay iframe did not load in time", e);
 		}
+	}
+
+	private void selectNetbankingBank(String bankName) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		// Wait for netbank section
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
+
+		// Fetch all bank tiles
+		List<WebElement> allBanks = driver.findElements(By.cssSelector("label div[data-value]"));
+		Logs.info("Banks found: " + allBanks.size());
+
+		for (WebElement bank : allBanks) {
+			System.out.println(" → "+bank.getAttribute("data-value"));
+		}
+
+		for (WebElement bank : allBanks) {
+			String value = bank.getAttribute("data-value").trim();
+			String text = bank.getText().trim();
+			System.out.println("Candidate -> Value: " + value + " | Visible: " + text);
+			if (text.equalsIgnoreCase(bankName) || value.equalsIgnoreCase(bankName)) {
+				// scroll to center
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", bank);
+				wait.until(ExpectedConditions.elementToBeClickable(bank)).click();
+				return;
+			}
+		}
+		throw new RuntimeException("Bank not found: " + bankName);
+
+	}
+	private void selectNetbankingBank2(String bankName) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+	    Logs.info("Selecting Netbanking bank: " + bankName);
+
+	    // Locate via visible text
+	    By bankLocator = By.xpath("//*[contains(@role,'button')]//*[contains(text(),'" + bankName + "')]/ancestor::label");
+
+	    WebElement bankElement = wait.until(ExpectedConditions.elementToBeClickable(bankLocator));
+
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", bankElement);
+	    bankElement.click();
+
+	    Logs.info("Bank selected: " + bankName);
 	}
 
 	public void allPaymentOptions(String paymentOptionToSelect) {
@@ -83,10 +134,11 @@ public class PaymentsOptionPage extends BaseClass {
 			String paymentType = paymentOption.getAttribute("data-value");
 			String paymentText = paymentOption.getText().trim();
 
-			if (paymentType.equalsIgnoreCase(paymentOptionToSelect.toLowerCase()) || paymentText.equalsIgnoreCase(paymentOptionToSelect.toLowerCase())) {
+			if (paymentType.equalsIgnoreCase(paymentOptionToSelect.toLowerCase())
+					|| paymentText.equalsIgnoreCase(paymentOptionToSelect.toLowerCase())) {
 				// Scroll into view (important for Razorpay)
-				((JavascriptExecutor) driver)
-						.executeScript("arguments[0].scrollIntoView({block:'center'});", paymentOption);
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});",
+						paymentOption);
 				wait.until(ExpectedConditions.elementToBeClickable(paymentOption)).click();
 				// paymentOption.click();
 				System.out.println("Selected payment option: " + paymentOptionToSelect);
@@ -107,18 +159,18 @@ public class PaymentsOptionPage extends BaseClass {
 	}
 
 	public void scrollElementInToTop(WebElement element) {
-		((JavascriptExecutor) driver)
-				.executeScript("arguments[0].scrollIntoView({block: 'start', inline:'nearest'});", element);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'start', inline:'nearest'});",
+				element);
 	}
 
 	public void scrollElementInToView(WebElement element) {
-		((JavascriptExecutor) driver)
-				.executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});", element);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+				element);
 	}
 
 	public void scrollElementInToEnd(WebElement element) {
-		((JavascriptExecutor) driver)
-				.executeScript("arguments[0].scrollIntoView({block: 'end', inline:'nearest'});", element);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'end', inline:'nearest'});",
+				element);
 	}
 
 }
