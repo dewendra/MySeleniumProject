@@ -1,0 +1,94 @@
+2026-01-22 17:18:43.194 [main] INFO  Logs - Reading configuration file...
+2026-01-22 17:18:43.221 [main] INFO  Logs - ===== Test Started =====
+2026-01-22 17:18:43.222 [main] INFO  Logs - launching app...
+2026-01-22 17:18:49.566 [main] INFO  Logs - Entering email....
+2026-01-22 17:18:49.787 [main] INFO  Logs - Email entered -> mahi6@yopmail.com
+2026-01-22 17:18:49.848 [main] INFO  Logs - Clicking sendOTP
+2026-01-22 17:18:51.204 [main] INFO  Logs - Clicking login
+2026-01-22 17:18:51.473 [main] INFO  Logs - Selecting event : TCSB_2026
+2026-01-22 17:18:51.473 [main] INFO  Logs - Clicking on event
+2026-01-22 17:18:52.763 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-22 17:18:52.816 [main] INFO  Logs - Event Selected -> [[ChromeDriver: chrome on windows (d3928494bfbd14b2c6ce09c7e318a2eb)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-22 17:18:52.826 [main] INFO  Logs - Clicking No Radio Btn
+2026-01-22 17:18:54.673 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-22 17:18:54.674 [main] INFO  Logs - Clicking proceedBtn
+2026-01-22 17:19:09.967 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-01-22 17:19:09.988 [main] INFO  Logs - Both click attempts failed: no such element: Unable to locate element: {"method":"xpath","selector":"//button[normalize-space()='Proceed']"}
+  (Session info: chrome=143.0.7499.193)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d3928494bfbd14b2c6ce09c7e318a2eb, findElement {value=//button[normalize-space()='Proceed'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50120}, goog:processID: 41596, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50120/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d3928494bfbd14b2c6ce09c7e318a2eb
+2026-01-22 17:22:56.598 [main] INFO  Logs com.procam.utils.Logs - Reading configuration file...
+2026-01-22 17:22:56.630 [main] INFO  Logs com.procam.utils.Logs - ===== Test Started =====
+2026-01-22 17:22:56.630 [main] INFO  Logs com.procam.utils.Logs - launching app...
+2026-01-22 17:23:00.155 [main] INFO  Logs com.procam.utils.Logs - Entering email....
+2026-01-22 17:23:00.271 [main] INFO  Logs com.procam.utils.Logs - Email entered -> mahi6@yopmail.com
+2026-01-22 17:23:00.312 [main] INFO  Logs com.procam.utils.Logs - Clicking sendOTP
+2026-01-22 17:23:01.614 [main] INFO  Logs com.procam.utils.Logs - Clicking login
+2026-01-22 17:23:01.869 [main] INFO  Logs com.procam.utils.Logs - Selecting event : TCSB_2026
+2026-01-22 17:23:01.870 [main] INFO  Logs com.procam.utils.Logs - Clicking on event
+2026-01-22 17:23:03.213 [main] INFO  Logs com.procam.utils.Logs - Clicked using normal Selenium click.
+2026-01-22 17:23:03.248 [main] INFO  Logs com.procam.utils.Logs - Event Selected -> [[ChromeDriver: chrome on windows (c1446e68a010e813f2307a837acb09cb)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-22 17:23:03.259 [main] INFO  Logs com.procam.utils.Logs - Clicking No Radio Btn
+2026-01-22 17:23:18.673 [main] INFO  Logs com.procam.utils.Logs - Normal click failed. Retrying with JS click...
+2026-01-22 17:23:18.687 [main] INFO  Logs com.procam.utils.Logs - Both click attempts failed: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='flexRadioDefault2']"}
+  (Session info: chrome=143.0.7499.193)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c1446e68a010e813f2307a837acb09cb, findElement {using=xpath, value=//input[@id='flexRadioDefault2']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58772}, goog:processID: 47708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58772/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c1446e68a010e813f2307a837acb09cb
+2026-01-22 17:24:07.603 [main] INFO  Logs com.procam.utils.Logs - Reading configuration file...
+2026-01-22 17:24:07.633 [main] INFO  Logs com.procam.utils.Logs - ===== Test Started =====
+2026-01-22 17:24:07.633 [main] INFO  Logs com.procam.utils.Logs - launching app...
+2026-01-22 17:24:11.865 [main] INFO  Logs com.procam.utils.Logs - Entering email....
+2026-01-22 17:24:12.059 [main] INFO  Logs com.procam.utils.Logs - Email entered -> mahi6@yopmail.com
+2026-01-22 17:24:12.115 [main] INFO  Logs com.procam.utils.Logs - Clicking sendOTP
+2026-01-22 17:24:13.450 [main] INFO  Logs com.procam.utils.Logs - Clicking login
+2026-01-22 17:24:13.644 [main] INFO  Logs com.procam.utils.Logs - Selecting event : TCSB_2026
+2026-01-22 17:24:13.644 [main] INFO  Logs com.procam.utils.Logs - Clicking on event
+2026-01-22 17:24:14.892 [main] INFO  Logs com.procam.utils.Logs - Clicked using normal Selenium click.
+2026-01-22 17:24:14.912 [main] INFO  Logs com.procam.utils.Logs - Event Selected -> [[ChromeDriver: chrome on windows (250baddbf172d8cee032bc103fe2da9a)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-22 17:24:14.925 [main] INFO  Logs com.procam.utils.Logs - Clicking No Radio Btn
+2026-01-22 17:24:16.702 [main] INFO  Logs com.procam.utils.Logs - Clicked using normal Selenium click.
+2026-01-22 17:24:16.702 [main] INFO  Logs com.procam.utils.Logs - Clicking proceedBtn
+2026-01-22 17:24:32.060 [main] INFO  Logs com.procam.utils.Logs - Normal click failed. Retrying with JS click...
+2026-01-22 17:24:32.078 [main] INFO  Logs com.procam.utils.Logs - Both click attempts failed: no such element: Unable to locate element: {"method":"xpath","selector":"//button[normalize-space()='Proceed']"}
+  (Session info: chrome=143.0.7499.193)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [250baddbf172d8cee032bc103fe2da9a, findElement {using=xpath, value=//button[normalize-space()='Proceed']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56035}, goog:processID: 45516, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56035/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 250baddbf172d8cee032bc103fe2da9a
+2026-01-22 17:47:07.401 [main] INFO  Logs com.procam.utils.Logs - Reading configuration file...
+2026-01-22 17:47:07.429 [main] INFO  Logs com.procam.utils.Logs - ===== Test Started =====
+2026-01-22 17:47:07.429 [main] INFO  Logs com.procam.utils.Logs - launching app...
+2026-01-22 17:47:11.451 [main] INFO  LoginPage com.procam.pageobjects.LoginPage - Entering email....
+2026-01-22 17:47:11.584 [main] INFO  LoginPage com.procam.pageobjects.LoginPage - Email entered -> mahi6@yopmail.com
+2026-01-22 17:47:11.632 [main] INFO  LoginPage com.procam.pageobjects.LoginPage - Clicking sendOTP
+2026-01-22 17:47:12.948 [main] INFO  LoginPage com.procam.pageobjects.LoginPage - Clicking login
+2026-01-22 17:47:13.209 [main] INFO  EventDashboardPage com.procam.pageobjects.EventDashboardPage - Selecting event : TCSB_2026
+2026-01-22 17:47:13.210 [main] INFO  EventDashboardPage com.procam.pageobjects.EventDashboardPage - Clicking on event
+2026-01-22 17:47:14.468 [main] INFO  Logs com.procam.utils.Logs - Clicked using normal Selenium click.
+2026-01-22 17:47:14.542 [main] INFO  EventDashboardPage com.procam.pageobjects.EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (39a4d030e7da970ee4b41b20a44981e1)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-22 17:47:14.547 [main] INFO  DiscountApplyPage com.procam.pageobjects.DiscountApplyPage - Clicking No Radio Btn
+2026-01-22 17:47:16.333 [main] INFO  Logs com.procam.utils.Logs - Clicked using normal Selenium click.
+2026-01-22 17:47:16.333 [main] INFO  DiscountApplyPage com.procam.pageobjects.DiscountApplyPage - Clicking proceedBtn
+2026-01-22 17:47:31.712 [main] INFO  Logs com.procam.utils.Logs - Normal click failed. Retrying with JS click...
+2026-01-22 17:47:31.724 [main] INFO  Logs com.procam.utils.Logs - Both click attempts failed: no such element: Unable to locate element: {"method":"xpath","selector":"//button[normalize-space()='Proceed']"}
+  (Session info: chrome=143.0.7499.193)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [39a4d030e7da970ee4b41b20a44981e1, findElement {using=xpath, value=//button[normalize-space()='Proceed']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63598}, goog:processID: 2192, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63598/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 39a4d030e7da970ee4b41b20a44981e1

@@ -2,6 +2,9 @@ package com.procam.pageobjects;
 
 import java.time.Duration;
 import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +20,7 @@ import com.procam.utils.WaitHelper;
 public class LoginPage {
 
 	private WebDriver driver;
+	private static final Logger log = LogManager.getLogger(LoginPage.class);
 
 	//WaitHelper wait;
 
@@ -54,7 +58,7 @@ public class LoginPage {
 		
 		//WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.elementToBeClickable(emailId));
-		Logs.info("Entering email....");
+		log.info("Entering email....");
 		emailId.clear();
 		String email = data.get("emailId");
 		if (email == null || email.isBlank()) {
@@ -62,7 +66,7 @@ public class LoginPage {
 		}
 		emailId.sendKeys(email);
 		//TypingHelper.slowTyping(emailId, email, 100);
-		Logs.info("Email entered -> " + email);
+		log.info("Email entered -> " + email);
 
 		/*
 		 * waitThread(5000); if (data.get("userType").equalsIgnoreCase("myself")) {
@@ -70,14 +74,14 @@ public class LoginPage {
 		 */
 
 		wait.until(ExpectedConditions.elementToBeClickable(sendOTP));
-		Logs.info("Clicking sendOTP");
+		log.info("Clicking sendOTP");
 		sendOTP.click();
 		// wait.until(ExpectedConditions.visibilityOf(otp)).sendKeys("000000");
 
 		String otpValue = data.getOrDefault("otp", "000000");
 		wait.until(ExpectedConditions.elementToBeClickable(otp));
 		otp.sendKeys(otpValue);
-		Logs.info("Clicking login");
+		log.info("Clicking login");
 		
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
 		//wait.waitForClickable(loginBtn).click();

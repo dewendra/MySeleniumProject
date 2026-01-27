@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.compress.harmony.pack200.NewAttribute;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -28,6 +30,8 @@ import com.procam.utils.ExcelUtils;
 import com.procam.utils.Logs;
 
 public class UserLoginPageTest extends BaseClass {
+	
+	private static final Logger log = LogManager.getLogger(UserLoginPageTest.class);
 	public static ExtentReports extentReports;
 	private LoginPage loginPage;
 	private EventDashboardPage eventDashboardPage;
@@ -47,7 +51,7 @@ public class UserLoginPageTest extends BaseClass {
 
 	@BeforeClass
 	public void setup() {
-		Logs.info("===== Test Started =====");
+		log.info("===== Test Started =====");
 		launchApp();
 	}
 

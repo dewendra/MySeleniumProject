@@ -3,6 +3,8 @@ package com.procam.pageobjects;
 import java.rmi.server.ExportException;
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +22,8 @@ import com.procam.utils.Logs;
 import com.procam.utils.WaitHelper;
 
 public class DiscountApplyPage extends BaseClass {
+	
+	private static final Logger log = LogManager.getLogger(DiscountApplyPage.class);
 	private WebDriver driver;
 	private Action action;
 	CommonHelper helper;
@@ -58,9 +62,9 @@ public class DiscountApplyPage extends BaseClass {
 
 	public void readMore() {
 		parentWindow = driver.getWindowHandle();
-		Logs.info("Clicking Read More");
+		log.info("Clicking Read More");
 		helper.clickWithRetry(read_More);
-		Logs.info("Clicked on Read More link");
+		log.info("Clicked on Read More link");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -86,24 +90,24 @@ public class DiscountApplyPage extends BaseClass {
 			// Always clean up even if assertion fails
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			Logs.info("Switched back to parent window");
+			log.info("Switched back to parent window");
 		}
 	}
 
 	public PersonalDetailsPage withDiscountCode() {
 
-		Logs.info("Clicking Yes RadioBtn");
+		log.info("Clicking Yes RadioBtn");
 		helper.clickWithRetry(yesRadioBtn);
 
 		wait.until(ExpectedConditions.visibilityOf(discountCode));
 		discountCode.clear();
-		Logs.info("Applying Discount Code");
+		log.info("Applying Discount Code");
 		discountCode.sendKeys("123456");
 
-		Logs.info("Clicking applyBtn");
+		log.info("Clicking applyBtn");
 		helper.clickWithRetry(applyBtn);
 
-		Logs.info("Clicking proceedBtn");
+		log.info("Clicking proceedBtn");
 		helper.clickWithRetry(proceedBtn);
 
 		return new PersonalDetailsPage();
@@ -111,10 +115,10 @@ public class DiscountApplyPage extends BaseClass {
 
 	public PersonalDetailsPage withoutDiscountCode() {
 		
-		Logs.info("Clicking No Radio Btn");
+		log.info("Clicking No Radio Btn");
 		helper.clickWithRetry(noRadioBtn);
 		
-		Logs.info("Clicking proceedBtn");
+		log.info("Clicking proceedBtn");
 		helper.clickWithRetry(proceedBtn);
 		
 		return new PersonalDetailsPage();
