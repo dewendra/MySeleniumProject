@@ -2,20 +2,24 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-22T17:47:07 IST" name="Default suite" finished-at="2026-01-22T17:47:31 IST" duration-ms="24382">
+  <suite started-at="2026-01-27T17:39:48 IST" name="Default suite" finished-at="2026-01-27T17:40:15 IST" duration-ms="27311">
     <groups>
     </groups>
-    <test started-at="2026-01-22T17:47:07 IST" name="Default test" finished-at="2026-01-22T17:47:31 IST" duration-ms="24382">
+    <test started-at="2026-01-27T17:39:48 IST" name="Default test" finished-at="2026-01-27T17:40:15 IST" duration-ms="27311">
       <class name="com.procam.UserLoginPageTest">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.procam.UserLoginPageTest@2438dcd]" started-at="2026-01-22T17:47:06 IST" name="loadConfig" finished-at="2026-01-22T17:47:07 IST" duration-ms="455" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.procam.UserLoginPageTest@27eb3298]" started-at="2026-01-27T17:39:48 IST" name="loadConfig" finished-at="2026-01-27T17:39:48 IST" duration-ms="48" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.procam.UserLoginPageTest@2438dcd]" started-at="2026-01-22T17:47:07 IST" name="setup" finished-at="2026-01-22T17:47:09 IST" duration-ms="2492" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.procam.UserLoginPageTest@27eb3298]" started-at="2026-01-27T17:39:48 IST" name="setupReport" finished-at="2026-01-27T17:39:48 IST" duration-ms="157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReport -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.procam.UserLoginPageTest@27eb3298]" started-at="2026-01-27T17:39:48 IST" name="setup" finished-at="2026-01-27T17:39:53 IST" duration-ms="4757" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin(java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map)[pri:0, instance:com.procam.UserLoginPageTest@2438dcd]" started-at="2026-01-22T17:47:11 IST" name="verifyLogin" data-provider="fullFlowData" finished-at="2026-01-22T17:47:31 IST" duration-ms="20387" status="FAIL">
+        <test-method signature="verifyLogin(java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map)[pri:0, instance:com.procam.UserLoginPageTest@27eb3298]" started-at="2026-01-27T17:39:55 IST" name="verifyLogin" data-provider="fullFlowData" finished-at="2026-01-27T17:40:15 IST" duration-ms="20393" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -56,25 +60,25 @@
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//button[normalize-space()='Proceed']"}
-  (Session info: chrome=143.0.7499.193)
+  (Session info: chrome=144.0.7559.97)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [39a4d030e7da970ee4b41b20a44981e1, findElement {using=xpath, value=//button[normalize-space()='Proceed']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63598}, goog:processID: 2192, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63598/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 39a4d030e7da970ee4b41b20a44981e1]]>
+Command: [3a402d9575993450e934501024bc94c4, findElement {value=//button[normalize-space()='Proceed'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59526}, goog:processID: 30608, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59526/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3a402d9575993450e934501024bc94c4]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[normalize-space()='Proceed']"}
-  (Session info: chrome=143.0.7499.193)
+  (Session info: chrome=144.0.7559.97)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [39a4d030e7da970ee4b41b20a44981e1, findElement {using=xpath, value=//button[normalize-space()='Proceed']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63598}, goog:processID: 2192, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63598/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 39a4d030e7da970ee4b41b20a44981e1
+Command: [3a402d9575993450e934501024bc94c4, findElement {value=//button[normalize-space()='Proceed'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59526}, goog:processID: 30608, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59526/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3a402d9575993450e934501024bc94c4
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -91,7 +95,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
 at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy32.getWrappedElement(Unknown Source)
+at jdk.proxy2/jdk.proxy2.$Proxy33.getWrappedElement(Unknown Source)
 at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:50)
 at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
@@ -103,7 +107,7 @@ at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:6
 at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:462)
 at com.procam.utils.CommonHelper.clickWithRetry(CommonHelper.java:257)
 at com.procam.pageobjects.DiscountApplyPage.withoutDiscountCode(DiscountApplyPage.java:122)
-at com.procam.UserLoginPageTest.verifyLogin(UserLoginPageTest.java:69)
+at com.procam.UserLoginPageTest.verifyLogin(UserLoginPageTest.java:77)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -136,14 +140,14 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="closeSuite()[pri:0, instance:com.procam.UserLoginPageTest@2438dcd]" started-at="2026-01-22T17:47:31 IST" name="closeSuite" finished-at="2026-01-22T17:47:31 IST" duration-ms="1" status="FAIL">
+        <test-method is-config="true" signature="closeSuite()[pri:0, instance:com.procam.UserLoginPageTest@27eb3298]" started-at="2026-01-27T17:40:15 IST" name="closeSuite" finished-at="2026-01-27T17:40:15 IST" duration-ms="2" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[Cannot invoke "com.aventstack.extentreports.ExtentReports.flush()" because "com.procam.UserLoginPageTest.extentReports" is null]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentReports.flush()" because "com.procam.UserLoginPageTest.extentReports" is null
-at com.procam.UserLoginPageTest.closeSuite(UserLoginPageTest.java:154)
+at com.procam.UserLoginPageTest.closeSuite(UserLoginPageTest.java:162)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -167,6 +171,10 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeSuite -->
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.procam.UserLoginPageTest@27eb3298]" started-at="2026-01-27T17:40:15 IST" name="tearDownReport" finished-at="2026-01-27T17:40:15 IST" depends-on-methods="com.procam.UserLoginPageTest.closeSuite" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownReport -->
       </class> <!-- com.procam.UserLoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

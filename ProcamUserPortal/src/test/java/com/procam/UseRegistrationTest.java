@@ -27,11 +27,12 @@ import com.procam.pageobjects.OrderSummaryPage;
 import com.procam.pageobjects.PaymentsOptionPage;
 import com.procam.pageobjects.PersonalDetailsPage;
 import com.procam.utils.ExcelUtils;
+import com.procam.utils.ExtentReport;
 import com.procam.utils.Logs;
 
-public class UserLoginPageTest extends BaseClass {
+public class UseRegistrationTest extends BaseClass {
 	
-	private static final Logger log = LogManager.getLogger(UserLoginPageTest.class);
+	private static final Logger log = LogManager.getLogger(UseRegistrationTest.class);
 	public static ExtentReports extentReports;
 	private LoginPage loginPage;
 	private EventDashboardPage eventDashboardPage;
@@ -42,12 +43,13 @@ public class UserLoginPageTest extends BaseClass {
 	private OrderSummaryPage orderSummaryPage;
 	private PaymentsOptionPage paymentsOptionPage;
 
-	// @BeforeSuite
-	public void setupSuit() {
-		ExtentSparkReporter reporter = new ExtentSparkReporter("reports/ExtentReport.html");
-		extentReports = new ExtentReports();
-		extentReports.attachReporter(reporter);
-	}
+	/*
+	 * // @BeforeSuite public void setupSuit() {
+	 * 
+	 * ExtentSparkReporter reporter = new
+	 * ExtentSparkReporter("reports/ExtentReport.html"); extentReports = new
+	 * ExtentReports(); extentReports.attachReporter(reporter); }
+	 */
 
 	@BeforeClass
 	public void setup() {
@@ -64,6 +66,8 @@ public class UserLoginPageTest extends BaseClass {
 			Map<String, String> gstData, 
 			Map<String, String> PaymentsData)
 			throws InterruptedException {
+		test=ExtentReport.createTest("Login Test");
+		
 		loginPage = new LoginPage();
 		eventDashboardPage = loginPage.loginByEmail(loginData);
 		discountApplyPage = eventDashboardPage.selectEvent(eventDashboardData);

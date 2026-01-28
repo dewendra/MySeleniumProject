@@ -7,8 +7,10 @@
         <methods>
           <include name="verifyLogin" invocation-numbers="0"/>
           <include name="setup"/>
+          <include name="tearDownReport"/>
           <include name="closeSuite"/>
           <include name="loadConfig"/>
+          <include name="setupReport"/>
         </methods>
       </class> <!-- com.procam.UserLoginPageTest -->
     </classes>

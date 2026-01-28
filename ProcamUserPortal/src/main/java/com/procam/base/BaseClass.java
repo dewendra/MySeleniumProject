@@ -9,12 +9,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.procam.pageobjects.DiscountApplyPage;
 import com.procam.utils.DriverFactory;
+import com.procam.utils.ExtentReport;
 import com.procam.utils.Logs;
 
 /**
@@ -22,10 +26,12 @@ import com.procam.utils.Logs;
  *
  */
 public class BaseClass {
-	
+
 	private static final Logger log = LogManager.getLogger(BaseClass.class);
 
-	//protected WebDriver driver;
+	protected WebDriver driver;
+	protected ExtentReports extentReports;
+	protected ExtentTest test;
 	public static Properties prop;
 
 	@BeforeSuite
@@ -44,21 +50,31 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
+	@BeforeSuite
+	public void setupReport() {
+		extentReports = ExtentReport.getReportInstance();
+	}
+
+
 	@Parameters("browser")
-	//@BeforeMethod
+	// @BeforeMethod
 	public void launchApp() {
 		log.info("launching app...");
-		//String browserName = browser != null ? browser : prop.getProperty("browser");
+		// String browserName = browser != null ? browser : prop.getProperty("browser");
 		String browserName = prop.getProperty("browser");
 		DriverFactory.initDriver(browserName);
 		DriverFactory.getDriver().get(prop.getProperty("url"));
 
 	}
 
-	//@AfterMethod
+	// @AfterMethod
 	public void closeApp() {
 		DriverFactory.getDriver().quit();
 	}
 
+	@AfterSuite
+	public void tearDownReport() {
+		extentReports.flush();
+	}
 }

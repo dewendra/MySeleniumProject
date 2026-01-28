@@ -44,13 +44,13 @@ public class DiscountApplyPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='flexRadioDefault2']")
 	private WebElement noRadioBtn;
 
-	@FindBy(xpath = "//button[normalize-space()='Proceed']")
+	@FindBy(xpath = "//button[@type='button' and contains(normalize-space(),'Continue')]")
 	private WebElement proceedBtn;
 
 	@FindBy(xpath = "//input[@id='discountCode']")
 	private WebElement discountCode;
 
-	@FindBy(xpath = "//button[normalize-space()='Apply']")
+	@FindBy(xpath = "//button[@type='button' and normalize-space()='Apply']")
 	private WebElement applyBtn;
 
 	public DiscountApplyPage() {

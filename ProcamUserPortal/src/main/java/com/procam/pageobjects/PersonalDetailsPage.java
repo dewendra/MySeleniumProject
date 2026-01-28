@@ -102,7 +102,7 @@ public class PersonalDetailsPage extends BaseClass {
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
 
-	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Proceed']")
+	@FindBy(xpath = "//button[@type='submit' and contains(normalize-space(),'Continue')]")
 	private WebElement proceedBtn;
 
 	public PersonalDetailsPage() {
