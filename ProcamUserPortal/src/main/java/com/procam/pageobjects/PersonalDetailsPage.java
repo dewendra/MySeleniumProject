@@ -96,7 +96,7 @@ public class PersonalDetailsPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='wantToGiveRCNo']")
 	private WebElement runningClubNo;
 
-	@FindBy(xpath = "//ng-select[@formcontrolname='occupation']")
+	@FindBy(xpath = "//label[contains(text(),'Occupation')]/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]")
 	private WebElement occupation;
 
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
@@ -207,28 +207,18 @@ public class PersonalDetailsPage extends BaseClass {
 
 	}
 
-	public void selectOccupation(String occupationToSelect) {
+	public void selectOccupation(String occupationToSelect) throws InterruptedException {
 
-		Logs.info("Clicking Occupation");
-		helper.clickWithRetry(occupation);
-		Logs.info("Clicked Occupation");
-		Logs.info("Entering Occupation");
+		wait.until(ExpectedConditions.elementToBeClickable(occupation));
+		Logs.info("Selecting Occupation");
 
-		// By dropdownOptions =
-		// By.xpath("//div[contains(@class,'position-relative')]//ul");
-		// wait.until(ExpectedConditions.numberOfElementsToBeMoreThan((By)
-		// dropdownOptions, 0));
+		Logs.info("Waiting for dropdown options to appear...");
 
-		List<WebElement> occupationsList = driver
-				.findElements(By.xpath("//ng-dropdown-panel//span[@class='ng-option-label']"));
+	    By occupationDropDown=By.xpath("//label[contains(text(),'Occupation')]/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]");
+	    helper.selectFromNgSelect(occupationDropDown, occupationToSelect);
 
-		System.out.println("Occupation List Size: " + occupationsList.size());
-		for (WebElement occupation : occupationsList) {
-			System.out.println(occupation.getText().toString());
-		}
-		DropdownHelper dropdown = new DropdownHelper(driver);
-		dropdown.selectFromList(occupationsList, occupationToSelect);
-		Logs.info("Occupations selected from dropdown: " + occupationToSelect);
+	    Logs.info("Occupations selected from dropdown: " + occupationToSelect);
+	    
 
 	}
 

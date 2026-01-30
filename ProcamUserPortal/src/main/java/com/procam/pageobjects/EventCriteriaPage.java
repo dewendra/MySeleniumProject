@@ -72,7 +72,7 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//input[@name='timingcerfLink']")
 	private WebElement timingCertificateLink;
 
-	@FindBy(css = "ng-select[formcontrolname='eventName'] .ng-select-container")
+	@FindBy(css = "//app-select[@name='eventName']//input")
 	private WebElement eventName;
 
 	@FindBy(css = "ng-select[formcontrolname='raceCategoryId'] .ng-select-container")
@@ -751,7 +751,7 @@ public class EventCriteriaPage extends BaseClass {
 
 	private void selectEventName(String searchEventName, String eventNameToSelect) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(eventName));
-		By eventNameDropdown = By.cssSelector("ng-select[formcontrolname='eventName'] .ng-select-container");
+		By eventNameDropdown = By.xpath("//app-select[@name='eventName']//input");
 
 		// helper.selectFromNgSelect(eventNameDropdown, eventNameToSelect);
 		// Thread.sleep(5000);

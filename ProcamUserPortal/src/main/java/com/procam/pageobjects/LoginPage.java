@@ -54,7 +54,7 @@ public class LoginPage {
 		
 	}
 
-	public EventDashboardPage loginByEmail(Map<String, String> data) throws InterruptedException {
+	public EventDashboardPage loginByEmail(Map<String, String> data)  {
 		
 		//WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.elementToBeClickable(emailId));

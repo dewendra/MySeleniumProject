@@ -1,4 +1,4 @@
-package com.procam;
+package com.procam.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,9 +30,9 @@ import com.procam.utils.ExcelUtils;
 import com.procam.utils.ExtentReport;
 import com.procam.utils.Logs;
 
-public class UseRegistrationTest extends BaseClass {
+public class UseRegistrationTest2 extends BaseClass {
 	
-	private static final Logger log = LogManager.getLogger(UseRegistrationTest.class);
+	private static final Logger log = LogManager.getLogger(UseRegistrationTest2.class);
 	public static ExtentReports extentReports;
 	private LoginPage loginPage;
 	private EventDashboardPage eventDashboardPage;

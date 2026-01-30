@@ -116,3 +116,297 @@ Driver info: org.openqa.selenium.chrome.ChromeDriver
 Command: [3a402d9575993450e934501024bc94c4, findElement {value=//button[normalize-space()='Proceed'], using=xpath}]
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59526}, goog:processID: 30608, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59526/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: 3a402d9575993450e934501024bc94c4
+2026-01-28 15:03:35.692 [main] INFO  BaseClass - Reading configuration file...
+2026-01-28 15:03:35.932 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-01-28 15:03:35.932 [main] INFO  BaseClass - launching app...
+2026-01-28 15:03:41.203 [main] INFO  LoginPage - Entering email....
+2026-01-28 15:03:41.339 [main] INFO  LoginPage - Email entered -> mahi6@yopmail.com
+2026-01-28 15:03:41.384 [main] INFO  LoginPage - Clicking sendOTP
+2026-01-28 15:03:42.763 [main] INFO  LoginPage - Clicking login
+2026-01-28 15:03:43.048 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-01-28 15:03:43.048 [main] INFO  EventDashboardPage - Clicking on event
+2026-01-28 15:03:44.326 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:03:44.388 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (88562c909351c522be8af5ded16231b4)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-28 15:03:44.394 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-01-28 15:03:46.177 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:03:46.177 [main] INFO  DiscountApplyPage - Clicking proceedBtn
+2026-01-28 15:03:46.402 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:03:46.670 [main] INFO  Logs - Entering First Name
+2026-01-28 15:03:46.707 [main] INFO  Logs - Entered First Name -> Mahi
+2026-01-28 15:03:47.005 [main] INFO  Logs - Entering Last Name
+2026-01-28 15:03:47.060 [main] INFO  Logs - Entered Last Name -> Six
+2026-01-28 15:03:47.330 [main] INFO  Logs - Entering Mobile Number
+2026-01-28 15:03:47.360 [main] INFO  Logs - Entered mobile Number -> 9876543206
+2026-01-28 15:03:47.360 [main] INFO  Logs - Selecting gender
+2026-01-28 15:03:47.575 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:03:47.575 [main] INFO  Logs - Gender selected -> Female
+2026-01-28 15:03:47.575 [main] INFO  Logs - Entering Date of Birth.....
+2026-01-28 15:03:48.203 [main] INFO  Logs - Date of Birth entered -> 15-05-2004
+2026-01-28 15:03:48.203 [main] INFO  Logs - Scroll To  Pin Code
+2026-01-28 15:03:48.203 [main] INFO  Logs - Selecting Address using Pincode
+2026-01-28 15:03:48.253 [main] INFO  Logs - Entering Pin Code
+2026-01-28 15:03:50.362 [main] INFO  Logs - Address selected from dropdown: Nehru Place
+2026-01-28 15:03:50.613 [main] INFO  Logs - Entering Address
+2026-01-28 15:03:50.790 [main] INFO  Logs - Entered address : ->121, Ansal Tower-38
+2026-01-28 15:03:50.899 [main] INFO  Logs - Entering Nationality
+2026-01-28 15:03:52.755 [main] INFO  Logs - Nationality selected from dropdown: Indian
+2026-01-28 15:03:52.910 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:03:52.910 [main] INFO  Logs - Clicking Occupation
+2026-01-28 15:03:53.118 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:03:53.118 [main] INFO  Logs - Clicked Occupation
+2026-01-28 15:03:53.118 [main] INFO  Logs - Entering Occupation
+2026-01-28 15:07:06.877 [main] INFO  BaseClass - Reading configuration file...
+2026-01-28 15:07:07.016 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-01-28 15:07:07.017 [main] INFO  BaseClass - launching app...
+2026-01-28 15:07:10.879 [main] INFO  LoginPage - Entering email....
+2026-01-28 15:07:11.054 [main] INFO  LoginPage - Email entered -> mahi6@yopmail.com
+2026-01-28 15:07:11.119 [main] INFO  LoginPage - Clicking sendOTP
+2026-01-28 15:07:12.479 [main] INFO  LoginPage - Clicking login
+2026-01-28 15:07:12.629 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-01-28 15:07:12.639 [main] INFO  EventDashboardPage - Clicking on event
+2026-01-28 15:07:13.933 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:07:14.012 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (23166b7646e09a5c8f8a62bfda10f139)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-28 15:07:14.017 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-01-28 15:07:15.872 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:07:15.872 [main] INFO  DiscountApplyPage - Clicking proceedBtn
+2026-01-28 15:07:16.056 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:07:16.384 [main] INFO  Logs - Entering First Name
+2026-01-28 15:07:16.420 [main] INFO  Logs - Entered First Name -> Mahi
+2026-01-28 15:07:16.661 [main] INFO  Logs - Entering Last Name
+2026-01-28 15:07:16.692 [main] INFO  Logs - Entered Last Name -> Six
+2026-01-28 15:07:16.936 [main] INFO  Logs - Entering Mobile Number
+2026-01-28 15:07:16.966 [main] INFO  Logs - Entered mobile Number -> 9876543206
+2026-01-28 15:07:16.966 [main] INFO  Logs - Selecting gender
+2026-01-28 15:07:17.237 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:07:17.238 [main] INFO  Logs - Gender selected -> Female
+2026-01-28 15:07:17.238 [main] INFO  Logs - Entering Date of Birth.....
+2026-01-28 15:07:18.000 [main] INFO  Logs - Date of Birth entered -> 15-05-2004
+2026-01-28 15:07:18.000 [main] INFO  Logs - Scroll To  Pin Code
+2026-01-28 15:07:18.000 [main] INFO  Logs - Selecting Address using Pincode
+2026-01-28 15:07:18.062 [main] INFO  Logs - Entering Pin Code
+2026-01-28 15:07:19.644 [main] INFO  Logs - Address selected from dropdown: Nehru Place
+2026-01-28 15:07:19.855 [main] INFO  Logs - Entering Address
+2026-01-28 15:07:20.160 [main] INFO  Logs - Entered address : ->121, Ansal Tower-38
+2026-01-28 15:07:20.232 [main] INFO  Logs - Entering Nationality
+2026-01-28 15:07:21.638 [main] INFO  Logs - Nationality selected from dropdown: Indian
+2026-01-28 15:07:21.895 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:07:21.895 [main] INFO  Logs - Clicking Occupation
+2026-01-28 15:07:22.171 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:07:22.171 [main] INFO  Logs - Clicked Occupation
+2026-01-28 15:07:22.171 [main] INFO  Logs - Entering Occupation
+2026-01-28 15:18:19.137 [main] INFO  BaseClass - Reading configuration file...
+2026-01-28 15:18:19.273 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-01-28 15:18:19.273 [main] INFO  BaseClass - launching app...
+2026-01-28 15:18:22.947 [main] INFO  LoginPage - Entering email....
+2026-01-28 15:18:23.130 [main] INFO  LoginPage - Email entered -> mahi6@yopmail.com
+2026-01-28 15:18:23.207 [main] INFO  LoginPage - Clicking sendOTP
+2026-01-28 15:18:24.607 [main] INFO  LoginPage - Clicking login
+2026-01-28 15:18:24.790 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-01-28 15:18:24.790 [main] INFO  EventDashboardPage - Clicking on event
+2026-01-28 15:18:26.022 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:18:26.040 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (b7b5dcb7c42baa826555149fd1006b0b)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-28 15:18:26.046 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-01-28 15:18:27.808 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:18:27.808 [main] INFO  DiscountApplyPage - Clicking proceedBtn
+2026-01-28 15:18:27.966 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:18:28.156 [main] INFO  Logs - Entering First Name
+2026-01-28 15:18:28.197 [main] INFO  Logs - Entered First Name -> Mahi
+2026-01-28 15:18:28.410 [main] INFO  Logs - Entering Last Name
+2026-01-28 15:18:28.436 [main] INFO  Logs - Entered Last Name -> Six
+2026-01-28 15:18:28.664 [main] INFO  Logs - Entering Mobile Number
+2026-01-28 15:18:28.687 [main] INFO  Logs - Entered mobile Number -> 9876543206
+2026-01-28 15:18:28.687 [main] INFO  Logs - Selecting gender
+2026-01-28 15:18:28.906 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:18:28.906 [main] INFO  Logs - Gender selected -> Female
+2026-01-28 15:18:28.906 [main] INFO  Logs - Entering Date of Birth.....
+2026-01-28 15:18:29.496 [main] INFO  Logs - Date of Birth entered -> 15-05-2004
+2026-01-28 15:18:29.496 [main] INFO  Logs - Scroll To  Pin Code
+2026-01-28 15:18:29.496 [main] INFO  Logs - Selecting Address using Pincode
+2026-01-28 15:18:29.536 [main] INFO  Logs - Entering Pin Code
+2026-01-28 15:18:30.946 [main] INFO  Logs - Address selected from dropdown: Nehru Place
+2026-01-28 15:18:31.126 [main] INFO  Logs - Entering Address
+2026-01-28 15:18:31.316 [main] INFO  Logs - Entered address : ->121, Ansal Tower-38
+2026-01-28 15:18:31.426 [main] INFO  Logs - Entering Nationality
+2026-01-28 15:18:33.241 [main] INFO  Logs - Nationality selected from dropdown: Indian
+2026-01-28 15:18:33.406 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:18:33.406 [main] INFO  Logs - Clicking Occupation
+2026-01-28 15:18:33.538 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:18:33.538 [main] INFO  Logs - Clicked Occupation
+2026-01-28 15:18:33.538 [main] INFO  Logs - Selecting Occupation
+2026-01-28 15:18:33.538 [main] INFO  Logs - Waiting for dropdown options to appear...
+2026-01-28 15:29:23.670 [main] INFO  BaseClass - Reading configuration file...
+2026-01-28 15:29:23.814 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-01-28 15:29:23.814 [main] INFO  BaseClass - launching app...
+2026-01-28 15:29:27.305 [main] INFO  LoginPage - Entering email....
+2026-01-28 15:29:27.446 [main] INFO  LoginPage - Email entered -> mahi6@yopmail.com
+2026-01-28 15:29:27.486 [main] INFO  LoginPage - Clicking sendOTP
+2026-01-28 15:29:28.831 [main] INFO  LoginPage - Clicking login
+2026-01-28 15:29:29.050 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-01-28 15:29:29.051 [main] INFO  EventDashboardPage - Clicking on event
+2026-01-28 15:29:30.367 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:30.432 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (fe2f0460a01d054a4be7a49e1840b573)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-28 15:29:30.435 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-01-28 15:29:32.169 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:32.169 [main] INFO  DiscountApplyPage - Clicking proceedBtn
+2026-01-28 15:29:32.404 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:32.699 [main] INFO  Logs - Entering First Name
+2026-01-28 15:29:32.771 [main] INFO  Logs - Entered First Name -> Mahi
+2026-01-28 15:29:33.133 [main] INFO  Logs - Entering Last Name
+2026-01-28 15:29:33.163 [main] INFO  Logs - Entered Last Name -> Six
+2026-01-28 15:29:33.413 [main] INFO  Logs - Entering Mobile Number
+2026-01-28 15:29:33.454 [main] INFO  Logs - Entered mobile Number -> 9876543206
+2026-01-28 15:29:33.454 [main] INFO  Logs - Selecting gender
+2026-01-28 15:29:33.723 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:33.723 [main] INFO  Logs - Gender selected -> Female
+2026-01-28 15:29:33.723 [main] INFO  Logs - Entering Date of Birth.....
+2026-01-28 15:29:34.385 [main] INFO  Logs - Date of Birth entered -> 15-05-2004
+2026-01-28 15:29:34.385 [main] INFO  Logs - Scroll To  Pin Code
+2026-01-28 15:29:34.385 [main] INFO  Logs - Selecting Address using Pincode
+2026-01-28 15:29:34.423 [main] INFO  Logs - Entering Pin Code
+2026-01-28 15:29:36.354 [main] INFO  Logs - Address selected from dropdown: Nehru Place
+2026-01-28 15:29:36.569 [main] INFO  Logs - Entering Address
+2026-01-28 15:29:36.734 [main] INFO  Logs - Entered address : ->121, Ansal Tower-38
+2026-01-28 15:29:36.842 [main] INFO  Logs - Entering Nationality
+2026-01-28 15:29:38.673 [main] INFO  Logs - Nationality selected from dropdown: Indian
+2026-01-28 15:29:38.844 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:38.893 [main] INFO  Logs - Selecting Occupation
+2026-01-28 15:29:38.893 [main] INFO  Logs - Waiting for dropdown options to appear...
+2026-01-28 15:29:38.893 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-01-28 15:29:38.933 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-01-28 15:29:39.042 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:39.042 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-01-28 15:29:39.042 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-01-28 15:29:39.068 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-01-28 15:29:40.085 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-01-28 15:29:41.099 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-01-28 15:29:42.125 [main] INFO  Logs - Available options:
+2026-01-28 15:29:42.141 [main] INFO  Logs -  → Business
+2026-01-28 15:29:42.154 [main] INFO  Logs -  → Self-Employed
+2026-01-28 15:29:42.168 [main] INFO  Logs -  → Salaried
+2026-01-28 15:29:42.180 [main] INFO  Logs -  → Retired
+2026-01-28 15:29:42.194 [main] INFO  Logs -  → Housewife
+2026-01-28 15:29:42.203 [main] INFO  Logs -  → Student
+2026-01-28 15:29:42.218 [main] INFO  Logs -  → Govt
+2026-01-28 15:29:42.234 [main] INFO  Logs -  → Other
+2026-01-28 15:29:42.484 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:42.485 [main] INFO  Logs - Selected options :->Student
+2026-01-28 15:29:42.485 [main] INFO  Logs - Occupations selected from dropdown: Student
+2026-01-28 15:29:42.485 [main] INFO  Logs - Clicking proceed btn
+2026-01-28 15:29:42.633 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:42.633 [main] INFO  Logs - Going for Event Criteria Page....
+2026-01-28 15:29:43.788 [main] INFO  Logs - Ground Event radio button clicking...
+2026-01-28 15:29:43.913 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:43.913 [main] INFO  Logs - Ground Event Yes radio button clicked...
+2026-01-28 15:29:45.014 [main] INFO  Logs - Scrolling the page.....
+2026-01-28 15:29:45.043 [main] INFO  Logs - Going to select the race category
+2026-01-28 15:29:45.118 [main] INFO  Logs - Selecting race category: 
+2026-01-28 15:29:45.118 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-01-28 15:29:45.178 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-01-28 15:29:45.287 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:45.293 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-01-28 15:29:45.293 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-01-28 15:29:45.322 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-01-28 15:29:46.344 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-01-28 15:29:47.368 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-01-28 15:29:48.401 [main] INFO  Logs - Available options:
+2026-01-28 15:29:48.417 [main] INFO  Logs -  → Open 10K (10 km)
+2026-01-28 15:29:48.435 [main] INFO  Logs -  → Majja Run (5 km)
+2026-01-28 15:29:48.446 [main] INFO  Logs -  → Champions with Disability (3 km)
+2026-01-28 15:29:48.579 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:48.579 [main] INFO  Logs - Selected options :->Open 10K (10 km)
+2026-01-28 15:29:48.579 [main] INFO  Logs - Race Category selected: Open 10K (10 km)
+2026-01-28 15:29:48.579 [main] INFO  Logs - Rce category selected
+2026-01-28 15:29:48.580 [main] INFO  Logs - Selecting criteria from given options...
+2026-01-28 15:29:49.253 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:29:49.253 [main] INFO  Logs - Women WithTiming radio option clicked...
+2026-01-28 15:29:49.285 [main] INFO  Logs - Entering Timing Certificate Link...
+2026-01-28 15:29:49.493 [main] INFO  Logs - Timing Certificate Link entered...
+2026-01-28 15:29:49.493 [main] INFO  Logs - Entering Event Name...
+2026-01-28 15:37:15.179 [main] INFO  BaseClass - Reading configuration file...
+2026-01-28 15:37:15.320 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-01-28 15:37:15.320 [main] INFO  BaseClass - launching app...
+2026-01-28 15:37:20.351 [main] INFO  LoginPage - Entering email....
+2026-01-28 15:37:20.544 [main] INFO  LoginPage - Email entered -> mahi6@yopmail.com
+2026-01-28 15:37:20.612 [main] INFO  LoginPage - Clicking sendOTP
+2026-01-28 15:37:21.960 [main] INFO  LoginPage - Clicking login
+2026-01-28 15:37:22.131 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-01-28 15:37:22.134 [main] INFO  EventDashboardPage - Clicking on event
+2026-01-28 15:37:23.432 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:23.451 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (e50a78e85883f5a318f77f8650e42745)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-01-28 15:37:23.460 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-01-28 15:37:25.196 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:25.196 [main] INFO  DiscountApplyPage - Clicking proceedBtn
+2026-01-28 15:37:25.351 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:25.541 [main] INFO  Logs - Entering First Name
+2026-01-28 15:37:25.572 [main] INFO  Logs - Entered First Name -> Mahi
+2026-01-28 15:37:25.801 [main] INFO  Logs - Entering Last Name
+2026-01-28 15:37:25.831 [main] INFO  Logs - Entered Last Name -> Six
+2026-01-28 15:37:26.075 [main] INFO  Logs - Entering Mobile Number
+2026-01-28 15:37:26.101 [main] INFO  Logs - Entered mobile Number -> 9876543206
+2026-01-28 15:37:26.101 [main] INFO  Logs - Selecting gender
+2026-01-28 15:37:26.323 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:26.323 [main] INFO  Logs - Gender selected -> Female
+2026-01-28 15:37:26.323 [main] INFO  Logs - Entering Date of Birth.....
+2026-01-28 15:37:26.881 [main] INFO  Logs - Date of Birth entered -> 15-05-2004
+2026-01-28 15:37:26.881 [main] INFO  Logs - Scroll To  Pin Code
+2026-01-28 15:37:26.881 [main] INFO  Logs - Selecting Address using Pincode
+2026-01-28 15:37:26.951 [main] INFO  Logs - Entering Pin Code
+2026-01-28 15:37:28.824 [main] INFO  Logs - Address selected from dropdown: Nehru Place
+2026-01-28 15:37:28.984 [main] INFO  Logs - Entering Address
+2026-01-28 15:37:29.151 [main] INFO  Logs - Entered address : ->121, Ansal Tower-38
+2026-01-28 15:37:29.231 [main] INFO  Logs - Entering Nationality
+2026-01-28 15:37:31.051 [main] INFO  Logs - Nationality selected from dropdown: Indian
+2026-01-28 15:37:31.201 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:31.261 [main] INFO  Logs - Selecting Occupation
+2026-01-28 15:37:31.261 [main] INFO  Logs - Waiting for dropdown options to appear...
+2026-01-28 15:37:31.261 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-01-28 15:37:31.302 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-01-28 15:37:31.409 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:31.409 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-01-28 15:37:31.409 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-01-28 15:37:31.435 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-01-28 15:37:32.459 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-01-28 15:37:33.474 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-01-28 15:37:34.509 [main] INFO  Logs - Available options:
+2026-01-28 15:37:34.525 [main] INFO  Logs -  → Business
+2026-01-28 15:37:34.542 [main] INFO  Logs -  → Self-Employed
+2026-01-28 15:37:34.556 [main] INFO  Logs -  → Salaried
+2026-01-28 15:37:34.576 [main] INFO  Logs -  → Retired
+2026-01-28 15:37:34.593 [main] INFO  Logs -  → Housewife
+2026-01-28 15:37:34.611 [main] INFO  Logs -  → Student
+2026-01-28 15:37:34.626 [main] INFO  Logs -  → Govt
+2026-01-28 15:37:34.640 [main] INFO  Logs -  → Other
+2026-01-28 15:37:34.925 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:34.925 [main] INFO  Logs - Selected options :->Student
+2026-01-28 15:37:34.925 [main] INFO  Logs - Occupations selected from dropdown: Student
+2026-01-28 15:37:34.925 [main] INFO  Logs - Clicking proceed btn
+2026-01-28 15:37:35.091 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:35.091 [main] INFO  Logs - Going for Event Criteria Page....
+2026-01-28 15:37:36.255 [main] INFO  Logs - Ground Event radio button clicking...
+2026-01-28 15:37:36.406 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:36.406 [main] INFO  Logs - Ground Event Yes radio button clicked...
+2026-01-28 15:37:37.486 [main] INFO  Logs - Scrolling the page.....
+2026-01-28 15:37:37.513 [main] INFO  Logs - Going to select the race category
+2026-01-28 15:37:37.581 [main] INFO  Logs - Selecting race category: 
+2026-01-28 15:37:37.581 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-01-28 15:37:37.627 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-01-28 15:37:37.738 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:37.738 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-01-28 15:37:37.738 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-01-28 15:37:37.764 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-01-28 15:37:38.782 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-01-28 15:37:39.822 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-01-28 15:37:40.850 [main] INFO  Logs - Available options:
+2026-01-28 15:37:40.872 [main] INFO  Logs -  → Open 10K (10 km)
+2026-01-28 15:37:40.895 [main] INFO  Logs -  → Majja Run (5 km)
+2026-01-28 15:37:40.931 [main] INFO  Logs -  → Champions with Disability (3 km)
+2026-01-28 15:37:41.111 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:41.111 [main] INFO  Logs - Selected options :->Open 10K (10 km)
+2026-01-28 15:37:41.112 [main] INFO  Logs - Race Category selected: Open 10K (10 km)
+2026-01-28 15:37:41.112 [main] INFO  Logs - Rce category selected
+2026-01-28 15:37:41.112 [main] INFO  Logs - Selecting criteria from given options...
+2026-01-28 15:37:41.774 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-01-28 15:37:41.774 [main] INFO  Logs - Women WithTiming radio option clicked...
+2026-01-28 15:37:41.801 [main] INFO  Logs - Entering Timing Certificate Link...
+2026-01-28 15:37:42.035 [main] INFO  Logs - Timing Certificate Link entered...
+2026-01-28 15:37:42.035 [main] INFO  Logs - Entering Event Name...
