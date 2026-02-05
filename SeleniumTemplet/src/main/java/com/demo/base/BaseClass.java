@@ -16,6 +16,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.demo.base.BaseClass;
 import com.demo.utils.DriverFactory;
+import com.demo.utils.EmailUtils;
 import com.demo.utils.ExtentReport;
 
 public class BaseClass {
@@ -70,6 +71,8 @@ public class BaseClass {
 	@AfterSuite
 	public void tearDownReport() {
 		extentReports.flush();
+		String reportPath=ExtentReport.reportPath;
+		EmailUtils.sendTestReport(reportPath);
 	}
 
 

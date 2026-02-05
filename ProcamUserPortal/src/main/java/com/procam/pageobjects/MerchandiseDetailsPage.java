@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +24,7 @@ import com.procam.utils.Logs;
 
 public class MerchandiseDetailsPage extends BaseClass {
 
+	private static final Logger log=LogManager.getLogger(MerchandiseDetailsPage.class);
 	private WebDriver driver;
 	Action action;
 	WebDriverWait wait;
@@ -61,27 +64,6 @@ public class MerchandiseDetailsPage extends BaseClass {
 	@FindBy(xpath = "//h4[contains(normalize-space(),'philanthropy platform')]")
 	private WebElement philanthropyPlatform;
 
-	@FindBy(xpath = "//h5[contains(normalize-space(),'additional donation')]")
-	private WebElement additionalDonation;
-
-	@FindBy(xpath = "//label[normalize-space()='Yes' and @for='donationy']")
-	private WebElement donationsYes;
-
-	@FindBy(xpath = "//input[@formcontrolname='donationAmount']")
-	private WebElement donationAmount;
-
-	@FindBy(xpath = "//label[normalize-space()='No' and @for='donantionN']")
-	private WebElement donationsNo;
-
-	@FindBy(xpath = "//h5[contains(normalize-space(),'fundraising page')]")
-	private WebElement fundraisingPageOption;
-
-	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
-	private WebElement fundRaiseYes;
-
-	@FindBy(xpath = "//div[@id='ngoDonationAmount']//span//span")
-	private List<WebElement> ngoDonationAmountList;
-
 	@FindBy(xpath = "//ng-select[@id='causeName']//span[contains(@class,'ng-arrow-wrapper')]")
 	private WebElement selectCauseDropDown;
 
@@ -90,6 +72,15 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 	@FindBy(xpath = "//input[@name='panCardName']")
 	private WebElement panCardName;
+	
+
+	@FindBy(xpath = "//h5[contains(normalize-space(),'fundraising page')]")
+	private WebElement fundraisingPageOption;
+
+	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
+	private WebElement fundRaiseYes;
+
+	
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='No']")
 	private WebElement fundRaiseNo;
@@ -119,51 +110,29 @@ public class MerchandiseDetailsPage extends BaseClass {
 	public OrderSummaryPage enterMerchandiseDetails(Map<String, String> data) throws InterruptedException {
 		// Thread.sleep(7000);
 		// ------------------------Addons Option-----------------------//
-		Logs.info("Checking if Addons section is available...");
+		log.info("Checking if Addons section is available...");
 		if (isAddOnsSectionAvailable()) {
-			Logs.info("Addons section found");
+			log.info("Addons section found");
 			helper.scrollElementInToView(addonsYes);
 			if (data.get("addOns").equalsIgnoreCase("yes")) {
 				helper.clickWithRetry(addonsYes);
-				Logs.info("addons Yes option selected...");
-				Logs.info("Going to select addons form available merchandise...");
+				log.info("addons Yes option selected...");
+				log.info("Going to select addons form available merchandise...");
 
 				selectAddOns(data.get("addOnName"));
 
 			} else {
-				Logs.info("addons No option selected...");
+				log.info("addons No option selected...");
 				helper.clickWithRetry(addonsNo);
 
 			}
 		} else {
-			Logs.info("Addons section NOT present : skipping to Donation");
+			log.info("Addons section NOT present : skipping to Donation");
 		}
 
-		// ---------------------Donation ----------------------------//
-
-		// Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(additionalDonation));
-		// wait.until(ExpectedConditions.visibilityOf(philanthropyPlatform));
-		// scrollElementInToTop(philanthropyPlatform);
-		// scrollElementInToTop(additionalDonation);
-		Logs.info("Going for selecting the Donation option....");
-		Logs.info("Scrolling Top to the Donation option....");
-		helper.scrollElementInToView(additionalDonation);
-
-		if (data.get("donation").equalsIgnoreCase("yes")) {
-			helper.clickWithRetry(donationsYes);
-			Logs.info("Donantion Yes option selected...");
-			selectDonationaAmount(data.get("donationAmount"));
-			makingAdditionalDonation(data.get("searchCause"), data.get("causeOfYourChoice"), data.get("panNo"),
-					data.get("nameOnPanCard"));
-
-		} else {
-			helper.clickWithRetry(donationsNo);
-			Logs.info("donantion No option selected...");
-		}
-
+		
 		// ---------------Fund Raiser--------------------------//
-		Logs.info("Going for selecting the fund Raise option....");
+		log.info("Going for selecting the fund Raise option....");
 		/*
 		 * if (data.get("fundRaise").equalsIgnoreCase("Yes")) {
 		 * helper.clickWithRetry(fundRaiseYes); } else {
@@ -173,18 +142,18 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 		// ---------------TGB Selection--------------------------//
 		if (isGreenBibSectionAvailable()) {
-			Logs.info("Green Bib section found");
+			log.info("Green Bib section found");
 			greenBibLinkPage();
 			helper.scrollElementInToView(greenBibyes);
 			if (data.get("tgb").equalsIgnoreCase("Yes")) {
 				helper.clickWithRetry(greenBibyes);
-				Logs.info("Green Bib Yes option selected...");
+				log.info("Green Bib Yes option selected...");
 			} else {
-				Logs.info("Green Bib No option selected...");
+				log.info("Green Bib No option selected...");
 				helper.clickWithRetry(greenBibNo);
 			}
 		} else {
-			Logs.info("Green Bib section NOT present : skipping to Green Bib");
+			log.info("Green Bib section NOT present : skipping to Green Bib");
 		}
 
 		/*
@@ -195,10 +164,10 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 		// ----------------------Proceed Button----------------------//
 		helper.scrollElementInToView(proceedBtn);
-		Logs.info("Going for clicking the proceed Button....");
+		log.info("Going for clicking the proceed Button....");
 		helper.clickWithRetry(proceedBtn);
 
-		Logs.info("Going for Order Summary Page....");
+		log.info("Going for Order Summary Page....");
 		return new OrderSummaryPage();
 
 	}
@@ -221,7 +190,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(donationList, donationAmountToSelect);
-		Logs.info("Donation amount selected from dropdown: " + donationAmountToSelect);
+		log.info("Donation amount selected from dropdown: " + donationAmountToSelect);
 
 	}
 
@@ -230,14 +199,14 @@ public class MerchandiseDetailsPage extends BaseClass {
 
 		wait.until(ExpectedConditions.elementToBeClickable(selectCauseDropDown));
 		helper.scrollElementInToTop(selectCauseDropDown);
-		Logs.info("Selecting Cause from dropdown: ");
+		log.info("Selecting Cause from dropdown: ");
 
 		By causeDropdown = By.xpath("//ng-select[@id='causeName']//span[contains(@class,'ng-arrow-wrapper')]");
 		System.out.println("Dropdown cause: ->" + causeDropdown);
 		try {
 			//helper.selectFromNgSelect(causeDropdown, causeToSelect);
 			 helper.searchAndSelectFromNgSelect2(causeDropdown, causeToSearch, causeToSelect);
-			Logs.info("Cause selected: " + causeToSelect);
+			 log.info("Cause selected: " + causeToSelect);
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -277,7 +246,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			Logs.info("Switched back to parent window");
+			log.info("Switched back to parent window");
 		}
 
 	}
@@ -287,12 +256,12 @@ public class MerchandiseDetailsPage extends BaseClass {
 		// WebDriver driver = driver;
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		Logs.info("Fetching list of AddOns...");
+		log.info("Fetching list of AddOns...");
 
 		waitThread(5000);
 		List<WebElement> addOnCards = driver.findElements(By.xpath("//div[contains(@class,'addOn-container')]"));
 
-		Logs.info("Total AddOns found: " + addOnCards.size());
+		log.info("Total AddOns found: " + addOnCards.size());
 
 		for (WebElement addOn : addOnCards) {
 
@@ -300,12 +269,12 @@ public class MerchandiseDetailsPage extends BaseClass {
 			WebElement nameElement = addOn.findElement(By.xpath(".//p[contains(@class,'h5')]"));
 			String addOnName = nameElement.getText().trim();
 
-			Logs.info("Checking AddOn: " + addOnName);
+			log.info("Checking AddOn: " + addOnName);
 
 			if (addOnName.equalsIgnoreCase(addOnToSelect)) {
 				waitThread(5000);
 
-				Logs.info("MATCH FOUND -> " + addOnName);
+				log.info("MATCH FOUND -> " + addOnName);
 				helper.scrollElementInToView(nameElement);
 				waitThread(5000);
 
@@ -313,7 +282,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 				WebElement plusBtn = addOn.findElement(By.xpath(".//div[contains(@class,'btn-color')]"));
 
 				wait.until(ExpectedConditions.elementToBeClickable(plusBtn)).click();
-				Logs.info("Clicked (+) button to add addon.");
+				log.info("Clicked (+) button to add addon.");
 
 				// Let Angular load the dropdown below (if required)
 				Thread.sleep(5000);
@@ -323,7 +292,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 				WebElement dropdownCard = wait.until(ExpectedConditions
 						.visibilityOfElementLocated(By.xpath(".//div[@class='card mb-2 ng-star-inserted']")));
 
-				Logs.info("Dropdown card appeared... searching dropdown");
+				log.info("Dropdown card appeared... searching dropdown");
 
 				WebElement dropdown = dropdownCard.findElement(By.xpath(".//select[contains(@class,'form-select')]"));
 
@@ -333,7 +302,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 				// Select size M
 				selectByVisibleText(dropdown, "M");
 
-				Logs.info("Selected size: M");
+				log.info("Selected size: M");
 
 				return;
 
@@ -366,7 +335,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 	public void selectByVisibleText(WebElement dropdown, String text) {
 
 		List<WebElement> options = dropdown.findElements(By.tagName("option"));
-		Logs.info("Available size options: " + options.size());
+		log.info("Available size options: " + options.size());
 
 		for (WebElement option : options) {
 			String optionText = option.getText().trim();
@@ -378,7 +347,7 @@ public class MerchandiseDetailsPage extends BaseClass {
 				}
 
 				option.click();
-				Logs.info("Clicked option: " + text);
+				log.info("Clicked option: " + text);
 				return;
 			}
 		}

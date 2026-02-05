@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +22,7 @@ import com.procam.utils.WaitHelper;
 
 public class PaymentsOptionPage extends BaseClass {
 
+	private static final Logger log=LogManager.getLogger(PaymentsOptionPage.class);
 	private WebDriver driver;
 	WebDriverWait wait;
 
@@ -32,43 +35,44 @@ public class PaymentsOptionPage extends BaseClass {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
-	public void makePayment(Map<String, String> data) {
+	public TransactionSuccessPage makePayment(Map<String, String> data) {
 		waitThread(10000);
-		Logs.info("Reached on Payment Page....");
+		log.info("Reached on Payment Page....");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 
 		try {
 
 			// Step 1: wait for Razorpay iframe to be PRESENT in DOM
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe.razorpay-checkout-frame")));
-			Logs.info("Razorpay iframe present in DOM");
+			log.info("Razorpay iframe present in DOM");
 
 			// Step 2: wait for iframe to be VISIBLE
 			WebElement razorpayFrame = wait.until(
 					ExpectedConditions.visibilityOfElementLocated(By.cssSelector("iframe.razorpay-checkout-frame")));
-			Logs.info("Razorpay iframe visible");
+			log.info("Razorpay iframe visible");
 
 			// Step 3: switch to iframe
 			DriverFactory.getDriver().switchTo().frame(razorpayFrame);
-			Logs.info("Switched to Razorpay iframe successfully");
+			log.info("Switched to Razorpay iframe successfully");
 
 			// Step 4: wait for payment options
 			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@data-value]")));
-			Logs.info("Payment options loaded");
+			log.info("Payment options loaded");
 
 			// Step 5: select payment option
 			allPaymentOptions(data.get("paymentOption"));
 
 			if (data.get("paymentOption").equalsIgnoreCase("netbanking")) {
-				Logs.info("Wating for the loading the Netbanking Bank options");
+				log.info("Wating for the loading the Netbanking Bank options");
 				//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
-				Logs.info("Calling the selectNetbankingBank method");
+				log.info("Calling the selectNetbankingBank method");
 				selectNetbankingBank(data.get("NetBank"));
 				//selectNetbankingBank2(data.get("NetBank"));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException("Razorpay iframe did not load in time", e);
 		}
+		return new TransactionSuccessPage();
 	}
 
 	private void selectNetbankingBank(String bankName) {
@@ -79,7 +83,7 @@ public class PaymentsOptionPage extends BaseClass {
 
 		// Fetch all bank tiles
 		List<WebElement> allBanks = driver.findElements(By.cssSelector("label div[data-value]"));
-		Logs.info("Banks found: " + allBanks.size());
+		log.info("Banks found: " + allBanks.size());
 
 		for (WebElement bank : allBanks) {
 			System.out.println(" → "+bank.getAttribute("data-value"));
@@ -101,7 +105,7 @@ public class PaymentsOptionPage extends BaseClass {
 	}
 	private void selectNetbankingBank2(String bankName) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-	    Logs.info("Selecting Netbanking bank: " + bankName);
+	    log.info("Selecting Netbanking bank: " + bankName);
 
 	    // Locate via visible text
 	    By bankLocator = By.xpath("//*[contains(@role,'button')]//*[contains(text(),'" + bankName + "')]/ancestor::label");
@@ -111,7 +115,7 @@ public class PaymentsOptionPage extends BaseClass {
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", bankElement);
 	    bankElement.click();
 
-	    Logs.info("Bank selected: " + bankName);
+	    log.info("Bank selected: " + bankName);
 	}
 
 	public void allPaymentOptions(String paymentOptionToSelect) {

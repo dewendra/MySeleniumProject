@@ -18,6 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.procam.pageobjects.DiscountApplyPage;
 import com.procam.utils.DriverFactory;
+import com.procam.utils.EmailUtils;
 import com.procam.utils.ExtentReport;
 import com.procam.utils.Logs;
 
@@ -53,6 +54,7 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void setupReport() {
+		log.info("Report configuration file...");
 		extentReports = ExtentReport.getReportInstance();
 	}
 
@@ -76,5 +78,7 @@ public class BaseClass {
 	@AfterSuite
 	public void tearDownReport() {
 		extentReports.flush();
+		String reportPath=ExtentReport.reportPath;
+		EmailUtils.sendTestReport(reportPath);
 	}
 }

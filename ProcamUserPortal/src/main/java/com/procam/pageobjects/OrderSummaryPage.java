@@ -3,6 +3,8 @@ package com.procam.pageobjects;
 import java.time.Duration;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +22,7 @@ import com.procam.utils.WaitHelper;
 
 public class OrderSummaryPage extends BaseClass {
 
+	private static final Logger log=LogManager.getLogger(OrderSummaryPage.class);
 	private WebDriver driver;
 	WebDriverWait wait;
 	String parentWindow;
@@ -98,87 +101,87 @@ public class OrderSummaryPage extends BaseClass {
 
 		if (gst_Option.equalsIgnoreCase("Yes")) {
 			waitThread(3000);
-			Logs.info("Going for clicking the GST Yes option....");
+			log.info("Going for clicking the GST Yes option....");
 			scrollElementInToView(forGstOptions);
 			helper.clickWithRetry(gstOptionYes);
-			Logs.info("GST Yes option clickied....");
+			log.info("GST Yes option clickied....");
 			userGSTDetails();
 
 		} else {
 			helper.clickWithRetry(gstOptionNo);
-			Logs.info("GST option No selected....");
+			log.info("GST option No selected....");
 		}
 
-		Logs.info("Going for entering the GST Number....");
+		log.info("Going for entering the GST Number....");
 		wait.until(ExpectedConditions.elementToBeClickable(gstNumber));
 		gstNumber.sendKeys(gst_Number);
-		Logs.info("GST Number entered-> " + gst_Number);
+		log.info("GST Number entered-> " + gst_Number);
 
-		Logs.info("Going for entering the GST Name....");
+		log.info("Going for entering the GST Name....");
 		wait.until(ExpectedConditions.elementToBeClickable(gstName));
 		gstName.sendKeys(gst_Name);
-		Logs.info("GST Name entered-> " + gst_Name);
+		log.info("GST Name entered-> " + gst_Name);
 
 		scrollElementInToTop(allWaivers);
 		//waiverLinkPage();
 		if (w1.equalsIgnoreCase("Y")) {
-			Logs.info("Going for clicking the Waiver1....");
+			log.info("Going for clicking the Waiver1....");
 			//waitThread(1000);
 			// wait.waitForClickable(waiver1);
 			helper.clickWithRetry(waiver1);
 			//waiver1.click();
-			Logs.info("Waiver1 clickied....");
+			log.info("Waiver1 clickied....");
 		}
 
 		//entryRulesLinkPage();
 		if (w2.equalsIgnoreCase("Y")) {
-			Logs.info("Going for clicking the Waiver2....");
+			log.info("Going for clicking the Waiver2....");
 			helper.clickWithRetry(waiver2);
 			//waitThread(1000);
 			// wait.waitForClickable(waiver2);
 			//waiver2.click();
-			Logs.info("Waiver2 clickied....");
+			log.info("Waiver2 clickied....");
 		}
 
 		//consentLinkPage();
 		if (w4.equalsIgnoreCase("Y")) {
-			Logs.info("Going for clicking the Waiver4....");
+			log.info("Going for clicking the Waiver4....");
 			helper.clickWithRetry(waiver4);
 			//waitThread(1000);
 			// scrollElementInToView(waiver4);
 			// wait.waitForClickable(waiver4);
 			//waiver4.click();
-			Logs.info("Waiver4 clickied....");
+			log.info("Waiver4 clickied....");
 		}
 
 		//event_medical_advisory_LinkPage();
 		if (w5.equalsIgnoreCase("Y")) {
-			Logs.info("Going for clicking the Waiver5....");
+			log.info("Going for clicking the Waiver5....");
 			helper.clickWithRetry(waiver5);
 			//waitThread(1000);
 			// wait.waitForClickable(waiver5);
 			//waiver5.click();
-			Logs.info("Waiver5 clickied....");
+			log.info("Waiver5 clickied....");
 		}
 
 		if (w3.equalsIgnoreCase("Y")) {
-			Logs.info("Going for clicking the Waiver3....");
+			log.info("Going for clicking the Waiver3....");
 			helper.clickWithRetry(waiver3);
 			//waitThread(1000);
 			//wait.waitForClickable(waiver3);
 			//waiver3.click();
-			Logs.info("Waiver3 clickied....");
+			log.info("Waiver3 clickied....");
 		}
 
 		waitThread(2000);
 		// scrollElementInToView(proceedBtn);
-		Logs.info("Going for clicking the proceed Button....");
+		log.info("Going for clicking the proceed Button....");
 		helper.clickWithRetry(proceedBtn);
 		//JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 		//javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
-		Logs.info("Proceed Btn clickied....");
+		log.info("Proceed Btn clickied....");
 
-		Logs.info("Going for Payment Page....");
+		log.info("Going for Payment Page....");
 		return new PaymentsOptionPage();
 	}
 	// -----------------------All link page methods-------------------------------//
@@ -186,7 +189,7 @@ public class OrderSummaryPage extends BaseClass {
 	public void waiverLinkPage() {
 		helper.clickWithRetry(waiver1Link);
 		//waiver1Link.click();
-		Logs.info("Clicked on Waiver Link");
+		log.info("Clicked on Waiver Link");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -208,7 +211,7 @@ public class OrderSummaryPage extends BaseClass {
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			Logs.info("Switched back to parent window");
+			log.info("Switched back to parent window");
 		}
 
 	}
@@ -216,7 +219,7 @@ public class OrderSummaryPage extends BaseClass {
 	public void entryRulesLinkPage() {
 		helper.clickWithRetry(entryRulesLink);
 		//entryRulesLink.click();
-		Logs.info("Clicked on Entry Rules Link");
+		log.info("Clicked on Entry Rules Link");
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 		for(String window:driver.getWindowHandles()) {
@@ -235,7 +238,7 @@ public class OrderSummaryPage extends BaseClass {
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			Logs.info("Switched back to parent window");
+			log.info("Switched back to parent window");
 		}
 		
 	}
@@ -271,7 +274,7 @@ public class OrderSummaryPage extends BaseClass {
 	public void event_medical_advisory_LinkPage() {
 		helper.clickWithRetry(event_medical_advisoryLink);
 		//event_medical_advisoryLink.click();
-		Logs.info("Clicked on Entry Rules Link");
+		log.info("Clicked on Entry Rules Link");
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 		for(String window:driver.getWindowHandles()) {
@@ -290,7 +293,7 @@ public class OrderSummaryPage extends BaseClass {
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			Logs.info("Switched back to parent window");
+			log.info("Switched back to parent window");
 		}
 		
 	}

@@ -3,7 +3,8 @@ package com.procam.pageobjects;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,6 +28,7 @@ import com.procam.utils.WaitHelper;
 
 public class EventCriteriaPage extends BaseClass {
 
+	private static final Logger log=LogManager.getLogger(EventCriteriaPage.class);
 	private WebDriver driver;
 	Action action;
 	WebDriverWait wait;
@@ -196,9 +198,21 @@ public class EventCriteriaPage extends BaseClass {
 
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
+	
+	@FindBy(xpath = "//div[contains(@class,'item-count')]")
+	private WebElement itemCount;
+	
+	@FindBy(xpath = "//div[contains(@class,'cart-wrapper')]")
+	private WebElement cartWrapper;
+	
+	@FindBy(xpath = "//div[contains(@class,'cart-wrapper')]//app-cart-details-view/div")
+	private List<WebElement> cartDetailsViewList;
+	
+	@FindBy(xpath = "//div[contains(@class,'total-amount')]")
+	private WebElement totalAmount;
 
-	@FindBy(xpath = "//button[normalize-space()='Proceed']")
-	private WebElement proceedBtn;
+	@FindBy(xpath = "//div[contains(@class,'action-btn')]//span[normalize-space()='Continue']")
+	private WebElement cartContinueBtn;
 
 	public EventCriteriaPage() {
 		this.driver = DriverFactory.getDriver();
@@ -210,22 +224,22 @@ public class EventCriteriaPage extends BaseClass {
 	}
 
 	public void eventLinkPage() {
-		Logs.info("Reached on Event criteria Page...");
-		Logs.info("getting the parent window handle..");
+		log.info("Reached on Event criteria Page...");
+		log.info("getting the parent window handle..");
 		parentWindow = driver.getWindowHandle();
 		System.out.println("Parent window id is ->" + parentWindow);
 
-		Logs.info("Finding the event link page....");
+		log.info("Finding the event link page....");
 		WebElement eventPageLink = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.cssSelector("div.d-flex a[href*='tatamumbaimarathon']")));
 		helper.scrollIntoViewCenter(eventPageLink);
 
 		try {
-			Logs.info("Event page link found and going to Click eventPageLink");
+			log.info("Event page link found and going to Click eventPageLink");
 			wait.until(ExpectedConditions.elementToBeClickable(eventPageLink));
 			helper.clickWithRetry(eventPageLink);
 			//eventPageLink.click();
-			Logs.info("Clicked on Event Page link");
+			log.info("Clicked on Event Page link");
 		} catch (ElementClickInterceptedException e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", eventPageLink);
 		}
@@ -251,7 +265,7 @@ public class EventCriteriaPage extends BaseClass {
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			Logs.info("Switched back to parent window");
+			log.info("Switched back to parent window");
 		}
 
 	}
@@ -265,82 +279,82 @@ public class EventCriteriaPage extends BaseClass {
 
 		helper.scrollElementInToTop(onGroundEventPage);
 
-		Logs.info("Ground Event radio button clicking...");
+		log.info("Ground Event radio button clicking...");
 		if (data.get("participateOnGround").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(participateInONGroundEventYes);
-			Logs.info("Ground Event Yes radio button clicked...");
+			log.info("Ground Event Yes radio button clicked...");
 
 		} else {
 			helper.clickWithRetry(participateInONGroundEventNo);
-			Logs.info("Ground Event No radio button clicked...");
+			log.info("Ground Event No radio button clicked...");
 		}
 
 		wait.until(ExpectedConditions.visibilityOf(selectYourRaceCategory));
-		Logs.info("Scrolling the page.....");
+		log.info("Scrolling the page.....");
 		helper.scrollElementInToTop(selectYourRaceCategory);
-		Logs.info("Going to select the race category");
+		log.info("Going to select the race category");
 		selectRaceCategory(data.get("raceCategory"));
-		Logs.info("Rce category selected");
+		log.info("Rce category selected");
 
-		Logs.info("Selecting criteria from given options...");
+		log.info("Selecting criteria from given options...");
 		String criteria = data.get("criteriaType");
 		if (criteria.equalsIgnoreCase("TimedRunner")) {
 			helper.clickWithRetry(timedRunner);
-			Logs.info("Timed Runner radio option clicked...");
+			log.info("Timed Runner radio option clicked...");
 		} else if (criteria.equalsIgnoreCase("WomenWithTiming")) {
 			helper.clickWithRetry(WomenCriteriaWithTimingCertificate);
-			Logs.info("Women WithTiming radio option clicked...");
+			log.info("Women WithTiming radio option clicked...");
 		} else if (criteria.equalsIgnoreCase("WomenWithoutTiming")) {
 			helper.clickWithRetry(WomenCriteriaWithoutTimingCertificate);
-			Logs.info("Women WithOut Timing radio option clicked...");
+			log.info("Women WithOut Timing radio option clicked...");
 		} else if (criteria.equalsIgnoreCase(" GeneralCriteria ")) {
 			helper.clickWithRetry(generalCriteria);
-			Logs.info("General Criteria radio option clicked...");
+			log.info("General Criteria radio option clicked...");
 		} else {
 			System.err.println("Criteria not selected....");
 		}
 
 		helper.scrollElementInToTop(timingDetails);
 		if (criteria.equalsIgnoreCase("TimedRunner") || criteria.equalsIgnoreCase("WomenWithTiming")) {
-			Logs.info("Entering Timing Certificate Link...");
+			log.info("Entering Timing Certificate Link...");
 			wait.until(ExpectedConditions.elementToBeClickable(timingCertificateLink));
 			timingCertificateLink.sendKeys(data.get("timingCertLink"));
-			Logs.info("Timing Certificate Link entered...");
+			log.info("Timing Certificate Link entered...");
 		}
 
-		Logs.info("Entering Event Name...");
+		log.info("Entering Event Name...");
 		// Thread.sleep(5000);
 		selectEventName(data.get("searchEventName"), data.get("eventName"));
 
 		selectEventRaceCategory(data.get("eventRaceCategory"));
 
 		wait.until(ExpectedConditions.elementToBeClickable(bibNumber));
-		Logs.info("Entering Bib number...");
+		log.info("Entering Bib number...");
 		bibNumber.sendKeys(data.get("bibNumber"));
-		Logs.info("Bib number entered...");
+		log.info("Bib number entered...");
 
 		helper.scrollElementInToView(eventConductedDate);
 		wait.until(ExpectedConditions.elementToBeClickable(eventConductedDate)).click();
-		Logs.info("Entering Event Conducted Date...");
+		log.info("Entering Event Conducted Date...");
 		DatePickerHelper.selectDate(driver, eventConductedDate, data.get("eventDate"));
-		Logs.info("Event Conducted Date entered...");
+		log.info("Event Conducted Date entered...");
 
 		wait.until(ExpectedConditions.elementToBeClickable(hoursInput));
-		Logs.info("Entering Hours...");
+		log.info("Entering Hours...");
 		hoursInput.sendKeys(data.get("hours"));
-		Logs.info("Hours entered...");
+		log.info("Hours entered...");
 
 		wait.until(ExpectedConditions.elementToBeClickable(minutesInput));
-		Logs.info("Entering Minutes...");
+		log.info("Entering Minutes...");
 		minutesInput.sendKeys(data.get("minutes"));
-		Logs.info("Minutes entered...");
+		log.info("Minutes entered...");
 
 		wait.until(ExpectedConditions.elementToBeClickable(secondsInput));
-		Logs.info("Entering Seconds...");
+		log.info("Entering Seconds...");
 		secondsInput.sendKeys(data.get("seconds"));
-		Logs.info("Seconds entered...");
+		log.info("Seconds entered...");
 
-		Logs.info("Scrolling to Additional details ....");
+		log.info("Scrolling to Additional details ....");
 		helper.scrollElementInToTop(additionalDetails);
 
 		selectIdProofFromList(data.get("idProofType"), data.get("idProofNumber"));
@@ -349,21 +363,21 @@ public class EventCriteriaPage extends BaseClass {
 
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonName1));
-		Logs.info("Scrolling to Emergency Name1 ....");
+		log.info("Scrolling to Emergency Name1 ....");
 		helper.scrollElementInToTop(emergencyContactPersonName1);
 		emergencyContactPersonName1.clear();
 		emergencyContactPersonName1.sendKeys(data.get("emergencyName1"));
-		Logs.info("Emergency Name1 entered...");
+		log.info("Emergency Name1 entered...");
 
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonMobileNumber1));
 		emergencyContactPersonMobileNumber1.clear();
 		emergencyContactPersonMobileNumber1.sendKeys(data.get("emergencyMobile1"));
-		Logs.info("Emergency Mobile1 entered...");
+		log.info("Emergency Mobile1 entered...");
 
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonRelationship1));
 		emergencyContactPersonRelationship1.clear();
 		emergencyContactPersonRelationship1.sendKeys(data.get("emergencyRelation1"));
-		Logs.info("Emergency Relation1 entered...");
+		log.info("Emergency Relation1 entered...");
 
 		//Thread.sleep(2000);
 		//Logs.info("Scrolling to Emergency Name2 ....");
@@ -371,21 +385,21 @@ public class EventCriteriaPage extends BaseClass {
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonName2));
 		emergencyContactPersonName2.clear();
 		emergencyContactPersonName2.sendKeys(data.get("emergencyName2"));
-		Logs.info("Emergency Name2 entered...");
+		log.info("Emergency Name2 entered...");
 
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonMobileNumber2));
 		emergencyContactPersonMobileNumber2.clear();
 		emergencyContactPersonMobileNumber2.sendKeys(data.get("emergencyMobile2"));
-		Logs.info("Emergency Mobile2 entered...");
+		log.info("Emergency Mobile2 entered...");
 
 		wait.until(ExpectedConditions.visibilityOf(emergencyContactPersonRelationship2));
-		Logs.info("Scrolling to Emergency Relation2 ....");
+		log.info("Scrolling to Emergency Relation2 ....");
 		//Thread.sleep(2000);
 		helper.scrollElementInToTop(emergencyContactPersonRelationship2);
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonRelationship2));
 		emergencyContactPersonRelationship2.clear();
 		emergencyContactPersonRelationship2.sendKeys(data.get("emergencyRelation2"));
-		Logs.info("Emergency Relation2 entered...");
+		log.info("Emergency Relation2 entered...");
 
 		// ----------------- Procam Slam Option--------------------//
 		// wait.until(ExpectedConditions.visibilityOf(procamSlam));
@@ -397,34 +411,34 @@ public class EventCriteriaPage extends BaseClass {
 		// scrollElementInToTop(emergencyContactPerson2);
 		if (data.get("procamSlamOptions").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(procamSlamYes);
-			Logs.info("Procam Slam Yes Option clicked...");
-			Logs.info("Going to select the cycle...");
+			log.info("Procam Slam Yes Option clicked...");
+			log.info("Going to select the cycle...");
 			selectTheSlamCycle(data.get("slamCycle"));
 		} else {
 			helper.clickWithRetry(procamSlamNo);
-			Logs.info("Procam Slam No Option clicked...");
+			log.info("Procam Slam No Option clicked...");
 		}
 
 		// ----------------- Participating First Time Option--------------------//
 
 		if (data.get("participatingFirstTime").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(participatingFirstTimeYes);
-			Logs.info("Participating First Time Yes Option clicked...");
+			log.info("Participating First Time Yes Option clicked...");
 		} else {
 			helper.clickWithRetry(participatingFirstTimeNo);
-			Logs.info("Participating First Time No Option clicked...");
+			log.info("Participating First Time No Option clicked...");
 		}
 
 		// ------------------- Race day Special Option------------------//
 
 		if (data.get("raceDaySpecial").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(raceDayIsSpecialYes);
-			Logs.info("Race Day Special Yes option clicked...");
-			Logs.info("Going to select the reason...");
+			log.info("Race Day Special Yes option clicked...");
+			log.info("Going to select the reason...");
 			selectTheReason(select_The_Reason);
 		} else {
 			helper.clickWithRetry(raceDayIsSpecialNo);
-			Logs.info("Race Day Special No option clicked...");
+			log.info("Race Day Special No option clicked...");
 		}
 
 		selectTransportToUse(data.get("transport"));
@@ -432,7 +446,7 @@ public class EventCriteriaPage extends BaseClass {
 		selectTheTshirt(data.get("tshirtSize"));
 
 		wait.until(ExpectedConditions.visibilityOf(hearAboutOurEvent));
-		Logs.info("Scrolling to Hear About ....");
+		log.info("Scrolling to Hear About ....");
 		helper.scrollElementInToView(hearAboutOurEvent);
 
 		hearAboutUs(data.get("hearAbout"));
@@ -446,11 +460,11 @@ public class EventCriteriaPage extends BaseClass {
 			helper.clickWithRetry(ForVirtualEventNo);
 		}
 
-		Logs.info("Clicking on Proceed Button....");
-		helper.clickWithRetry(proceedBtn);
-		Logs.info("Proceed Button clicked....");
+		log.info("Clicking on Cart Continue Button....");
+		helper.clickWithRetry(cartContinueBtn);
+		log.info("Cart Continue Button clicked....");
 
-		Logs.info("Going for Merchandise Details Page....");
+		log.info("Going for Merchandise Details Page....");
 		return new MerchandiseDetailsPage();
 
 	}
@@ -460,29 +474,29 @@ public class EventCriteriaPage extends BaseClass {
 		helper = new CommonHelper(driver);
 		wait.until(ExpectedConditions.elementToBeClickable(selectTshirtDropDown));
 
-		Logs.info("Selecting tshirt size from dropdown: ");
+		log.info("Selecting tshirt size from dropdown: ");
 
 		By tshirtSizeDropdown = By.xpath(
 				"//label[contains(text(),'T-Shirt Size')]/ancestor::div/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]");
 		helper.selectFromNgSelect(tshirtSizeDropdown, tshirtToSelect);
 
-		Logs.info("T-shirt size selected: " + tshirtToSelect);
+		log.info("T-shirt size selected: " + tshirtToSelect);
 
 	}
 
 	// ----------- Procam Slam Cycle----------------//
 	private void selectTheSlamCycle(String slamCycleToSelect) throws InterruptedException {
-		Logs.info("In selectTheSlamCycle method... ");
+		log.info("In selectTheSlamCycle method... ");
 		helper = new CommonHelper(driver);
 		wait.until(ExpectedConditions.elementToBeClickable(selectProcamCycleDropDown));
 
-		Logs.info("Selecting procam slam cycle from dropdown: ");
+		log.info("Selecting procam slam cycle from dropdown: ");
 
 		By slamCycleDropdown = By.xpath(
 				"//label[contains(text(),'Choose the cycle')]/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]");
 		helper.selectFromNgSelect(slamCycleDropdown, slamCycleToSelect);
 
-		Logs.info("Procam slam cycle selected: " + slamCycleToSelect);
+		log.info("Procam slam cycle selected: " + slamCycleToSelect);
 
 	}
 
@@ -505,16 +519,16 @@ public class EventCriteriaPage extends BaseClass {
 
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(virtualRaceCategoryList, virtualRaceCategoryToSelect);
-		Logs.info("Virtual race category selected from dropdown: " + virtualRaceCategoryToSelect);
+		log.info("Virtual race category selected from dropdown: " + virtualRaceCategoryToSelect);
 	}
 
 	private void selectTheReason(String reasonToSelect) {
-		Logs.info("In selectTheReason method... ");
+		log.info("In selectTheReason method... ");
 		wait.until(ExpectedConditions.elementToBeClickable(selectTheReason));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", selectTheReason);
 		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", selectTheReason);
-		Logs.info("Select The Reason Dropdown opened.....");
+		log.info("Select The Reason Dropdown opened.....");
 
 		List<WebElement> reasonsList = driver
 				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
@@ -525,7 +539,7 @@ public class EventCriteriaPage extends BaseClass {
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(reasonsList, reasonToSelect);
-		Logs.info("Reason selected from dropdown: " + reasonToSelect);
+		log.info("Reason selected from dropdown: " + reasonToSelect);
 	}
 
 	private void hearAboutUs(String hearAboutToSelect) {
@@ -533,7 +547,7 @@ public class EventCriteriaPage extends BaseClass {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", hearAboutInput);
 		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", hearAboutInput);
-		Logs.info("Hear About Input Dropdown opened...");
+		log.info("Hear About Input Dropdown opened...");
 		List<WebElement> hearAboutList = driver
 				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
 		System.out.println("Hear About List size: " + hearAboutList.size());
@@ -542,21 +556,21 @@ public class EventCriteriaPage extends BaseClass {
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(hearAboutList, hearAboutToSelect);
-		Logs.info("Hear about selected from dropdown: " + hearAboutToSelect);
+		log.info("Hear about selected from dropdown: " + hearAboutToSelect);
 	}
 
 	private void uploadProfileimage(String filePath) {
 		wait.until(ExpectedConditions.elementToBeClickable(uploadProfileImage));
 		helper.scrollElementInToView(uploadProfileImage);
 
-		Logs.info("Clicking on upload profile Image for uploading file...... ");
+		log.info("Clicking on upload profile Image for uploading file...... ");
 
 		if (filePath == null || filePath.trim().isEmpty()) {
-			Logs.info("No profile image provided. Skipping upload.");
+			log.info("No profile image provided. Skipping upload.");
 			return;
 		}
 
-		Logs.info("Uploading profile image(path): " + filePath);
+		log.info("Uploading profile image(path): " + filePath);
 
 		WebElement fileInput = driver.findElement(By.cssSelector("input#profileImage"));
 
@@ -573,11 +587,11 @@ public class EventCriteriaPage extends BaseClass {
 		System.out.println(fileInput.getAttribute("value"));
 
 		// fileInput.clear();
-		Logs.info("file input path captured: " + fileInput.getTagName());
-		Logs.info("file input path captured: " + fileInput.getText());
+		log.info("file input path captured: " + fileInput.getTagName());
+		log.info("file input path captured: " + fileInput.getText());
 		// fileInput.sendKeys(fielPath);
 
-		Logs.info("Profile image uploaded successfully");
+		log.info("Profile image uploaded successfully");
 
 		// -----------------------------------------------
 		/*
@@ -597,7 +611,7 @@ public class EventCriteriaPage extends BaseClass {
 	private void selectIdProofToUpload(String idProofType) {
 		wait.until(ExpectedConditions.elementToBeClickable(uploadIdProof));
 		helper.scrollElementInToView(uploadIdProof);
-		Logs.info("Clicking on Id Proof upload button for: " + idProofType);
+		log.info("Clicking on Id Proof upload button for: " + idProofType);
 		// uploadIdProof.click();
 		String filePath = "";
 		if (idProofType.equalsIgnoreCase("Aadhar Card")) {
@@ -606,23 +620,23 @@ public class EventCriteriaPage extends BaseClass {
 			filePath = "C:\\Users\\dewen\\Downloads\\Procam_Testing\\ProcamTest\\docs\\pan_card.jpg";
 		}
 
-		Logs.info("Id Proof Uploading file path: " + filePath);
+		log.info("Id Proof Uploading file path: " + filePath);
 
 		WebElement fileInput = driver.findElement(By.xpath(" //label[@for='idproof']/following-sibling::input[@type='file']"));
 		fileInput.sendKeys(filePath);
 
-		Logs.info("Id Proof uploaded successfully for: " + idProofType);
+		log.info("Id Proof uploaded successfully for: " + idProofType);
 
 	}
 
 	private void selectIdProofFromList(String idProofToSelect, String idProofNumber) {
 		wait.until(ExpectedConditions.elementToBeClickable(selectIdProofType));
 		helper.scrollElementInToView(selectIdProofType);
-		Logs.info("Clicking on Id proof dropdown...");
+		log.info("Clicking on Id proof dropdown...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", selectIdProofType);
 		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", selectIdProofType);
-		Logs.info("Id Proof Dropdown opened...");
+		log.info("Id Proof Dropdown opened...");
 		List<WebElement> idProofList = driver
 				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
 		System.out.println("Id Proof List size: " + idProofList.size());
@@ -633,16 +647,16 @@ public class EventCriteriaPage extends BaseClass {
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(idProofList, idProofToSelect);
 
-		Logs.info("Id Proof selected from dropdown: " + idProofToSelect);
+		log.info("Id Proof selected from dropdown: " + idProofToSelect);
 		if (idProofToSelect.equalsIgnoreCase("Aadhar Card")) {
 			wait.until(ExpectedConditions.elementToBeClickable(adharCardNumberInput));
 			adharCardNumberInput.sendKeys(idProofNumber);
-			Logs.info("Aadhar no entered: " + idProofNumber);
+			log.info("Aadhar no entered: " + idProofNumber);
 
 		} else if (idProofToSelect.equalsIgnoreCase("PAN Card")) {
 			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
 			panCardNumberInput.sendKeys(idProofNumber);
-			Logs.info("PAN no entered: " + idProofNumber);
+			log.info("PAN no entered: " + idProofNumber);
 		} else {
 			System.out.println("Id proof not selected...");
 		}
@@ -665,7 +679,7 @@ public class EventCriteriaPage extends BaseClass {
 		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", transportToUse);
 		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", transportToUse);
 
-		Logs.info("Transport To Use Dropdown opened...");
+		log.info("Transport To Use Dropdown opened...");
 
 		List<WebElement> transportList = driver
 				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
@@ -675,7 +689,7 @@ public class EventCriteriaPage extends BaseClass {
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(transportList, transportToSelect);
-		Logs.info("Transport To Use selected from dropdown: " + transportToSelect);
+		log.info("Transport To Use selected from dropdown: " + transportToSelect);
 
 	}
 
@@ -686,7 +700,7 @@ public class EventCriteriaPage extends BaseClass {
 		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", raceCategory);
 		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", raceCategory);
 
-		Logs.info("Event Race Category Dropdown opened...");
+		log.info("Event Race Category Dropdown opened...");
 
 		List<WebElement> eventRaceCategoryList = driver
 				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
@@ -696,7 +710,7 @@ public class EventCriteriaPage extends BaseClass {
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.selectFromList(eventRaceCategoryList, eventRaceCategoryToSelect);
-		Logs.info("Event Race Category selected from dropdown: " + eventRaceCategoryToSelect);
+		log.info("Event Race Category selected from dropdown: " + eventRaceCategoryToSelect);
 
 	}
 
@@ -705,32 +719,32 @@ public class EventCriteriaPage extends BaseClass {
 		wait.until(ExpectedConditions.elementToBeClickable(selectRaceCategoryDropDown));
 		System.out.println("Dropdown displayed: " + selectRaceCategoryDropDown.isDisplayed());
 		System.out.println("Dropdown enabled: " + selectRaceCategoryDropDown.isEnabled());
-		Logs.info("Rcae Category Dropdown Clicking..");
+		log.info("Rcae Category Dropdown Clicking..");
 
 		Actions actions = new Actions(driver);
 		actions.moveToElement(selectRaceCategoryDropDown).click().pause(Duration.ofMillis(200)).click().perform();
 
 		// safeClick(selectRaceCategoryDropDown);
-		Logs.info("Rcae Category Dropdown Clicked..");
-		Logs.info("Getting list of all available options..");
+		log.info("Rcae Category Dropdown Clicked..");
+		log.info("Getting list of all available options..");
 		List<WebElement> raceCategoryList = driver.findElements(
 				By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-dropdown-panel-items')]"));
 
-		Logs.info("Capturing of all available options..");
+		log.info("Capturing of all available options..");
 		System.out.println("RaceCategory List Size: " + raceCategoryList.size());
 		if (raceCategoryList.size() > 0) {
-			Logs.info("Fetching the all list and printing one by one...");
+			log.info("Fetching the all list and printing one by one...");
 			for (WebElement raceCategory : raceCategoryList) {
 				System.out.println(raceCategory.getText().toString());
-				Logs.info("All list printed...");
+				log.info("All list printed...");
 				DropdownHelper dropdown = new DropdownHelper(driver);
-				Logs.info("selecting the options from the available list by using helper class..");
+				log.info("selecting the options from the available list by using helper class..");
 				dropdown.selectFromList(raceCategoryList, receCategoryToSelect);
-				Logs.info("Race Category selected from dropdown: " + receCategoryToSelect);
+				log.info("Race Category selected from dropdown: " + receCategoryToSelect);
 
 			}
 		} else {
-			Logs.info("List is empty");
+			log.info("List is empty");
 		}
 
 	}
@@ -740,13 +754,13 @@ public class EventCriteriaPage extends BaseClass {
 		helper = new CommonHelper(driver);
 		wait.until(ExpectedConditions.elementToBeClickable(selectRaceCategoryDropDown));
 
-		Logs.info("Selecting race category: ");
+		log.info("Selecting race category: ");
 
 		By receCategoryDropdown = By
 				.xpath("//ng-select[@bindvalue='name']//div[contains(@class,'ng-select-container')]");
 		helper.selectFromNgSelect(receCategoryDropdown, receCategoryToSelect);
 
-		Logs.info("Race Category selected: " + receCategoryToSelect);
+		log.info("Race Category selected: " + receCategoryToSelect);
 	}
 
 	private void selectEventName(String searchEventName, String eventNameToSelect) throws InterruptedException {
@@ -756,7 +770,7 @@ public class EventCriteriaPage extends BaseClass {
 		// helper.selectFromNgSelect(eventNameDropdown, eventNameToSelect);
 		// Thread.sleep(5000);
 		helper.searchAndSelectFromNgSelect(eventNameDropdown, searchEventName, eventNameToSelect);
-		Logs.info("Event name Selected: " + eventNameToSelect);
+		log.info("Event name Selected: " + eventNameToSelect);
 	}
 
 	// -----------------------------class level methods-------------------------//
