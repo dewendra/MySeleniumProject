@@ -25,16 +25,16 @@ public class EventDashboardPage{
 	WebDriverWait wait;
 	CommonHelper helper;
 
-	@FindBy(xpath = "//img[contains(@src,'tmm26_logo.png')]/ancestor::div[contains(@class,'event-box')]")
+	@FindBy(xpath = "//img[contains(@src,'tmm26_logo')]/ancestor::div[contains(@class,'event-box')]")
 	private WebElement tmm_2026;
 
-	@FindBy(xpath = "//img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]")
+	@FindBy(xpath = "//img[contains(@src,'tcsw10k26')]/ancestor::div[contains(@class,'event-box')]")
 	private WebElement tcsb_2026;
 	
-	@FindBy(xpath = "//img[contains(@src,'vdhm26_logo.png')]/ancestor::div[contains(@class,'event-box')]")
+	@FindBy(xpath = "//img[contains(@src,'vdhm26_logo')]/ancestor::div[contains(@class,'event-box')]")
 	private WebElement vdhm_2025;
 	
-	@FindBy(xpath = "//img[contains(@src,'tsk25k25.png')]/ancestor::div[contains(@class,'event-box')]")
+	@FindBy(xpath = "//img[contains(@src,'tsk25k25')]/ancestor::div[contains(@class,'event-box')]")
 	private WebElement tswk_2025;
 
 	public EventDashboardPage() {

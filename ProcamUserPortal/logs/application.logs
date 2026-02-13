@@ -1145,3 +1145,1553 @@ Driver info: org.openqa.selenium.chrome.ChromeDriver
 Command: [060caae895661f19df1c7e4629d38c2b, findElement {value=//label[contains(normalize-space(), "Women's Criteria (with prior timing certificate)")], using=xpath}]
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.112, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51790}, goog:processID: 22952, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51790/devtoo..., se:cdpVersion: 144.0.7559.112, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: 060caae895661f19df1c7e4629d38c2b
+2026-02-05 14:38:42.472 [main] INFO  BaseClass - Reading configuration file...
+2026-02-05 14:38:42.503 [main] INFO  BaseClass - Report configuration file...
+2026-02-05 14:38:42.703 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-05 14:38:42.703 [main] INFO  BaseClass - launching app...
+2026-02-05 14:38:50.804 [main] INFO  LoginPage - Entering email....
+2026-02-05 14:38:51.053 [main] INFO  LoginPage - Email entered -> alok4@yopmail.com
+2026-02-05 14:38:51.100 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-05 14:38:52.118 [main] INFO  LoginPage - Clicking login
+2026-02-05 14:38:52.269 [main] INFO  EventDashboardPage - Selecting event : TSWK_2025
+2026-02-05 14:38:52.269 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-05 14:38:53.575 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 14:38:53.588 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (e6bacac612c14096acccbed63bde25f0)] -> xpath: //img[contains(@src,'tsk25k25.png')]/ancestor::div[contains(@class,'event-box')]]
+2026-02-05 14:38:53.603 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-02-05 14:38:55.661 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 14:38:55.661 [main] INFO  DiscountApplyPage - Clicking proceedBtn
+2026-02-05 14:39:11.032 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-05 14:39:11.057 [main] INFO  Logs - Both click attempts failed: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@type='button' and contains(normalize-space(),'Continue')]"}
+  (Session info: chrome=144.0.7559.112)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e6bacac612c14096acccbed63bde25f0, findElement {value=//button[@type='button' and contains(normalize-space(),'Continue')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.112, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54819}, goog:processID: 27740, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54819/devtoo..., se:cdpVersion: 144.0.7559.112, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e6bacac612c14096acccbed63bde25f0
+2026-02-05 15:06:50.706 [main] INFO  BaseClass - Reading configuration file...
+2026-02-05 15:06:50.712 [main] INFO  BaseClass - Report configuration file...
+2026-02-05 15:06:50.905 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-05 15:06:50.905 [main] INFO  BaseClass - launching app...
+2026-02-05 15:06:55.530 [main] INFO  LoginPage - Entering email....
+2026-02-05 15:06:55.686 [main] INFO  LoginPage - Email entered -> alok4@yopmail.com
+2026-02-05 15:06:55.745 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-05 15:06:57.062 [main] INFO  LoginPage - Clicking login
+2026-02-05 15:06:57.228 [main] INFO  EventDashboardPage - Selecting event : TSWK_2025
+2026-02-05 15:06:57.228 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-05 15:06:58.461 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:06:58.478 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (454bad15c078362df2b0a5da18452e04)] -> xpath: //img[contains(@src,'tsk25k25.png')]/ancestor::div[contains(@class,'event-box')]]
+2026-02-05 15:06:58.492 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-02-05 15:07:00.646 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:00.648 [main] INFO  DiscountApplyPage - Clicking continue Or proceed Btn
+2026-02-05 15:07:00.914 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:01.176 [main] INFO  PersonalDetailsPage - Entering First Name
+2026-02-05 15:07:01.210 [main] INFO  PersonalDetailsPage - Entered First Name -> Alok
+2026-02-05 15:07:01.476 [main] INFO  PersonalDetailsPage - Entering Last Name
+2026-02-05 15:07:01.510 [main] INFO  PersonalDetailsPage - Entered Last Name -> Four
+2026-02-05 15:07:01.748 [main] INFO  PersonalDetailsPage - Entering Mobile Number
+2026-02-05 15:07:01.778 [main] INFO  PersonalDetailsPage - Entered mobile Number -> 9876543204
+2026-02-05 15:07:01.792 [main] INFO  PersonalDetailsPage - Selecting gender
+2026-02-05 15:07:02.042 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:02.042 [main] INFO  PersonalDetailsPage - Gender selected -> Male
+2026-02-05 15:07:02.042 [main] INFO  PersonalDetailsPage - Entering Date of Birth.....
+2026-02-05 15:07:02.890 [main] INFO  PersonalDetailsPage - Date of Birth entered -> 04-05-2004
+2026-02-05 15:07:02.890 [main] INFO  PersonalDetailsPage - Scroll To  Pin Code
+2026-02-05 15:07:02.890 [main] INFO  PersonalDetailsPage - Selecting Address using Pincode
+2026-02-05 15:07:02.925 [main] INFO  PersonalDetailsPage - Entering Pin Code
+2026-02-05 15:07:04.342 [main] INFO  PersonalDetailsPage - Address selected from dropdown: Nehru Place
+2026-02-05 15:07:04.475 [main] INFO  PersonalDetailsPage - Entering Address
+2026-02-05 15:07:04.659 [main] INFO  PersonalDetailsPage - Entered address : ->121, Ansal Tower-38, Nehru Place
+2026-02-05 15:07:04.743 [main] INFO  PersonalDetailsPage - Entering Nationality
+2026-02-05 15:07:06.443 [main] INFO  DropdownHelper - Total Option available in dropdown: 2
+2026-02-05 15:07:06.475 [main] INFO  DropdownHelper - Option text:-> Indian
+2026-02-05 15:07:06.558 [main] INFO  PersonalDetailsPage - Nationality selected from dropdown: Indian
+2026-02-05 15:07:06.742 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:06.807 [main] INFO  PersonalDetailsPage - Selecting Occupation
+2026-02-05 15:07:06.807 [main] INFO  PersonalDetailsPage - Waiting for dropdown options to appear...
+2026-02-05 15:07:06.807 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:07:06.842 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:07:06.926 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:06.926 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:07:06.926 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:07:06.966 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:07:07.991 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:07:09.008 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:07:10.036 [main] INFO  Logs - Available options:
+2026-02-05 15:07:10.041 [main] INFO  Logs -  → Business
+2026-02-05 15:07:10.058 [main] INFO  Logs -  → Self-Employed
+2026-02-05 15:07:10.075 [main] INFO  Logs -  → Salaried
+2026-02-05 15:07:10.091 [main] INFO  Logs -  → Retired
+2026-02-05 15:07:10.108 [main] INFO  Logs -  → Housewife
+2026-02-05 15:07:10.127 [main] INFO  Logs -  → Student
+2026-02-05 15:07:10.141 [main] INFO  Logs -  → Govt
+2026-02-05 15:07:10.172 [main] INFO  Logs -  → Other
+2026-02-05 15:07:10.510 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:10.510 [main] INFO  Logs - Selected options :->Student
+2026-02-05 15:07:10.510 [main] INFO  PersonalDetailsPage - Occupations selected from dropdown: Student
+2026-02-05 15:07:10.510 [main] INFO  PersonalDetailsPage - Clicking continue Or proceed Btn
+2026-02-05 15:07:10.674 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:10.674 [main] INFO  PersonalDetailsPage - Going for Event Criteria Page....
+2026-02-05 15:07:11.843 [main] INFO  EventCriteriaPage - Ground Event radio button clicking...
+2026-02-05 15:07:12.438 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:12.438 [main] INFO  EventCriteriaPage - Ground Event Yes radio button clicked...
+2026-02-05 15:07:13.527 [main] INFO  EventCriteriaPage - Scrolling the page.....
+2026-02-05 15:07:13.558 [main] INFO  EventCriteriaPage - Going to select the race category
+2026-02-05 15:07:13.626 [main] INFO  EventCriteriaPage - Selecting race category: 
+2026-02-05 15:07:13.626 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:07:13.691 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:07:13.818 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:13.818 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:07:13.818 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:07:13.841 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:07:14.867 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:07:15.896 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:07:16.934 [main] INFO  Logs - Available options:
+2026-02-05 15:07:16.950 [main] INFO  Logs -  → 25K (25 km)
+2026-02-05 15:07:16.965 [main] INFO  Logs -  → Open 10K (10 km)
+2026-02-05 15:07:16.981 [main] INFO  Logs -  → Ananda Run (4.5 km approx.)
+2026-02-05 15:07:16.997 [main] INFO  Logs -  → Champions with Disability (2.3 km)
+2026-02-05 15:07:17.200 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:07:17.200 [main] INFO  Logs - Selected options :->25K (25 km)
+2026-02-05 15:07:17.200 [main] INFO  EventCriteriaPage - Race Category selected: 25K (25 km)
+2026-02-05 15:07:17.200 [main] INFO  EventCriteriaPage - Rce category selected
+2026-02-05 15:07:17.200 [main] INFO  EventCriteriaPage - Selecting criteria from given options...
+2026-02-05 15:07:17.226 [main] INFO  EventCriteriaPage - Entering Timing Certificate Link...
+2026-02-05 15:07:17.472 [main] INFO  EventCriteriaPage - Timing Certificate Link entered...
+2026-02-05 15:07:17.472 [main] INFO  EventCriteriaPage - Entering Event Name...
+2026-02-05 15:10:57.177 [main] INFO  BaseClass - Reading configuration file...
+2026-02-05 15:10:57.183 [main] INFO  BaseClass - Report configuration file...
+2026-02-05 15:10:57.311 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-05 15:10:57.311 [main] INFO  BaseClass - launching app...
+2026-02-05 15:11:01.175 [main] INFO  LoginPage - Entering email....
+2026-02-05 15:11:01.357 [main] INFO  LoginPage - Email entered -> alok@4yopmail.com
+2026-02-05 15:11:01.436 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-05 15:11:02.782 [main] INFO  LoginPage - Clicking login
+2026-02-05 15:11:02.930 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-02-05 15:11:02.930 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-05 15:11:04.164 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:04.191 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (6319704b1c41b73c86a70611da91a542)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-02-05 15:11:04.198 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-02-05 15:11:05.960 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:05.960 [main] INFO  DiscountApplyPage - Clicking continue Or proceed Btn
+2026-02-05 15:11:06.145 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:06.330 [main] INFO  PersonalDetailsPage - Entering First Name
+2026-02-05 15:11:06.379 [main] INFO  PersonalDetailsPage - Entered First Name -> Alok
+2026-02-05 15:11:06.630 [main] INFO  PersonalDetailsPage - Entering Last Name
+2026-02-05 15:11:06.680 [main] INFO  PersonalDetailsPage - Entered Last Name -> Four
+2026-02-05 15:11:06.932 [main] INFO  PersonalDetailsPage - Entering Mobile Number
+2026-02-05 15:11:06.947 [main] INFO  PersonalDetailsPage - Entered mobile Number -> 9876543204
+2026-02-05 15:11:06.947 [main] INFO  PersonalDetailsPage - Selecting gender
+2026-02-05 15:11:07.197 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:07.213 [main] INFO  PersonalDetailsPage - Gender selected -> Male
+2026-02-05 15:11:07.213 [main] INFO  PersonalDetailsPage - Entering Date of Birth.....
+2026-02-05 15:11:07.803 [main] INFO  PersonalDetailsPage - Date of Birth entered -> 04-05-2004
+2026-02-05 15:11:07.803 [main] INFO  PersonalDetailsPage - Scroll To  Pin Code
+2026-02-05 15:11:07.803 [main] INFO  PersonalDetailsPage - Selecting Address using Pincode
+2026-02-05 15:11:07.830 [main] INFO  PersonalDetailsPage - Entering Pin Code
+2026-02-05 15:11:09.798 [main] INFO  PersonalDetailsPage - Address selected from dropdown: Nehru Place
+2026-02-05 15:11:09.982 [main] INFO  PersonalDetailsPage - Entering Address
+2026-02-05 15:11:10.195 [main] INFO  PersonalDetailsPage - Entered address : ->121, Ansal Tower-38, Nehru Place
+2026-02-05 15:11:10.265 [main] INFO  PersonalDetailsPage - Entering Nationality
+2026-02-05 15:11:11.967 [main] INFO  DropdownHelper - Total Option available in dropdown: 2
+2026-02-05 15:11:11.995 [main] INFO  DropdownHelper - Option text:-> Indian
+2026-02-05 15:11:12.047 [main] INFO  PersonalDetailsPage - Nationality selected from dropdown: Indian
+2026-02-05 15:11:12.180 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:12.263 [main] INFO  PersonalDetailsPage - Selecting Occupation
+2026-02-05 15:11:12.263 [main] INFO  PersonalDetailsPage - Waiting for dropdown options to appear...
+2026-02-05 15:11:12.263 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:11:12.297 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:11:12.407 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:12.407 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:11:12.407 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:11:12.430 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:11:13.462 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:11:14.480 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:11:15.530 [main] INFO  Logs - Available options:
+2026-02-05 15:11:15.546 [main] INFO  Logs -  → Business
+2026-02-05 15:11:15.564 [main] INFO  Logs -  → Self-Employed
+2026-02-05 15:11:15.580 [main] INFO  Logs -  → Salaried
+2026-02-05 15:11:15.613 [main] INFO  Logs -  → Retired
+2026-02-05 15:11:15.630 [main] INFO  Logs -  → Housewife
+2026-02-05 15:11:15.649 [main] INFO  Logs -  → Student
+2026-02-05 15:11:15.663 [main] INFO  Logs -  → Govt
+2026-02-05 15:11:15.680 [main] INFO  Logs -  → Other
+2026-02-05 15:11:16.012 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:16.014 [main] INFO  Logs - Selected options :->Student
+2026-02-05 15:11:16.014 [main] INFO  PersonalDetailsPage - Occupations selected from dropdown: Student
+2026-02-05 15:11:16.014 [main] INFO  PersonalDetailsPage - Clicking continue Or proceed Btn
+2026-02-05 15:11:16.181 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:16.181 [main] INFO  PersonalDetailsPage - Going for Event Criteria Page....
+2026-02-05 15:11:17.351 [main] INFO  EventCriteriaPage - Ground Event radio button clicking...
+2026-02-05 15:11:17.895 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:17.896 [main] INFO  EventCriteriaPage - Ground Event Yes radio button clicked...
+2026-02-05 15:11:18.994 [main] INFO  EventCriteriaPage - Scrolling the page.....
+2026-02-05 15:11:19.045 [main] INFO  EventCriteriaPage - Going to select the race category
+2026-02-05 15:11:19.113 [main] INFO  EventCriteriaPage - Selecting race category: 
+2026-02-05 15:11:19.113 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:11:19.163 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:11:19.286 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:19.286 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:11:19.286 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:11:19.312 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:11:20.338 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:11:21.380 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:11:22.408 [main] INFO  Logs - Available options:
+2026-02-05 15:11:22.423 [main] INFO  Logs -  → Open 10K (10 km)
+2026-02-05 15:11:22.455 [main] INFO  Logs -  → Majja Run (5 km)
+2026-02-05 15:11:22.471 [main] INFO  Logs -  → Champions with Disability (4.2 KM)
+2026-02-05 15:11:22.684 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:11:22.684 [main] INFO  Logs - Selected options :->Open 10K (10 km)
+2026-02-05 15:11:22.684 [main] INFO  EventCriteriaPage - Race Category selected: Open 10K (10 km)
+2026-02-05 15:11:22.684 [main] INFO  EventCriteriaPage - Rce category selected
+2026-02-05 15:11:22.684 [main] INFO  EventCriteriaPage - Selecting criteria from given options...
+2026-02-05 15:11:22.712 [main] INFO  EventCriteriaPage - Entering Timing Certificate Link...
+2026-02-05 15:11:22.979 [main] INFO  EventCriteriaPage - Timing Certificate Link entered...
+2026-02-05 15:11:22.979 [main] INFO  EventCriteriaPage - Entering Event Name...
+2026-02-05 15:16:32.409 [main] INFO  BaseClass - Reading configuration file...
+2026-02-05 15:16:32.415 [main] INFO  BaseClass - Report configuration file...
+2026-02-05 15:16:32.555 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-05 15:16:32.555 [main] INFO  BaseClass - launching app...
+2026-02-05 15:16:36.489 [main] INFO  LoginPage - Entering email....
+2026-02-05 15:16:36.680 [main] INFO  LoginPage - Email entered -> alok@4yopmail.com
+2026-02-05 15:16:36.746 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-05 15:16:38.129 [main] INFO  LoginPage - Clicking login
+2026-02-05 15:16:38.296 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-02-05 15:16:38.296 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-05 15:16:39.540 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:39.564 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (278d2012996094ebc952ae9e95df6d20)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-02-05 15:16:39.565 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-02-05 15:16:41.328 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:41.328 [main] INFO  DiscountApplyPage - Clicking continue Or proceed Btn
+2026-02-05 15:16:41.545 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:41.769 [main] INFO  PersonalDetailsPage - Entering First Name
+2026-02-05 15:16:41.798 [main] INFO  PersonalDetailsPage - Entered First Name -> Alok
+2026-02-05 15:16:42.010 [main] INFO  PersonalDetailsPage - Entering Last Name
+2026-02-05 15:16:42.042 [main] INFO  PersonalDetailsPage - Entered Last Name -> Four
+2026-02-05 15:16:42.299 [main] INFO  PersonalDetailsPage - Entering Mobile Number
+2026-02-05 15:16:42.323 [main] INFO  PersonalDetailsPage - Entered mobile Number -> 9876543204
+2026-02-05 15:16:42.323 [main] INFO  PersonalDetailsPage - Selecting gender
+2026-02-05 15:16:42.595 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:42.600 [main] INFO  PersonalDetailsPage - Gender selected -> Male
+2026-02-05 15:16:42.600 [main] INFO  PersonalDetailsPage - Entering Date of Birth.....
+2026-02-05 15:16:43.201 [main] INFO  PersonalDetailsPage - Date of Birth entered -> 04-05-2004
+2026-02-05 15:16:43.201 [main] INFO  PersonalDetailsPage - Scroll To  Pin Code
+2026-02-05 15:16:43.201 [main] INFO  PersonalDetailsPage - Selecting Address using Pincode
+2026-02-05 15:16:43.244 [main] INFO  PersonalDetailsPage - Entering Pin Code
+2026-02-05 15:16:45.211 [main] INFO  PersonalDetailsPage - Address selected from dropdown: Nehru Place
+2026-02-05 15:16:45.377 [main] INFO  PersonalDetailsPage - Entering Address
+2026-02-05 15:16:45.562 [main] INFO  PersonalDetailsPage - Entered address : ->121, Ansal Tower-38, Nehru Place
+2026-02-05 15:16:45.648 [main] INFO  PersonalDetailsPage - Entering Nationality
+2026-02-05 15:16:47.327 [main] INFO  DropdownHelper - Total Option available in dropdown: 2
+2026-02-05 15:16:47.359 [main] INFO  DropdownHelper - Option text:-> Indian
+2026-02-05 15:16:47.414 [main] INFO  PersonalDetailsPage - Nationality selected from dropdown: Indian
+2026-02-05 15:16:47.598 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:47.662 [main] INFO  PersonalDetailsPage - Selecting Occupation
+2026-02-05 15:16:47.662 [main] INFO  PersonalDetailsPage - Waiting for dropdown options to appear...
+2026-02-05 15:16:47.662 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:16:47.692 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:16:47.777 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:47.777 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:16:47.777 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:16:47.810 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:16:48.836 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:16:49.875 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:16:50.911 [main] INFO  Logs - Available options:
+2026-02-05 15:16:50.927 [main] INFO  Logs -  → Business
+2026-02-05 15:16:50.953 [main] INFO  Logs -  → Self-Employed
+2026-02-05 15:16:50.960 [main] INFO  Logs -  → Salaried
+2026-02-05 15:16:50.976 [main] INFO  Logs -  → Retired
+2026-02-05 15:16:51.008 [main] INFO  Logs -  → Housewife
+2026-02-05 15:16:51.024 [main] INFO  Logs -  → Student
+2026-02-05 15:16:51.043 [main] INFO  Logs -  → Govt
+2026-02-05 15:16:51.058 [main] INFO  Logs -  → Other
+2026-02-05 15:16:51.343 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:51.343 [main] INFO  Logs - Selected options :->Student
+2026-02-05 15:16:51.343 [main] INFO  PersonalDetailsPage - Occupations selected from dropdown: Student
+2026-02-05 15:16:51.343 [main] INFO  PersonalDetailsPage - Clicking continue Or proceed Btn
+2026-02-05 15:16:51.525 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:51.525 [main] INFO  PersonalDetailsPage - Going for Event Criteria Page....
+2026-02-05 15:16:52.683 [main] INFO  EventCriteriaPage - Ground Event radio button clicking...
+2026-02-05 15:16:53.277 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:53.277 [main] INFO  EventCriteriaPage - Ground Event Yes radio button clicked...
+2026-02-05 15:16:54.397 [main] INFO  EventCriteriaPage - Scrolling the page.....
+2026-02-05 15:16:54.431 [main] INFO  EventCriteriaPage - Going to select the race category
+2026-02-05 15:16:54.511 [main] INFO  EventCriteriaPage - Selecting race category: 
+2026-02-05 15:16:54.511 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:16:54.563 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:16:54.710 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:54.710 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:16:54.710 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:16:54.743 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:16:55.770 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:16:56.796 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:16:57.820 [main] INFO  Logs - Available options:
+2026-02-05 15:16:57.836 [main] INFO  Logs -  → Open 10K (10 km)
+2026-02-05 15:16:57.856 [main] INFO  Logs -  → Majja Run (5 km)
+2026-02-05 15:16:57.867 [main] INFO  Logs -  → Champions with Disability (4.2 KM)
+2026-02-05 15:16:58.061 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:16:58.061 [main] INFO  Logs - Selected options :->Open 10K (10 km)
+2026-02-05 15:16:58.061 [main] INFO  EventCriteriaPage - Race Category selected: Open 10K (10 km)
+2026-02-05 15:16:58.061 [main] INFO  EventCriteriaPage - Rce category selected
+2026-02-05 15:16:58.061 [main] INFO  EventCriteriaPage - Selecting criteria from given options...
+2026-02-05 15:16:58.092 [main] INFO  EventCriteriaPage - Entering Timing Certificate Link...
+2026-02-05 15:16:58.336 [main] INFO  EventCriteriaPage - Timing Certificate Link entered...
+2026-02-05 15:16:58.336 [main] INFO  EventCriteriaPage - Entering Event Name...
+2026-02-05 15:25:17.198 [main] INFO  BaseClass - Reading configuration file...
+2026-02-05 15:25:17.203 [main] INFO  BaseClass - Report configuration file...
+2026-02-05 15:25:17.388 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-05 15:25:17.388 [main] INFO  BaseClass - launching app...
+2026-02-05 15:25:21.763 [main] INFO  LoginPage - Entering email....
+2026-02-05 15:25:21.934 [main] INFO  LoginPage - Email entered -> alok@4yopmail.com
+2026-02-05 15:25:21.986 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-05 15:25:23.318 [main] INFO  LoginPage - Clicking login
+2026-02-05 15:25:23.567 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-02-05 15:25:23.567 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-05 15:25:24.865 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:24.941 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (a8602a85d6fe835a784eb7bda347e266)] -> xpath: //img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]]
+2026-02-05 15:25:24.944 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-02-05 15:25:26.784 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:26.784 [main] INFO  DiscountApplyPage - Clicking continue Or proceed Btn
+2026-02-05 15:25:27.001 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:27.252 [main] INFO  PersonalDetailsPage - Entering First Name
+2026-02-05 15:25:27.284 [main] INFO  PersonalDetailsPage - Entered First Name -> Alok
+2026-02-05 15:25:27.601 [main] INFO  PersonalDetailsPage - Entering Last Name
+2026-02-05 15:25:27.655 [main] INFO  PersonalDetailsPage - Entered Last Name -> Four
+2026-02-05 15:25:27.977 [main] INFO  PersonalDetailsPage - Entering Mobile Number
+2026-02-05 15:25:28.002 [main] INFO  PersonalDetailsPage - Entered mobile Number -> 9876543204
+2026-02-05 15:25:28.002 [main] INFO  PersonalDetailsPage - Selecting gender
+2026-02-05 15:25:28.317 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:28.317 [main] INFO  PersonalDetailsPage - Gender selected -> Male
+2026-02-05 15:25:28.317 [main] INFO  PersonalDetailsPage - Entering Date of Birth.....
+2026-02-05 15:25:29.117 [main] INFO  PersonalDetailsPage - Date of Birth entered -> 04-05-2004
+2026-02-05 15:25:29.117 [main] INFO  PersonalDetailsPage - Scroll To  Pin Code
+2026-02-05 15:25:29.117 [main] INFO  PersonalDetailsPage - Selecting Address using Pincode
+2026-02-05 15:25:29.155 [main] INFO  PersonalDetailsPage - Entering Pin Code
+2026-02-05 15:25:31.139 [main] INFO  PersonalDetailsPage - Address selected from dropdown: Nehru Place
+2026-02-05 15:25:31.320 [main] INFO  PersonalDetailsPage - Entering Address
+2026-02-05 15:25:31.467 [main] INFO  PersonalDetailsPage - Entered address : ->121, Ansal Tower-38, Nehru Place
+2026-02-05 15:25:31.561 [main] INFO  PersonalDetailsPage - Entering Nationality
+2026-02-05 15:25:32.765 [main] INFO  DropdownHelper - Total Option available in dropdown: 2
+2026-02-05 15:25:32.798 [main] INFO  DropdownHelper - Option text:-> Indian
+2026-02-05 15:25:32.899 [main] INFO  PersonalDetailsPage - Nationality selected from dropdown: Indian
+2026-02-05 15:25:33.066 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:33.116 [main] INFO  PersonalDetailsPage - Selecting Occupation
+2026-02-05 15:25:33.116 [main] INFO  PersonalDetailsPage - Waiting for dropdown options to appear...
+2026-02-05 15:25:33.116 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:25:33.149 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:25:33.233 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:33.248 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:25:33.248 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:25:33.266 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:25:34.293 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:25:35.313 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:25:36.354 [main] INFO  Logs - Available options:
+2026-02-05 15:25:36.369 [main] INFO  Logs -  → Business
+2026-02-05 15:25:36.382 [main] INFO  Logs -  → Self-Employed
+2026-02-05 15:25:36.399 [main] INFO  Logs -  → Salaried
+2026-02-05 15:25:36.415 [main] INFO  Logs -  → Retired
+2026-02-05 15:25:36.431 [main] INFO  Logs -  → Housewife
+2026-02-05 15:25:36.449 [main] INFO  Logs -  → Student
+2026-02-05 15:25:36.469 [main] INFO  Logs -  → Govt
+2026-02-05 15:25:36.487 [main] INFO  Logs -  → Other
+2026-02-05 15:25:36.886 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:36.886 [main] INFO  Logs - Selected options :->Student
+2026-02-05 15:25:36.886 [main] INFO  PersonalDetailsPage - Occupations selected from dropdown: Student
+2026-02-05 15:25:36.886 [main] INFO  PersonalDetailsPage - Clicking continue Or proceed Btn
+2026-02-05 15:25:37.032 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:37.032 [main] INFO  PersonalDetailsPage - Going for Event Criteria Page....
+2026-02-05 15:25:38.217 [main] INFO  EventCriteriaPage - Ground Event radio button clicking...
+2026-02-05 15:25:38.815 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:38.816 [main] INFO  EventCriteriaPage - Ground Event Yes radio button clicked...
+2026-02-05 15:25:39.928 [main] INFO  EventCriteriaPage - Scrolling the page.....
+2026-02-05 15:25:39.949 [main] INFO  EventCriteriaPage - Going to select the race category
+2026-02-05 15:25:40.033 [main] INFO  EventCriteriaPage - Selecting race category: 
+2026-02-05 15:25:40.033 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-05 15:25:40.099 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-05 15:25:40.234 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:40.234 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:25:40.234 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-05 15:25:40.266 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-05 15:25:41.293 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-05 15:25:42.318 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-05 15:25:43.354 [main] INFO  Logs - Available options:
+2026-02-05 15:25:43.370 [main] INFO  Logs -  → Open 10K (10 km)
+2026-02-05 15:25:43.389 [main] INFO  Logs -  → Majja Run (5 km)
+2026-02-05 15:25:43.401 [main] INFO  Logs -  → Champions with Disability (4.2 KM)
+2026-02-05 15:25:43.598 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-05 15:25:43.598 [main] INFO  Logs - Selected options :->Open 10K (10 km)
+2026-02-05 15:25:43.598 [main] INFO  EventCriteriaPage - Race Category selected: Open 10K (10 km)
+2026-02-05 15:25:43.598 [main] INFO  EventCriteriaPage - Rce category selected
+2026-02-05 15:25:43.598 [main] INFO  EventCriteriaPage - Selecting criteria from given options...
+2026-02-05 15:25:43.616 [main] INFO  EventCriteriaPage - Entering Timing Certificate Link...
+2026-02-05 15:25:43.866 [main] INFO  EventCriteriaPage - Timing Certificate Link entered...
+2026-02-05 15:25:43.866 [main] INFO  EventCriteriaPage - Entering Event Name...
+2026-02-05 15:25:43.950 [main] INFO  Logs - ngSelect: By.xpath: //app-select[@name='eventName']//input
+2026-02-05 15:25:43.950 [main] INFO  Logs - PartialSearchText: ved
+2026-02-05 15:25:43.950 [main] INFO  Logs - ActualSearchText: VEDANTA DELHI HALF MARATHON
+2026-02-05 15:25:43.950 [main] INFO  Logs - CommonHelper ->searchAndselectFromNgSelect method called... 
+2026-02-05 15:25:43.950 [main] INFO  Logs - Ng Select Dropdown button clicking...
+2026-02-05 15:25:44.033 [main] INFO  Logs - Ng Select Dropdown button clicking...
+2026-02-05 15:25:44.566 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-05 15:25:44.566 [main] INFO  Logs - Finding the input field inside the ng-select and type the partial text
+2026-02-09 11:15:46.404 [main] INFO  BaseClass - Reading configuration file...
+2026-02-09 11:15:46.471 [main] INFO  BaseClass - Report configuration file...
+2026-02-09 11:15:46.774 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-09 11:15:46.774 [main] INFO  BaseClass - launching app...
+2026-02-09 11:15:53.630 [main] INFO  LoginPage - Entering email....
+2026-02-09 11:15:53.909 [main] INFO  LoginPage - Email entered -> alok@4yopmail.com
+2026-02-09 11:15:54.006 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-09 11:15:55.520 [main] INFO  LoginPage - Clicking login
+2026-02-09 11:15:55.790 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-02-09 11:15:55.790 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-09 11:16:11.192 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-09 11:16:11.211 [main] INFO  Logs - Both click attempts failed: no such element: Unable to locate element: {"method":"xpath","selector":"//img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]"}
+  (Session info: chrome=144.0.7559.133)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [02055a9f81bada1fdd2bda974ecc9035, findElement {using=xpath, value=//img[contains(@src,'tcsw10k25-logo')]/ancestor::div[contains(@class,'event-box')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62848}, goog:processID: 27204, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62848/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 02055a9f81bada1fdd2bda974ecc9035
+2026-02-09 11:24:00.067 [main] INFO  BaseClass - Reading configuration file...
+2026-02-09 11:24:00.073 [main] INFO  BaseClass - Report configuration file...
+2026-02-09 11:24:00.272 [main] INFO  UseRegistrationTest2 - ===== Test Started =====
+2026-02-09 11:24:00.272 [main] INFO  BaseClass - launching app...
+2026-02-09 11:24:04.872 [main] INFO  LoginPage - Entering email....
+2026-02-09 11:24:05.076 [main] INFO  LoginPage - Email entered -> alok@4yopmail.com
+2026-02-09 11:24:05.143 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-09 11:24:06.491 [main] INFO  LoginPage - Clicking login
+2026-02-09 11:24:06.658 [main] INFO  EventDashboardPage - Selecting event : TCSB_2026
+2026-02-09 11:24:06.658 [main] INFO  EventDashboardPage - Clicking on event
+2026-02-09 11:24:07.908 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:07.926 [main] INFO  EventDashboardPage - Event Selected -> [[ChromeDriver: chrome on windows (8a72c80c7331fe620e6d6ad6088df94f)] -> xpath: //img[contains(@src,'tcsw10k26')]/ancestor::div[contains(@class,'event-box')]]
+2026-02-09 11:24:07.934 [main] INFO  DiscountApplyPage - Clicking No Radio Btn
+2026-02-09 11:24:09.682 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:09.682 [main] INFO  DiscountApplyPage - Clicking continue Or proceed Btn
+2026-02-09 11:24:09.823 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:10.040 [main] INFO  PersonalDetailsPage - Entering First Name
+2026-02-09 11:24:10.075 [main] INFO  PersonalDetailsPage - Entered First Name -> Alok
+2026-02-09 11:24:10.275 [main] INFO  PersonalDetailsPage - Entering Last Name
+2026-02-09 11:24:10.309 [main] INFO  PersonalDetailsPage - Entered Last Name -> Four
+2026-02-09 11:24:10.528 [main] INFO  PersonalDetailsPage - Entering Mobile Number
+2026-02-09 11:24:10.551 [main] INFO  PersonalDetailsPage - Entered mobile Number -> 9876543204
+2026-02-09 11:24:10.551 [main] INFO  PersonalDetailsPage - Selecting gender
+2026-02-09 11:24:10.774 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:10.774 [main] INFO  PersonalDetailsPage - Gender selected -> Male
+2026-02-09 11:24:10.774 [main] INFO  PersonalDetailsPage - Entering Date of Birth.....
+2026-02-09 11:24:11.314 [main] INFO  PersonalDetailsPage - Date of Birth entered -> 04-05-2004
+2026-02-09 11:24:11.314 [main] INFO  PersonalDetailsPage - Scroll To  Pin Code
+2026-02-09 11:24:11.314 [main] INFO  PersonalDetailsPage - Selecting Address using Pincode
+2026-02-09 11:24:11.340 [main] INFO  PersonalDetailsPage - Entering Pin Code
+2026-02-09 11:24:12.842 [main] INFO  PersonalDetailsPage - Address selected from dropdown: Nehru Place
+2026-02-09 11:24:12.992 [main] INFO  PersonalDetailsPage - Entering Address
+2026-02-09 11:24:13.257 [main] INFO  PersonalDetailsPage - Entered address : ->121, Ansal Tower-38, Nehru Place
+2026-02-09 11:24:13.358 [main] INFO  PersonalDetailsPage - Entering Nationality
+2026-02-09 11:24:15.107 [main] INFO  DropdownHelper - Total Option available in dropdown: 2
+2026-02-09 11:24:15.140 [main] INFO  DropdownHelper - Option text:-> Indian
+2026-02-09 11:24:15.207 [main] INFO  PersonalDetailsPage - Nationality selected from dropdown: Indian
+2026-02-09 11:24:15.340 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:15.434 [main] INFO  PersonalDetailsPage - Selecting Occupation
+2026-02-09 11:24:15.434 [main] INFO  PersonalDetailsPage - Waiting for dropdown options to appear...
+2026-02-09 11:24:15.434 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-09 11:24:15.474 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-09 11:24:15.558 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:15.558 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-09 11:24:15.558 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-09 11:24:15.607 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-09 11:24:16.639 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-09 11:24:17.655 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-09 11:24:18.690 [main] INFO  Logs - Available options:
+2026-02-09 11:24:18.706 [main] INFO  Logs -  → Business
+2026-02-09 11:24:18.740 [main] INFO  Logs -  → Self-Employed
+2026-02-09 11:24:18.779 [main] INFO  Logs -  → Salaried
+2026-02-09 11:24:18.806 [main] INFO  Logs -  → Retired
+2026-02-09 11:24:18.822 [main] INFO  Logs -  → Housewife
+2026-02-09 11:24:18.856 [main] INFO  Logs -  → Student
+2026-02-09 11:24:18.872 [main] INFO  Logs -  → Govt
+2026-02-09 11:24:18.888 [main] INFO  Logs -  → Other
+2026-02-09 11:24:19.225 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:19.225 [main] INFO  Logs - Selected options :->Student
+2026-02-09 11:24:19.225 [main] INFO  PersonalDetailsPage - Occupations selected from dropdown: Student
+2026-02-09 11:24:19.225 [main] INFO  PersonalDetailsPage - Clicking continue Or proceed Btn
+2026-02-09 11:24:19.425 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:19.425 [main] INFO  PersonalDetailsPage - Going for Event Criteria Page....
+2026-02-09 11:24:20.590 [main] INFO  EventCriteriaPage - Ground Event radio button clicking...
+2026-02-09 11:24:21.156 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:21.156 [main] INFO  EventCriteriaPage - Ground Event Yes radio button clicked...
+2026-02-09 11:24:22.258 [main] INFO  EventCriteriaPage - Scrolling the page.....
+2026-02-09 11:24:22.301 [main] INFO  EventCriteriaPage - Going to select the race category
+2026-02-09 11:24:22.357 [main] INFO  EventCriteriaPage - Selecting race category: 
+2026-02-09 11:24:22.357 [main] INFO  Logs - CommonHelper ->selectFromNgSelect method called... 
+2026-02-09 11:24:22.413 [main] INFO  Logs - Clicking ng-select dropdown...
+2026-02-09 11:24:22.532 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:22.532 [main] INFO  Logs - Ng Select Dropdown button clicked...
+2026-02-09 11:24:22.532 [main] INFO  Logs - Waiting for dropdown panel to appear...
+2026-02-09 11:24:22.562 [main] INFO  Logs - Attempt 1: Waiting for dropdown options...
+2026-02-09 11:24:23.584 [main] INFO  Logs - Attempt 2: Waiting for dropdown options...
+2026-02-09 11:24:24.617 [main] INFO  Logs - Attempt 3: Waiting for dropdown options...
+2026-02-09 11:24:25.650 [main] INFO  Logs - Available options:
+2026-02-09 11:24:25.666 [main] INFO  Logs -  → Open 10K (10 km)
+2026-02-09 11:24:25.683 [main] INFO  Logs -  → Majja Run (4.2 KM)
+2026-02-09 11:24:25.698 [main] INFO  Logs -  → Champions with Disability Run (3 KM)
+2026-02-09 11:24:25.894 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:25.894 [main] INFO  Logs - Selected options :->Open 10K (10 km)
+2026-02-09 11:24:25.894 [main] INFO  EventCriteriaPage - Race Category selected: Open 10K (10 km)
+2026-02-09 11:24:25.894 [main] INFO  EventCriteriaPage - Rce category selected
+2026-02-09 11:24:25.894 [main] INFO  EventCriteriaPage - Selecting criteria from given options...
+2026-02-09 11:24:25.924 [main] INFO  EventCriteriaPage - Entering Timing Certificate Link...
+2026-02-09 11:24:26.209 [main] INFO  EventCriteriaPage - Timing Certificate Link entered...
+2026-02-09 11:24:26.209 [main] INFO  EventCriteriaPage - Entering Event Name...
+2026-02-09 11:24:26.403 [main] INFO  Logs - Ng Select Dropdown button clicking...
+2026-02-09 11:24:26.457 [main] INFO  EventCriteriaPage - Event name Selected: VEDANTA DELHI HALF MARATHON
+2026-02-09 11:24:26.577 [main] INFO  EventCriteriaPage - Event Race Category Dropdown opened...
+2026-02-09 11:24:26.861 [main] INFO  EventCriteriaPage - Event Race Category selected from dropdown: 10 Km
+2026-02-09 11:24:26.909 [main] INFO  EventCriteriaPage - Entering Bib number...
+2026-02-09 11:24:27.000 [main] INFO  EventCriteriaPage - Bib number entered...
+2026-02-09 11:24:27.331 [main] INFO  EventCriteriaPage - Entering Event Conducted Date...
+2026-02-09 11:24:27.746 [main] INFO  EventCriteriaPage - Event Conducted Date entered...
+2026-02-09 11:24:27.791 [main] INFO  EventCriteriaPage - Entering Hours...
+2026-02-09 11:24:27.885 [main] INFO  EventCriteriaPage - Hours entered...
+2026-02-09 11:24:27.926 [main] INFO  EventCriteriaPage - Entering Minutes...
+2026-02-09 11:24:28.012 [main] INFO  EventCriteriaPage - Minutes entered...
+2026-02-09 11:24:28.061 [main] INFO  EventCriteriaPage - Entering Seconds...
+2026-02-09 11:24:28.158 [main] INFO  EventCriteriaPage - Seconds entered...
+2026-02-09 11:24:28.158 [main] INFO  EventCriteriaPage - Scrolling to Additional details ....
+2026-02-09 11:24:28.277 [main] INFO  EventCriteriaPage - Clicking on Id proof dropdown...
+2026-02-09 11:24:28.343 [main] INFO  EventCriteriaPage - Id Proof Dropdown opened...
+2026-02-09 11:24:28.557 [main] INFO  EventCriteriaPage - Id Proof selected from dropdown: PAN Card
+2026-02-09 11:24:28.717 [main] INFO  EventCriteriaPage - PAN no entered: ALOKO1234F
+2026-02-09 11:24:28.809 [main] INFO  EventCriteriaPage - Clicking on Id Proof upload button for: PAN Card
+2026-02-09 11:24:28.809 [main] INFO  EventCriteriaPage - Id Proof Uploading file path: C:\Users\dewen\Downloads\Procam_Testing\ProcamTest\docs\pan_card.jpg
+2026-02-09 11:24:28.896 [main] INFO  EventCriteriaPage - Id Proof uploaded successfully for: PAN Card
+2026-02-09 11:24:28.960 [main] INFO  EventCriteriaPage - Clicking on upload profile Image for uploading file...... 
+2026-02-09 11:24:28.960 [main] INFO  EventCriteriaPage - Uploading profile image(path): C:\Users\dewen\Downloads\Procam_Testing\Avatar_Images\John Four.jpg
+2026-02-09 11:24:29.044 [main] INFO  EventCriteriaPage - file input path captured: input
+2026-02-09 11:24:29.059 [main] INFO  EventCriteriaPage - file input path captured: 
+2026-02-09 11:24:29.059 [main] INFO  EventCriteriaPage - Profile image uploaded successfully
+2026-02-09 11:24:31.138 [main] INFO  EventCriteriaPage - Scrolling to Emergency Name1 ....
+2026-02-09 11:24:31.346 [main] INFO  EventCriteriaPage - Emergency Name1 entered...
+2026-02-09 11:24:31.572 [main] INFO  EventCriteriaPage - Emergency Mobile1 entered...
+2026-02-09 11:24:31.792 [main] INFO  EventCriteriaPage - Emergency Relation1 entered...
+2026-02-09 11:24:32.021 [main] INFO  EventCriteriaPage - Emergency Name2 entered...
+2026-02-09 11:24:32.253 [main] INFO  EventCriteriaPage - Emergency Mobile2 entered...
+2026-02-09 11:24:32.273 [main] INFO  EventCriteriaPage - Scrolling to Emergency Relation2 ....
+2026-02-09 11:24:32.456 [main] INFO  EventCriteriaPage - Emergency Relation2 entered...
+2026-02-09 11:24:32.621 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-09 11:24:32.621 [main] INFO  EventCriteriaPage - Procam Slam Yes Option clicked...
+2026-02-09 11:24:32.621 [main] INFO  EventCriteriaPage - Going to select the cycle...
+2026-02-09 11:24:32.621 [main] INFO  EventCriteriaPage - In selectTheSlamCycle method... 
+2026-02-11 12:34:50.476 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 12:34:50.504 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 12:34:50.721 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 12:34:50.722 [main] INFO  BaseClass - launching app...
+2026-02-11 12:34:56.120 [main] INFO  LoginPage - Entering email....
+2026-02-11 12:34:56.442 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 12:34:56.507 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 12:34:57.907 [main] INFO  LoginPage - Clicking login
+2026-02-11 12:34:58.277 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-11 12:37:25.611 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 12:37:25.615 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 12:37:25.748 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 12:37:25.748 [main] INFO  BaseClass - launching app...
+2026-02-11 12:37:31.811 [main] INFO  LoginPage - Entering email....
+2026-02-11 12:37:32.021 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 12:37:32.083 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 12:37:33.459 [main] INFO  LoginPage - Clicking login
+2026-02-11 12:37:33.724 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-11 12:39:24.260 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 12:39:24.266 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 12:39:24.396 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 12:39:24.396 [main] INFO  BaseClass - launching app...
+2026-02-11 12:39:27.692 [main] INFO  LoginPage - Entering email....
+2026-02-11 12:39:27.853 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 12:39:27.893 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 12:39:29.243 [main] INFO  LoginPage - Clicking login
+2026-02-11 14:58:14.511 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 14:58:14.519 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 14:58:14.769 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 14:58:14.769 [main] INFO  BaseClass - launching app...
+2026-02-11 14:58:22.891 [main] INFO  LoginPage - Entering email....
+2026-02-11 14:58:23.104 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 14:58:23.182 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 14:58:24.576 [main] INFO  LoginPage - Clicking login
+2026-02-11 14:58:24.875 [main] INFO  LoginPage - Clicking logout btn
+2026-02-11 14:58:25.703 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:26:22.359 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 17:26:22.366 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 17:26:22.563 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 17:26:22.563 [main] INFO  BaseClass - launching app...
+2026-02-11 17:26:27.700 [main] INFO  LoginPage - Entering email....
+2026-02-11 17:26:27.931 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 17:26:27.996 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 17:26:29.343 [main] INFO  LoginPage - Clicking login
+2026-02-11 17:26:29.590 [main] INFO  LoginPage - Clicking logout btn
+2026-02-11 17:26:30.939 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:26:30.952 [main] INFO  LoginPage - Clicking on policy details
+2026-02-11 17:28:14.540 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 17:28:14.546 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 17:28:14.695 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 17:28:14.695 [main] INFO  BaseClass - launching app...
+2026-02-11 17:28:18.068 [main] INFO  LoginPage - Entering email....
+2026-02-11 17:28:18.192 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 17:28:18.242 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 17:28:19.557 [main] INFO  LoginPage - Clicking login
+2026-02-11 17:28:19.764 [main] INFO  LoginPage - Clicking on policy details
+2026-02-11 17:28:20.601 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:29:43.469 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 17:29:43.474 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 17:29:43.612 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 17:29:43.612 [main] INFO  BaseClass - launching app...
+2026-02-11 17:29:46.813 [main] INFO  LoginPage - Entering email....
+2026-02-11 17:29:46.945 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 17:29:46.994 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 17:29:48.285 [main] INFO  LoginPage - Clicking login
+2026-02-11 17:29:48.483 [main] INFO  LoginPage - Clicking on contact details
+2026-02-11 17:29:49.845 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:29:49.845 [main] INFO  LoginPage - Clicking on policy details
+2026-02-11 17:29:50.062 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:29:50.279 [main] INFO  LoginPage - Clicking logout btn
+2026-02-11 17:29:50.537 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:30:53.917 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 17:30:53.924 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 17:30:54.059 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 17:30:54.059 [main] INFO  BaseClass - launching app...
+2026-02-11 17:30:57.165 [main] INFO  LoginPage - Entering email....
+2026-02-11 17:30:57.297 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 17:30:57.355 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 17:30:58.591 [main] INFO  LoginPage - Clicking login
+2026-02-11 17:30:58.757 [main] INFO  LoginPage - Clicking on contact details
+2026-02-11 17:31:00.252 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:31:05.268 [main] INFO  LoginPage - Clicking on policy details
+2026-02-11 17:31:05.595 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:31:10.805 [main] INFO  LoginPage - Clicking logout btn
+2026-02-11 17:31:10.990 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:32:58.157 [main] INFO  BaseClass - Reading configuration file...
+2026-02-11 17:32:58.161 [main] INFO  BaseClass - Report configuration file...
+2026-02-11 17:32:58.294 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-11 17:32:58.295 [main] INFO  BaseClass - launching app...
+2026-02-11 17:33:01.545 [main] INFO  LoginPage - Entering email....
+2026-02-11 17:33:01.687 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-11 17:33:01.755 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-11 17:33:03.101 [main] INFO  LoginPage - Clicking login
+2026-02-11 17:33:03.279 [main] INFO  LoginPage - Clicking on contact details
+2026-02-11 17:33:04.636 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:33:09.638 [main] INFO  LoginPage - Clicking on policy details
+2026-02-11 17:33:09.893 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-11 17:33:20.102 [main] INFO  LoginPage - Clicking logout btn
+2026-02-11 17:33:20.344 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 12:19:35.452 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 12:19:35.472 [main] INFO  BaseClass - Report configuration file...
+2026-02-12 12:19:35.660 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-12 12:19:35.660 [main] INFO  BaseClass - launching app...
+2026-02-12 12:19:41.067 [main] INFO  LoginPage - Entering email....
+2026-02-12 12:19:41.290 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-12 12:19:41.374 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-12 12:19:42.786 [main] INFO  LoginPage - Clicking login
+2026-02-12 12:19:43.097 [main] INFO  LoginPage - Clicking on contact details
+2026-02-12 12:19:44.635 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 12:19:49.651 [main] INFO  LoginPage - Clicking on policy details
+2026-02-12 12:19:49.910 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 12:20:00.127 [main] INFO  LoginPage - Clicking logout btn
+2026-02-12 12:20:00.355 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 16:07:22.591 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 16:08:10.399 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 16:10:49.413 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 16:10:49.633 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-12 16:10:49.633 [main] INFO  BaseClass - launching app...
+2026-02-12 16:10:55.266 [main] INFO  LoginPage - Entering email....
+2026-02-12 16:10:55.555 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-12 16:10:55.616 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-12 16:10:57.035 [main] INFO  LoginPage - Clicking login
+2026-02-12 16:26:45.979 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 16:26:46.192 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-12 16:26:46.192 [main] INFO  BaseClass - launching app...
+2026-02-12 16:26:50.445 [main] INFO  LoginPage - Entering email....
+2026-02-12 16:26:50.676 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-12 16:26:50.749 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-12 16:26:52.226 [main] INFO  LoginPage - Clicking login
+2026-02-12 16:38:25.765 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 16:38:25.914 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-12 16:38:25.914 [main] INFO  BaseClass - launching app...
+2026-02-12 16:38:28.976 [main] INFO  LoginPage - Entering email....
+2026-02-12 16:38:29.130 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-12 16:38:29.177 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-12 16:38:30.431 [main] INFO  LoginPage - Clicking login
+2026-02-12 16:38:30.620 [main] INFO  LoginPage - Clicking on contact details
+2026-02-12 16:38:32.108 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 16:38:37.122 [main] INFO  LoginPage - Clicking on policy details
+2026-02-12 16:38:37.360 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 16:38:47.577 [main] INFO  LoginPage - Clicking logout btn
+2026-02-12 16:38:47.844 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 16:44:26.076 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 16:44:26.221 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-12 16:44:26.221 [main] INFO  BaseClass - launching app...
+2026-02-12 16:44:29.337 [main] INFO  LoginPage - Entering email....
+2026-02-12 16:44:29.480 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-12 16:44:29.526 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-12 16:44:30.913 [main] INFO  LoginPage - Clicking login
+2026-02-12 16:44:31.160 [main] INFO  LoginPage - Clicking on contact details
+2026-02-12 16:44:32.737 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 16:44:37.743 [main] INFO  LoginPage - Clicking on policy details
+2026-02-12 16:44:38.031 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 16:44:48.248 [main] INFO  LoginPage - Clicking logout btn
+2026-02-12 16:44:48.483 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-12 17:05:15.431 [main] INFO  BaseClass - Reading configuration file...
+2026-02-12 17:05:15.659 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-12 17:05:15.659 [main] INFO  BaseClass - launching app...
+2026-02-12 17:05:19.684 [main] INFO  LoginPage - Entering email....
+2026-02-12 17:05:19.868 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-12 17:05:27.729 [main] INFO  LoginPage - Entering email....
+2026-02-12 17:05:28.043 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-12 17:05:35.489 [main] INFO  LoginPage - Entering email....
+2026-02-12 17:05:35.672 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-12 17:05:43.174 [main] INFO  LoginPage - Entering email....
+2026-02-12 17:05:43.367 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 11:54:02.572 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 11:54:03.469 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 11:54:03.469 [main] INFO  BaseClass - launching app...
+2026-02-13 11:54:12.830 [main] INFO  LoginPage - Entering email....
+2026-02-13 11:54:13.061 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 11:54:13.139 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 11:54:13.322 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:14.543 [main] INFO  LoginPage - Clicking login
+2026-02-13 11:54:14.701 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:14.713 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 11:54:16.079 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:16.151 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 11:54:16.361 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 11:54:16.361 [main] INFO  BaseClass - launching app...
+2026-02-13 11:54:18.662 [main] INFO  LoginPage - Entering email....
+2026-02-13 11:54:18.788 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 11:54:18.829 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 11:54:19.273 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:20.478 [main] INFO  LoginPage - Clicking login
+2026-02-13 11:54:20.661 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:20.662 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 11:54:21.927 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:21.953 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 11:54:22.104 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 11:54:22.105 [main] INFO  BaseClass - launching app...
+2026-02-13 11:54:26.700 [main] INFO  LoginPage - Entering email....
+2026-02-13 11:54:26.881 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 11:54:26.943 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 11:54:27.083 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:28.283 [main] INFO  LoginPage - Clicking login
+2026-02-13 11:54:28.448 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:28.453 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 11:54:29.710 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:29.731 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 11:54:29.902 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 11:54:29.902 [main] INFO  BaseClass - launching app...
+2026-02-13 11:54:34.948 [main] INFO  LoginPage - Entering email....
+2026-02-13 11:54:35.138 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 11:54:35.194 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 11:54:35.335 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:36.540 [main] INFO  LoginPage - Clicking login
+2026-02-13 11:54:36.694 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:36.694 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 11:54:37.966 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 11:54:37.995 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:20:12.159 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 12:20:13.336 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:20:13.336 [main] INFO  BaseClass - launching app...
+2026-02-13 12:20:16.503 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:20:16.668 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 12:20:16.711 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:20:17.229 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:18.477 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:20:18.687 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:18.695 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:20:20.060 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:20.287 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:20:20.463 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:20:20.464 [main] INFO  BaseClass - launching app...
+2026-02-13 12:20:23.142 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:20:23.321 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 12:20:23.373 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:20:24.010 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:25.204 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:20:25.366 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:25.366 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:20:26.644 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:26.844 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:20:27.048 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:20:27.048 [main] INFO  BaseClass - launching app...
+2026-02-13 12:20:29.594 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:20:29.788 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 12:20:29.859 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:20:30.018 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:31.194 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:20:31.363 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:31.363 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:20:32.626 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:32.776 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:20:32.934 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:20:32.934 [main] INFO  BaseClass - launching app...
+2026-02-13 12:20:34.710 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:20:34.896 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 12:20:34.964 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:20:36.090 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-13 12:20:36.154 [main] INFO  Logs - Clicked using JS click.
+2026-02-13 12:20:37.361 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:20:37.500 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:37.500 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:20:38.796 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:20:38.974 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:38:12.657 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 12:38:12.675 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@61a5b4ae
+2026-02-13 12:38:13.313 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:38:13.313 [main] INFO  BaseClass - launching app...
+2026-02-13 12:38:17.235 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:38:17.407 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 12:38:17.468 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:38:17.651 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:18.853 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:38:19.056 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:19.056 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:38:20.335 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:20.567 [main] INFO  ScreenshotUtils - screenshots dir : null
+2026-02-13 12:38:20.567 [main] INFO  ScreenshotUtils - screenshots path : nullverifyLogin_2026-02-13_12-38-20.png
+2026-02-13 12:38:20.568 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: nullverifyLogin_2026-02-13_12-38-20.png
+2026-02-13 12:38:20.569 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:38:20.727 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:38:20.727 [main] INFO  BaseClass - launching app...
+2026-02-13 12:38:23.770 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:38:23.913 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 12:38:23.968 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:38:24.077 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:25.292 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:38:25.459 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:25.459 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:38:26.738 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:26.917 [main] INFO  ScreenshotUtils - screenshots dir : null
+2026-02-13 12:38:26.917 [main] INFO  ScreenshotUtils - screenshots path : nullverifyLogin_2026-02-13_12-38-26.png
+2026-02-13 12:38:26.917 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: nullverifyLogin_2026-02-13_12-38-26.png
+2026-02-13 12:38:26.917 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:38:27.105 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:38:27.105 [main] INFO  BaseClass - launching app...
+2026-02-13 12:38:29.537 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:38:29.694 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 12:38:29.736 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:38:30.454 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:31.668 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:38:31.838 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:31.838 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:38:33.185 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:33.374 [main] INFO  ScreenshotUtils - screenshots dir : null
+2026-02-13 12:38:33.374 [main] INFO  ScreenshotUtils - screenshots path : nullverifyLogin_2026-02-13_12-38-33.png
+2026-02-13 12:38:33.374 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: nullverifyLogin_2026-02-13_12-38-33.png
+2026-02-13 12:38:33.374 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:38:33.520 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:38:33.520 [main] INFO  BaseClass - launching app...
+2026-02-13 12:38:36.368 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:38:36.507 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 12:38:36.553 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:38:36.679 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:37.875 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:38:38.002 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:38.002 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:38:39.339 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:38:39.522 [main] INFO  ScreenshotUtils - screenshots dir : null
+2026-02-13 12:38:39.522 [main] INFO  ScreenshotUtils - screenshots path : nullverifyLogin_2026-02-13_12-38-39.png
+2026-02-13 12:38:39.522 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: nullverifyLogin_2026-02-13_12-38-39.png
+2026-02-13 12:38:39.524 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:38:39.685 [main] INFO  ScreenshotUtils - screenshots dir : null
+2026-02-13 12:38:39.685 [main] INFO  ScreenshotUtils - screenshots path : nullverifyLogout_2026-02-13_12-38-39.png
+2026-02-13 12:38:39.685 [main] INFO  ExtentReportsManager - onTestSkipped screent shot path: nullverifyLogout_2026-02-13_12-38-39.png
+2026-02-13 12:48:59.023 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 12:48:59.041 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@61a5b4ae
+2026-02-13 12:48:59.657 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:48:59.658 [main] INFO  BaseClass - launching app...
+2026-02-13 12:49:02.452 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:49:02.585 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 12:49:02.619 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:49:03.152 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:04.367 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:49:04.501 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:04.518 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:49:05.834 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:06.062 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:49:06.062 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-05.png
+2026-02-13 12:49:06.062 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-05.png
+2026-02-13 12:49:06.069 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:49:06.260 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:49:06.260 [main] INFO  BaseClass - launching app...
+2026-02-13 12:49:09.919 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:49:10.123 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 12:49:10.182 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:49:10.334 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:11.523 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:49:11.668 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:11.668 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:49:12.969 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:13.104 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:49:13.104 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-12.png
+2026-02-13 12:49:13.104 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-12.png
+2026-02-13 12:49:13.104 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:49:13.276 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:49:13.276 [main] INFO  BaseClass - launching app...
+2026-02-13 12:49:15.818 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:49:15.975 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 12:49:16.022 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:49:16.352 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:17.519 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:49:17.650 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:17.650 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:49:18.966 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:19.150 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:49:19.150 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-18.png
+2026-02-13 12:49:19.150 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-18.png
+2026-02-13 12:49:19.166 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:49:19.341 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:49:19.342 [main] INFO  BaseClass - launching app...
+2026-02-13 12:49:21.425 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:49:21.585 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 12:49:21.625 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:49:21.866 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:23.080 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:49:23.210 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:23.210 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:49:24.504 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:49:24.661 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:49:24.661 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-24.png
+2026-02-13 12:49:24.661 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-49-24.png
+2026-02-13 12:49:24.661 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:49:24.845 [main] ERROR ScreenshotUtils - Failed to capture screenshot
+org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54130}, goog:processID: 30072, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54130/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:592) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:322) ~[selenium-remote-driver-4.18.1.jar:?]
+	at com.procam.utils.ScreenshotUtils.captureScreenshot(ScreenshotUtils.java:37) ~[classes/:?]
+	at com.procam.utils.ExtentReportsManager.onTestSkipped(ExtentReportsManager.java:87) ~[classes/:?]
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:106) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:285) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.invokeListenersForSkippedTestResult(TestInvoker.java:523) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.lambda$invokeTestMethods$0(TestInvoker.java:126) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:160) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) ~[testng-7.10.2.jar:7.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:739) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestRunner.run(TestRunner.java:614) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.run(TestNG.java:1079) [testng-7.10.2.jar:7.10.2]
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91) [testng-remote.jar:?]
+2026-02-13 12:49:24.854 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:49:24.854 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogout_2026-02-13_12-49-24.png
+2026-02-13 12:49:24.854 [main] INFO  ExtentReportsManager - onTestSkipped screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogout_2026-02-13_12-49-24.png
+2026-02-13 12:51:57.767 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 12:51:57.783 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@61a5b4ae
+2026-02-13 12:51:58.379 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:51:58.379 [main] INFO  BaseClass - launching app...
+2026-02-13 12:52:01.784 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:52:01.913 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 12:52:01.976 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:52:02.525 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:03.774 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:52:03.967 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:03.977 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:52:05.273 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:05.501 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:52:05.501 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-05.png
+2026-02-13 12:52:05.501 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-05.png
+2026-02-13 12:52:05.506 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:52:05.712 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:52:05.712 [main] INFO  BaseClass - launching app...
+2026-02-13 12:52:08.491 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:52:08.616 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 12:52:08.659 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:52:09.523 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:10.741 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:52:10.931 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:10.933 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:52:12.240 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:12.391 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:52:12.391 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-12.png
+2026-02-13 12:52:12.391 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-12.png
+2026-02-13 12:52:12.391 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:52:12.566 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:52:12.566 [main] INFO  BaseClass - launching app...
+2026-02-13 12:52:21.725 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:52:21.928 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 12:52:22.021 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:52:22.378 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:23.588 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:52:23.715 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:23.717 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:52:24.989 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:25.140 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:52:25.156 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-25.png
+2026-02-13 12:52:25.156 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-25.png
+2026-02-13 12:52:25.158 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:52:25.330 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:52:25.330 [main] INFO  BaseClass - launching app...
+2026-02-13 12:52:27.606 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:52:27.730 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 12:52:27.758 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:52:28.361 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:29.540 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:52:29.690 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:29.690 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:52:31.015 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:52:31.187 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:52:31.187 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-31.png
+2026-02-13 12:52:31.187 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-52-31.png
+2026-02-13 12:52:31.187 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:52:31.351 [main] ERROR ScreenshotUtils - Failed to capture screenshot
+org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49671}, goog:processID: 19620, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49671/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:592) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:322) ~[selenium-remote-driver-4.18.1.jar:?]
+	at com.procam.utils.ScreenshotUtils.captureScreenshot(ScreenshotUtils.java:37) ~[classes/:?]
+	at com.procam.utils.ExtentReportsManager.onTestSkipped(ExtentReportsManager.java:87) ~[classes/:?]
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:106) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:285) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.invokeListenersForSkippedTestResult(TestInvoker.java:523) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.lambda$invokeTestMethods$0(TestInvoker.java:126) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:160) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) ~[testng-7.10.2.jar:7.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:739) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestRunner.run(TestRunner.java:614) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.run(TestNG.java:1079) [testng-7.10.2.jar:7.10.2]
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91) [testng-remote.jar:?]
+2026-02-13 12:52:31.360 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:52:31.360 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogout_2026-02-13_12-52-31.png
+2026-02-13 12:52:31.360 [main] INFO  ExtentReportsManager - onTestSkipped screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogout_2026-02-13_12-52-31.png
+2026-02-13 12:55:47.284 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 12:55:47.298 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@61a5b4ae
+2026-02-13 12:55:47.904 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:55:47.904 [main] INFO  BaseClass - launching app...
+2026-02-13 12:56:01.480 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:56:01.645 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 12:56:01.695 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:56:02.461 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:03.724 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:56:03.865 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:03.865 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:56:05.178 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:05.380 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:56:05.380 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-05.png
+2026-02-13 12:56:05.380 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-05.png
+2026-02-13 12:56:05.380 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:56:05.587 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:56:05.588 [main] INFO  BaseClass - launching app...
+2026-02-13 12:56:11.844 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:56:12.046 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 12:56:12.110 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:56:12.298 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:13.534 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:56:13.661 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:13.673 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:56:14.931 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:15.094 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:56:15.094 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-14.png
+2026-02-13 12:56:15.094 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-14.png
+2026-02-13 12:56:15.094 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:56:15.269 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:56:15.269 [main] INFO  BaseClass - launching app...
+2026-02-13 12:56:16.929 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:56:17.065 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 12:56:17.111 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:56:17.762 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:18.944 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:56:19.097 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:19.097 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:56:20.399 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:20.585 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:56:20.585 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-20.png
+2026-02-13 12:56:20.585 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-20.png
+2026-02-13 12:56:20.585 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:56:20.738 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 12:56:20.739 [main] INFO  BaseClass - launching app...
+2026-02-13 12:56:22.363 [main] INFO  LoginPage - Entering email....
+2026-02-13 12:56:22.488 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 12:56:22.545 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 12:56:23.110 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:24.277 [main] INFO  LoginPage - Clicking login
+2026-02-13 12:56:24.445 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:24.445 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 12:56:25.764 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 12:56:25.927 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:56:25.927 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-25.png
+2026-02-13 12:56:25.927 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_12-56-25.png
+2026-02-13 12:56:25.927 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 12:56:26.124 [main] ERROR ScreenshotUtils - Failed to capture screenshot
+org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50384}, goog:processID: 5432, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50384/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:592) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596) ~[selenium-remote-driver-4.18.1.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:322) ~[selenium-remote-driver-4.18.1.jar:?]
+	at com.procam.utils.ScreenshotUtils.captureScreenshot(ScreenshotUtils.java:37) ~[classes/:?]
+	at com.procam.utils.ExtentReportsManager.onTestSkipped(ExtentReportsManager.java:87) ~[classes/:?]
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:106) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:285) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.invokeListenersForSkippedTestResult(TestInvoker.java:523) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.lambda$invokeTestMethods$0(TestInvoker.java:126) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:160) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) ~[testng-7.10.2.jar:7.10.2]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) ~[testng-7.10.2.jar:7.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:739) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestRunner.run(TestRunner.java:614) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [testng-7.10.2.jar:7.10.2]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [testng-7.10.2.jar:7.10.2]
+	at org.testng.TestNG.run(TestNG.java:1079) [testng-7.10.2.jar:7.10.2]
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91) [testng-remote.jar:?]
+2026-02-13 12:56:26.133 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 12:56:26.133 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogout_2026-02-13_12-56-26.png
+2026-02-13 12:56:26.133 [main] INFO  ExtentReportsManager - onTestSkipped screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogout_2026-02-13_12-56-26.png
+2026-02-13 13:07:19.367 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 13:07:19.384 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@3e792ce3
+2026-02-13 13:07:19.991 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 13:07:19.991 [main] INFO  BaseClass - launching app...
+2026-02-13 13:07:22.292 [main] INFO  LoginPage - Entering email....
+2026-02-13 13:07:22.445 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 13:07:22.510 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 13:07:23.195 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:24.391 [main] INFO  LoginPage - Clicking login
+2026-02-13 13:07:24.544 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:29.561 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 13:07:29.825 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:30.026 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 13:07:30.027 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-29.png
+2026-02-13 13:07:30.027 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-29.png
+2026-02-13 13:07:30.034 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 13:07:30.247 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 13:07:30.247 [main] INFO  BaseClass - launching app...
+2026-02-13 13:07:32.610 [main] INFO  LoginPage - Entering email....
+2026-02-13 13:07:32.751 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 13:07:32.793 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 13:07:33.149 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:34.341 [main] INFO  LoginPage - Clicking login
+2026-02-13 13:07:34.542 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:39.556 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 13:07:39.801 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:39.973 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 13:07:39.973 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-39.png
+2026-02-13 13:07:39.973 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-39.png
+2026-02-13 13:07:39.973 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 13:07:40.164 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 13:07:40.164 [main] INFO  BaseClass - launching app...
+2026-02-13 13:07:42.124 [main] INFO  LoginPage - Entering email....
+2026-02-13 13:07:42.312 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 13:07:42.347 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 13:07:42.677 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:43.892 [main] INFO  LoginPage - Clicking login
+2026-02-13 13:07:44.060 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:49.077 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 13:07:49.332 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:49.491 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 13:07:49.491 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-49.png
+2026-02-13 13:07:49.491 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-49.png
+2026-02-13 13:07:49.491 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 13:07:49.685 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 13:07:49.685 [main] INFO  BaseClass - launching app...
+2026-02-13 13:07:51.558 [main] INFO  LoginPage - Entering email....
+2026-02-13 13:07:51.713 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 13:07:51.760 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 13:07:52.157 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:53.345 [main] INFO  LoginPage - Clicking login
+2026-02-13 13:07:53.490 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:58.512 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 13:07:58.691 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 13:07:58.871 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 13:07:58.871 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-58.png
+2026-02-13 13:07:58.871 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_13-07-58.png
+2026-02-13 13:07:58.871 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:18:32.954 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 15:18:32.974 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@3e792ce3
+2026-02-13 15:18:33.749 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:18:33.749 [main] INFO  BaseClass - launching app...
+2026-02-13 15:18:40.420 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:18:40.565 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 15:18:40.605 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:18:41.078 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:18:42.286 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:18:42.460 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:18:47.477 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:18:47.741 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:18:47.750 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:18:47.936 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 15:18:47.936 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-18-47.png
+2026-02-13 15:18:47.936 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-18-47.png
+2026-02-13 15:18:47.955 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:18:48.143 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:18:48.143 [main] INFO  BaseClass - launching app...
+2026-02-13 15:18:49.821 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:18:49.968 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 15:18:50.005 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:18:50.647 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:18:51.839 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:18:52.038 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:18:57.044 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:18:57.296 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:18:57.321 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:18:57.453 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 15:18:57.453 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-18-57.png
+2026-02-13 15:18:57.453 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-18-57.png
+2026-02-13 15:18:57.453 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:18:57.626 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:18:57.626 [main] INFO  BaseClass - launching app...
+2026-02-13 15:18:59.504 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:18:59.671 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 15:18:59.706 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:19:00.871 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-13 15:19:00.922 [main] INFO  Logs - Clicked using JS click.
+2026-02-13 15:19:11.183 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 15:19:11.183 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-19-10.png
+2026-02-13 15:19:11.183 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-19-10.png
+2026-02-13 15:19:11.183 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:19:11.336 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:19:11.336 [main] INFO  BaseClass - launching app...
+2026-02-13 15:19:13.073 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:19:13.204 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 15:19:13.237 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:19:14.046 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:19:15.203 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:19:15.355 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:19:20.363 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:19:20.670 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:19:20.683 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:19:20.940 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 15:19:20.940 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-19-20.png
+2026-02-13 15:19:20.940 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-19-20.png
+2026-02-13 15:19:20.940 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:20:41.798 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 15:20:41.814 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@3e792ce3
+2026-02-13 15:20:42.390 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:20:42.390 [main] INFO  BaseClass - launching app...
+2026-02-13 15:20:44.465 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:20:44.603 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 15:20:44.648 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:20:45.483 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:20:46.694 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:20:46.862 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:20:51.880 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:20:52.172 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:20:52.190 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:20:57.207 [main] INFO  LoginPage - Clicking on policy details
+2026-02-13 15:20:57.392 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:02.650 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:07.657 [main] INFO  LoginPage - Clicking logout btn
+2026-02-13 15:21:07.989 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:08.013 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:21:08.210 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:21:08.210 [main] INFO  BaseClass - launching app...
+2026-02-13 15:21:09.981 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:21:10.130 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 15:21:10.165 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:21:11.317 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-13 15:21:11.362 [main] INFO  Logs - Clicked using JS click.
+2026-02-13 15:21:21.684 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 15:21:21.684 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-21-21.png
+2026-02-13 15:21:21.684 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-21-21.png
+2026-02-13 15:21:21.687 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:21:23.363 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:21:23.363 [main] INFO  BaseClass - launching app...
+2026-02-13 15:21:25.064 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:21:25.189 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 15:21:25.230 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:21:25.952 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:27.155 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:21:27.263 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:32.285 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:21:32.530 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:32.533 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:21:37.542 [main] INFO  LoginPage - Clicking on policy details
+2026-02-13 15:21:37.734 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:43.010 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:48.021 [main] INFO  LoginPage - Clicking logout btn
+2026-02-13 15:21:48.337 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:21:48.353 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:21:48.527 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:21:48.527 [main] INFO  BaseClass - launching app...
+2026-02-13 15:21:50.328 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:21:50.453 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 15:21:50.500 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:21:51.644 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-13 15:21:51.685 [main] INFO  Logs - Clicked using JS click.
+2026-02-13 15:22:01.893 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 15:22:01.893 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-22-01.png
+2026-02-13 15:22:01.893 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_15-22-01.png
+2026-02-13 15:22:01.893 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:50:20.209 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 15:50:20.230 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@3e792ce3
+2026-02-13 15:50:21.013 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:50:21.013 [main] INFO  BaseClass - launching app...
+2026-02-13 15:50:25.751 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:50:25.936 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 15:50:26.005 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:50:27.246 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-13 15:50:27.280 [main] INFO  Logs - Clicked using JS click.
+2026-02-13 15:50:28.469 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:50:28.622 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:33.641 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:50:33.872 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:33.883 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:50:38.894 [main] INFO  LoginPage - Clicking on policy details
+2026-02-13 15:50:39.111 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:44.351 [main] INFO  LoginPage - Total policy options found: 8
+2026-02-13 15:50:44.382 [main] INFO  LoginPage - Clicking policy option:Data Protection Policy
+2026-02-13 15:50:44.564 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:44.602 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:44.771 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:44.797 [main] INFO  LoginPage - Clicking policy option:Disclaimer
+2026-02-13 15:50:44.965 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:45.796 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:45.971 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:46.000 [main] INFO  LoginPage - Clicking policy option:Consent
+2026-02-13 15:50:46.139 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:46.964 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:47.129 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:47.164 [main] INFO  LoginPage - Clicking policy option:Refund Policy
+2026-02-13 15:50:47.338 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:48.188 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:48.359 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:48.387 [main] INFO  LoginPage - Clicking policy option:Waiver
+2026-02-13 15:50:48.572 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:49.412 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:49.595 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:49.618 [main] INFO  LoginPage - Clicking policy option:Virtual Waiver
+2026-02-13 15:50:49.766 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:50.613 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:50.828 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:50.861 [main] INFO  LoginPage - Clicking policy option:Privacy Policy
+2026-02-13 15:50:51.020 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:51.624 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:51.793 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:51.819 [main] INFO  LoginPage - Clicking policy option:Terms And Conditions
+2026-02-13 15:50:51.947 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:52.552 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:50:52.730 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:52.730 [main] INFO  LoginPage - Clicking on data Protection Policy options
+2026-02-13 15:50:52.998 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:58.013 [main] INFO  LoginPage - Clicking logout btn
+2026-02-13 15:50:58.337 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:50:58.367 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:50:58.570 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:50:58.570 [main] INFO  BaseClass - launching app...
+2026-02-13 15:51:00.268 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:51:00.437 [main] INFO  LoginPage - Email entered -> tcs-test26-1@yopmail.com
+2026-02-13 15:51:00.467 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:51:01.120 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:02.349 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:51:02.466 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:07.488 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:51:07.716 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:07.747 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:51:12.748 [main] INFO  LoginPage - Clicking on policy details
+2026-02-13 15:51:12.937 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:18.049 [main] INFO  LoginPage - Total policy options found: 8
+2026-02-13 15:51:18.081 [main] INFO  LoginPage - Clicking policy option:Data Protection Policy
+2026-02-13 15:51:18.221 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:18.273 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:18.412 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:18.438 [main] INFO  LoginPage - Clicking policy option:Disclaimer
+2026-02-13 15:51:18.594 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:19.398 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:19.576 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:19.601 [main] INFO  LoginPage - Clicking policy option:Consent
+2026-02-13 15:51:19.795 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:20.569 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:20.738 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:20.775 [main] INFO  LoginPage - Clicking policy option:Refund Policy
+2026-02-13 15:51:20.958 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:21.736 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:21.904 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:21.937 [main] INFO  LoginPage - Clicking policy option:Waiver
+2026-02-13 15:51:22.071 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:23.298 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:23.440 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:23.487 [main] INFO  LoginPage - Clicking policy option:Virtual Waiver
+2026-02-13 15:51:23.645 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:24.407 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:24.585 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:24.601 [main] INFO  LoginPage - Clicking policy option:Privacy Policy
+2026-02-13 15:51:24.755 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:25.500 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:25.663 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:25.694 [main] INFO  LoginPage - Clicking policy option:Terms And Conditions
+2026-02-13 15:51:25.842 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:26.585 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:26.739 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:26.739 [main] INFO  LoginPage - Clicking on data Protection Policy options
+2026-02-13 15:51:26.974 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:31.979 [main] INFO  LoginPage - Clicking logout btn
+2026-02-13 15:51:32.233 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:32.249 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:51:32.424 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:51:32.424 [main] INFO  BaseClass - launching app...
+2026-02-13 15:51:34.283 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:51:34.416 [main] INFO  LoginPage - Email entered -> tcs-test26-2@yopmail.com
+2026-02-13 15:51:34.467 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:51:35.132 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:36.289 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:51:36.433 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:41.445 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:51:41.732 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:41.762 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:51:46.771 [main] INFO  LoginPage - Clicking on policy details
+2026-02-13 15:51:47.146 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:52.348 [main] INFO  LoginPage - Total policy options found: 8
+2026-02-13 15:51:52.394 [main] INFO  LoginPage - Clicking policy option:Data Protection Policy
+2026-02-13 15:51:52.568 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:52.613 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:52.785 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:52.817 [main] INFO  LoginPage - Clicking policy option:Disclaimer
+2026-02-13 15:51:52.953 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:53.501 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:53.675 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:53.700 [main] INFO  LoginPage - Clicking policy option:Consent
+2026-02-13 15:51:53.889 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:54.459 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:54.729 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:54.765 [main] INFO  LoginPage - Clicking policy option:Refund Policy
+2026-02-13 15:51:55.015 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:55.569 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:55.832 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:55.857 [main] INFO  LoginPage - Clicking policy option:Waiver
+2026-02-13 15:51:56.058 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:56.841 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:57.198 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:57.249 [main] INFO  LoginPage - Clicking policy option:Virtual Waiver
+2026-02-13 15:51:57.508 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:58.066 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:58.360 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:58.395 [main] INFO  LoginPage - Clicking policy option:Privacy Policy
+2026-02-13 15:51:58.746 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:59.509 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:51:59.834 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:51:59.870 [main] INFO  LoginPage - Clicking policy option:Terms And Conditions
+2026-02-13 15:52:00.108 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:00.868 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:01.186 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:01.186 [main] INFO  LoginPage - Clicking on data Protection Policy options
+2026-02-13 15:52:01.562 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:06.576 [main] INFO  LoginPage - Clicking logout btn
+2026-02-13 15:52:06.897 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:06.903 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 15:52:07.145 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 15:52:07.145 [main] INFO  BaseClass - launching app...
+2026-02-13 15:52:08.913 [main] INFO  LoginPage - Entering email....
+2026-02-13 15:52:09.053 [main] INFO  LoginPage - Email entered -> tcs-test26-3@yopmail.com
+2026-02-13 15:52:09.079 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 15:52:10.012 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:11.213 [main] INFO  LoginPage - Clicking login
+2026-02-13 15:52:11.363 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:16.378 [main] INFO  LoginPage - Clicking on contact details
+2026-02-13 15:52:16.726 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:16.747 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-13 15:52:21.762 [main] INFO  LoginPage - Clicking on policy details
+2026-02-13 15:52:22.066 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:27.248 [main] INFO  LoginPage - Total policy options found: 8
+2026-02-13 15:52:27.277 [main] INFO  LoginPage - Clicking policy option:Data Protection Policy
+2026-02-13 15:52:27.611 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:27.717 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:28.013 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:28.062 [main] INFO  LoginPage - Clicking policy option:Disclaimer
+2026-02-13 15:52:28.361 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:28.925 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:29.184 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:29.222 [main] INFO  LoginPage - Clicking policy option:Consent
+2026-02-13 15:52:29.439 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:30.254 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:30.544 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:30.590 [main] INFO  LoginPage - Clicking policy option:Refund Policy
+2026-02-13 15:52:30.844 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:31.620 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:31.906 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:31.935 [main] INFO  LoginPage - Clicking policy option:Waiver
+2026-02-13 15:52:32.198 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:33.022 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:33.324 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:33.360 [main] INFO  LoginPage - Clicking policy option:Virtual Waiver
+2026-02-13 15:52:33.610 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:35.080 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:35.427 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:35.469 [main] INFO  LoginPage - Clicking policy option:Privacy Policy
+2026-02-13 15:52:35.728 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:36.531 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:36.807 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:36.844 [main] INFO  LoginPage - Clicking policy option:Terms And Conditions
+2026-02-13 15:52:37.124 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:37.901 [main] INFO  LoginPage - Open policy page title:
+2026-02-13 15:52:38.121 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:38.122 [main] INFO  LoginPage - Clicking on data Protection Policy options
+2026-02-13 15:52:38.467 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:43.469 [main] INFO  LoginPage - Clicking logout btn
+2026-02-13 15:52:43.752 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-13 15:52:43.761 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-13 16:48:13.577 [main] INFO  BaseClass - Reading configuration file...
+2026-02-13 16:48:13.599 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@3e792ce3
+2026-02-13 16:48:14.367 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-13 16:48:14.367 [main] INFO  BaseClass - launching app...
+2026-02-13 16:48:17.784 [main] INFO  LoginPage - Entering email....
+2026-02-13 16:48:17.928 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-13 16:48:17.976 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-13 16:48:19.142 [main] INFO  Logs - Normal click failed. Retrying with JS click...
+2026-02-13 16:48:19.209 [main] INFO  Logs - Clicked using JS click.
+2026-02-13 16:48:29.520 [main] INFO  ScreenshotUtils - screenshots dir : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/
+2026-02-13 16:48:29.520 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_16-48-29.png
+2026-02-13 16:48:29.520 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_16-48-29.png
+2026-02-13 16:48:29.523 [main] INFO  UserLoginTest - =========Test Finished==========

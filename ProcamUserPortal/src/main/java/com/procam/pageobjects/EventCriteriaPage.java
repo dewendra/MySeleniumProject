@@ -74,7 +74,7 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//input[@name='timingcerfLink']")
 	private WebElement timingCertificateLink;
 
-	@FindBy(css = "//app-select[@name='eventName']//input")
+	@FindBy(xpath = "//app-select[@name='eventName']//input")
 	private WebElement eventName;
 
 	@FindBy(css = "ng-select[formcontrolname='raceCategoryId'] .ng-select-container")
@@ -140,6 +140,12 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//label[contains(normalize-space(),'Are you attempting the Procam Slam this year?')]")
 	private WebElement procamSlam;
 
+	@FindBy(xpath = "//label[contains(normalize-space(),'Are you participating')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='Yes']/preceding-sibling::input[@type='radio']")
+	private WebElement tcsFirstTimeYes;
+	
+	@FindBy(xpath = "//label[contains(normalize-space(),'Are you participating')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='No']/preceding-sibling::input[@type='radio']")
+	private WebElement tcsFirstTimeNo;
+	
 	@FindBy(xpath = "//label[contains(normalize-space(),'Procam Slam')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='Yes']/preceding-sibling::input[@type='radio']")
 	private WebElement procamSlamYes;
 
@@ -274,6 +280,7 @@ public class EventCriteriaPage extends BaseClass {
 
 		String select_The_Reason = data.get("selectTheReason");
 		String virtual_Race_Category = data.get("virtualRaceCategory");
+		String criteria = data.get("criteriaType");
 
 		wait.until(ExpectedConditions.visibilityOf(onGroundEventPage));
 
@@ -294,24 +301,29 @@ public class EventCriteriaPage extends BaseClass {
 		helper.scrollElementInToTop(selectYourRaceCategory);
 		log.info("Going to select the race category");
 		selectRaceCategory(data.get("raceCategory"));
-		log.info("Rce category selected");
+		log.info("Race category selected");
 
 		log.info("Selecting criteria from given options...");
-		String criteria = data.get("criteriaType");
-		if (criteria.equalsIgnoreCase("TimedRunner")) {
-			helper.clickWithRetry(timedRunner);
-			log.info("Timed Runner radio option clicked...");
-		} else if (criteria.equalsIgnoreCase("WomenWithTiming")) {
-			helper.clickWithRetry(WomenCriteriaWithTimingCertificate);
-			log.info("Women WithTiming radio option clicked...");
-		} else if (criteria.equalsIgnoreCase("WomenWithoutTiming")) {
-			helper.clickWithRetry(WomenCriteriaWithoutTimingCertificate);
-			log.info("Women WithOut Timing radio option clicked...");
-		} else if (criteria.equalsIgnoreCase(" GeneralCriteria ")) {
-			helper.clickWithRetry(generalCriteria);
-			log.info("General Criteria radio option clicked...");
-		} else {
-			System.err.println("Criteria not selected....");
+		
+		String criteriaOption = data.get("isCriteria");
+		if (criteriaOption.equalsIgnoreCase("yes")) {
+
+			criteria = data.get("criteriaType");
+			if (criteria.equalsIgnoreCase("TimedRunner")) {
+				helper.clickWithRetry(timedRunner);
+				log.info("Timed Runner radio option clicked...");
+			} else if (criteria.equalsIgnoreCase("WomenWithTiming")) {
+				helper.clickWithRetry(WomenCriteriaWithTimingCertificate);
+				log.info("Women WithTiming radio option clicked...");
+			} else if (criteria.equalsIgnoreCase("WomenWithoutTiming")) {
+				helper.clickWithRetry(WomenCriteriaWithoutTimingCertificate);
+				log.info("Women WithOut Timing radio option clicked...");
+			} else if (criteria.equalsIgnoreCase(" GeneralCriteria ")) {
+				helper.clickWithRetry(generalCriteria);
+				log.info("General Criteria radio option clicked...");
+			} else {
+				System.err.println("Criteria not selected....");
+			}
 		}
 
 		helper.scrollElementInToTop(timingDetails);
@@ -400,6 +412,21 @@ public class EventCriteriaPage extends BaseClass {
 		emergencyContactPersonRelationship2.clear();
 		emergencyContactPersonRelationship2.sendKeys(data.get("emergencyRelation2"));
 		log.info("Emergency Relation2 entered...");
+		
+		//-------------Participating in the TCS World 10K Bengaluru 2026- Open 10K race category for the first time------
+		if (data.get("raceCategory").equalsIgnoreCase("Open 10K (10 km)")) {
+			if (data.get("participatingFirstTime").equalsIgnoreCase("Yes")) {
+				helper.clickWithRetry(tcsFirstTimeYes);
+				log.info("Tcs first time Yes option clicked....");
+			} else {
+				helper.clickWithRetry(tcsFirstTimeNo);
+				log.info("Tcs first time No option clicked....");
+
+			}
+		}
+		
+		
+		
 
 		// ----------------- Procam Slam Option--------------------//
 		// wait.until(ExpectedConditions.visibilityOf(procamSlam));
@@ -414,9 +441,11 @@ public class EventCriteriaPage extends BaseClass {
 			log.info("Procam Slam Yes Option clicked...");
 			log.info("Going to select the cycle...");
 			selectTheSlamCycle(data.get("slamCycle"));
-		} else {
+		} else if (data.get("procamSlamOptions").equalsIgnoreCase("No")) {
 			helper.clickWithRetry(procamSlamNo);
 			log.info("Procam Slam No Option clicked...");
+		} else {
+			log.info("Procam Slam option is blank or not provided. Skipping Slam selection.");
 		}
 
 		// ----------------- Participating First Time Option--------------------//
@@ -424,9 +453,11 @@ public class EventCriteriaPage extends BaseClass {
 		if (data.get("participatingFirstTime").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(participatingFirstTimeYes);
 			log.info("Participating First Time Yes Option clicked...");
-		} else {
+		} else if(data.get("participatingFirstTime").equalsIgnoreCase("No")){
 			helper.clickWithRetry(participatingFirstTimeNo);
 			log.info("Participating First Time No Option clicked...");
+		}else {
+			log.info("Participating First Time option is blank or not provided. Skipping Participating selection.");
 		}
 
 		// ------------------- Race day Special Option------------------//
@@ -766,10 +797,14 @@ public class EventCriteriaPage extends BaseClass {
 	private void selectEventName(String searchEventName, String eventNameToSelect) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(eventName));
 		By eventNameDropdown = By.xpath("//app-select[@name='eventName']//input");
+		eventName.clear();
+		eventName.sendKeys(searchEventName);
+		Logs.info("Ng Select Dropdown button clicking...");
+		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(eventNameDropdown));
 
 		// helper.selectFromNgSelect(eventNameDropdown, eventNameToSelect);
 		// Thread.sleep(5000);
-		helper.searchAndSelectFromNgSelect(eventNameDropdown, searchEventName, eventNameToSelect);
+		//helper.searchAndSelectFromNgSelect(eventNameDropdown, searchEventName, eventNameToSelect);
 		log.info("Event name Selected: " + eventNameToSelect);
 	}
 

@@ -66,7 +66,7 @@ public class UseRegistrationTest2 extends BaseClass {
 			Map<String, String> gstData, 
 			Map<String, String> PaymentsData)
 			throws InterruptedException {
-		test=ExtentReport.createTest("Login Test");
+		//test=ExtentReport.createTest("Login Test");
 		
 		loginPage = new LoginPage();
 		eventDashboardPage = loginPage.loginByEmail(loginData);
@@ -104,7 +104,7 @@ public class UseRegistrationTest2 extends BaseClass {
 		String gstDetailsSheet = "GSTData";
 		String paymentsDetailsSheet = "Payments";
 
-		int rowCount = ExcelUtils.getRowCount(inputFile, "Login");
+		int rowCount = ExcelUtils.getRowCount(inputFile, loginSheet);
 
 		List<Object[]> list = new ArrayList<>();
 
@@ -157,8 +157,5 @@ public class UseRegistrationTest2 extends BaseClass {
 		closeApp();
 	}
 
-	@AfterSuite
-	public void closeSuite() {
-		extentReports.flush();
-	}
+	
 }

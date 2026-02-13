@@ -44,8 +44,11 @@ public class DiscountApplyPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='flexRadioDefault2']")
 	private WebElement noRadioBtn;
 
-	@FindBy(xpath = "//button[@type='button' and contains(normalize-space(),'Continue')]")
-	private WebElement proceedBtn;
+	@FindBy(xpath = "//button[normalize-space()='Proceed' or contains(normalize-space(),'Continue')]")
+	private WebElement continueOrproceedBtn;
+	
+	//@FindBy(xpath = "//button[@type='button' and contains(normalize-space(),'Continue')]")
+	//private WebElement continueBtn;
 
 	@FindBy(xpath = "//input[@id='discountCode']")
 	private WebElement discountCode;
@@ -107,8 +110,8 @@ public class DiscountApplyPage extends BaseClass {
 		log.info("Clicking applyBtn");
 		helper.clickWithRetry(applyBtn);
 
-		log.info("Clicking proceedBtn");
-		helper.clickWithRetry(proceedBtn);
+		log.info("Clicking continue Or proceed Btn");
+		helper.clickWithRetry(continueOrproceedBtn);
 
 		return new PersonalDetailsPage();
 	}
@@ -118,8 +121,8 @@ public class DiscountApplyPage extends BaseClass {
 		log.info("Clicking No Radio Btn");
 		helper.clickWithRetry(noRadioBtn);
 		
-		log.info("Clicking proceedBtn");
-		helper.clickWithRetry(proceedBtn);
+		log.info("Clicking continue Or proceed Btn");
+		helper.clickWithRetry(continueOrproceedBtn);
 		
 		return new PersonalDetailsPage();
 	}

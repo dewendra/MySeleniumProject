@@ -109,9 +109,12 @@ public class PersonalDetailsPage extends BaseClass {
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
 
-	@FindBy(xpath = "//button[@type='submit' and contains(normalize-space(),'Continue')]")
-	private WebElement proceedBtn;//span[contains(normalize-space(),'Continue')]
+	@FindBy(xpath = "//button[normalize-space()='Proceed' or contains(normalize-space(),'Continue')]")
+	private WebElement continueOrproceedBtn;
 
+	@FindBy(xpath = "//button[@type='submit' and contains(normalize-space(),'Continue')]")
+	private WebElement continueBtn;
+	
 	public PersonalDetailsPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
@@ -208,8 +211,8 @@ public class PersonalDetailsPage extends BaseClass {
 
 		selectOccupation(data.get("occupation"));
 
-		log.info("Clicking proceed btn");
-		helper.clickWithRetry(proceedBtn);
+		log.info("Clicking continue Or proceed Btn");
+		helper.clickWithRetry(continueOrproceedBtn);
 		log.info("Going for Event Criteria Page....");
 		return new EventCriteriaPage();
 
