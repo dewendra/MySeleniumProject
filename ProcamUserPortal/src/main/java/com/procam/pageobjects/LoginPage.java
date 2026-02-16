@@ -149,7 +149,7 @@ public class LoginPage {
 			log.info("Open policy page title:" + driver.getTitle());
 
 			// Close child tab and return
-			driver.close();
+			//driver.close();
 			driver.switchTo().window(parentWindow);
 
 			// Re-open dropdown (Angular collapses it)
