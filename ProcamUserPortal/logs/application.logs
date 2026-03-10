@@ -2695,3 +2695,62 @@ Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 1
 2026-02-13 16:48:29.520 [main] INFO  ScreenshotUtils - screenshots path : D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_16-48-29.png
 2026-02-13 16:48:29.520 [main] INFO  ExtentReportsManager - onTestFailure screent shot path: D:\GithubProject\MySeleniumProject\ProcamUserPortal/screenshots/verifyLogin_2026-02-13_16-48-29.png
 2026-02-13 16:48:29.523 [main] INFO  UserLoginTest - =========Test Finished==========
+2026-02-16 12:05:02.118 [main] INFO  BaseClass - Reading configuration file...
+2026-02-16 12:05:02.170 [main] INFO  ExtentReportsManager - Extent report path: com.aventstack.extentreports.reporter.ExtentSparkReporter@4b770e40
+2026-02-16 12:05:02.961 [main] INFO  UserLoginTest - =========Test Started===========
+2026-02-16 12:05:02.961 [main] INFO  BaseClass - launching app...
+2026-02-16 12:05:13.546 [main] INFO  LoginPage - Entering email....
+2026-02-16 12:05:13.754 [main] INFO  LoginPage - Email entered -> mahi5@yopmail.com
+2026-02-16 12:05:13.810 [main] INFO  LoginPage - Clicking sendOTP
+2026-02-16 12:05:13.997 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:15.221 [main] INFO  LoginPage - Clicking login
+2026-02-16 12:05:15.376 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:20.401 [main] INFO  LoginPage - Clicking on contact details
+2026-02-16 12:05:20.704 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:20.718 [main] INFO  LoginPage - contactPageTitles: PROCAM Registration - Portal
+2026-02-16 12:05:25.741 [main] INFO  LoginPage - Clicking on policy details
+2026-02-16 12:05:26.017 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Total policy options found: 8
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.221 [main] INFO  LoginPage - Options->[[ChromeDriver: chrome on windows (c25604a77ffa5ec32fe5ee7c55565667)] -> xpath: //ul[contains(@class,'dropdown-menu')]//button[contains(@class,'dropdown-item')]]
+2026-02-16 12:05:31.265 [main] INFO  LoginPage - Clicking policy option:Data Protection Policy
+2026-02-16 12:05:31.435 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:32.046 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:32.221 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:32.271 [main] INFO  LoginPage - Clicking policy option:Disclaimer
+2026-02-16 12:05:32.446 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:32.480 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:32.664 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:32.676 [main] INFO  LoginPage - Clicking policy option:Consent
+2026-02-16 12:05:32.851 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:32.894 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:33.059 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:33.088 [main] INFO  LoginPage - Clicking policy option:Refund Policy
+2026-02-16 12:05:33.290 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:33.336 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:33.529 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:33.550 [main] INFO  LoginPage - Clicking policy option:Waiver
+2026-02-16 12:05:33.698 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:33.750 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:33.918 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:33.949 [main] INFO  LoginPage - Clicking policy option:Virtual Waiver
+2026-02-16 12:05:34.113 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:34.150 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:34.331 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:34.356 [main] INFO  LoginPage - Clicking policy option:Privacy Policy
+2026-02-16 12:05:34.499 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:34.532 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:34.716 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:34.740 [main] INFO  LoginPage - Clicking policy option:Terms And Conditions
+2026-02-16 12:05:34.917 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:34.972 [main] INFO  LoginPage - Open policy page title:
+2026-02-16 12:05:35.150 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:40.158 [main] INFO  LoginPage - Clicking logout btn
+2026-02-16 12:05:40.393 [main] INFO  Logs - Clicked using normal Selenium click.
+2026-02-16 12:05:40.419 [main] INFO  UserLoginTest - =========Test Finished==========
