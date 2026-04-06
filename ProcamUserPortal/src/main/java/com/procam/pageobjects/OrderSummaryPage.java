@@ -76,8 +76,8 @@ public class OrderSummaryPage extends BaseClass {
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
 
-	@FindBy(xpath = "//button[ normalize-space()='Proceed']")
-	private WebElement proceedBtn;
+	@FindBy(xpath = "//button[ contains(normalize-space(),'Continue')]")
+	private WebElement continueBtn;
 
 	public OrderSummaryPage() {
 		this.driver = DriverFactory.getDriver();
@@ -148,7 +148,7 @@ public class OrderSummaryPage extends BaseClass {
 			log.info("Going for clicking the Waiver4....");
 			helper.clickWithRetry(waiver4);
 			//waitThread(1000);
-			// scrollElementInToView(waiver4);
+			scrollElementInToView(waiver4);
 			// wait.waitForClickable(waiver4);
 			//waiver4.click();
 			log.info("Waiver4 clickied....");
@@ -174,9 +174,9 @@ public class OrderSummaryPage extends BaseClass {
 		}
 
 		waitThread(2000);
-		// scrollElementInToView(proceedBtn);
+		scrollElementInToView(waiver1Link);
 		log.info("Going for clicking the proceed Button....");
-		helper.clickWithRetry(proceedBtn);
+		helper.clickWithRetry(continueBtn);
 		//JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 		//javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
 		log.info("Proceed Btn clickied....");

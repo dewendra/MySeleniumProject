@@ -115,7 +115,8 @@ public class CommonHelper {
 
 		// 1. Find the input field inside the ng-select and type the partial text
 		Logs.info("Finding the input field inside the ng-select and type the partial text");
-		WebElement inputField = dropdown.findElement(By.xpath(".//input[@type='text']"));
+		//WebElement inputField = dropdown.findElement(By.xpath(".//input[@type='text']"));
+		WebElement inputField = dropdown.findElement(By.xpath("//app-select[@name='eventName']//input"));
 
 		inputField.clear();
 		Logs.info("input field cleared...");

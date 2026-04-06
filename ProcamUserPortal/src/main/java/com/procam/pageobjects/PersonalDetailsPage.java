@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -130,6 +131,7 @@ public class PersonalDetailsPage extends BaseClass {
 		String user_gender = data.get("gender");
 		String date_Of_Birth = data.get("dob");
 		String userAddres = data.get("address");
+		String searchNationality=data.get("searchNationality");
 		String nationality = data.get("nationality");
 
 		wait.until(ExpectedConditions.visibilityOf(firstName));
@@ -138,7 +140,7 @@ public class PersonalDetailsPage extends BaseClass {
 		log.info("Entering First Name");
 		helper.setInputValue(driver, firstName, first_Name);
 		// firstName.sendKeys(data.get("firstName"));
-		// TypingHelper.slowTyping(firstName, first_Name, 100);
+		//TypingHelper.slowTyping(firstName, first_Name, 100);
 		log.info("Entered First Name -> " + first_Name);
 
 		wait.until(ExpectedConditions.visibilityOf(middleName));
@@ -188,6 +190,7 @@ public class PersonalDetailsPage extends BaseClass {
 		// By dobBy=By.xpath("//input[contains(@class,'calendar-input')]");
 		// WebElement dobWebElement =
 		// wait.until(ExpectedConditions.visibilityOfElementLocated(dobBy));
+		helper.scrollElementInToView(genderOption);
 		wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth)).click();
 		DatePickerHelper.selectDate(driver, dateOfBirth, date_Of_Birth);
 		log.info("Date of Birth entered -> " + date_Of_Birth);
@@ -200,7 +203,7 @@ public class PersonalDetailsPage extends BaseClass {
 		address.sendKeys(userAddres);
 		log.info("Entered address : ->" + userAddres);
 
-		selectNationality(data.get("searchNationality"), data.get("nationality"));
+		selectNationality(searchNationality, nationality);
 
 		if (data.get("runningClubOption").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(runningClubYes);
@@ -219,15 +222,17 @@ public class PersonalDetailsPage extends BaseClass {
 	}
 
 	private void selectRunningGroup(String searchRunningGroupName, String runningGroupNameToSelect) {
-		wait.until(ExpectedConditions.elementToBeClickable(address));
+		//wait.until(ExpectedConditions.elementToBeClickable(address));
 		log.info("Selecting Runnig Group");
 		
 		runningGroupInput.click();
-		
+		runningGroupInput.sendKeys(Keys.CONTROL + "a"); // select all
+		runningGroupInput.sendKeys(Keys.DELETE);        // delete
 		runningGroupInput.sendKeys(searchRunningGroupName);
 		log.info("Waiting for dropdown options to appear...");
 		
-		By runningGroupdropDown=By.xpath("//div[contains(@class,'position-relative')]//li");
+		//By runningGroupdropDown=By.xpath("//div[contains(@class,'position-relative')]//li");
+		By runningGroupdropDown=By.xpath("//div[contains(@class,'position-relative')]//a[contains(@class,'dropdown-item')]");
 		
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(runningGroupdropDown, 0));
 		List<WebElement> runningGroupsName=driver.findElements(runningGroupdropDown);
@@ -237,7 +242,7 @@ public class PersonalDetailsPage extends BaseClass {
 			System.out.println(runningGroupName.getText());
 		}
 		DropdownHelper dropdown=new DropdownHelper(driver);
-		dropdown.searchFromDropdownList(runningGroupsName, searchRunningGroupName, runningGroupNameToSelect);
+		dropdown.searchFromDropdownList(runningGroupsName, runningGroupNameToSelect, runningGroupInput);
 		//dropdown.searchFromDropdownList2(runningGroupInput, runningGroupdropDown, runningGroupNameToSelect);
 		log.info("Running group name selected from dropdown: " + runningGroupNameToSelect);
 	}
@@ -266,7 +271,7 @@ public class PersonalDetailsPage extends BaseClass {
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		// dropdown.selectFromList(nationalities, nationalityToSelect);
-		dropdown.searchFromDropdownList(nationalities, searchNationality, nationalityToSelect);
+		dropdown.searchFromDropdownList(nationalities,  nationalityToSelect, nationality);
 		log.info("Nationality selected from dropdown: " + nationalityToSelect);
 
 	}

@@ -2,6 +2,7 @@ package com.procam.pageobjects;
 
 import java.rmi.server.ExportException;
 import java.time.Duration;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -97,7 +98,9 @@ public class DiscountApplyPage extends BaseClass {
 		}
 	}
 
-	public PersonalDetailsPage withDiscountCode() {
+	public PersonalDetailsPage withDiscountCode(Map<String, String> discountData) {
+		
+		String discount_Code=discountData.get("discountCode");
 
 		log.info("Clicking Yes RadioBtn");
 		helper.clickWithRetry(yesRadioBtn);
@@ -105,7 +108,7 @@ public class DiscountApplyPage extends BaseClass {
 		wait.until(ExpectedConditions.visibilityOf(discountCode));
 		discountCode.clear();
 		log.info("Applying Discount Code");
-		discountCode.sendKeys("123456");
+		discountCode.sendKeys(discount_Code);
 
 		log.info("Clicking applyBtn");
 		helper.clickWithRetry(applyBtn);

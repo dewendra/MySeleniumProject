@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.procam.test.UserLoginTest">
+      <class name="com.procam.test.UseRegistrationTest2">
         <methods>
-          <include name="verifyLogin" invocation-numbers="0"/>
-          <include name="closeSuit"/>
           <include name="setup"/>
+          <include name="verifyLogin" invocation-numbers="0"/>
           <include name="loadConfig"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.procam.test.UserLoginTest -->
+      </class> <!-- com.procam.test.UseRegistrationTest2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,0 +1,1 @@
+{"uuid":"09ffab91-8bf6-4953-b099-3083b9781b15","name":"com.procam.test.UseRegistrationTest2","children":["48357609-8a2e-4648-a47d-d71a7e5c464e"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1774605024907,"stop":1774605027130}],"afters":[],"start":1774605024883,"stop":1774605058137}

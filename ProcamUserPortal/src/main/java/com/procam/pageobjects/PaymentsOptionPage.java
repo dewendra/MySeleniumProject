@@ -60,26 +60,45 @@ public class PaymentsOptionPage extends BaseClass {
 			log.info("Payment options loaded");
 
 			// Step 5: select payment option
-			allPaymentOptions(data.get("paymentOption"));
+			selectPaymentOptions(data.get("paymentOption"));
 
-			if (data.get("paymentOption").equalsIgnoreCase("netbanking")) {
-				log.info("Wating for the loading the Netbanking Bank options");
-				//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
-				log.info("Calling the selectNetbankingBank method");
-				selectNetbankingBank(data.get("NetBank"));
-				//selectNetbankingBank2(data.get("NetBank"));
-			}
+			
 		} catch (Exception e) {
 			throw new RuntimeException("Razorpay iframe did not load in time", e);
+		}
+		
+		if (data.get("paymentOption").equalsIgnoreCase("netbanking")) {
+			log.info("Wating for the loading the Netbanking Bank options");
+			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
+			log.info("Calling the selectNetbankingBank method");
+			selectBankFromNetbanking(data.get("NetBank"));
+			// selectNetbankingBank2(data.get("NetBank"));
+		} else if (data.get("paymentOption").equalsIgnoreCase("upi")) {
+			log.info("Wating for the loading the UPI options");
+			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
+			log.info("Calling the upi method");
+			selectUpiForPayment(data.get("paymentType"));
+			WebElement upiId = driver.findElement(By.xpath("//input[@name='vpa']"));
+			WebElement verifyAndPayBtn = driver.findElement(By.xpath("//button[@data-testid='vpa-submit']"));
+
+			upiId.sendKeys("success@razorpay");
+			verifyAndPayBtn.click();
 		}
 		return new TransactionSuccessPage();
 	}
 
-	private void selectNetbankingBank(String bankName) {
+	private void selectBankFromNetbanking(String bankName) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		// Wait for netbank section
 		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
+		
+		//search bank
+		
+		WebElement searchBank=driver.findElement(By.xpath("//input[@name='bank']"));
+		
+		searchBank.sendKeys(bankName);
+		//form[@name='netbankingForm']//label//div[@data-value='HDFC']
 
 		// Fetch all bank tiles
 		List<WebElement> allBanks = driver.findElements(By.cssSelector("label div[data-value]"));
@@ -100,7 +119,42 @@ public class PaymentsOptionPage extends BaseClass {
 				return;
 			}
 		}
+		
 		throw new RuntimeException("Bank not found: " + bankName);
+
+	}
+	
+	private void selectUpiForPayment(String upiOption) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		// Wait for upi section
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='upi-options']")));
+		
+		
+		WebElement upi=driver.findElement(By.xpath("//div[@data-value='upi']"));
+		
+		upi.click();
+		//form[@name='netbankingForm']//label//div[@data-value='HDFC']
+
+		// Fetch all bank tiles
+		/*
+		 * List<WebElement> allUPIOptions =
+		 * driver.findElements(By.cssSelector("label div[data-value]"));
+		 * log.info("Banks found: " + allUPIOptions.size());
+		 * 
+		 * for (WebElement upi : allUPIOptions) {
+		 * System.out.println(" → "+upi.getAttribute("data-value")); }
+		 * 
+		 * for (WebElement upi : allUPIOptions) { String value =
+		 * upi.getAttribute("data-value").trim(); String text = upi.getText().trim();
+		 * System.out.println("Candidate -> Value: " + value + " | Visible: " + text);
+		 * if (text.equalsIgnoreCase(upiOption) || value.equalsIgnoreCase(upiOption)) {
+		 * // scroll to center ((JavascriptExecutor)
+		 * driver).executeScript("arguments[0].scrollIntoView({block:'center'});", upi);
+		 * wait.until(ExpectedConditions.elementToBeClickable(upi)).click(); return; } }
+		 */
+		
+		//throw new RuntimeException("Bank not found: " + upiOption);
 
 	}
 	private void selectNetbankingBank2(String bankName) {
@@ -118,7 +172,7 @@ public class PaymentsOptionPage extends BaseClass {
 	    log.info("Bank selected: " + bankName);
 	}
 
-	public void allPaymentOptions(String paymentOptionToSelect) {
+	public void selectPaymentOptions(String paymentOptionToSelect) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		List<WebElement> paymentOptions = driver.findElements(By.xpath("//div[@data-value]"));

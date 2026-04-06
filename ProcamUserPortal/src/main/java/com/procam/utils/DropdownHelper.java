@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DropdownHelper {
-	private static final Logger log=LogManager.getLogger(DropdownHelper.class);
+	private static final Logger log = LogManager.getLogger(DropdownHelper.class);
 	WebDriver driver;
 	WebDriverWait wait;
 
@@ -46,55 +46,60 @@ public class DropdownHelper {
 
 	}
 
-	public void searchFromDropdownList(List<WebElement> options, String partialSearchText, String actualSearchText) {
-		
-		log.info("Total Option available in dropdown: "+options.size());
+	public void searchFromDropdownList(List<WebElement> options, String actualSearchText, WebElement inputField) {
+		Logs.info("In dropdown helper class and searchFromDropdownList method...");
+		boolean found = false;
+
 		for (WebElement option : options) {
-			
+
 			if (!option.isEnabled()) {
 				continue;
 			}
 			String optionText = option.getText().trim();
-			log.info("Option text:-> "+optionText);
+			log.info("Option text:-> " + optionText);
 
-			if (optionText.contains(partialSearchText) || optionText.equalsIgnoreCase(actualSearchText)) {
+			if (optionText.equalsIgnoreCase(actualSearchText)) {
 				try {
-
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+					wait.until(ExpectedConditions.elementToBeClickable(option));
 					option.click();
+					inputField.sendKeys(Keys.TAB);
+
+					found = true;
+					break;
 				} catch (ElementClickInterceptedException e) {
 					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});",
 							option);
 					((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
-
-					// 🔥 Commit selection (MOST IMPORTANT)
-					// inputField.sendKeys(Keys.TAB);
-
-					// Wait until dropdown closes
-					// wait.until(ExpectedConditions.invisibilityOfElementLocated(dropdownContainer));
+					inputField.sendKeys(Keys.TAB);
+					found = true;
+					break;
 				}
-				return;
 			}
-
+		}
+		if (!found) {
+			throw new RuntimeException("Desired option not found: " + actualSearchText);
 		}
 	}
 
 	public void searchFromDropdownList2(WebElement inputField, By dropdownContainer, String actualSearchText) {
-		
-		System.out.println("Search stirng is : ==="+actualSearchText);
-		
-		List<WebElement> options = wait.until(
-				ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@class,'position-relative')]//li")));
-		log.info("Total Option available in dropdown: "+options.size());
-		
+
+		System.out.println("Search stirng is : ===" + actualSearchText);
+
+		List<WebElement> options = wait.until(ExpectedConditions
+				.presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@class,'position-relative')]//li")));
+		log.info("Total Option available in dropdown: " + options.size());
 
 		for (WebElement option : options) {
 
 			String optionText = option.getText().trim();
-			log.info("Option text:-> "+optionText);
+			log.info("Option text:-> " + optionText);
 			if (optionText.equalsIgnoreCase(actualSearchText)) {
 
 				// Scroll into view
-				//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", option);
+				// ((JavascriptExecutor)
+				// driver).executeScript("arguments[0].scrollIntoView({block:'center'});",
+				// option);
 
 				// JS click (Angular friendly)
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);

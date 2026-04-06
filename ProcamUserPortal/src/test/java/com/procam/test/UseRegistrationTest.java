@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.procam.base.BaseClass;
+import com.procam.pageobjects.CharityDetailsPage;
 import com.procam.pageobjects.DiscountApplyPage;
 import com.procam.pageobjects.EventCriteriaPage;
 import com.procam.pageobjects.EventDashboardPage;
@@ -44,6 +45,7 @@ public class UseRegistrationTest extends BaseClass {
 	private DiscountApplyPage discountApplyPage;
 	private PersonalDetailsPage personalDetailsPage;
 	private EventCriteriaPage eventCriteriaPage;
+	private CharityDetailsPage charityDetailsPage;
 	private MerchandiseDetailsPage merchandiseDetailsPage;
 	private OrderSummaryPage orderSummaryPage;
 	private PaymentsOptionPage paymentsOptionPage;
@@ -128,7 +130,7 @@ public class UseRegistrationTest extends BaseClass {
 	@Test(dependsOnMethods = "testPersonalDetails")
 	public void testEventCriteria() throws InterruptedException {
 		 ExtentReport.createTest("Event Criteria Test");
-		 merchandiseDetailsPage =eventCriteriaPage.enterEventDetails(eventCriteriaData);
+		 charityDetailsPage =eventCriteriaPage.enterEventDetails(eventCriteriaData);
 	}
 	
 	@Test(dependsOnMethods = "testEventCriteria")

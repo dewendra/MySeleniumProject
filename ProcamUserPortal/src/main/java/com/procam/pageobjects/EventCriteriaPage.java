@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,11 +25,12 @@ import com.procam.utils.DatePickerHelper;
 import com.procam.utils.DriverFactory;
 import com.procam.utils.DropdownHelper;
 import com.procam.utils.Logs;
+import com.procam.utils.TypingHelper;
 import com.procam.utils.WaitHelper;
 
 public class EventCriteriaPage extends BaseClass {
 
-	private static final Logger log=LogManager.getLogger(EventCriteriaPage.class);
+	private static final Logger log = LogManager.getLogger(EventCriteriaPage.class);
 	private WebDriver driver;
 	Action action;
 	WebDriverWait wait;
@@ -101,19 +103,25 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//h5[normalize-space()='Additional Details :-']")
 	private WebElement additionalDetails;
 
-	@FindBy(xpath = "//ng-select[@formcontrolname='idProofType']//span[contains(@class,'ng-arrow-wrapper')]")
+	@FindBy(xpath = "//ng-select[@bindlabel='label']//span[contains(@class,'ng-arrow-wrapper')]")
 	private WebElement selectIdProofType;
 
 	@FindBy(xpath = "//input[@name='adharCardNumber']")
 	private WebElement adharCardNumberInput;
 
-	@FindBy(xpath = "//input[@name='panCardNumber']")
+	@FindBy(xpath = "//input[@name='pan']")
 	private WebElement panCardNumberInput;
 
-	@FindBy(xpath = "//label[@for='idproof']")
+	@FindBy(xpath = "//input[@name='passport']")
+	private WebElement passportNumberInput;
+
+	@FindBy(xpath = "//input[@name='drivingLicense']")
+	private WebElement drivingLicenseNumberInput;
+
+	@FindBy(xpath = "//label[contains(@for,'idproof')]")
 	private WebElement uploadIdProof;
 
-	@FindBy(xpath = "//label[@for='profileImage']") // input[@type='file' and @accept='image/*']
+	@FindBy(xpath = "//label[@for='profileUploadLink']") // input[@type='file' and @accept='image/*']
 	private WebElement uploadProfileImage;
 
 	@FindBy(xpath = "//input[@name='emergencyName']")
@@ -142,15 +150,21 @@ public class EventCriteriaPage extends BaseClass {
 
 	@FindBy(xpath = "//label[contains(normalize-space(),'Are you participating')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='Yes']/preceding-sibling::input[@type='radio']")
 	private WebElement tcsFirstTimeYes;
-	
+
 	@FindBy(xpath = "//label[contains(normalize-space(),'Are you participating')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='No']/preceding-sibling::input[@type='radio']")
 	private WebElement tcsFirstTimeNo;
-	
+
 	@FindBy(xpath = "//label[contains(normalize-space(),'Procam Slam')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='Yes']/preceding-sibling::input[@type='radio']")
 	private WebElement procamSlamYes;
 
 	@FindBy(xpath = "//label[contains(normalize-space(),'Procam Slam')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='No']/preceding-sibling::input[@type='radio']")
 	private WebElement procamSlamNo;
+
+	@FindBy(xpath = "//label[contains(normalize-space(),'Sportytrip')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='Yes']/preceding-sibling::input[@type='radio']")
+	private WebElement exploreHotelYes;
+
+	@FindBy(xpath = "//label[contains(normalize-space(),'Sportytrip')]/ancestor::div[contains(@class,'d-flex')]/following-sibling::div//label[normalize-space()='No']/preceding-sibling::input[@type='radio']")
+	private WebElement exploreHotelNo;
 
 	@FindBy(xpath = "//label[contains(text(),'Choose the cycle')]/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]")
 	private WebElement selectProcamCycleDropDown;
@@ -184,6 +198,7 @@ public class EventCriteriaPage extends BaseClass {
 
 	@FindBy(xpath = "//label[contains(normalize-space(),'hear about our event')]")
 	private WebElement hearAboutOurEvent;
+	
 	@FindBy(xpath = "//h5[contains(normalize-space(), 'participate in virtual event')]")
 	private WebElement participateInVirtualEvent;
 
@@ -204,16 +219,16 @@ public class EventCriteriaPage extends BaseClass {
 
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
-	
+
 	@FindBy(xpath = "//div[contains(@class,'item-count')]")
 	private WebElement itemCount;
-	
+
 	@FindBy(xpath = "//div[contains(@class,'cart-wrapper')]")
 	private WebElement cartWrapper;
-	
+
 	@FindBy(xpath = "//div[contains(@class,'cart-wrapper')]//app-cart-details-view/div")
 	private List<WebElement> cartDetailsViewList;
-	
+
 	@FindBy(xpath = "//div[contains(@class,'total-amount')]")
 	private WebElement totalAmount;
 
@@ -223,7 +238,7 @@ public class EventCriteriaPage extends BaseClass {
 	public EventCriteriaPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		helper = new CommonHelper(driver);
 		helper.waitForPageToLoad();
 		// helper.waitForAngularLoad();
@@ -244,7 +259,7 @@ public class EventCriteriaPage extends BaseClass {
 			log.info("Event page link found and going to Click eventPageLink");
 			wait.until(ExpectedConditions.elementToBeClickable(eventPageLink));
 			helper.clickWithRetry(eventPageLink);
-			//eventPageLink.click();
+			// eventPageLink.click();
 			log.info("Clicked on Event Page link");
 		} catch (ElementClickInterceptedException e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", eventPageLink);
@@ -276,7 +291,7 @@ public class EventCriteriaPage extends BaseClass {
 
 	}
 
-	public MerchandiseDetailsPage enterEventDetails(Map<String, String> data) throws InterruptedException {
+	public CharityDetailsPage enterEventDetails(Map<String, String> data) throws InterruptedException {
 
 		String select_The_Reason = data.get("selectTheReason");
 		String virtual_Race_Category = data.get("virtualRaceCategory");
@@ -304,7 +319,7 @@ public class EventCriteriaPage extends BaseClass {
 		log.info("Race category selected");
 
 		log.info("Selecting criteria from given options...");
-		
+
 		String criteriaOption = data.get("isCriteria");
 		if (criteriaOption.equalsIgnoreCase("yes")) {
 
@@ -324,8 +339,10 @@ public class EventCriteriaPage extends BaseClass {
 			} else {
 				System.err.println("Criteria not selected....");
 			}
-		}
+		} else {
 
+		}
+		waitForLoaderToDisappear();
 		helper.scrollElementInToTop(timingDetails);
 		if (criteria.equalsIgnoreCase("TimedRunner") || criteria.equalsIgnoreCase("WomenWithTiming")) {
 			log.info("Entering Timing Certificate Link...");
@@ -333,7 +350,7 @@ public class EventCriteriaPage extends BaseClass {
 			timingCertificateLink.sendKeys(data.get("timingCertLink"));
 			log.info("Timing Certificate Link entered...");
 		}
-
+		waitForLoaderToDisappear();
 		log.info("Entering Event Name...");
 		// Thread.sleep(5000);
 		selectEventName(data.get("searchEventName"), data.get("eventName"));
@@ -391,9 +408,9 @@ public class EventCriteriaPage extends BaseClass {
 		emergencyContactPersonRelationship1.sendKeys(data.get("emergencyRelation1"));
 		log.info("Emergency Relation1 entered...");
 
-		//Thread.sleep(2000);
-		//Logs.info("Scrolling to Emergency Name2 ....");
-		//helper.scrollElementInToTop(emergencyContactPerson2);
+		// Thread.sleep(2000);
+		// Logs.info("Scrolling to Emergency Name2 ....");
+		// helper.scrollElementInToTop(emergencyContactPerson2);
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonName2));
 		emergencyContactPersonName2.clear();
 		emergencyContactPersonName2.sendKeys(data.get("emergencyName2"));
@@ -406,14 +423,15 @@ public class EventCriteriaPage extends BaseClass {
 
 		wait.until(ExpectedConditions.visibilityOf(emergencyContactPersonRelationship2));
 		log.info("Scrolling to Emergency Relation2 ....");
-		//Thread.sleep(2000);
+		// Thread.sleep(2000);
 		helper.scrollElementInToTop(emergencyContactPersonRelationship2);
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonRelationship2));
 		emergencyContactPersonRelationship2.clear();
 		emergencyContactPersonRelationship2.sendKeys(data.get("emergencyRelation2"));
 		log.info("Emergency Relation2 entered...");
-		
-		//-------------Participating in the TCS World 10K Bengaluru 2026- Open 10K race category for the first time------
+
+		// -------------Participating in the TCS World 10K Bengaluru 2026- Open 10K race
+		// category for the first time------
 		if (data.get("raceCategory").equalsIgnoreCase("Open 10K (10 km)")) {
 			if (data.get("participatingFirstTime").equalsIgnoreCase("Yes")) {
 				helper.clickWithRetry(tcsFirstTimeYes);
@@ -424,40 +442,28 @@ public class EventCriteriaPage extends BaseClass {
 
 			}
 		}
-		
-		
-		
-
-		// ----------------- Procam Slam Option--------------------//
-		// wait.until(ExpectedConditions.visibilityOf(procamSlam));
-		// scrollElementInToTop(procamSlam);
-
-		// ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",
-		// procamSlam);
-		// Thread.sleep(2000);
-		// scrollElementInToTop(emergencyContactPerson2);
-		if (data.get("procamSlamOptions").equalsIgnoreCase("Yes")) {
-			helper.clickWithRetry(procamSlamYes);
-			log.info("Procam Slam Yes Option clicked...");
-			log.info("Going to select the cycle...");
-			selectTheSlamCycle(data.get("slamCycle"));
-		} else if (data.get("procamSlamOptions").equalsIgnoreCase("No")) {
-			helper.clickWithRetry(procamSlamNo);
-			log.info("Procam Slam No Option clicked...");
-		} else {
-			log.info("Procam Slam option is blank or not provided. Skipping Slam selection.");
-		}
 
 		// ----------------- Participating First Time Option--------------------//
 
 		if (data.get("participatingFirstTime").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(participatingFirstTimeYes);
 			log.info("Participating First Time Yes Option clicked...");
-		} else if(data.get("participatingFirstTime").equalsIgnoreCase("No")){
+		} else if (data.get("participatingFirstTime").equalsIgnoreCase("No")) {
 			helper.clickWithRetry(participatingFirstTimeNo);
 			log.info("Participating First Time No Option clicked...");
-		}else {
+		} else {
 			log.info("Participating First Time option is blank or not provided. Skipping Participating selection.");
+		}
+
+		// -----------------------Explore Hotel --------------------------------//
+		if (data.get("exploreHotel").equalsIgnoreCase("Yes")) {
+			helper.clickWithRetry(exploreHotelYes);
+			log.info("Explore Hotel Yes Option clicked...");
+		} else if (data.get("").equalsIgnoreCase("No")) {
+			helper.clickWithRetry(exploreHotelNo);
+			log.info("Explore Hotel No Option clicked...");
+		} else {
+			log.info("Explore Hotel option is blank or not provided or not selected. Skipping Slam selection.");
 		}
 
 		// ------------------- Race day Special Option------------------//
@@ -472,9 +478,29 @@ public class EventCriteriaPage extends BaseClass {
 			log.info("Race Day Special No option clicked...");
 		}
 
+		// ----------------- Procam Slam Option--------------------//
+		// wait.until(ExpectedConditions.visibilityOf(procamSlam));
+		// scrollElementInToTop(procamSlam);
+
+		// ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",
+		// procamSlam);
+		// Thread.sleep(2000);
+		// scrollElementInToTop(emergencyContactPerson2);
+		if (data.get("procamSlamOptions").equalsIgnoreCase("Yes")) {
+			helper.clickWithRetry(procamSlamYes);
+			log.info("Procam Slam Yes Option clicked...");
+			log.info("Going to select the cycle...");
+			// selectTheSlamCycle(data.get("slamCycle"));
+		} else if (data.get("procamSlamOptions").equalsIgnoreCase("No")) {
+			helper.clickWithRetry(procamSlamNo);
+			log.info("Procam Slam No Option clicked...");
+		} else {
+			log.info("Procam Slam option is blank or not provided or not selected. Skipping Slam selection.");
+		}
+
 		selectTransportToUse(data.get("transport"));
 
-		selectTheTshirt(data.get("tshirtSize"));
+		//selectTheTshirt(data.get("tshirtSize"));
 
 		wait.until(ExpectedConditions.visibilityOf(hearAboutOurEvent));
 		log.info("Scrolling to Hear About ....");
@@ -495,8 +521,8 @@ public class EventCriteriaPage extends BaseClass {
 		helper.clickWithRetry(cartContinueBtn);
 		log.info("Cart Continue Button clicked....");
 
-		log.info("Going for Merchandise Details Page....");
-		return new MerchandiseDetailsPage();
+		log.info("Going for Charity Details Page....");
+		return new CharityDetailsPage();
 
 	}
 
@@ -603,7 +629,8 @@ public class EventCriteriaPage extends BaseClass {
 
 		log.info("Uploading profile image(path): " + filePath);
 
-		WebElement fileInput = driver.findElement(By.cssSelector("input#profileImage"));
+		WebElement fileInput = driver
+				.findElement(By.xpath("//label[@for='profileUploadLink']/following-sibling::input[@type='file']"));
 
 		// wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input#profileImage")));
 		// wait.until(ExpectedConditions.visibilityOf(fileInput));
@@ -645,15 +672,20 @@ public class EventCriteriaPage extends BaseClass {
 		log.info("Clicking on Id Proof upload button for: " + idProofType);
 		// uploadIdProof.click();
 		String filePath = "";
-		if (idProofType.equalsIgnoreCase("Aadhar Card")) {
+		if (idProofType.equalsIgnoreCase("Aadhaar")) {
 			filePath = "C:\\Users\\dewen\\Downloads\\Procam_Testing\\ProcamTest\\docs\\aadhaar.png";
-		} else if (idProofType.equalsIgnoreCase("PAN Card")) {
+		} else if (idProofType.equalsIgnoreCase("Pan")) {
 			filePath = "C:\\Users\\dewen\\Downloads\\Procam_Testing\\ProcamTest\\docs\\pan_card.jpg";
+		} else if (idProofType.equalsIgnoreCase("Passport")) {
+			filePath = "C:\\Users\\dewen\\Downloads\\Procam_Testing\\ProcamTest\\docs\\passport1.png";
+		} else if (idProofType.equalsIgnoreCase("Driving License")) {
+			filePath = "C:\\Users\\dewen\\Downloads\\Procam_Testing\\ProcamTest\\docs\\DL_1.png";
 		}
 
 		log.info("Id Proof Uploading file path: " + filePath);
 
-		WebElement fileInput = driver.findElement(By.xpath(" //label[@for='idproof']/following-sibling::input[@type='file']"));
+		WebElement fileInput = driver
+				.findElement(By.xpath("//label[contains(@for,'idproof')]/following-sibling::input[@type='file']"));
 		fileInput.sendKeys(filePath);
 
 		log.info("Id Proof uploaded successfully for: " + idProofType);
@@ -679,12 +711,20 @@ public class EventCriteriaPage extends BaseClass {
 		dropdown.selectFromList(idProofList, idProofToSelect);
 
 		log.info("Id Proof selected from dropdown: " + idProofToSelect);
-		if (idProofToSelect.equalsIgnoreCase("Aadhar Card")) {
+		if (idProofToSelect.equalsIgnoreCase("Aadhaar")) {
 			wait.until(ExpectedConditions.elementToBeClickable(adharCardNumberInput));
 			adharCardNumberInput.sendKeys(idProofNumber);
 			log.info("Aadhar no entered: " + idProofNumber);
 
-		} else if (idProofToSelect.equalsIgnoreCase("PAN Card")) {
+		} else if (idProofToSelect.equalsIgnoreCase("Pan")) {
+			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
+			panCardNumberInput.sendKeys(idProofNumber);
+			log.info("PAN no entered: " + idProofNumber);
+		} else if (idProofToSelect.equalsIgnoreCase("Passport")) {
+			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
+			panCardNumberInput.sendKeys(idProofNumber);
+			log.info("PAN no entered: " + idProofNumber);
+		} else if (idProofToSelect.equalsIgnoreCase("Driving License")) {
 			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
 			panCardNumberInput.sendKeys(idProofNumber);
 			log.info("PAN no entered: " + idProofNumber);
@@ -692,11 +732,17 @@ public class EventCriteriaPage extends BaseClass {
 			System.out.println("Id proof not selected...");
 		}
 
-		if (idProofToSelect.equalsIgnoreCase("Aadhar Card")) {
-			selectIdProofToUpload("Aadhar Card");
+		if (idProofToSelect.equalsIgnoreCase("Aadhaar")) {
+			selectIdProofToUpload("Aadhar");
 
-		} else if (idProofToSelect.equalsIgnoreCase("PAN Card")) {
-			selectIdProofToUpload("PAN Card");
+		} else if (idProofToSelect.equalsIgnoreCase("Pan")) {
+			selectIdProofToUpload("Pan");
+
+		} else if (idProofToSelect.equalsIgnoreCase("Passport")) {
+			selectIdProofToUpload("Passport");
+
+		} else if (idProofToSelect.equalsIgnoreCase("Driving licence")) {
+			selectIdProofToUpload("Driving licence");
 
 		} else {
 			System.out.println("Id proof not selected...");
@@ -795,22 +841,50 @@ public class EventCriteriaPage extends BaseClass {
 	}
 
 	private void selectEventName(String searchEventName, String eventNameToSelect) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(eventName));
-		By eventNameDropdown = By.xpath("//app-select[@name='eventName']//input");
-		eventName.clear();
-		eventName.sendKeys(searchEventName);
-		Logs.info("Ng Select Dropdown button clicking...");
-		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(eventNameDropdown));
+		log.info("In EventName method.......");
+		WebElement eventName_Dropdown = driver.findElement(By.xpath("//app-select[@name='eventName']//input"));
+		eventName_Dropdown.click();
+		//eventName_Dropdown.clear();
+		eventName_Dropdown.sendKeys(Keys.CONTROL + "a"); // select all
+		eventName_Dropdown.sendKeys(Keys.DELETE); // delete
+		//eventName_Dropdown.sendKeys(searchEventName);
+		Thread.sleep(7000);
+		TypingHelper.slowTyping(eventName_Dropdown, searchEventName, 100);
+		//typeSlowly(eventName_Dropdown, searchEventName);
+		log.info("----------------Not hide-------------...");
+		log.info("Partial Search text:-> " + searchEventName);
+		log.info("Waiting for dropdown options to appear...");
+		waitForLoaderToDisappear();
+		log.info("Capturing dropdown locator...");
+		By eventNameDropDown = By.xpath("//div[contains(@class,'position-relative')]//a[contains(@class,'dropdown-item')]");
+		//By eventNameDropDown = By.xpath("//app-select[@name='eventName']//ul[contains(@class,'dropdown-menu')]//a[contains(@class,'dropdown-item')]");
+		//waitForLoaderToDisappear();
+		// Wait for dropdown
+		Thread.sleep(7000);
+		log.info("Captured dropdown locator..."+eventNameDropDown);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+		    By.xpath("//app-select[@name='eventName']//ul[contains(@class,'dropdown-menu')]")
+		));
+		log.info("Wating for dropdown option...");
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(eventNameDropDown, 0));
+		List<WebElement> eventNameList = driver.findElements(eventNameDropDown);
+		System.out.println("event Name size: " + eventNameList.size());
 
-		// helper.selectFromNgSelect(eventNameDropdown, eventNameToSelect);
-		// Thread.sleep(5000);
-		//helper.searchAndSelectFromNgSelect(eventNameDropdown, searchEventName, eventNameToSelect);
+		for (WebElement eventName : eventNameList) {
+			System.out.println(eventName.getText());
+		}
+
+		
+
+		Logs.info("Going for selecting the given option ...");
+		
+		DropdownHelper dropdownHelper = new DropdownHelper(driver);
+		dropdownHelper.searchFromDropdownList(eventNameList,  eventNameToSelect, eventName_Dropdown);
+		
 		log.info("Event name Selected: " + eventNameToSelect);
 	}
 
 	// -----------------------------class level methods-------------------------//
-
-	
 
 	private void waitThread(long millis) {
 		try {
@@ -818,6 +892,19 @@ public class EventCriteriaPage extends BaseClass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void waitForLoaderToDisappear() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(
+				ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(@class,'position-fixed')]")));
+	}
+	
+	public void typeSlowly(WebElement element, String text) throws InterruptedException {
+	    for (char c : text.toCharArray()) {
+	        element.sendKeys(String.valueOf(c));
+	        Thread.sleep(300); // simulate human typing
+	    }
 	}
 
 }

@@ -61,11 +61,22 @@ public class MerchandiseDetailsPage extends BaseClass {
 	@FindBy(xpath = "//select[contains(@class,'form-select')]")
 	private WebElement addSizeDropdown;
 
-	@FindBy(xpath = "//h4[contains(normalize-space(),'philanthropy platform')]")
+	@FindBy(xpath = "//h5[contains(normalize-space(),'philanthropy platform')]")
 	private WebElement philanthropyPlatform;
+	
+	@FindBy(xpath = "//input[@id='donationy']")
+	private WebElement donationYes;
+	
+	@FindBy(xpath = "//input[@id='donantionN']")
+	private WebElement donationNo;
+	
+	@FindBy(xpath = "//div[@id='ngoDonationAmount']//span//span")
+	private List<WebElement> donationAmountList;
 
 	@FindBy(xpath = "//ng-select[@id='causeName']//span[contains(@class,'ng-arrow-wrapper')]")
 	private WebElement selectCauseDropDown;
+	@FindBy(xpath = "//ng-select[@id='ngoName']//span[contains(@class,'ng-arrow-wrapper')]")
+	private WebElement selectNgoDropDown;
 
 	@FindBy(xpath = "//input[@name='panCardNumber']")
 	private WebElement panCardNumber;
@@ -74,13 +85,29 @@ public class MerchandiseDetailsPage extends BaseClass {
 	private WebElement panCardName;
 	
 
+	@FindBy(xpath = "//label[contains(normalize-space(),'exemption certificate')]")
+	private WebElement exemptionCertificate;
+	
+	@FindBy(xpath = "//input[@id='generateCertificateYes']")
+	private WebElement generateCertificateYes;
+	
+	@FindBy(xpath = "//input[@id='generateCertificateNo']")
+	private WebElement generateCertificateNo;
+	
+	@FindBy(xpath = "//h5[contains(normalize-space(),'Support the cause')]")
+	private WebElement supportTheCause;
+	
+	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
+	private WebElement supportTheCauseYes;
+	
+	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='No']")
+	private WebElement supportTheCauseNo;
+
 	@FindBy(xpath = "//h5[contains(normalize-space(),'fundraising page')]")
 	private WebElement fundraisingPageOption;
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='Yes']")
 	private WebElement fundRaiseYes;
-
-	
 
 	@FindBy(xpath = "//input[@name='fundRaise']/following-sibling::label[normalize-space()='No']")
 	private WebElement fundRaiseNo;
