@@ -142,35 +142,16 @@ public class CharityDetailsPage extends BaseClass {
 
 	public OrderSummaryPage enterCharityDetails(Map<String, String> data) throws InterruptedException {
 
-		wait.until(ExpectedConditions.visibilityOf(philanthropyPlatform));
 		// --------------Philanthropy Platform----------------------//
-		log.info("Checking if Philanthropy section is available...");
-		helper.scrollElementInToView(philanthropyPlatform);
-		if (data.get("donation").equalsIgnoreCase("yes")) {
-			helper.clickWithRetry(donationYes);
-			Logs.info("Donation Yes option selected....");
-			helper.scrollElementInToView(ngoDonationAmount);
-			selectDonationaAmount(data.get("donationAmount"));
-			makingAdditionalDonation(data.get("searchCause"), data.get("causeOfYourChoice"), data.get("searchNgo"),
-					data.get("selectNgo"), data.get("panNo"), data.get("nameOnPanCard"));
-		} else {
-			helper.clickWithRetry(donationNo);
-			Logs.info("Donation No option selected....");
-		}
+		sportsPhilanthropyPlatform(data);
 
 		// ---------------Support The Cause Fund Raiser--------------------------//
-		log.info("Going for selecting the fund Raise option....");
-		helper.scrollElementInToTop(supportTheCause);
-		if (data.get("fundRaise").equalsIgnoreCase("Yes")) {
-			helper.clickWithRetry(supportTheCauseYes);
-			Logs.info("Fund Raise Yes option selected....");
+		supportTheCause(data);
 
-			helper.clickWithRetry(supportTheCauseCloseBtn);
-
-		} /*
-			 * else { helper.clickWithRetry(supportTheCauseNo);
-			 * Logs.info("Fund Raise No option selected...."); }
-			 */
+		/*
+		 * else { helper.clickWithRetry(supportTheCauseNo);
+		 * Logs.info("Fund Raise No option selected...."); }
+		 */
 
 		// Thread.sleep(7000);
 		// ------------------------Addons Option-----------------------//
@@ -218,7 +199,41 @@ public class CharityDetailsPage extends BaseClass {
 		helper.clickWithRetry(continueBtn);
 
 		log.info("Going for Order Summary Page....");
+		String currentUrl=driver.getCurrentUrl();
+		log.info("Current URL:-> "+currentUrl );
 		return new OrderSummaryPage();
+
+	}
+
+	private void supportTheCause(Map<String, String> data) {
+		log.info("Going for selecting the fund Raise option....");
+		helper.scrollElementInToTop(supportTheCause);
+		if (data.get("fundRaise").equalsIgnoreCase("Yes")) {
+			helper.clickWithRetry(supportTheCauseYes);
+			Logs.info("Fund Raise Yes option selected....");
+
+			helper.clickWithRetry(supportTheCauseCloseBtn);
+
+		}
+
+	}
+
+	private void sportsPhilanthropyPlatform(Map<String, String> data) {
+		wait.until(ExpectedConditions.visibilityOf(philanthropyPlatform));
+
+		log.info("Checking if Philanthropy section is available...");
+		helper.scrollElementInToView(philanthropyPlatform);
+		if (data.get("donation").equalsIgnoreCase("yes")) {
+			helper.clickWithRetry(donationYes);
+			Logs.info("Donation Yes option selected....");
+			helper.scrollElementInToView(ngoDonationAmount);
+			selectDonationaAmount(data.get("donationAmount"));
+			makingAdditionalDonation(data.get("searchCause"), data.get("causeOfYourChoice"), data.get("searchNgo"),
+					data.get("selectNgo"), data.get("panNo"), data.get("nameOnPanCard"));
+		} else {
+			helper.clickWithRetry(donationNo);
+			Logs.info("Donation No option selected....");
+		}
 
 	}
 

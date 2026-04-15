@@ -82,6 +82,8 @@ public class EventDashboardPage{
 			throw new RuntimeException("Invalid eventKey in Excel: " + eventKey);
 		}
 
+		String currentUrl=driver.getCurrentUrl();
+		log.info("Current URL:-> "+currentUrl );
 		return new DiscountApplyPage();
 
 	}

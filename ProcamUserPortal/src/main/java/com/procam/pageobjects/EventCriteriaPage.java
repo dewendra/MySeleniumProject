@@ -42,6 +42,9 @@ public class EventCriteriaPage extends BaseClass {
 
 	@FindBy(xpath = "//h5[normalize-space()='Do you want to participate in the on-ground event?']")
 	private WebElement onGroundEventPage;
+	
+	@FindBy(xpath = "//h5[normalize-space()='Select your race category']")
+	private WebElement onVirtualRaceCategory;
 
 //	@FindBy(css = "div.d-flex a[href='https://tatamumbaimarathon.procam.in']")
 //	private WebElement eventPageLink;
@@ -72,7 +75,13 @@ public class EventCriteriaPage extends BaseClass {
 
 	@FindBy(xpath = "//label[contains(normalize-space(), \"General Criteria\")]")
 	private WebElement generalCriteria;
+	
+	@FindBy(xpath = "//label[contains(normalize-space(), \"Youth Age Criteria\")]")
+	private WebElement youthAgeCriteria;
 
+	@FindBy(xpath = "//label[contains(normalize-space(), \"Good for Silver Age criteria\")]")
+	private WebElement goodForSilverAgeCriteria;
+	
 	@FindBy(xpath = "//input[@name='timingcerfLink']")
 	private WebElement timingCertificateLink;
 
@@ -199,7 +208,7 @@ public class EventCriteriaPage extends BaseClass {
 	@FindBy(xpath = "//label[contains(normalize-space(),'hear about our event')]")
 	private WebElement hearAboutOurEvent;
 	
-	@FindBy(xpath = "//h5[contains(normalize-space(), 'participate in virtual event')]")
+	@FindBy(xpath = "//h5[contains(normalize-space(), 'participate in the virtual event')]")
 	private WebElement participateInVirtualEvent;
 
 	@FindBy(css = "div.d-flex a[href*='size_chart']")
@@ -293,10 +302,24 @@ public class EventCriteriaPage extends BaseClass {
 
 	public CharityDetailsPage enterEventDetails(Map<String, String> data) throws InterruptedException {
 
-		String select_The_Reason = data.get("selectTheReason");
-		String virtual_Race_Category = data.get("virtualRaceCategory");
-		String criteria = data.get("criteriaType");
+		// -------------------- OnGround Event Option--------------------//
+		wantToParticipateOnGroundEvent(data);
+		// -------------------- Virtual Event Option--------------------//
+		wantToParticipateInVirtualEvent(data);
 
+		log.info("Clicking on Cart Continue Button....");
+		helper.clickWithRetry(cartContinueBtn);
+		log.info("Cart Continue Button clicked....");
+
+		log.info("Going for Charity Details Page....");
+		String currentUrl=driver.getCurrentUrl();
+		log.info("Current URL:-> "+currentUrl );
+		return new CharityDetailsPage();
+
+	}
+
+	private void wantToParticipateOnGroundEvent(Map<String, String> data) throws InterruptedException {
+		
 		wait.until(ExpectedConditions.visibilityOf(onGroundEventPage));
 
 		helper.scrollElementInToTop(onGroundEventPage);
@@ -305,84 +328,34 @@ public class EventCriteriaPage extends BaseClass {
 		if (data.get("participateOnGround").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(participateInONGroundEventYes);
 			log.info("Ground Event Yes radio button clicked...");
-
+			waitForLoaderToDisappear();
+			selectYourRaceCategory(data);
 		} else {
 			helper.clickWithRetry(participateInONGroundEventNo);
 			log.info("Ground Event No radio button clicked...");
 		}
 
+		
+	}
+	
+	private void selectYourRaceCategory(Map<String, String> data) throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOf(selectYourRaceCategory));
 		log.info("Scrolling the page.....");
 		helper.scrollElementInToTop(selectYourRaceCategory);
 		log.info("Going to select the race category");
 		selectRaceCategory(data.get("raceCategory"));
 		log.info("Race category selected");
-
-		log.info("Selecting criteria from given options...");
-
-		String criteriaOption = data.get("isCriteria");
-		if (criteriaOption.equalsIgnoreCase("yes")) {
-
-			criteria = data.get("criteriaType");
-			if (criteria.equalsIgnoreCase("TimedRunner")) {
-				helper.clickWithRetry(timedRunner);
-				log.info("Timed Runner radio option clicked...");
-			} else if (criteria.equalsIgnoreCase("WomenWithTiming")) {
-				helper.clickWithRetry(WomenCriteriaWithTimingCertificate);
-				log.info("Women WithTiming radio option clicked...");
-			} else if (criteria.equalsIgnoreCase("WomenWithoutTiming")) {
-				helper.clickWithRetry(WomenCriteriaWithoutTimingCertificate);
-				log.info("Women WithOut Timing radio option clicked...");
-			} else if (criteria.equalsIgnoreCase(" GeneralCriteria ")) {
-				helper.clickWithRetry(generalCriteria);
-				log.info("General Criteria radio option clicked...");
-			} else {
-				System.err.println("Criteria not selected....");
-			}
-		} else {
-
-		}
 		waitForLoaderToDisappear();
-		helper.scrollElementInToTop(timingDetails);
-		if (criteria.equalsIgnoreCase("TimedRunner") || criteria.equalsIgnoreCase("WomenWithTiming")) {
-			log.info("Entering Timing Certificate Link...");
-			wait.until(ExpectedConditions.elementToBeClickable(timingCertificateLink));
-			timingCertificateLink.sendKeys(data.get("timingCertLink"));
-			log.info("Timing Certificate Link entered...");
+		if(data.get("raceCategory").equalsIgnoreCase("Open 10K (10 km)")) {
+			selectYourCriteraiForSelectedEvent(data);
+		}else {
+			additionalDetails(data);
 		}
-		waitForLoaderToDisappear();
-		log.info("Entering Event Name...");
-		// Thread.sleep(5000);
-		selectEventName(data.get("searchEventName"), data.get("eventName"));
+		
+	}
 
-		selectEventRaceCategory(data.get("eventRaceCategory"));
-
-		wait.until(ExpectedConditions.elementToBeClickable(bibNumber));
-		log.info("Entering Bib number...");
-		bibNumber.sendKeys(data.get("bibNumber"));
-		log.info("Bib number entered...");
-
-		helper.scrollElementInToView(eventConductedDate);
-		wait.until(ExpectedConditions.elementToBeClickable(eventConductedDate)).click();
-		log.info("Entering Event Conducted Date...");
-		DatePickerHelper.selectDate(driver, eventConductedDate, data.get("eventDate"));
-		log.info("Event Conducted Date entered...");
-
-		wait.until(ExpectedConditions.elementToBeClickable(hoursInput));
-		log.info("Entering Hours...");
-		hoursInput.sendKeys(data.get("hours"));
-		log.info("Hours entered...");
-
-		wait.until(ExpectedConditions.elementToBeClickable(minutesInput));
-		log.info("Entering Minutes...");
-		minutesInput.sendKeys(data.get("minutes"));
-		log.info("Minutes entered...");
-
-		wait.until(ExpectedConditions.elementToBeClickable(secondsInput));
-		log.info("Entering Seconds...");
-		secondsInput.sendKeys(data.get("seconds"));
-		log.info("Seconds entered...");
-
+	private void additionalDetails(Map<String, String> data) throws InterruptedException {
+		String select_The_Reason = data.get("selectTheReason");
 		log.info("Scrolling to Additional details ....");
 		helper.scrollElementInToTop(additionalDetails);
 
@@ -408,9 +381,6 @@ public class EventCriteriaPage extends BaseClass {
 		emergencyContactPersonRelationship1.sendKeys(data.get("emergencyRelation1"));
 		log.info("Emergency Relation1 entered...");
 
-		// Thread.sleep(2000);
-		// Logs.info("Scrolling to Emergency Name2 ....");
-		// helper.scrollElementInToTop(emergencyContactPerson2);
 		wait.until(ExpectedConditions.elementToBeClickable(emergencyContactPersonName2));
 		emergencyContactPersonName2.clear();
 		emergencyContactPersonName2.sendKeys(data.get("emergencyName2"));
@@ -507,25 +477,124 @@ public class EventCriteriaPage extends BaseClass {
 		helper.scrollElementInToView(hearAboutOurEvent);
 
 		hearAboutUs(data.get("hearAbout"));
+		
+	}
 
-		// -------------------- Virtual Event Option--------------------//
+	private void selectYourCriteraiForSelectedEvent(Map<String, String> data) throws InterruptedException {
+		log.info("Selecting criteria from given options...");
+		String criteria = data.get("criteriaType");
+		String criteriaOption = data.get("isCriteria");
+		if (criteriaOption.equalsIgnoreCase("yes")) {
 
+			criteria = data.get("criteriaType");
+			if (criteria.equalsIgnoreCase("TimedRunner")) {
+				helper.clickWithRetry(timedRunner);
+				log.info("Timed Runner radio option clicked...");
+				waitForLoaderToDisappear();
+				timingDetails(data);
+				waitForLoaderToDisappear();
+				additionalDetails(data);
+			} else if (criteria.equalsIgnoreCase("WomenWithTiming")) {
+				helper.clickWithRetry(WomenCriteriaWithTimingCertificate);
+				log.info("Women WithTiming radio option clicked...");
+				waitForLoaderToDisappear();
+				timingDetails(data);
+				waitForLoaderToDisappear();
+				additionalDetails(data);
+			} else if (criteria.equalsIgnoreCase("WomenWithoutTiming")) {
+				helper.clickWithRetry(WomenCriteriaWithoutTimingCertificate);
+				log.info("Women WithOut Timing radio option clicked...");
+				waitForLoaderToDisappear();
+				additionalDetails(data);
+			} else if (criteria.equalsIgnoreCase("GeneralCriteria")) {
+				helper.clickWithRetry(generalCriteria);
+				log.info("General Criteria radio option clicked...");
+				waitForLoaderToDisappear();
+				additionalDetails(data);
+			} else if (criteria.equalsIgnoreCase("YouthAgeCriteriaWithTiming")) {
+				helper.clickWithRetry(youthAgeCriteria);
+				log.info("Youth Age Criteria radio option clicked...");
+				waitForLoaderToDisappear();
+				timingDetails(data);
+				waitForLoaderToDisappear();
+				additionalDetails(data);
+			} else if (criteria.equalsIgnoreCase("GoodForSilverAgeCriteriaWithTiming")) {
+				helper.clickWithRetry(goodForSilverAgeCriteria);
+				log.info("Good For Silver Age Criteria radio option clicked...");
+				waitForLoaderToDisappear();
+				timingDetails(data);
+				waitForLoaderToDisappear();
+				additionalDetails(data);
+			} else{
+				System.err.println("Criteria not selected....");
+			}
+		} else {
+
+		}
+	}
+
+	private void timingDetails(Map<String, String> data) throws InterruptedException {
+		waitForLoaderToDisappear();
+		helper.scrollElementInToTop(timingDetails);
+		log.info("Entering Timing Certificate Link...");
+		wait.until(ExpectedConditions.elementToBeClickable(timingCertificateLink));
+		timingCertificateLink.sendKeys(data.get("timingCertLink"));
+		log.info("Timing Certificate Link entered...");
+		waitForLoaderToDisappear();
+		log.info("Entering Event Name...");
+		selectEventName(data.get("searchEventName"), data.get("eventName"));
+		selectEventRaceCategory(data.get("eventRaceCategory"));
+		wait.until(ExpectedConditions.elementToBeClickable(bibNumber));
+		log.info("Entering Bib number...");
+		bibNumber.sendKeys(data.get("bibNumber"));
+		log.info("Bib number entered...");
+		helper.scrollElementInToView(eventConductedDate);
+		wait.until(ExpectedConditions.elementToBeClickable(eventConductedDate)).click();
+		log.info("Entering Event Conducted Date...");
+		DatePickerHelper.selectDate(driver, eventConductedDate, data.get("eventDate"));
+		log.info("Event Conducted Date entered...");
+		wait.until(ExpectedConditions.elementToBeClickable(hoursInput));
+		log.info("Entering Hours...");
+		hoursInput.sendKeys(data.get("hours"));
+		log.info("Hours entered...");
+		wait.until(ExpectedConditions.elementToBeClickable(minutesInput));
+		log.info("Entering Minutes...");
+		minutesInput.sendKeys(data.get("minutes"));
+		log.info("Minutes entered...");
+		wait.until(ExpectedConditions.elementToBeClickable(secondsInput));
+		log.info("Entering Seconds...");
+		secondsInput.sendKeys(data.get("seconds"));
+		log.info("Seconds entered...");
+		
+	}
+
+	private void wantToParticipateInVirtualEvent(Map<String, String> data) throws InterruptedException {
+		String virtual_Race_Category = data.get("virtualRaceCategory");
 		if (data.get("virtualEvent").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(ForVirtualEventYes);
 			selectVirtualRaceCategory(virtual_Race_Category);
+			waitForLoaderToDisappear();
 		} else {
 			helper.clickWithRetry(ForVirtualEventNo);
 		}
+		
+	}
+	
+	// -----------Buddy Details--------------------//
+	private void addCWDBuddyDetails(Map<String, String> data) {
 
-		log.info("Clicking on Cart Continue Button....");
-		helper.clickWithRetry(cartContinueBtn);
-		log.info("Cart Continue Button clicked....");
-
-		log.info("Going for Charity Details Page....");
-		return new CharityDetailsPage();
-
+		
+		
 	}
 
+	// -----------Coach Details--------------------//
+	private void addCoachDetails(Map<String, String> data) {
+
+		
+		
+	}
+	
+	
 	// ----------- Selecting t-shirt size----------------//
 	private void selectTheTshirt(String tshirtToSelect) throws InterruptedException {
 		helper = new CommonHelper(driver);
@@ -557,26 +626,48 @@ public class EventCriteriaPage extends BaseClass {
 
 	}
 
-	private void selectVirtualRaceCategory(String virtualRaceCategoryToSelect) {
+	private void selectVirtualRaceCategory(String virtualRaceCategoryToSelect) throws InterruptedException {
+		
+		log.info("Virtual category:->"+virtualRaceCategoryToSelect);
+		helper.scrollElementInToTop(participateInVirtualEvent);
+			
+			wait.until(ExpectedConditions.elementToBeClickable(selectVirtualRaceCategory));
 
-		wait.until(ExpectedConditions.elementToBeClickable(selectVirtualRaceCategory));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown',{bubbles:true));",
-				selectVirtualRaceCategory);
-		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup',{bubbles:true));", selectVirtualRaceCategory);
-		;
-		List<WebElement> virtualRaceCategoryList = driver
-				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
+			log.info("Selecting race category: ");
 
-		System.out.println("Virtual race category list size : " + virtualRaceCategoryList);
+			By receCategoryDropdown = By
+					.xpath("//ng-select[@bindvalue='raceCategoryName']//span[contains(@class,'ng-arrow-wrapper')]");
+			helper.selectFromNgSelect(receCategoryDropdown, virtualRaceCategoryToSelect);
 
-		for (WebElement virtualRaceCategory : virtualRaceCategoryList) {
-			System.out.println("Virtual race category : " + virtualRaceCategory.getText().toString());
-		}
-
-		DropdownHelper dropdown = new DropdownHelper(driver);
-		dropdown.selectFromList(virtualRaceCategoryList, virtualRaceCategoryToSelect);
-		log.info("Virtual race category selected from dropdown: " + virtualRaceCategoryToSelect);
+			log.info("Race Category selected: " + virtualRaceCategoryToSelect);
+		
+		
+			/*
+			 * log.info("Virtual category:->"+virtualRaceCategoryToSelect);
+			 * helper.scrollElementInToTop(participateInVirtualEvent);
+			 * wait.until(ExpectedConditions.elementToBeClickable(selectVirtualRaceCategory)
+			 * ); JavascriptExecutor js = (JavascriptExecutor) driver; js.
+			 * executeScript("arguments[0].dispatchEvent(new Event('mousedown',{bubbles:true));"
+			 * , selectVirtualRaceCategory); js.
+			 * executeScript("arguments[0].dispatchEvent(new Event('mouseup',{bubbles:true));"
+			 * , selectVirtualRaceCategory); ;
+			 * log.info("Virtual event dropdown clicked..."); List<WebElement>
+			 * virtualRaceCategoryList = driver .findElements(By.xpath(
+			 * "//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
+			 * 
+			 * System.out.println("Virtual race category list size : " +
+			 * virtualRaceCategoryList.size());
+			 * 
+			 * for (WebElement virtualRaceCategory : virtualRaceCategoryList) {
+			 * System.out.println("Virtual race category : " +
+			 * virtualRaceCategory.getText().toString()); }
+			 * 
+			 * DropdownHelper dropdown = new DropdownHelper(driver);
+			 * dropdown.selectFromList(virtualRaceCategoryList,
+			 * virtualRaceCategoryToSelect);
+			 * log.info("Virtual race category selected from dropdown: " +
+			 * virtualRaceCategoryToSelect);
+			 */
 	}
 
 	private void selectTheReason(String reasonToSelect) {
@@ -700,6 +791,7 @@ public class EventCriteriaPage extends BaseClass {
 		js.executeScript("arguments[0].dispatchEvent(new Event('mousedown', {bubbles:true}));", selectIdProofType);
 		js.executeScript("arguments[0].dispatchEvent(new Event('mouseup', {bubbles:true}));", selectIdProofType);
 		log.info("Id Proof Dropdown opened...");
+		log.info("Going to select Id Proof from open Dropdown:"+idProofToSelect);
 		List<WebElement> idProofList = driver
 				.findElements(By.xpath("//ng-dropdown-panel[@role='listbox']//div[contains(@class,'ng-option')]"));
 		System.out.println("Id Proof List size: " + idProofList.size());
@@ -719,15 +811,15 @@ public class EventCriteriaPage extends BaseClass {
 		} else if (idProofToSelect.equalsIgnoreCase("Pan")) {
 			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
 			panCardNumberInput.sendKeys(idProofNumber);
-			log.info("PAN no entered: " + idProofNumber);
+			log.info("PAN Number entered: " + idProofNumber);
 		} else if (idProofToSelect.equalsIgnoreCase("Passport")) {
-			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
-			panCardNumberInput.sendKeys(idProofNumber);
-			log.info("PAN no entered: " + idProofNumber);
+			wait.until(ExpectedConditions.elementToBeClickable(passportNumberInput));
+			passportNumberInput.sendKeys(idProofNumber);
+			log.info("Passport Number entered: " + idProofNumber);
 		} else if (idProofToSelect.equalsIgnoreCase("Driving License")) {
-			wait.until(ExpectedConditions.elementToBeClickable(panCardNumberInput));
-			panCardNumberInput.sendKeys(idProofNumber);
-			log.info("PAN no entered: " + idProofNumber);
+			wait.until(ExpectedConditions.elementToBeClickable(drivingLicenseNumberInput));
+			drivingLicenseNumberInput.sendKeys(idProofNumber);
+			log.info("Driving License Number entered: " + idProofNumber);
 		} else {
 			System.out.println("Id proof not selected...");
 		}
@@ -828,7 +920,7 @@ public class EventCriteriaPage extends BaseClass {
 
 	private void selectRaceCategory(String receCategoryToSelect) throws InterruptedException {
 		// scrollElementInToView(selectRaceCategoryDropDown);
-		helper = new CommonHelper(driver);
+		
 		wait.until(ExpectedConditions.elementToBeClickable(selectRaceCategoryDropDown));
 
 		log.info("Selecting race category: ");

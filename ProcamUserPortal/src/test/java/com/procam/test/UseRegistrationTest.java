@@ -146,7 +146,7 @@ public class UseRegistrationTest extends BaseClass {
 	}
 	
 	@Test(dependsOnMethods = "testGSTDetails")
-	public void testPayment() {
+	public void testPayment() throws InterruptedException {
 		ExtentReport.createTest("Payment Test");
 		paymentsOptionPage.makePayment(paymentsData);
 	}

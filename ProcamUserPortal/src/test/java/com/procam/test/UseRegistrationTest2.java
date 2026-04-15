@@ -27,6 +27,7 @@ import com.procam.pageobjects.MerchandiseDetailsPage;
 import com.procam.pageobjects.OrderSummaryPage;
 import com.procam.pageobjects.PaymentsOptionPage;
 import com.procam.pageobjects.PersonalDetailsPage;
+import com.procam.pageobjects.TransactionSuccessPage;
 import com.procam.utils.ExcelUtils;
 import com.procam.utils.ExtentReport;
 import com.procam.utils.Logs;
@@ -44,6 +45,7 @@ public class UseRegistrationTest2 extends BaseClass {
 	private MerchandiseDetailsPage merchandiseDetailsPage;
 	private OrderSummaryPage orderSummaryPage;
 	private PaymentsOptionPage paymentsOptionPage;
+	private TransactionSuccessPage transactionSuccessPage;
 
 	/*
 	 * // @BeforeSuite public void setupSuit() {
@@ -84,7 +86,10 @@ public class UseRegistrationTest2 extends BaseClass {
 		//orderSummaryPage = merchandiseDetailsPage.enterMerchandiseDetails(MerchandiseData);
 
 		paymentsOptionPage = orderSummaryPage.enterGstDetails(gstData);
-		paymentsOptionPage.makePayment(PaymentsData);
+		transactionSuccessPage=paymentsOptionPage.makePayment(PaymentsData);
+		System.out.println("Payment done");
+		transactionSuccessPage.goingForLogout();
+		System.out.println("Flow completed");
 
 	}
 

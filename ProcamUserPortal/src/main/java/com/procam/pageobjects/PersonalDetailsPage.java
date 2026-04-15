@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -18,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.procam.base.BaseClass;
+import com.procam.form.UserDetails;
 import com.procam.utils.CommonHelper;
 import com.procam.utils.DatePickerHelper;
 import com.procam.utils.DriverFactory;
@@ -27,11 +27,11 @@ import com.procam.utils.TypingHelper;
 import com.procam.utils.WaitHelper;
 
 public class PersonalDetailsPage extends BaseClass {
-	
-	private static final Logger log=LogManager.getLogger(PersonalDetailsPage.class);
+
+	private static final Logger log = LogManager.getLogger(PersonalDetailsPage.class);
 	private WebDriver driver;
 	// WaitHelper wait;
-	private CommonHelper helper; 
+	private CommonHelper helper;
 
 	WebDriverWait wait;
 
@@ -100,7 +100,7 @@ public class PersonalDetailsPage extends BaseClass {
 
 	@FindBy(xpath = "//input[@id='wantToGiveRCNo']")
 	private WebElement runningClubNo;
-	
+
 	@FindBy(xpath = "//app-select[@name='runningGroup']//input")
 	private WebElement runningGroupInput;
 
@@ -115,32 +115,54 @@ public class PersonalDetailsPage extends BaseClass {
 
 	@FindBy(xpath = "//button[@type='submit' and contains(normalize-space(),'Continue')]")
 	private WebElement continueBtn;
-	
+
 	public PersonalDetailsPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		helper = new CommonHelper(driver);
+		helper.waitForPageToLoad();
 	}
 
 	public EventCriteriaPage enterDetails(Map<String, String> data) throws InterruptedException {
+		
+		//codeDetails();
+		personalInformation(data);
+		//userActions();
+
+		log.info("Clicking continue Or proceed Btn");
+		helper.clickWithRetry(continueOrproceedBtn);
+		log.info("Going for Event Criteria Page....");
+		String currentUrl=driver.getCurrentUrl();
+		log.info("Current URL:-> "+currentUrl );
+		return new EventCriteriaPage();
+
+	}
+
+	// Discount code details will shown here so need to verify
+	private void codeDetails() {
+
+	}
+
+	// Personal Information details will entered here
+	private void personalInformation(Map<String, String> data) throws InterruptedException {
 		String first_Name = data.get("firstName");
 		String middle_Name = data.get("middleName");
 		String last_Name = data.get("lastName");
 		String mobile_Number = data.get("mobile");
-		String user_gender = data.get("gender");
+		String user_Gender = data.get("gender");
 		String date_Of_Birth = data.get("dob");
-		String userAddres = data.get("address");
-		String searchNationality=data.get("searchNationality");
-		String nationality = data.get("nationality");
-
+		String user_Addres = data.get("address");
+		String search_Nationality = data.get("searchNationality");
+		String user_Nationality = data.get("nationality");
+		String user_Occupation=data.get("occupation");
 		wait.until(ExpectedConditions.visibilityOf(firstName));
 		wait.until(ExpectedConditions.elementToBeClickable(firstName));
 		firstName.clear();
 		log.info("Entering First Name");
 		helper.setInputValue(driver, firstName, first_Name);
 		// firstName.sendKeys(data.get("firstName"));
-		//TypingHelper.slowTyping(firstName, first_Name, 100);
+		// TypingHelper.slowTyping(firstName, first_Name, 100);
 		log.info("Entered First Name -> " + first_Name);
 
 		wait.until(ExpectedConditions.visibilityOf(middleName));
@@ -177,12 +199,12 @@ public class PersonalDetailsPage extends BaseClass {
 
 		log.info("Selecting gender");
 		wait.until(ExpectedConditions.visibilityOf(genderOption));
-		if (user_gender.equalsIgnoreCase("Female")) {
+		if (user_Gender.equalsIgnoreCase("Female")) {
 			helper.clickWithRetry(genderFemale);
-			log.info("Gender selected -> " + user_gender);
+			log.info("Gender selected -> " + user_Gender);
 		} else {
 			helper.clickWithRetry(genderMale);
-			log.info("Gender selected -> " + user_gender);
+			log.info("Gender selected -> " + user_Gender);
 		}
 
 		log.info("Entering Date of Birth.....");
@@ -200,10 +222,10 @@ public class PersonalDetailsPage extends BaseClass {
 		wait.until(ExpectedConditions.elementToBeClickable(address)).click();
 		log.info("Entering Address");
 		address.clear();
-		address.sendKeys(userAddres);
-		log.info("Entered address : ->" + userAddres);
+		address.sendKeys(user_Addres);
+		log.info("Entered address : ->" + user_Addres);
 
-		selectNationality(searchNationality, nationality);
+		selectNationality(search_Nationality, user_Nationality);
 
 		if (data.get("runningClubOption").equalsIgnoreCase("Yes")) {
 			helper.clickWithRetry(runningClubYes);
@@ -212,44 +234,45 @@ public class PersonalDetailsPage extends BaseClass {
 			helper.clickWithRetry(runningClubNo);
 		}
 
-		selectOccupation(data.get("occupation"));
+		selectOccupation(user_Occupation);
 
-		log.info("Clicking continue Or proceed Btn");
-		helper.clickWithRetry(continueOrproceedBtn);
-		log.info("Going for Event Criteria Page....");
-		return new EventCriteriaPage();
+	}
+
+	// User can go back or next page
+	private void userActions() {
 
 	}
 
 	private void selectRunningGroup(String searchRunningGroupName, String runningGroupNameToSelect) {
-		//wait.until(ExpectedConditions.elementToBeClickable(address));
+		// wait.until(ExpectedConditions.elementToBeClickable(address));
 		log.info("Selecting Runnig Group");
-		
+
 		runningGroupInput.click();
 		runningGroupInput.sendKeys(Keys.CONTROL + "a"); // select all
-		runningGroupInput.sendKeys(Keys.DELETE);        // delete
+		runningGroupInput.sendKeys(Keys.DELETE); // delete
 		runningGroupInput.sendKeys(searchRunningGroupName);
 		log.info("Waiting for dropdown options to appear...");
-		
-		//By runningGroupdropDown=By.xpath("//div[contains(@class,'position-relative')]//li");
-		By runningGroupdropDown=By.xpath("//div[contains(@class,'position-relative')]//a[contains(@class,'dropdown-item')]");
-		
+
+		// By
+		// runningGroupdropDown=By.xpath("//div[contains(@class,'position-relative')]//li");
+		By runningGroupdropDown = By
+				.xpath("//div[contains(@class,'position-relative')]//a[contains(@class,'dropdown-item')]");
+
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(runningGroupdropDown, 0));
-		List<WebElement> runningGroupsName=driver.findElements(runningGroupdropDown);
-		System.out.println("Running group size: "+runningGroupsName.size());
-		
-		for(WebElement runningGroupName:runningGroupsName) {
+		List<WebElement> runningGroupsName = driver.findElements(runningGroupdropDown);
+		System.out.println("Running group size: " + runningGroupsName.size());
+
+		for (WebElement runningGroupName : runningGroupsName) {
 			System.out.println(runningGroupName.getText());
 		}
-		DropdownHelper dropdown=new DropdownHelper(driver);
+		DropdownHelper dropdown = new DropdownHelper(driver);
 		dropdown.searchFromDropdownList(runningGroupsName, runningGroupNameToSelect, runningGroupInput);
-		//dropdown.searchFromDropdownList2(runningGroupInput, runningGroupdropDown, runningGroupNameToSelect);
+		// dropdown.searchFromDropdownList2(runningGroupInput, runningGroupdropDown,
+		// runningGroupNameToSelect);
 		log.info("Running group name selected from dropdown: " + runningGroupNameToSelect);
 	}
 
-	
-
-	public void selectNationality(String searchNationality, String nationalityToSelect)  {
+	public void selectNationality(String searchNationality, String nationalityToSelect) {
 
 		helper.scrollElementInToView(nationality);
 		nationality.clear();
@@ -271,11 +294,11 @@ public class PersonalDetailsPage extends BaseClass {
 		}
 		DropdownHelper dropdown = new DropdownHelper(driver);
 		// dropdown.selectFromList(nationalities, nationalityToSelect);
-		dropdown.searchFromDropdownList(nationalities,  nationalityToSelect, nationality);
+		dropdown.searchFromDropdownList(nationalities, nationalityToSelect, nationality);
 		log.info("Nationality selected from dropdown: " + nationalityToSelect);
 
 	}
-	
+
 	public void selectOccupation(String occupationToSelect) throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(occupation));
@@ -283,11 +306,11 @@ public class PersonalDetailsPage extends BaseClass {
 
 		log.info("Waiting for dropdown options to appear...");
 
-	    By occupationDropDown=By.xpath("//label[contains(text(),'Occupation')]/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]");
-	    helper.selectFromNgSelect(occupationDropDown, occupationToSelect);
+		By occupationDropDown = By.xpath(
+				"//label[contains(text(),'Occupation')]/following-sibling::ng-select//span[contains(@class,'ng-arrow-wrapper')]");
+		helper.selectFromNgSelect(occupationDropDown, occupationToSelect);
 
-	    log.info("Occupations selected from dropdown: " + occupationToSelect);
-	    
+		log.info("Occupations selected from dropdown: " + occupationToSelect);
 
 	}
 
@@ -319,7 +342,6 @@ public class PersonalDetailsPage extends BaseClass {
 	}
 
 	// -----------------------------class level methods-------------------------//
-	
 
 	private void waitThread(long millis) {
 		try {

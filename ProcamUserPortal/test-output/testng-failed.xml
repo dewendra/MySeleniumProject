@@ -6,7 +6,7 @@
       <class name="com.procam.test.UseRegistrationTest2">
         <methods>
           <include name="setup"/>
-          <include name="verifyLogin" invocation-numbers="0"/>
+          <include name="verifyLogin" invocation-numbers="0 1 2"/>
           <include name="loadConfig"/>
         </methods>
       </class> <!-- com.procam.test.UseRegistrationTest2 -->

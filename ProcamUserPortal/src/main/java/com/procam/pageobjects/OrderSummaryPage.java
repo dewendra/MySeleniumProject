@@ -1,11 +1,14 @@
 package com.procam.pageobjects;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,7 +25,7 @@ import com.procam.utils.WaitHelper;
 
 public class OrderSummaryPage extends BaseClass {
 
-	private static final Logger log=LogManager.getLogger(OrderSummaryPage.class);
+	private static final Logger log = LogManager.getLogger(OrderSummaryPage.class);
 	private WebDriver driver;
 	WebDriverWait wait;
 	String parentWindow;
@@ -76,42 +79,156 @@ public class OrderSummaryPage extends BaseClass {
 	@FindBy(xpath = "//button[@type='submit' and normalize-space()='Back']")
 	private WebElement downBackBtn;
 
-	@FindBy(xpath = "//button[ contains(normalize-space(),'Continue')]")
+	@FindBy(xpath = "//button[contains(normalize-space(),'Continue')]")
 	private WebElement continueBtn;
 
 	public OrderSummaryPage() {
 		this.driver = DriverFactory.getDriver();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		helper=new CommonHelper(driver);
+		helper = new CommonHelper(driver);
 	}
 
 	public PaymentsOptionPage enterGstDetails(Map<String, String> data) {
-		
 		parentWindow = driver.getWindowHandle();
 
-		String gst_Option = data.get("GST_Option");
-		String gst_Number = data.get("GST_Number");
-		String gst_Name = data.get("GST_Name");
+		orderSuuaryDetails(data);
+		
+		// -----------------------Checking if GST section-------------------------------//
+		log.info("Checking if GST section is available...");
+		if (isGSTSectionAvailable()) {
+			log.info("GST section found");
+			helper.scrollElementInToView(forGstOptions);
+			String gst_Option = data.get("GST_Option");
+			if (gst_Option.equalsIgnoreCase("Yes")) {
+				waitThread(3000);
+				log.info("Going for clicking the GST Yes option....");
+				//scrollElementInToView(forGstOptions);
+				helper.clickWithRetry(gstOptionYes);
+				log.info("GST Yes option clickied....");
+				enterUserGSTDetails(data);
+
+			} else {
+				helper.clickWithRetry(gstOptionNo);
+				log.info("GST option No selected....");
+			}
+		} else {
+			log.info("GST section NOT present : skipping to Consent");
+		}
+		 
+		
+		//userGSTDetails(data);
+		consentDetails(data);
+
+		waitThread(2000);
+		scrollElementInToView(waiver1Link);
+		log.info("Going for clicking the proceed Button....");
+		helper.clickWithRetry(continueBtn);
+		// JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+		// javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
+		log.info("Proceed Btn clickied....");
+
+		log.info("Going for Payment Page....");
+		String currentUrl=driver.getCurrentUrl();
+		log.info("Current URL:-> "+currentUrl );
+		return new PaymentsOptionPage();
+	}
+
+	private boolean isGSTSectionAvailable1() {
+		List<WebElement> gstOptions  = driver.findElements(By.xpath("//h6[normalize-space()='Do you have a GST number?']"));
+
+		return !gstOptions .isEmpty();
+
+	}
+	private boolean isGSTSectionAvailable() {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(
+	            By.xpath("//h6[contains(text(),'GST number')]")
+	        ));
+	        return element.isDisplayed();
+	    } catch (TimeoutException e) {
+	        return false;
+	    }
+	}
+	// -----------------------All link page methods-------------------------------//
+
+	private void consentDetails(Map<String, String> data) {
 		String w1 = data.get("Waiver1");
 		String w2 = data.get("Waiver2");
 		String w3 = data.get("Waiver3");
 		String w4 = data.get("Waiver4");
 		String w5 = data.get("Waiver5");
 
-		if (gst_Option.equalsIgnoreCase("Yes")) {
-			waitThread(3000);
-			log.info("Going for clicking the GST Yes option....");
-			scrollElementInToView(forGstOptions);
-			helper.clickWithRetry(gstOptionYes);
-			log.info("GST Yes option clickied....");
-			userGSTDetails();
-
-		} else {
-			helper.clickWithRetry(gstOptionNo);
-			log.info("GST option No selected....");
+		scrollElementInToTop(allWaivers);
+		// waiverLinkPage();
+		if (w1.equalsIgnoreCase("Y")) {
+			log.info("Going for clicking the Waiver1....");
+			// waitThread(1000);
+			// wait.waitForClickable(waiver1);
+			helper.clickWithRetry(waiver1);
+			// waiver1.click();
+			log.info("Waiver1 clickied....");
 		}
 
+		// entryRulesLinkPage();
+		if (w2.equalsIgnoreCase("Y")) {
+			log.info("Going for clicking the Waiver2....");
+			helper.clickWithRetry(waiver2);
+			// waitThread(1000);
+			// wait.waitForClickable(waiver2);
+			// waiver2.click();
+			log.info("Waiver2 clickied....");
+		}
+
+		// consentLinkPage();
+		if (w4.equalsIgnoreCase("Y")) {
+			log.info("Going for clicking the Waiver4....");
+			helper.clickWithRetry(waiver4);
+			// waitThread(1000);
+			scrollElementInToView(waiver4);
+			// wait.waitForClickable(waiver4);
+			// waiver4.click();
+			log.info("Waiver4 clickied....");
+		}
+
+		// event_medical_advisory_LinkPage();
+		if (w5.equalsIgnoreCase("Y")) {
+			log.info("Going for clicking the Waiver5....");
+			helper.clickWithRetry(waiver5);
+			// waitThread(1000);
+			// wait.waitForClickable(waiver5);
+			// waiver5.click();
+			log.info("Waiver5 clickied....");
+		}
+
+		if (w3.equalsIgnoreCase("Y")) {
+			log.info("Going for clicking the Waiver3....");
+			helper.clickWithRetry(waiver3);
+			// waitThread(1000);
+			// wait.waitForClickable(waiver3);
+			// waiver3.click();
+			log.info("Waiver3 clickied....");
+		}
+
+	}
+
+	/*
+	 * private void userGSTDetails(Map<String, String> data) { String gst_Option =
+	 * data.get("GST_Option"); if (gst_Option.equalsIgnoreCase("Yes")) {
+	 * waitThread(3000); log.info("Going for clicking the GST Yes option....");
+	 * scrollElementInToView(forGstOptions); helper.clickWithRetry(gstOptionYes);
+	 * log.info("GST Yes option clickied...."); enterUserGSTDetails(data);
+	 * 
+	 * } else { helper.clickWithRetry(gstOptionNo);
+	 * log.info("GST option No selected...."); }
+	 * 
+	 * }
+	 */
+
+	private void enterUserGSTDetails(Map<String, String> data) {
+		String gst_Number = data.get("GST_Number");
+		String gst_Name = data.get("GST_Name");
 		log.info("Going for entering the GST Number....");
 		wait.until(ExpectedConditions.elementToBeClickable(gstNumber));
 		gstNumber.sendKeys(gst_Number);
@@ -122,73 +239,16 @@ public class OrderSummaryPage extends BaseClass {
 		gstName.sendKeys(gst_Name);
 		log.info("GST Name entered-> " + gst_Name);
 
-		scrollElementInToTop(allWaivers);
-		//waiverLinkPage();
-		if (w1.equalsIgnoreCase("Y")) {
-			log.info("Going for clicking the Waiver1....");
-			//waitThread(1000);
-			// wait.waitForClickable(waiver1);
-			helper.clickWithRetry(waiver1);
-			//waiver1.click();
-			log.info("Waiver1 clickied....");
-		}
-
-		//entryRulesLinkPage();
-		if (w2.equalsIgnoreCase("Y")) {
-			log.info("Going for clicking the Waiver2....");
-			helper.clickWithRetry(waiver2);
-			//waitThread(1000);
-			// wait.waitForClickable(waiver2);
-			//waiver2.click();
-			log.info("Waiver2 clickied....");
-		}
-
-		//consentLinkPage();
-		if (w4.equalsIgnoreCase("Y")) {
-			log.info("Going for clicking the Waiver4....");
-			helper.clickWithRetry(waiver4);
-			//waitThread(1000);
-			scrollElementInToView(waiver4);
-			// wait.waitForClickable(waiver4);
-			//waiver4.click();
-			log.info("Waiver4 clickied....");
-		}
-
-		//event_medical_advisory_LinkPage();
-		if (w5.equalsIgnoreCase("Y")) {
-			log.info("Going for clicking the Waiver5....");
-			helper.clickWithRetry(waiver5);
-			//waitThread(1000);
-			// wait.waitForClickable(waiver5);
-			//waiver5.click();
-			log.info("Waiver5 clickied....");
-		}
-
-		if (w3.equalsIgnoreCase("Y")) {
-			log.info("Going for clicking the Waiver3....");
-			helper.clickWithRetry(waiver3);
-			//waitThread(1000);
-			//wait.waitForClickable(waiver3);
-			//waiver3.click();
-			log.info("Waiver3 clickied....");
-		}
-
-		waitThread(2000);
-		scrollElementInToView(waiver1Link);
-		log.info("Going for clicking the proceed Button....");
-		helper.clickWithRetry(continueBtn);
-		//JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-		//javascriptExecutor.executeScript("arguments[0].click();", proceedBtn);
-		log.info("Proceed Btn clickied....");
-
-		log.info("Going for Payment Page....");
-		return new PaymentsOptionPage();
 	}
-	// -----------------------All link page methods-------------------------------//
+
+	private void orderSuuaryDetails(Map<String, String> data) {
+		// TODO Auto-generated method stub
+
+	}
 
 	public void waiverLinkPage() {
 		helper.clickWithRetry(waiver1Link);
-		//waiver1Link.click();
+		// waiver1Link.click();
 		log.info("Clicked on Waiver Link");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -218,12 +278,12 @@ public class OrderSummaryPage extends BaseClass {
 
 	public void entryRulesLinkPage() {
 		helper.clickWithRetry(entryRulesLink);
-		//entryRulesLink.click();
+		// entryRulesLink.click();
 		log.info("Clicked on Entry Rules Link");
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-		for(String window:driver.getWindowHandles()) {
-			if(!window.equals(parentWindow)) {
+		for (String window : driver.getWindowHandles()) {
+			if (!window.equals(parentWindow)) {
 				driver.switchTo().window(window);
 				break;
 			}
@@ -233,24 +293,25 @@ public class OrderSummaryPage extends BaseClass {
 
 	private void verifyEntryRuleLinkPageAndReturn() {
 		try {
-			String entryRulePage_actualTitle=driver.getTitle();
-			Assert.assertTrue(entryRulePage_actualTitle.contains("Entry Rules & Regulations"), "Expected title to contain 'Entry Rules & Regulations' but found: "+entryRulePage_actualTitle);
+			String entryRulePage_actualTitle = driver.getTitle();
+			Assert.assertTrue(entryRulePage_actualTitle.contains("Entry Rules & Regulations"),
+					"Expected title to contain 'Entry Rules & Regulations' but found: " + entryRulePage_actualTitle);
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
 			log.info("Switched back to parent window");
 		}
-		
+
 	}
 
 	public void consentLinkPage() {
 		helper.clickWithRetry(consentLink);
-		//consentLink.click();
+		// consentLink.click();
 		Logs.info("Clicked on Entry Rules Link");
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-		for(String window:driver.getWindowHandles()) {
-			if(!window.equals(parentWindow)) {
+		for (String window : driver.getWindowHandles()) {
+			if (!window.equals(parentWindow)) {
 				driver.switchTo().window(window);
 				break;
 			}
@@ -261,24 +322,25 @@ public class OrderSummaryPage extends BaseClass {
 
 	private void verifyConsentLinkLinkPageAndReturn() {
 		try {
-			String consentPage_actualTitle=driver.getTitle();
-			Assert.assertTrue(consentPage_actualTitle.contains("Consent"), "Expected title to contain 'Consent' but found: "+consentPage_actualTitle);
+			String consentPage_actualTitle = driver.getTitle();
+			Assert.assertTrue(consentPage_actualTitle.contains("Consent"),
+					"Expected title to contain 'Consent' but found: " + consentPage_actualTitle);
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
 			Logs.info("Switched back to parent window");
 		}
-		
+
 	}
 
 	public void event_medical_advisory_LinkPage() {
 		helper.clickWithRetry(event_medical_advisoryLink);
-		//event_medical_advisoryLink.click();
+		// event_medical_advisoryLink.click();
 		log.info("Clicked on Entry Rules Link");
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-		for(String window:driver.getWindowHandles()) {
-			if(!window.equals(parentWindow)) {
+		for (String window : driver.getWindowHandles()) {
+			if (!window.equals(parentWindow)) {
 				driver.switchTo().window(window);
 				break;
 			}
@@ -288,23 +350,18 @@ public class OrderSummaryPage extends BaseClass {
 
 	private void verifyevent_medical_advisoryLinkPageAndReturn() {
 		try {
-			String medicalAdvisoryPage_actualTitle=driver.getTitle();
-			Assert.assertTrue(medicalAdvisoryPage_actualTitle.contains("Event Medical Advisory"), "Expected title to contain 'Event Medical Advisory' but found: "+medicalAdvisoryPage_actualTitle);
+			String medicalAdvisoryPage_actualTitle = driver.getTitle();
+			Assert.assertTrue(medicalAdvisoryPage_actualTitle.contains("Event Medical Advisory"),
+					"Expected title to contain 'Event Medical Advisory' but found: " + medicalAdvisoryPage_actualTitle);
 		} finally {
 			driver.close();
 			driver.switchTo().window(parentWindow);
 			log.info("Switched back to parent window");
 		}
-		
-	}
-
-	// --------------user gst details NOT IN USE-------------------------------//
-	private void userGSTDetails() {
 
 	}
 
-	// --------------------class level
-	// methods-----------------------//
+	// -------------class level methods-----------------------//
 	private void waitThread(long millis) {
 		try {
 			Thread.sleep(millis);

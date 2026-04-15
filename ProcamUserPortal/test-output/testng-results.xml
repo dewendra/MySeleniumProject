@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="0" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-02T17:58:53 IST" name="Default suite" finished-at="2026-04-02T18:00:19 IST" duration-ms="86774">
+  <suite started-at="2026-04-14T16:42:08 IST" name="Default suite" finished-at="2026-04-14T16:42:53 IST" duration-ms="45726">
     <groups>
     </groups>
-    <test started-at="2026-04-02T17:58:53 IST" name="Default test" finished-at="2026-04-02T18:00:19 IST" duration-ms="86774">
+    <test started-at="2026-04-14T16:42:08 IST" name="Default test" finished-at="2026-04-14T16:42:53 IST" duration-ms="45726">
       <class name="com.procam.test.UseRegistrationTest2">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.procam.test.UseRegistrationTest2@42257bdd]" started-at="2026-04-02T17:58:53 IST" name="loadConfig" finished-at="2026-04-02T17:58:53 IST" duration-ms="35" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.procam.test.UseRegistrationTest2@1286528d]" started-at="2026-04-14T16:42:07 IST" name="loadConfig" finished-at="2026-04-14T16:42:08 IST" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.procam.test.UseRegistrationTest2@42257bdd]" started-at="2026-04-02T17:58:53 IST" name="setup" finished-at="2026-04-02T17:58:56 IST" duration-ms="3427" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.procam.test.UseRegistrationTest2@1286528d]" started-at="2026-04-14T16:42:08 IST" name="setup" finished-at="2026-04-14T16:42:10 IST" duration-ms="2877" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin(java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map)[pri:0, instance:com.procam.test.UseRegistrationTest2@42257bdd]" started-at="2026-04-02T17:58:58 IST" name="verifyLogin" data-provider="fullFlowData" finished-at="2026-04-02T18:00:19 IST" duration-ms="80726" status="PASS">
+        <test-method signature="verifyLogin(java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map)[pri:0, instance:com.procam.test.UseRegistrationTest2@1286528d]" started-at="2026-04-14T16:42:14 IST" name="verifyLogin" data-provider="fullFlowData" finished-at="2026-04-14T16:42:33 IST" duration-ms="19076" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{emailId=tcsf26-4@yopmail.com, otp=0, userType=myself}]]>
+                <![CDATA[{emailId=tcsf26-50@yopmail.com, otp=0, userType=myself}]]>
               </value>
             </param>
             <param index="1">
@@ -34,17 +34,17 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[{lastName=Kumari, pincode=110019, mobileCode=91, address=121, Ansal Tower-38, Nehru Place, occupation=Student, gender=Female, addressDropdown=Nehru Place, runningClubOption=yes, mobile=9876543204, searchRunningClub=mum, firstName=Mahi, nationality=Indian, runningClub=Jio Mumbai Runners, dob=04-05-2004, middleName=, searchNationality=ind}]]>
+                <![CDATA[{lastName=Kumari, pincode=110024, mobileCode=91, address=A-262, Defence Colony, occupation=Student, gender=Female, addressDropdown=Defence Colony, runningClubOption=yes, mobile=9876543204, searchRunningClub=mum, firstName=Punam, nationality=Indian, runningClub=Jio Mumbai Runners, dob=04-05-2001, middleName=, searchNationality=ind}]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[{participateOnGround=Yes, slamCycle=TCS W10K Bengaluru 2026-TMM 2027, idProofNumber=MAHIK1234F, emergencyMobile1=9876543215, emergencyMobile2=9876543225, idProofPathPAN=C:\\Users\\dewen\\Downloads\\Procam testing\\ProcamTest\\docs\\pan_card.jpg, participatingFirstTime=Yes, bibNumber=12005, criteriaType=TimedRunner, seconds=38, idProofPathAadhaar=C:\\Users\\dewen\\Downloads\\Procam testing\\ProcamTest\\docs\\aadhaar.png, procamSlamOptions=Yes, virtualEvent=No, searchEventName=ved, hearAbout=Online, exploreHotel=Yes, raceDaySpecial=Yes, eventName=VEDANTA DELHI HALF MARATHON, virtualRaceCategory=Virtual 10K (10 KM), hours=1, tshirtSize=M, eventRaceCategory=10 Km, minutes=24, raceCategory=Open 10K (10 km), idProofType=Pan, transport=Car, selectTheReason=It's my Birthday, emergencyRelation2=Father, emergencyRelation1=Brother, timingCertLink=https://example.com, emergencyName1=Mohan Kumar, emergencyName2=Shyam Kumar, isCriteria=yes, profileImagePath=C:\Users\dewen\Downloads\Procam_Testing\Avatar_Images\Pihu Ten.jpg, eventDate=19-10-2025}]]>
+                <![CDATA[{participateOnGround=No, slamCycle=TCS W10K Bengaluru 2026-TMM 2027, idProofNumber=PUNAM1234K, emergencyMobile1=9876543215, emergencyMobile2=9876543225, idProofPathPAN=C:\\Users\\dewen\\Downloads\\Procam testing\\ProcamTest\\docs\\pan_card.jpg, participatingFirstTime=Yes, bibNumber=12023, criteriaType=WomenWithoutTiming, seconds=38, idProofPathAadhaar=C:\\Users\\dewen\\Downloads\\Procam testing\\ProcamTest\\docs\\aadhaar.png, procamSlamOptions=Yes, virtualEvent=Yes, searchEventName=ved, hearAbout=Online, exploreHotel=Yes, raceDaySpecial=Yes, eventName=VEDANTA DELHI HALF MARATHON, virtualRaceCategory=Virtual 10K (10 KM), hours=1, tshirtSize=M, eventRaceCategory=10 Km, minutes=24, raceCategory=Open 10K (10 km), idProofType=Pan, transport=Car, selectTheReason=It's my Birthday, emergencyRelation2=Father, emergencyRelation1=Brother, timingCertLink=https://example.com, emergencyName1=Mohan Kumar, emergencyName2=Shyam Kumar, isCriteria=no, profileImagePath=C:\Users\dewen\Downloads\Procam_Testing\Avatar_Images\Pihu Ten.jpg, eventDate=19-10-2025}]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[{selectNgo=PF1, searchNgo=PF1, panNo=ABCDE1234F, fundRaise=no, donation=no, searchCause=com, causeOfYourChoice=Common Pool, donationAmount=500, tgb=No, nameOnPanCard=Mahi Six}]]>
+                <![CDATA[{selectNgo=PF1, searchNgo=PF1, panNo=PUNAM1234K, fundRaise=no, donation=no, searchCause=com, causeOfYourChoice=Common Pool, donationAmount=500, tgb=No, nameOnPanCard=Punam Kumari}]]>
               </value>
             </param>
             <param index="6">
@@ -59,10 +59,336 @@
             </param>
             <param index="8">
               <value>
-                <![CDATA[{paymentOption=UPI options, paymentType=UPI}]]>
+                <![CDATA[{paymentOption=UPI options, upi_id=success@razorpay, paymentType=upi}]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='flexRadioDefault1']"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dc5be251778a3e6b8d46206a947d4d2b, findElement {using=xpath, value=//input[@id='flexRadioDefault1']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56388}, goog:processID: 29796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56388/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dc5be251778a3e6b8d46206a947d4d2b]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='flexRadioDefault1']"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dc5be251778a3e6b8d46206a947d4d2b, findElement {using=xpath, value=//input[@id='flexRadioDefault1']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56388}, goog:processID: 29796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56388/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dc5be251778a3e6b8d46206a947d4d2b
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy31.getWrappedElement(Unknown Source)
+at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:50)
+at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:462)
+at com.procam.utils.CommonHelper.clickWithRetry(CommonHelper.java:258)
+at com.procam.pageobjects.DiscountApplyPage.withDiscountCode(DiscountApplyPage.java:106)
+at com.procam.test.UseRegistrationTest2.verifyLogin(UseRegistrationTest2.java:74)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogin -->
+        <test-method signature="verifyLogin(java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map)[pri:0, instance:com.procam.test.UseRegistrationTest2@1286528d]" started-at="2026-04-14T16:42:33 IST" name="verifyLogin" data-provider="fullFlowData" finished-at="2026-04-14T16:42:43 IST" duration-ms="10133" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{emailId=tcsf26-53@yopmail.com, otp=0, userType=myself}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[{discountCode=MAILTESTCODE1}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{eventKey=TCSB_2026}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{lastName=Aggrwal, pincode=110019, mobileCode=91, address=121, Ansal Tower-38, Nehru Place, occupation=Student, gender=Female, addressDropdown=Nehru Place, runningClubOption=yes, mobile=9876543201, searchRunningClub=mum, firstName=Purnima, nationality=Indian, runningClub=Jio Mumbai Runners, dob=04-05-2006, middleName=, searchNationality=ind}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[{participateOnGround=, slamCycle=, idProofNumber=, emergencyMobile1=, emergencyMobile2=, idProofPathPAN=, participatingFirstTime=, bibNumber=, criteriaType=, seconds=, idProofPathAadhaar=, procamSlamOptions=, virtualEvent=, searchEventName=, hearAbout=, exploreHotel=, raceDaySpecial=, eventName=, virtualRaceCategory=, hours=, tshirtSize=, eventRaceCategory=, minutes=, raceCategory=, idProofType=, transport=, selectTheReason=, emergencyRelation2=, emergencyRelation1=, timingCertLink=, emergencyName1=, emergencyName2=, isCriteria=, profileImagePath=, eventDate=}]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[{selectNgo=PF1, searchNgo=PF1, panNo=PUNAM1234K, fundRaise=no, donation=no, searchCause=com, causeOfYourChoice=Common Pool, donationAmount=500, tgb=No, nameOnPanCard=Punam Kumari}]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[{addOns=No, addOnSize=M, addOnName=Unisex Herringbone Polo -India Blue}]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[{Waiver5=Y, Waiver4=Y, TestCase=TC_01, GST_Option=Yes, Waiver3=Y, GST_Name=Alok Four Traders, Waiver2=Y, GST_Number=21ALOKO2222F9Z4, Waiver1=Y}]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[{paymentOption=UPI options, upi_id=success@razorpay, paymentType=upi}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='emailId']' (tried for 10 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='emailId']' (tried for 10 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.procam.pageobjects.LoginPage.loginByEmail(LoginPage.java:75)
+at com.procam.test.UseRegistrationTest2.verifyLogin(UseRegistrationTest2.java:72)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='emailId']"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dc5be251778a3e6b8d46206a947d4d2b, findElement {using=xpath, value=//input[@id='emailId']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56388}, goog:processID: 29796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56388/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dc5be251778a3e6b8d46206a947d4d2b
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 28 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogin -->
+        <test-method signature="verifyLogin(java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map,java.util.Map)[pri:0, instance:com.procam.test.UseRegistrationTest2@1286528d]" started-at="2026-04-14T16:42:43 IST" name="verifyLogin" data-provider="fullFlowData" finished-at="2026-04-14T16:42:53 IST" duration-ms="10144" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{emailId=tcsf26-54@yopmail.com, otp=0, userType=myself}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[{discountCode=MAILTESTCODE1}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{eventKey=TCSB_2026}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{lastName=Mittal, pincode=110024, mobileCode=91, address=D-140, Defence Colony, occupation=Student, gender=Female, addressDropdown=Defence Colony, runningClubOption=yes, mobile=9876543201, searchRunningClub=mum, firstName=Poonam, nationality=Indian, runningClub=Jio Mumbai Runners, dob=04-05-2003, middleName=, searchNationality=ind}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[{participateOnGround=, slamCycle=, idProofNumber=, emergencyMobile1=, emergencyMobile2=, idProofPathPAN=, participatingFirstTime=, bibNumber=, criteriaType=, seconds=, idProofPathAadhaar=, procamSlamOptions=, virtualEvent=, searchEventName=, hearAbout=, exploreHotel=, raceDaySpecial=, eventName=, virtualRaceCategory=, hours=, tshirtSize=, eventRaceCategory=, minutes=, raceCategory=, idProofType=, transport=, selectTheReason=, emergencyRelation2=, emergencyRelation1=, timingCertLink=, emergencyName1=, emergencyName2=, isCriteria=, profileImagePath=, eventDate=}]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[{selectNgo=PF1, searchNgo=PF1, panNo=PUNAM1234K, fundRaise=no, donation=no, searchCause=com, causeOfYourChoice=Common Pool, donationAmount=500, tgb=No, nameOnPanCard=Punam Kumari}]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[{addOns=No, addOnSize=M, addOnName=Unisex Herringbone Polo -India Blue}]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[{Waiver5=Y, Waiver4=Y, TestCase=TC_01, GST_Option=Yes, Waiver3=Y, GST_Name=Alok Four Traders, Waiver2=Y, GST_Number=21ALOKO2222F9Z4, Waiver1=Y}]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[{paymentOption=UPI options, upi_id=success@razorpay, paymentType=upi}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='emailId']' (tried for 10 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='emailId']' (tried for 10 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.procam.pageobjects.LoginPage.loginByEmail(LoginPage.java:75)
+at com.procam.test.UseRegistrationTest2.verifyLogin(UseRegistrationTest2.java:72)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='emailId']"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dc5be251778a3e6b8d46206a947d4d2b, findElement {using=xpath, value=//input[@id='emailId']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\dewen\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56388}, goog:processID: 29796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56388/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dc5be251778a3e6b8d46206a947d4d2b
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 28 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
